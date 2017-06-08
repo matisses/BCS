@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Matisses</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body style="max-width:949px">
+
+    <div style="width:100%; float:left;">
+        <img src="https://www.matisses.co/modules/wsmatisses/files/mercadolibre/logo.png" width="100%" style="border-bottom: 2px dotted #000; padding:20px 0; margin-bottom:15px">
+        <img src="https://www.matisses.co/modules/wsmatisses/files/${referencia}/images/${referencia}_01.jpg" width="100%" alt="" style="width:63%; float:left">
+        <img src="https://www.matisses.co/modules/wsmatisses/files/mercadolibre/${marca}.jpg" style="float:right; width:37%;" alt="">
+        <p style="float:right; width:35%; text-align:center;margin-top:90px; font-size:14pt; padding:0 5px 10px 5px; border-left:3px solid; border-bottom:3px solid;">
+            <b>${nombreExtranjero}</b>
+        </p>
+    </div>
+
+    <div style="float:left; width:100%; background-image: url(https://www.matisses.co/modules/wsmatisses/files/mercadolibre/fondo.jpg); ">
+        <div style="background-image: url(https://www.matisses.co/modules/wsmatisses/files/mercadolibre/titulo.png)">
+            <p style="color:#FFF; padding: 10px 190px;"><b>Descripción</b></p>
+        </div>
+        <div style="width:90%; margin: 50px auto; text-align:justify;font-size: 1.5em;">
+            <p>${descripcion}</p>
+			<!--
+            <br>
+            <h3>MATERIALES Y CUIDADOS</h3>
+            <br>
+            ${materialesCuidados}
+            <h4>Material 1</h4>
+            <p>(cudiados del material 1) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id repellat, voluptate. Ea ullam molestias dolorum minima ut, qui illum sit quidem maxime omnis quos illo mollitia cupiditate tempore perspiciatis cumque.</p>
+            <br>
+            -->
+        </div>
+    </div>
+
+    <div style="float:left; width:100%; margin-bottom: 30px;">
+        <div style="background-image: url(https://www.matisses.co/modules/wsmatisses/files/mercadolibre/titulo-2.png)">
+            <p style="color:#FFF; padding: 10px 60px; text-align:right"><b>Proceso de compra</b></p>
+        </div>
+    </div>
+    <div style="width:90%; margin: 0px auto;">
+        <div style="float:left; width:22%; height:170px; text-align: center; padding: 10px 10px;">
+            <img src="https://www.matisses.co/modules/wsmatisses/files/mercadolibre/1.png" alt="">
+            <p>Busca el producto que desees, haz clic en <b>comprar</b>, indica la cantidad que quieres y selecciona <b>continuar</b>.</p>
+        </div>
+        <div style="float:left; width:22%; border-left:1px dotted; height:170px; text-align: center; padding: 10px 10px;">
+            <img src="https://www.matisses.co/modules/wsmatisses/files/mercadolibre/2.png" alt="">
+            <p>Indica la dirección de entrega de tu producto y elige la opción de envío que más te favorezca.</p>
+        </div>
+        <div style="float:left; width:22%; border-left:1px dotted; height:170px; text-align: center; padding: 10px 10px;">
+            <img src="https://www.matisses.co/modules/wsmatisses/files/mercadolibre/3.png" alt="">
+            <p>Selecciona tu medio de pago. Efectúa tu pago a través de mercado pago.</p>
+        </div>
+        <div style="float:left; width:22%; border-left:1px dotted; height:170px; text-align: center; padding: 10px 10px;">
+            <img src="https://www.matisses.co/modules/wsmatisses/files/mercadolibre/4.png" alt="">
+            <p>Califícanos por tu compra. Tu opinión es muy importante para nosotros.</p>
+        </div>
+    </div>
+
+    <div style="border-left: 4px solid #000; height:30px; float:left; width:100%;"></div>
+
+    <div style="float:left; width:100%;">
+        <div style="background-image: url(https://www.matisses.co/modules/wsmatisses/files/mercadolibre/titulo-2.png)">
+            <p style="color:#FFF; padding: 10px 60px;text-align:right;"><b>Proceso de pago</b></p>
+        </div>
+        <div style="width:90%; margin: 50px auto; text-align:justify;">
+            <img src="https://www.matisses.co/modules/wsmatisses/files/mercadolibre/medios.png" style="display: inline-block" alt="">
+            <p><b>MEDIOS DE PAGO: </b> Realiza tus pagos a través de <img src="https://www.matisses.co/modules/wsmatisses/files/mercadolibre/mercado-pago.png" alt=""> , allí entrarás el método que más se ajusta a tu necesidad</p>
+            <img src="https://www.matisses.co/modules/wsmatisses/files/mercadolibre/tarjetas.png" width="100%" style="margin:20px 0" alt="">
+            <br>
+            <hr style="border:none; margin:15px 0; border-bottom: 2px solid #745200">
+            <br>
+            <img src="https://www.matisses.co/modules/wsmatisses/files/mercadolibre/tiempo.png" style="margin-bottom:10px;" alt="">
+            <p><b>TIEMPO DE ENTREGA Y ENVÍO</b></p>
+            <p>Despacho: El tiempo de despacho comienza a partir del momento en que sea confirmado tu pago. Entrega: 8 días hábiles exclusivamente dentro del territorio colombiano en zonas y lugares a los que tengamos acceso de acuerdo con nuestra red de distribución, en caso de que la dirección de entrega sea una isla o población de acceso fluvial, solo nos comprometemos a entregar el producto hasta alguno de los puertos nacionales, de ese punto en adelante el usuario/cliente debe asumir los gastos de transporte y la coordinación de la logística. Los costos del envío serán calculados según la ubicación donde deseas recibir el pedido.</p>
+            <hr style="border:none; margin-top:30px; border-bottom: 2px solid #745200">
+            <br>
+            <img src="https://www.matisses.co/modules/wsmatisses/files/mercadolibre/garantia.png" style="margin-bottom:10px;" alt="">
+            <p><b>GARANTÍA DEL PRODUCTO: </b>Contamos con una garantía limitada de (1) año a partir de la fecha de entrega, solo cubre defectos de fábrica.</p>
+        </div>
+    </div>
+    
+    <div style="float:left; width:100%; background-color: #EDEDED;">
+        <div style="width:90%; margin: 50px auto; text-align:justify;">
+            <h2 style="text-align:center">- Preguntas frecuentes -</h2>
+            <div style="width:45%; margin:30px 0; float:left; padding:10px">
+                <b>¿ Puedo pagar contra entrega ?</b>
+                <p>No es posible, solo a través de Mercadopago.</p>
+                <br>
+                <b>¿Tiene algún costo de envío?</b>
+                <p>Sí, mercado libre dispone de una herramienta útil en dónde puedes calcular el costo.</p>
+            </div>
+            <div style="width:45%; margin:30px 0; float:left; padding:10px">
+                <b>¿Dónde puedo recoger el producto?</b>
+                <p>El producto se enviará a la dirección que tu nos proporciones, esta dirección la debes escribir a la hora de comprar.</p>
+                <br>
+                <b>¿Tiene disponibilidad del producto?</b>
+                <p>Sí, garantizamos disponibilidad de los productos que ves en el portal, de lo contrario no lo publicamos.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div style="float:left; width:100%; background-color: #000; color:#FFF;">
+        <div style="width:90%; margin: 30px auto; text-align:justify;">
+            <h2>Nuestro horario de atención:</h2>
+            <p>Estamos atentos a responder todas tus inquietudes. Nuestros asesores responderán de lunes a viernes de 8:00 am a 6:00 pm y sábados de 8:00 am a 12:00 m.</p>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
