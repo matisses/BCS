@@ -50,29 +50,34 @@ public class GoodsReceiptServiceConnector extends B1WSServiceInfo {
         }
 
         Document.DocumentLines docLines = new Document.DocumentLines();
-        for (GoodsReceiptDetailDTO detail : goodsReceiptDto.getDetail()) {
+        goodsReceiptDto.getDetail().stream().map((detail) -> {
             Document.DocumentLines.DocumentLine docLine = new Document.DocumentLines.DocumentLine();
+
             docLine.setAccountCode(detail.getAccountCode());
             docLine.setLineNum(detail.getLineNum());
             docLine.setItemCode(detail.getItemCode());
             docLine.setQuantity(Double.valueOf(detail.getQuantity()));
             docLine.setWarehouseCode(detail.getWhsCode());
             docLine.setUnitPrice(new BigDecimal(detail.getPrice()));
+            docLine.setDiscountPercent(detail.getDiscount());
 
             Document.DocumentLines.DocumentLine.DocumentLinesBinAllocations binAllocations = new Document.DocumentLines.DocumentLine.DocumentLinesBinAllocations();
-            for (GoodsReceiptLocationsDTO location : detail.getLocations()) {
+            detail.getLocations().stream().map((location) -> {
                 Document.DocumentLines.DocumentLine.DocumentLinesBinAllocations.DocumentLinesBinAllocation binAllocation = new Document.DocumentLines.DocumentLine.DocumentLinesBinAllocations.DocumentLinesBinAllocation();
                 binAllocation.setAllowNegativeQuantity("N");
                 binAllocation.setBaseLineNumber(detail.getLineNum());
                 binAllocation.setBinAbsEntry(Long.valueOf(location.getBinAbs()));
                 binAllocation.setQuantity(Double.valueOf(location.getQuantity()));
 
+                return binAllocation;
+            }).forEach((binAllocation) -> {
                 binAllocations.getDocumentLinesBinAllocation().add(binAllocation);
-            }
-
+            });
             docLine.setDocumentLinesBinAllocations(binAllocations);
+            return docLine;
+        }).forEach((docLine) -> {
             docLines.getDocumentLine().add(docLine);
-        }
+        });
 
         document.setDocumentLines(docLines);
 

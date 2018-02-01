@@ -1,5 +1,6 @@
 package co.matisses.bcs.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import java.util.List;
  *
  * @author jguisao
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductoMercadoLibreDTO {
 
     private String id;
@@ -614,6 +616,7 @@ public class ProductoMercadoLibreDTO {
         private String dimensions;
         private Boolean localPickUp;
         private Boolean freeShipping;
+        private Boolean storePickUp;
         private List<Object> methods;
         private List<Object> freeMethods;
         private List<Object> tags;
@@ -659,6 +662,15 @@ public class ProductoMercadoLibreDTO {
 
         public void setLocalPickUp(Boolean localPickUp) {
             this.localPickUp = localPickUp;
+        }
+
+        @JsonProperty("store_pick_up")
+        public Boolean getStorePickUp() {
+            return storePickUp;
+        }
+
+        public void setStorePickUp(Boolean storePickUp) {
+            this.storePickUp = storePickUp;
         }
 
         @JsonProperty("free_shipping")

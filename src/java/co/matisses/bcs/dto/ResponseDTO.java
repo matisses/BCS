@@ -7,14 +7,25 @@ package co.matisses.bcs.dto;
 public class ResponseDTO {
 
     private int estado;
+    private Integer valor;
     private String mensaje;
 
     public ResponseDTO() {
     }
 
-    public ResponseDTO(int estado, String mensaje) {
+    public ResponseDTO(int estado) {
         this.estado = estado;
-        this.mensaje = mensaje;
+    }
+
+    public ResponseDTO(int estado, Object object) {
+        this.estado = estado;
+        if (object != null) {
+            if (object instanceof String) {
+                this.mensaje = (String) object;
+            } else {
+                this.valor = (Integer) object;
+            }
+        }
     }
 
     public int getEstado() {
@@ -23,6 +34,14 @@ public class ResponseDTO {
 
     public void setEstado(int estado) {
         this.estado = estado;
+    }
+
+    public Integer getValor() {
+        return valor;
+    }
+
+    public void setValor(Integer valor) {
+        this.valor = valor;
     }
 
     public String getMensaje() {

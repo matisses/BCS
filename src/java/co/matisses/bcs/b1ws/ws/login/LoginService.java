@@ -9,7 +9,7 @@ import javax.xml.ws.WebServiceClient;
 import javax.xml.ws.WebServiceException;
 import javax.xml.ws.WebServiceFeature;
 
-@WebServiceClient(name = "LoginService", targetNamespace = "LoginService", wsdlLocation = "http://192.168.5.76/B1WS/WebReferences/LoginService.wsdl")
+@WebServiceClient(name = "LoginService", targetNamespace = "LoginService", wsdlLocation = "http://192.168.5.75/B1WS/WebReferences/LoginService.wsdl")
 public class LoginService
         extends Service {
 
@@ -21,7 +21,7 @@ public class LoginService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://192.168.5.76/B1WS/WebReferences/LoginService.wsdl");
+            url = new URL("http://192.168.5.75/B1WS/WebReferences/LoginService.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

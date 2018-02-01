@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "BinLocationsService", targetNamespace = "BinLocationsService", wsdlLocation = "http://192.168.5.76/B1WS/WebReferences/BinLocationsService.wsdl")
+@WebServiceClient(name = "BinLocationsService", targetNamespace = "BinLocationsService", wsdlLocation = "http://192.168.5.75/B1WS/WebReferences/BinLocationsService.wsdl")
 public class BinLocationsService
     extends Service
 {
@@ -30,7 +30,7 @@ public class BinLocationsService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://192.168.5.76/B1WS/WebReferences/BinLocationsService.wsdl");
+            url = new URL("http://192.168.5.75/B1WS/WebReferences/BinLocationsService.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

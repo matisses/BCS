@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "WarehouseSublevelCodesService", targetNamespace = "WarehouseSublevelCodesService", wsdlLocation = "http://192.168.5.76/B1WS/WebReferences/WarehouseSublevelCodesService.wsdl")
+@WebServiceClient(name = "WarehouseSublevelCodesService", targetNamespace = "WarehouseSublevelCodesService", wsdlLocation = "http://192.168.5.75/B1WS/WebReferences/WarehouseSublevelCodesService.wsdl")
 public class WarehouseSublevelCodesService
     extends Service
 {
@@ -30,7 +30,7 @@ public class WarehouseSublevelCodesService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://192.168.5.76/B1WS/WebReferences/WarehouseSublevelCodesService.wsdl");
+            url = new URL("http://192.168.5.75/B1WS/WebReferences/WarehouseSublevelCodesService.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

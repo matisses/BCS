@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "InvoicesService", targetNamespace = "InvoicesService", wsdlLocation = "http://192.168.5.76/B1WS/WebReferences/InvoicesService.wsdl")
+@WebServiceClient(name = "InvoicesService", targetNamespace = "InvoicesService", wsdlLocation = "http://192.168.5.75/B1WS/WebReferences/InvoicesService.wsdl")
 public class InvoicesService
     extends Service
 {
@@ -30,7 +30,7 @@ public class InvoicesService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://192.168.5.76/B1WS/WebReferences/InvoicesService.wsdl");
+            url = new URL("http://192.168.5.75/B1WS/WebReferences/InvoicesService.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

@@ -1,6 +1,5 @@
 package co.matisses.bcs.b1ws.client.orders;
 
-
 import co.matisses.bcs.b1ws.client.B1WSServiceInfo;
 import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.ORDER_SERVICE_WSDL_NAME;
 import co.matisses.bcs.b1ws.ws.orders.Add;
@@ -66,27 +65,33 @@ public class OrdersServiceConnector extends B1WSServiceInfo {
         document.setConfirmed("N");
 
         Document.DocumentLines docLines = new Document.DocumentLines();
-        for (OrderDetailDTO dto : orderDto.getDetail()) {
+        orderDto.getDetail().stream().map((dto) -> {
             Document.DocumentLines.DocumentLine docLine = new Document.DocumentLines.DocumentLine();
+
             docLine.setLineNum(dto.getLineNum());
             docLine.setItemCode(dto.getItemCode());
             docLine.setQuantity(dto.getQuantity());
             docLine.setWarehouseCode(dto.getWarehouseCode());
-            docLine.setULineNumFv(dto.getLineNum());
+            docLine.setULineNumFv(dto.getuLineNumFv());
             docLine.setUEstadoP(dto.getEstado());
             docLine.setBaseType(orderDto.getBaseType());
             docLine.setBaseEntry(orderDto.getBaseEntry());
             docLine.setBaseLine(dto.getLineNum());
             docLine.setUNWRBase(orderDto.getInvoiceNumber());
+            docLine.setDiscountPercent(dto.getDiscount());
+
+            return docLine;
+        }).map((docLine) -> {
             try {
                 GregorianCalendar cal2 = new GregorianCalendar();
                 cal2.setTime(orderDto.getDocDueDate());
                 docLine.setUCustDate(DatatypeFactory.newInstance().newXMLGregorianCalendar(cal2));
             } catch (Exception e) {
             }
-
+            return docLine;
+        }).forEach((docLine) -> {
             docLines.getDocumentLine().add(docLine);
-        }
+        });
         document.setDocumentLines(docLines);
 
         Add add = new Add();

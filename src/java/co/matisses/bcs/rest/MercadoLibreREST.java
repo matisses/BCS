@@ -11,12 +11,15 @@ import co.matisses.bcs.b1ws.client.businesspartners.BusinessPartnerDTO;
 import co.matisses.bcs.b1ws.client.businesspartners.BusinessPartnersServiceConnector;
 import co.matisses.bcs.dto.ActualizarImagenesItemDTO;
 import co.matisses.bcs.dto.AgregarAtributosMdoLibreDTO;
+import co.matisses.bcs.dto.CategoriaMercadolibreDTO;
 import co.matisses.bcs.dto.ConfiguracionEnvioDTO;
+import co.matisses.bcs.dto.ConsultaProductosMercadolibreDTO;
 import co.matisses.bcs.dto.EmailTemplateDestinationDTO;
 import co.matisses.bcs.dto.MailMessageDTO;
 import co.matisses.bcs.dto.MercadoLibreItemModificarDTO;
 import co.matisses.bcs.dto.MercadolibreAccessCodeResponseDTO;
-import co.matisses.bcs.dto.MercadolibreItemDTO;
+import co.matisses.bcs.dto.MercadolibrePublicarItemDTO;
+import co.matisses.bcs.dto.MercadolibrePublicacionDTO;
 import co.matisses.bcs.dto.ModificarDescripcionMercadolibreDTO;
 import co.matisses.bcs.dto.NotificacionMercadolibreDTO;
 import co.matisses.bcs.dto.OrdenMercadoLibreDTO;
@@ -41,8 +44,10 @@ import co.matisses.persistence.sap.facade.ItemInventarioFacade;
 import co.matisses.persistence.sap.facade.MunicipioFacade;
 import co.matisses.persistence.sap.facade.SaldoUbicacionFacade;
 import co.matisses.persistence.sap.facade.SocioDeNegociosFacade;
+import co.matisses.persistence.web.entity.CategoriaMercadolibre;
 import co.matisses.persistence.web.entity.ProgramacionDescuento;
 import co.matisses.persistence.web.entity.TokenMercadoLibre;
+import co.matisses.persistence.web.facade.CategoriaMercadolibreFacade;
 import co.matisses.persistence.web.facade.ProgramacionDescuentoFacade;
 import co.matisses.persistence.web.facade.TokenMercadoLibreFacade;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -60,8 +65,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
@@ -69,6 +77,7 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
+import javax.ws.rs.ClientErrorException;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -96,7 +105,7 @@ import org.apache.commons.lang3.text.StrSubstitutor;
 @Path("mercadolibre")
 public class MercadoLibreREST {
 
-    private static final Logger console = Logger.getLogger(MercadoLibreREST.class.getSimpleName());
+    private static final Logger CONSOLE = Logger.getLogger(MercadoLibreREST.class.getSimpleName());
     private static final String TOPIC_PAYMENTS = "payments";
     private static final String DIRECCION_MERCADOLIBRE = "MERCADOLIBRE";
     private static final String PAIS_COLOMBIA = "CO";
@@ -128,6 +137,10 @@ public class MercadoLibreREST {
     private SaldoUbicacionFacade saldoUbicacionFacade;
     @EJB
     private FacturaSAPFacade facturaSAPFacade;
+    @EJB
+    private CategoriaMercadolibreFacade categoriaMercadolibreFacade;
+    @EJB
+    private ProgramacionDescuentoFacade decuentosFacade;
 
     public MercadoLibreREST() {
     }
@@ -152,17 +165,17 @@ public class MercadoLibreREST {
     @Path("urlAutenticacion")
     @Produces({MediaType.APPLICATION_JSON})
     public Response obtenerURLAutenticacion() {
-        console.log(Level.INFO, "Obteniendo URL para autenticacion de usuario en mercadolibre");
+        CONSOLE.log(Level.INFO, "Obteniendo URL para autenticacion de usuario en mercadolibre");
         try {
             StringBuilder sb = new StringBuilder(applicationMBean.obtenerValorPropiedad("mdolibre.auth.url"));
             sb.append("authorization?response_type=code&client_id=");
             sb.append(applicationMBean.obtenerValorPropiedad("mdolibre.client_id"));
             sb.append("&redirect_uri=");
             sb.append(URLEncoder.encode(applicationMBean.obtenerValorPropiedad("mdolibre.redirect.uri"), "UTF-8"));
-            console.log(Level.INFO, "La URL para autenticacion en mercadolibre es {0}", sb.toString());
+            CONSOLE.log(Level.INFO, "La URL para autenticacion en mercadolibre es {0}", sb.toString());
             return Response.ok(sb.toString()).build();
         } catch (Exception e) {
-            console.log(Level.SEVERE, "Ocurrio un error al armar la URL de autenticacion en mercadolibre. ", e);
+            CONSOLE.log(Level.SEVERE, "Ocurrio un error al armar la URL de autenticacion en mercadolibre. ", e);
             return Response.serverError().build();
         }
     }
@@ -170,7 +183,7 @@ public class MercadoLibreREST {
     @GET
     @Path("procesarAuthCode")
     public Response procesarAuthCode(@QueryParam("code") String code) {
-        console.log(Level.INFO, "Procesando codigo de autorizacion de mercadolibre {0}", code);
+        CONSOLE.log(Level.INFO, "Procesando codigo de autorizacion de mercadolibre {0}", code);
         if (code == null) {
             return Response.serverError().build();
         }
@@ -187,7 +200,7 @@ public class MercadoLibreREST {
     }
 
     private MercadolibreAccessCodeResponseDTO renovarAccessToken(String refreshToken) {
-        console.log(Level.INFO, "El access_token esta vencido. Intentando renovarlo. ");
+        CONSOLE.log(Level.INFO, "El access_token esta vencido. Intentando renovarlo. ");
 
         MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "oauth/token");
         MercadolibreAccessCodeResponseDTO dto = client.renovarAccessToken(applicationMBean.obtenerValorPropiedad("mdolibre.client_id"),
@@ -200,18 +213,18 @@ public class MercadoLibreREST {
     }
 
     private MercadolibreAccessCodeResponseDTO obtenerAccessToken(String code) {
-        console.log(Level.INFO, "Inicia proceso para obtener token de acceso");
+        CONSOLE.log(Level.INFO, "Inicia proceso para obtener token de acceso");
         try {
             MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "oauth/token");
             Response res = client.obtenerAccessToken(applicationMBean.obtenerValorPropiedad("mdolibre.client_id"),
                     applicationMBean.obtenerValorPropiedad("mdolibre.client_secret"), code, applicationMBean.obtenerValorPropiedad("mdolibre.redirect.uri"));
 
             MercadolibreAccessCodeResponseDTO response = res.readEntity(MercadolibreAccessCodeResponseDTO.class);
-            console.log(Level.INFO, "Token de acceso recibido. {0}", response);
+            CONSOLE.log(Level.INFO, "Token de acceso recibido. {0}", response);
             guardarToken(response);
             return response;
         } catch (Exception e) {
-            console.log(Level.SEVERE, "Ocurrio un error al obtener el token de acceso de mercadolibre. ", e);
+            CONSOLE.log(Level.SEVERE, "Ocurrio un error al obtener el token de acceso de mercadolibre. ", e);
         }
         return null;
     }
@@ -234,17 +247,14 @@ public class MercadoLibreREST {
 
             tokenFacade.create(tokenEntidad);
 
-            console.log(Level.INFO, "Se guardo la informacion del token de mercadolibre en bd {0}", tokenEntidad);
+            CONSOLE.log(Level.INFO, "Se guardo la informacion del token de mercadolibre en bd {0}", tokenEntidad);
         } catch (Exception e) {
-            console.log(Level.SEVERE, "Ocurrio un error al guardar el nuevo token de mercado libre. ", e);
+            CONSOLE.log(Level.SEVERE, "Ocurrio un error al guardar el nuevo token de mercado libre. ", e);
         }
     }
 
-    @GET
-    @Path("ejecutarsonda/")
-    @Produces({MediaType.APPLICATION_JSON})
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-    public void ejecutarSonda(@QueryParam("minutos") Integer minutos) {
+    public void ejecutarSonda(boolean informe, List<String> result, boolean soloMedellin) {
         try {
             File file = new File(applicationMBean.obtenerValorPropiedad("mdolibre.log.url"));
             if (!file.exists()) {
@@ -252,13 +262,13 @@ public class MercadoLibreREST {
             }
             FileWriter fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
-            List<String> result = itemFacade.obtenerCambiosItem(minutos);
+            //List<String> result = itemFacade.obtenerCambiosItem(minutos);
 
             if (result != null && !result.isEmpty()) {
                 int errores = 0;
                 for (String item : result) {
-                    //Envia true para procesar automaticamente solo los productos que tengan saldo en medellin
-                    ResponseDTO res = procesarItem(item, true);
+                    //TODO: Envia true para procesar automaticamente solo los productos que tengan saldo en medellin
+                    ResponseDTO res = procesarItem(item, soloMedellin);
 
                     if (res.getEstado() < 0) {
                         errores++;
@@ -279,33 +289,35 @@ public class MercadoLibreREST {
                 bw.close();
                 fw.close();
 
-                //llamando el jasper
-                String report = JasperCompileManager.compileReportToFile(applicationMBean.obtenerValorPropiedad("url.jasper.notificacion.mercadolibre"));
-                JRBeanCollectionDataSource ds = new JRBeanCollectionDataSource(ProductoMercadolibreFactory.consultarDetalleCarga());
+                if (informe) {
+                    //TODO: llamando el jasper
+                    String report = JasperCompileManager.compileReportToFile(applicationMBean.obtenerValorPropiedad("url.jasper.notificacion.mercadolibre"));
+                    JRBeanCollectionDataSource ds = new JRBeanCollectionDataSource(ProductoMercadolibreFactory.consultarDetalleCarga());
 
-                JasperPrint jasperPrint = JasperFillManager.fillReport(report, null, ds);
+                    JasperPrint jasperPrint = JasperFillManager.fillReport(report, null, ds);
 
-                try {
-                    JRExporter exporter = new JRPdfExporter();
-                    exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-                    exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new File(System.getProperty("jboss.server.temp.dir") + File.separator + "productosProcesadosMercadolibre.pdf"));
-                    exporter.exportReport();
-                } catch (Exception e) {
-                    console.log(Level.SEVERE, "Ocurrio un error al guardar el PDF del reporte. ", e);
+                    try {
+                        JRExporter exporter = new JRPdfExporter();
+                        exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
+                        exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new File(System.getProperty("jboss.server.temp.dir") + File.separator + "productosProcesadosMercadolibre.pdf"));
+                        exporter.exportReport();
+                    } catch (Exception e) {
+                        CONSOLE.log(Level.SEVERE, "Ocurrio un error al guardar el PDF del reporte. ", e);
+                    }
+                    enviarNotificacion(result.size(), errores, null, true);
                 }
-                enviarNotificacion(result.size(), errores, null, true);
             } else {
-                console.log(Level.INFO, "No se encontraron datos para procesar.");
+                CONSOLE.log(Level.INFO, "No se encontraron datos para procesar.");
                 enviarNotificacion(0, 0, null, false);
             }
         } catch (IOException | JRException e) {
-            console.log(Level.SEVERE, "Ocurrio un error al procesar la sonda de productos de mercadolibre. ", e);
+            CONSOLE.log(Level.SEVERE, "Ocurrio un error al procesar la sonda de productos de mercadolibre. ", e);
             enviarNotificacion(0, 0, e.getMessage(), false);
         }
     }
 
     private void enviarNotificacion(Integer totalRegistros, Integer errores, String msgError, boolean adjunto) {
-        //Enviar por correo el detalle con la repuesta
+        //TODO: Enviar por correo el detalle con la repuesta
         MailMessageDTO msg = new MailMessageDTO();
 
         msg.setFrom("Sonda MercadoLibre <notificaciones@matisses.co>");
@@ -340,6 +352,42 @@ public class MercadoLibreREST {
         emailREST.sendMail(msg);
     }
 
+    @GET
+    @Path("suspender/todo")
+    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+    public Response suspenderTodo() {
+        MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"));
+        Response res = client.consultarItemsTienda();
+        int i = 0;
+        ConsultaProductosMercadolibreDTO resultado = res.readEntity(ConsultaProductosMercadolibreDTO.class);
+        while (!resultado.getResults().isEmpty()) {
+            i++;
+            CONSOLE.log(Level.INFO, "Desactivando {0} productos", resultado.getResults().size());
+            String accessToken = cargarTokenJson().getAccessToken();
+            for (ProductoMercadoLibreDTO producto : resultado.getResults()) {
+                //TODO: Obtener itemcode
+                String shortItemcode = producto.getTitle().substring(producto.getTitle().length() - 7);
+                String itemcode = shortItemcode.substring(0, 3) + "0000000000000" + shortItemcode.substring(3);
+                CONSOLE.log(Level.INFO, "Procesando producto {0}\t{1}", new Object[]{producto.getId(), shortItemcode});
+
+                //TODO: Consultar item en sap y quitar id_mercadolibre
+                //ItemInventario entidad = itemFacade.find(itemcode);
+                itemFacade.actualizarIdMercadoLibre(itemcode, null);
+
+                //Desactivar producto mercadolibre
+                MercadoLibreClient client2 = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "items");
+                Response respFinalizar = client2.finalizarPublicacion(accessToken, producto.getId());
+                //console.log(Level.INFO, "\t{0}", respFinalizar.readEntity(String.class));
+                client2.close();
+            }
+            CONSOLE.log(Level.INFO, "Finalizo tanda #{0}. Volviendo a consultar...", i);
+            res = client.consultarItemsTienda();
+            resultado = res.readEntity(ConsultaProductosMercadolibreDTO.class);
+        }
+        client.close();
+        return Response.ok().build();
+    }
+
     @POST
     @Path("suspender")
     @Produces({MediaType.APPLICATION_JSON})
@@ -347,10 +395,10 @@ public class MercadoLibreREST {
     public Response finalizarPublicacion(String[] referencias) {
         int exito = 0;
         int fallido = 0;
-        console.log(Level.INFO, "Finalizando {0} publicaciones", referencias.length);
+        CONSOLE.log(Level.INFO, "Finalizando {0} publicaciones", referencias.length);
         for (String ref : referencias) {
             ItemInventario itemEntidad = itemFacade.find(ref);
-            console.log(Level.INFO, "Finalizando la publicacion del item {0} con id_mercadolibre {1}", new Object[]{ref, itemEntidad.getuIdMercadoLibre()});
+            CONSOLE.log(Level.INFO, "Finalizando la publicacion del item {0} con id_mercadolibre {1}", new Object[]{ref, itemEntidad.getuIdMercadoLibre()});
             if (itemEntidad.getuIdMercadoLibre() != null && !itemEntidad.getuIdMercadoLibre().trim().isEmpty()) {
                 //Finaliza la publicacion en mercadolibre
                 MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "items");
@@ -358,10 +406,10 @@ public class MercadoLibreREST {
                 client.close();
                 //Borra el id de mercadolibre para el item
                 itemFacade.actualizarIdMercadoLibre(ref, "");
-                console.log(Level.INFO, "  Item {0} procesado con exito", ref);
+                CONSOLE.log(Level.INFO, "  Item {0} procesado con exito", ref);
                 exito++;
             } else {
-                console.log(Level.WARNING, "  No se pudo procesar el item {0} porque no tiene configurado un id_mercadolibre", ref);
+                CONSOLE.log(Level.WARNING, "  No se pudo procesar el item {0} porque no tiene configurado un id_mercadolibre", ref);
                 fallido++;
             }
         }
@@ -380,7 +428,7 @@ public class MercadoLibreREST {
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public Response agregarAtributosSimple(List<String> referencias) {
         for (String ref : referencias) {
-            console.log(Level.INFO, "Procesando referencia {0}", ref);
+            CONSOLE.log(Level.INFO, "Procesando referencia {0}", ref);
             ItemInventario itemEntidad = itemFacade.find(ref);
             if (itemEntidad.getuIdMercadoLibre() == null || itemEntidad.getuIdMercadoLibre().trim().isEmpty()) {
                 continue;
@@ -393,7 +441,7 @@ public class MercadoLibreREST {
             MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "items");
             Response response = client.agregarAtributosItem(cargarTokenJson().getAccessToken(), itemEntidad.getuIdMercadoLibre(), dto);
             String jsonResponse = response.readEntity(String.class);
-            console.log(Level.INFO, "Respuesta de referencia {0}: {1}", new Object[]{ref, jsonResponse});
+            CONSOLE.log(Level.INFO, "Respuesta de referencia {0}: {1}", new Object[]{ref, jsonResponse});
         }
         return Response.ok().build();
     }
@@ -403,8 +451,8 @@ public class MercadoLibreREST {
     @Produces({MediaType.APPLICATION_JSON})
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public Response procesarNotificacion(NotificacionMercadolibreDTO notificacion) {
-        console.log(Level.INFO, "Procesando notificacion {0}", notificacion);
-        //Validar el tipo de notificacion
+        CONSOLE.log(Level.INFO, "Procesando notificacion {0}", notificacion);
+        //TODO: Validar el tipo de notificacion
         switch (notificacion.getTopic()) {
             case TOPIC_PAYMENTS:
                 procesarNotificacionPago(notificacion);
@@ -420,27 +468,27 @@ public class MercadoLibreREST {
         String sesionSAP = sapB1MBean.obtenerSesionSAP();
         try {
             String accessToken = cargarTokenJson().getAccessToken();
-            //consultar informacion pago
+            //TODO: consultar informacion pago
             MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "collections");
             Response res = client.consultarPago(notificacion.getResource().substring(notificacion.getResource().lastIndexOf("/") + 1), accessToken);
             PagoMercadoLibreDTO pago = res.readEntity(PagoMercadoLibreDTO.class);
-            console.log(Level.INFO, pago.toString());
+            CONSOLE.log(Level.INFO, pago.toString());
 
-            //consultar la orden
+            //TODO: consultar la orden
             client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "orders");
             res = client.consultarOrden(pago.getOrderId(), accessToken);
             OrdenMercadoLibreDTO orden = res.readEntity(OrdenMercadoLibreDTO.class);
             orden.getBuyer().setEmail(pago.getPayer().getEmail());
-            console.log(Level.INFO, orden.toString());
+            CONSOLE.log(Level.INFO, orden.toString());
 
-            //consultar el cliente
+            //TODO: consultar el cliente
             if (orden.getBuyer().getBillingInfo().getDocNumber() == null) {
                 enviarEmailError("Validacion datos cliente mercadolibre", "No se recibio el número de documento del cliente en la notificación del pago. Se debe proceder manualmente con la facturación. Orden ML #" + orden.getId());
                 return;
             }
             SocioDeNegocios clienteEntidad = clienteFacade.findByCardCode(orden.getBuyer().getBillingInfo().getDocNumber());
             if (clienteEntidad == null) {
-                //Si el cliente no existe, crearlo
+                //TODO: Si el cliente no existe, crearlo
                 if (sesionSAP == null) {
                     enviarEmailError("Crear cliente mercadolibre", "Ocurrio un error al obtener una sesion de B1WS para crear un cliente de mercadolibre en SAP. ");
                     return;
@@ -456,7 +504,7 @@ public class MercadoLibreREST {
                 dtoCliente.setDefaultShippingAddress(DIRECCION_MERCADOLIBRE);
                 dtoCliente.setFirstName(orden.getBuyer().getFirstName());
                 dtoCliente.setFiscalID(orden.getBuyer().getBillingInfo().getDocNumber());
-                dtoCliente.setFiscalIdType(BusinessPartnerDTO.FiscalIdType.CEDULA_CIUDADANIA);
+                dtoCliente.setFiscalIdType("13");
                 dtoCliente.setForeignType(BusinessPartnerDTO.ForeignType.NO_APLICA);
                 dtoCliente.setGender(BusinessPartnerDTO.Gender.NINGUNO);
                 dtoCliente.setLastName1(orden.getBuyer().getLastName());
@@ -473,12 +521,12 @@ public class MercadoLibreREST {
                 try {
                     service.createBusinessPartner(dtoCliente);
                 } catch (Exception e) {
-                    console.log(Level.SEVERE, "Ocurrio un error al crear el cliente en SAP. ", e);
+                    CONSOLE.log(Level.SEVERE, "Ocurrio un error al crear el cliente en SAP. ", e);
                     enviarEmailError("Crear cliente mercadolibre", "Ocurrio un error al crear el cliente en SAP. " + e.getMessage());
                     return;
                 }
             } else {
-                //Si el cliente existe, valida si ya tiene direccion de mercadolibre.
+                //TODO: Si el cliente existe, valida si ya tiene direccion de mercadolibre.
                 DireccionSocioDeNegocios direccionEntidad = null;
                 try {
                     direccionEntidad = direccionFacade.find(new DireccionSocioDeNegociosPK(DIRECCION_MERCADOLIBRE, clienteEntidad.getCardCode(), 'S'));
@@ -486,7 +534,7 @@ public class MercadoLibreREST {
                 }
 
                 if (direccionEntidad == null) {
-                    //Si la direccion de mercadolibre no existe, la crea
+                    //TODO: Si la direccion de mercadolibre no existe, la crea
                     List<BusinessPartnerAddressDTO> addresses = new ArrayList<>();
                     addresses.add(construirDireccionEntidad(orden, BusinessPartnerAddressDTO.AddressType.BILLING));
                     addresses.add(construirDireccionEntidad(orden, BusinessPartnerAddressDTO.AddressType.SHIPPING));
@@ -494,14 +542,14 @@ public class MercadoLibreREST {
                         BusinessPartnersServiceConnector service = sapB1MBean.getBusinessPartnersServiceConnectorInstance(sesionSAP);
                         service.addBusinessPartnerAddresses(orden.getBuyer().getBillingInfo().getDocNumber() + "CL", addresses);
                     } catch (Exception e) {
-                        console.log(Level.SEVERE, "Ocurrio un error al agregar las nuevas direcciones al cliente. ", e);
+                        CONSOLE.log(Level.SEVERE, "Ocurrio un error al agregar las nuevas direcciones al cliente. ", e);
                     }
                 } else {
-                    //TODO: Si la direccion "mercadolibre" ya existe, valida si son iguales. Sino, la modifica
+                    //TODO: TODO: Si la direccion "mercadolibre" ya existe, valida si son iguales. Sino, la modifica
                 }
             }
 
-            //crear factura
+            //TODO: crear factura
             try {
                 crearFactura(orden);
             } catch (Exception e) {
@@ -519,7 +567,7 @@ public class MercadoLibreREST {
 
             //TODO: crear registro para procesar documentos relacionados
         } catch (Exception e) {
-            console.log(Level.SEVERE, "Ocurrio un error al procesar la notificacion de venta por mercadolibre. ", e);
+            CONSOLE.log(Level.SEVERE, "Ocurrio un error al procesar la notificacion de venta por mercadolibre. ", e);
             //TODO: enviar correo para generar facturacion manual
         } finally {
             if (sesionSAP != null) {
@@ -547,13 +595,13 @@ public class MercadoLibreREST {
         try {
             emailREST.sendMail(messageDto);
         } catch (Exception e) {
-            console.log(Level.SEVERE, "Ocurrio un error al enviar el mail de notificacion de error. ", e);
+            CONSOLE.log(Level.SEVERE, "Ocurrio un error al enviar el mail de notificacion de error. ", e);
         }
     }
 
     private Long crearFactura(OrdenMercadoLibreDTO orden) throws Exception {
         HashMap<String, Double> descuentosVigentes = cargarDescuentosVigentes();
-        //consultar datos configurados para el detalle de la factura
+        //TODO: consultar datos configurados para el detalle de la factura
         // 0. Codigo serie numeracion
         // 1. Nombre serie numeracion
         // 2. Codigo ventas
@@ -591,16 +639,16 @@ public class MercadoLibreREST {
             }
             SalesDocumentLineDTO docLine = new SalesDocumentLineDTO();
             List<Object[]> saldosUbicacion = saldoUbicacionFacade.buscarPorReferencia(itemCode);
-            //Asigna las ubicaciones por cantidad
+            //TODO: Asigna las ubicaciones por cantidad
             int cantidadPendiente = orderItem.getQuantity();
-            console.log(Level.INFO, "Verificando ubicaciones para la referencia [{0}]", itemCode);
-            //Valida que la cantidad total en saldo sea suficiente para cubrir la cantidad solicitada
+            CONSOLE.log(Level.INFO, "Verificando ubicaciones para la referencia [{0}]", itemCode);
+            //TODO: Valida que la cantidad total en saldo sea suficiente para cubrir la cantidad solicitada
             int cantidadTotal = 0;
             for (Object[] row : saldosUbicacion) {
                 cantidadTotal += (Integer) row[4];
             }
             if (cantidadTotal < cantidadPendiente) {
-                console.log(Level.SEVERE, "No hay saldo suficiente de la referencia {0}. Cantidad necesaria: {1}, cantidad disponible: {2}",
+                CONSOLE.log(Level.SEVERE, "No hay saldo suficiente de la referencia {0}. Cantidad necesaria: {1}, cantidad disponible: {2}",
                         new Object[]{itemCode, orderItem.getQuantity(), cantidadTotal});
                 enviarEmailError("Facturación mercadolibre", "No hay saldo suficiente de la referencia " + itemCode
                         + ". Cantidad necesaria: " + orderItem.getQuantity() + ", cantidad disponible: " + cantidadTotal);
@@ -615,7 +663,7 @@ public class MercadoLibreREST {
                 if (docLine.getWhsCode() == null) {
                     docLine.setWhsCode(whsCode);
                 } else if (!docLine.getWhsCode().equals(whsCode)) {
-                    //Si el almacen cambia, significa que el saldo en las ubicaciones del primer almacen no fue suficiente y se debe crear una nueva linea
+                    //TODO: Si el almacen cambia, significa que el saldo en las ubicaciones del primer almacen no fue suficiente y se debe crear una nueva linea
                     facturaDto.addLine(docLine);
                     docLine = new SalesDocumentLineDTO();
                     docLine.setItemCode(itemCode);
@@ -635,12 +683,12 @@ public class MercadoLibreREST {
                 bin.setBinAbsEntry(binAbs);
                 bin.setWhsCode(whsCode);
                 if (cantidadPendiente <= saldoUbicacion) {
-                    console.log(Level.INFO, "La cantidad [{0}] en la ubicacion [{1}] satisface la cantidad pendiente [{2}]",
+                    CONSOLE.log(Level.INFO, "La cantidad [{0}] en la ubicacion [{1}] satisface la cantidad pendiente [{2}]",
                             new Object[]{saldoUbicacion, binCode, cantidadPendiente});
                     bin.setQuantity(cantidadPendiente);
                     cantidadPendiente = 0;
                 } else {
-                    console.log(Level.INFO, "La cantidad [{0}] en la ubicacion [{1}] NO satisface la cantidad pendiente [{2}]. Faltan [{3}]",
+                    CONSOLE.log(Level.INFO, "La cantidad [{0}] en la ubicacion [{1}] NO satisface la cantidad pendiente [{2}]. Faltan [{3}]",
                             new Object[]{saldoUbicacion, binCode, cantidadPendiente, cantidadPendiente - saldoUbicacion});
                     bin.setQuantity(saldoUbicacion);
                     cantidadPendiente -= saldoUbicacion;
@@ -664,10 +712,10 @@ public class MercadoLibreREST {
 
             facturaSAP = facturaSAPFacade.findNoTransaction(docEntryFactura.intValue());
             invoiceDocNum = Integer.toString(facturaSAP.getDocNum());
-            console.log(Level.INFO, "Se creo con exito la factura {0}", invoiceDocNum);
+            CONSOLE.log(Level.INFO, "Se creo con exito la factura {0}", invoiceDocNum);
             return docEntryFactura;
         } catch (InvoiceServiceException e) {
-            console.log(Level.SEVERE, "Ocurrio un error al crear la factura para mercadolibre. ", e);
+            CONSOLE.log(Level.SEVERE, "Ocurrio un error al crear la factura para mercadolibre. ", e);
             return null;
         } finally {
             if (sesionSAP != null) {
@@ -675,7 +723,8 @@ public class MercadoLibreREST {
             }
         }
     }
-/*
+
+    /*
     private Long crearReciboCaja(String docEntryFactura, TransactionStatusResponseDTO datosPago) throws Exception {
         String nroDocumento = datosPago.getRequest().getPayer().getDocument();
         if (!nroDocumento.toUpperCase().endsWith("CL")) {
@@ -715,7 +764,7 @@ public class MercadoLibreREST {
             }
         }
     }
-*/
+     */
     private HashMap<String, Double> cargarDescuentosVigentes() {
         HashMap<String, Double> descuentosVigentes = new HashMap<>();
         List<ProgramacionDescuento> entidades = descuentoFacade.consultarDescuentosCanalActivos("ML");
@@ -758,7 +807,7 @@ public class MercadoLibreREST {
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public Response agregarAtributos(HashMap<String, AgregarAtributosMdoLibreDTO> datos) {
         for (String ref : datos.keySet()) {
-            console.log(Level.INFO, "Procesando referencia {0}", ref);
+            CONSOLE.log(Level.INFO, "Procesando referencia {0}", ref);
             ItemInventario itemEntidad = itemFacade.find(ref);
             if (itemEntidad.getuIdMercadoLibre() == null || itemEntidad.getuIdMercadoLibre().trim().isEmpty()) {
                 continue;
@@ -767,87 +816,114 @@ public class MercadoLibreREST {
             MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "items");
             Response response = client.agregarAtributosItem(cargarTokenJson().getAccessToken(), itemEntidad.getuIdMercadoLibre(), datos.get(ref));
             String jsonResponse = response.readEntity(String.class);
-            console.log(Level.INFO, "Respuesta de referencia {0}: {1}", new Object[]{ref, jsonResponse});
+            CONSOLE.log(Level.INFO, "Respuesta de referencia {0}: {1}", new Object[]{ref, jsonResponse});
         }
         return Response.ok().build();
     }
 
     private ResponseDTO procesarItem(String itemCode, boolean soloMedellin) {
-        console.log(Level.INFO, "Procesando el item {0}", itemCode);
+        CONSOLE.log(Level.INFO, "Procesando el item {0}", itemCode);
         if (itemCode == null || itemCode.trim().length() != 20) {
-            console.log(Level.INFO, "No se encontro item valido");
+            CONSOLE.log(Level.INFO, "No se encontro item valido");
             return new ResponseDTO(-1, "No se recibio una referencia valida.");
         }
         try {
             MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "items");
             MercadolibreAccessCodeResponseDTO tokenInfo = cargarTokenJson();
             if (tokenInfo == null) {
-                console.log(Level.SEVERE, "No se pudo obtener un token valido");
+                CONSOLE.log(Level.SEVERE, "No se pudo obtener un token valido");
                 return new ResponseDTO(-1, "No se pudo obtener un token valido");
             }
             ItemInventario itemEntidad = itemFacade.find(itemCode);
-            //Consultar producto sap y saldo
+            //TODO: Consultar producto sap y saldo
             Integer saldo = itemFacade.consultarSaldoParaMercadolibre(itemCode, soloMedellin);
             Integer precio = itemFacade.getItemPrice(itemCode, true);
+            ProgramacionDescuento descuento = descuentoFacade.consultarDescuentosReferencia("ME", itemCode);
             if (saldo == null || saldo <= 0 || precio == null || precio == 0) {
                 if (itemEntidad.getuIdMercadoLibre() == null || itemEntidad.getuIdMercadoLibre().isEmpty()) {
-                    console.log(Level.INFO, "El item no se ha publicado aun, no tiene precio o no tiene saldo");
+                    CONSOLE.log(Level.INFO, "El item no se ha publicado aun, no tiene precio o no tiene saldo");
                     return new ResponseDTO(-1, "El item " + itemCode + " no se ha publicado aun, no tiene precio o no tiene saldo");
                 }
                 try {
                     Response res = client.finalizarPublicacion(tokenInfo.getAccessToken(), itemEntidad.getuIdMercadoLibre());
                     String obj = res.readEntity(String.class);
-                    console.log(Level.INFO, "Se finalizo la publicacion del item {0}", obj);
+                    CONSOLE.log(Level.INFO, "Se finalizo la publicacion del item {0}", obj);
                     itemFacade.actualizarIdMercadoLibre(itemCode, null);
-                    return new ResponseDTO(0, Response.ok(obj).build().toString());
+                    return new ResponseDTO(0, "publicacion finalizada " + obj);
                 } catch (Exception e) {
-                    console.log(Level.SEVERE, "Ocurrio un error al suspender el item. ", e);
+                    CONSOLE.log(Level.SEVERE, "Ocurrio un error al suspender el item. ", e);
                     return new ResponseDTO(-1, "Ocurrio un error al suspender el item " + itemCode + ". " + e.getMessage());
                 }
             }
 
             BaruSubgrupo subgrupoEntidad = subgrupoFacade.find(itemEntidad.getUSubGrupo());
             if (subgrupoEntidad.getUcategoriaML() == null) {
-                console.log(Level.SEVERE, "La categoria del producto ({0}) no tiene categoria asociada de mercadolibre", itemEntidad.getUSubGrupo());
+                CONSOLE.log(Level.SEVERE, "La categoria del producto ({0}) no tiene categoria asociada de mercadolibre", itemEntidad.getUSubGrupo());
                 return new ResponseDTO(-1, "La categoria del producto (" + itemEntidad.getUSubGrupo() + ") no tiene categoria asociada de mercadolibre");
             }
 
-            MercadolibreItemDTO item = new MercadolibreItemDTO();
+            MercadolibrePublicarItemDTO item = new MercadolibrePublicarItemDTO();
             item.setAvailableQuantity(saldo);
             item.setBuyingMode("buy_it_now");
             item.setCategoryId(subgrupoEntidad.getUcategoriaML());
             item.setCondition("new");
             item.setCurrencyId("COP");
-            item.setDescription(construirDescripcionHTML(itemCode, itemEntidad.getFrgnName(), itemEntidad.getUdescripciona(), itemEntidad.getuCodigoMarca()));
-            item.setListingType("gold_special");
+            //String descripcionHtml = construirDescripcionHTML(itemCode, itemEntidad.getFrgnName(), itemEntidad.getUdescripciona(), itemEntidad.getuCodigoMarca());
+            String descripcionPlana = construirDescripcionPlana(itemCode, itemEntidad.getFrgnName(), itemEntidad.getUdescripciona(), itemEntidad.getuCodigoMarca());
+            item.setDescription(null, descripcionPlana);
+            //item.setOriginalPrice(precio);
             item.setPrice(precio);
-            if (precio >= 70000) { //TODO: parametrizar valor minimo para envio gratis
-                console.log(Level.INFO, "Configurando envio gratuito por mercadoenvios para el item {0}", itemCode);
-                MercadolibreItemDTO.Shipping.FreeMethod.Rule rule = new MercadolibreItemDTO.Shipping.FreeMethod.Rule();
-                rule.setDef(true);
-                rule.setFreeMode("country");
-                rule.setFreeShippingFlag(true);
+            /*if (descuento != null && descuento.getPorcentaje() > 0D) {
+                Integer precioFinal = new Double(precio * (100 - descuento.getPorcentaje()) / 100).intValue();
+                console.log(Level.INFO, "Configurando precio con descuento del {1}% para la ref {0}. Precio final {2} ",
+                        new Object[]{itemCode, descuento.getPorcentaje(), precioFinal});
+                item.setPrice(precioFinal);
+                item.setBasePrice(precioFinal);
+            } else {
+                item.setPrice(precio);
+            }*/
 
-                MercadolibreItemDTO.Shipping.FreeMethod freeMethod = new MercadolibreItemDTO.Shipping.FreeMethod();
-                freeMethod.setId(501745L);//TODO: consultar el id del envio a partir de la categoria del item
-                freeMethod.setRule(rule);
+            item.setListingType("gold_pro");
+            if (precio >= 150000) { //TODO: parametrizar valor minimo para envio gratis
+                MercadolibrePublicarItemDTO.Shipping shipping = new MercadolibrePublicarItemDTO.Shipping();
 
-                MercadolibreItemDTO.Shipping shipping = new MercadolibreItemDTO.Shipping();
-                shipping.getFreeMethods().add(freeMethod);
-                shipping.setFreeShipping(true);
-                shipping.setLocalPickUp(false);
-                shipping.setMode("me2");
+                if (soloMedellin) {
+                    shipping.setFreeShipping(true);
+                    shipping.setLocalPickUp(true);
+                    shipping.setStorePickUp(true);
+                } else {
+                    shipping.setFreeShipping(false);
+                    shipping.setLocalPickUp(false);
+                    shipping.setStorePickUp(false);
+                }
+
+                if (tieneMercadoEnvioHabilitado(subgrupoEntidad.getUcategoriaML())) {
+                    CONSOLE.log(Level.INFO, "Configurando envio gratuito por mercadoenvios para el item {0}", itemCode);
+                    MercadolibrePublicarItemDTO.Shipping.FreeMethod.Rule rule = new MercadolibrePublicarItemDTO.Shipping.FreeMethod.Rule();
+                    rule.setDef(true);
+                    rule.setFreeMode("country");
+                    rule.setFreeShippingFlag(true);
+
+                    MercadolibrePublicarItemDTO.Shipping.FreeMethod freeMethod = new MercadolibrePublicarItemDTO.Shipping.FreeMethod();
+                    freeMethod.setId(501745L);//TODO: consultar el id del envio a partir de la categoria del item
+                    freeMethod.setRule(rule);
+
+                    shipping.setMode("me2");
+                } else {
+                    shipping.setMode("me1");
+                }
                 item.setShipping(shipping);
             } else {
-                console.log(Level.INFO, "Configurando envio por mercadoenvios para el item {0}", itemCode);
-                MercadolibreItemDTO.Shipping shipping = new MercadolibreItemDTO.Shipping();
+                CONSOLE.log(Level.INFO, "Configurando envio por mercadoenvios para el item {0}", itemCode);
+                MercadolibrePublicarItemDTO.Shipping shipping = new MercadolibrePublicarItemDTO.Shipping();
                 shipping.setFreeShipping(false);
                 shipping.setLocalPickUp(false);
-                shipping.setMode("me2");
+                shipping.setStorePickUp(true);
+                shipping.setMode("custom");
                 item.setShipping(shipping);
             }
             if (itemEntidad.getuCodigoEan() != null && !itemEntidad.getuCodigoEan().trim().isEmpty() && !itemEntidad.getuCodigoEan().equals("0")) {
-                MercadolibreItemDTO.Attribute attr = new MercadolibreItemDTO.Attribute();
+                MercadolibrePublicarItemDTO.Attribute attr = new MercadolibrePublicarItemDTO.Attribute();
                 attr.setId("EAN");
                 attr.setValueName(itemEntidad.getuCodigoEan());
                 item.getAttributes().add(attr);
@@ -875,7 +951,7 @@ public class MercadoLibreREST {
                 item.setTitle(sb.toString());
             }
             if (!itemEntidad.getuCodigoMarca().equals("0001")) {
-                MercadolibreItemDTO.Attribute attr = new MercadolibreItemDTO.Attribute();
+                MercadolibrePublicarItemDTO.Attribute attr = new MercadolibrePublicarItemDTO.Attribute();
                 attr.setId("BRAND");
                 attr.setValueName(nombreMarca);
                 item.getAttributes().add(attr);
@@ -886,15 +962,18 @@ public class MercadoLibreREST {
             //item.setWarranty("ninguna");
             List<String> imagenes = consultarImagenesDisponibles(itemCode);
             if (imagenes.isEmpty()) {
-                console.log(Level.SEVERE, "El item {0} no tiene imagenes", itemCode);
+                CONSOLE.log(Level.SEVERE, "El item {0} no tiene imagenes", itemCode);
                 return new ResponseDTO(-1, "El item " + itemCode + " no tiene imagenes");
             }
             for (String fileName : imagenes) {
-                item.getPictures().add(new MercadolibreItemDTO.Picture("https://www.matisses.co/modules/wsmatisses/files/" + itemCode + "/images/" + fileName));
+                if (fileName.startsWith(itemCode)) {
+                    item.getPictures().add(new MercadolibrePublicarItemDTO.Picture("https://img.matisses.co/" + itemCode + "/images/" + fileName));
+                }
             }
-            item.getPictures().add(new MercadolibreItemDTO.Picture("https://www.matisses.co/modules/wsmatisses/files/" + itemCode + "/plantilla/" + itemCode + ".jpg"));
+            item.getPictures().add(new MercadolibrePublicarItemDTO.Picture("https://img.matisses.co/" + itemCode + "/plantilla/" + itemCode + ".jpg"));
 
             Response res;
+            CONSOLE.log(Level.INFO, "{0}", item.toString());
             if (itemEntidad.getuIdMercadoLibre() == null || itemEntidad.getuIdMercadoLibre().trim().isEmpty()) {
                 /*Crear publicacion*/
                 res = client.listarProducto(tokenInfo.getAccessToken(), item);
@@ -910,16 +989,16 @@ public class MercadoLibreREST {
                 try {
                     itemFacade.actualizarIdMercadoLibre(itemCode, producto.getId());
                 } catch (Exception e) {
-                    console.log(Level.SEVERE, "Ocurrio un error al actualizar el ID de mercadolibre para la referencia {0}. {1}", new Object[]{itemCode, e.getMessage()});
+                    CONSOLE.log(Level.SEVERE, "Ocurrio un error al actualizar el ID de mercadolibre para la referencia {0}. {1}", new Object[]{itemCode, e.getMessage()});
                 }
-                console.log(Level.INFO, "Item {0} procesado con exito. {1}", new Object[]{itemCode, jsonResponse});
+                CONSOLE.log(Level.INFO, "Item {0} procesado con exito. {1}", new Object[]{itemCode, jsonResponse});
                 return new ResponseDTO(0, jsonResponse);
             } catch (UnrecognizedPropertyException e) {
-                console.log(Level.INFO, "Se obtuvo un error de mercadolibre: {0}", jsonResponse);
+                CONSOLE.log(Level.INFO, "Se obtuvo un error de mercadolibre: {0}", jsonResponse);
                 return new ResponseDTO(-1, jsonResponse);
             }
-        } catch (Exception e) {
-            console.log(Level.SEVERE, "Ocurrio un error al procesar el item " + itemCode, e);
+        } catch (ClientErrorException | IOException e) {
+            CONSOLE.log(Level.SEVERE, "Ocurrio un error al procesar el item " + itemCode, e);
             return new ResponseDTO(-1, "Ocurrio un error al procesar el item. " + e.getMessage());
         }
     }
@@ -929,15 +1008,15 @@ public class MercadoLibreREST {
     @Produces({MediaType.APPLICATION_JSON})
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public Response configurarEnvioGratuito(String[] itemCodes) {
-        console.log(Level.INFO, "Configurando envio gratuito a {0} referencias. ", itemCodes.length);
+        CONSOLE.log(Level.INFO, "Configurando envio gratuito a {0} referencias. ", itemCodes.length);
         List<String> response = new ArrayList<>();
         int refIndex = 0;
         for (String ref : itemCodes) {
             MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "items");
             Response res = client.configurarEnvioGratuito(cargarTokenJson().getAccessToken(), itemFacade.find(ref).getuIdMercadoLibre());
             String jsonResponse = res.readEntity(String.class);
-            console.log(Level.INFO, "{0}", jsonResponse);
-            console.log(Level.INFO, "  Avance: {0}%", (float) ++refIndex / itemCodes.length * 100);
+            CONSOLE.log(Level.INFO, "{0}", jsonResponse);
+            CONSOLE.log(Level.INFO, "  Avance: {0}%", (float) ++refIndex / itemCodes.length * 100);
         }
         return Response.ok(response).build();
     }
@@ -950,7 +1029,7 @@ public class MercadoLibreREST {
         MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "items");
         Response res = client.configurarEnvioItem(cargarTokenJson().getAccessToken(), itemFacade.find(itemCode).getuIdMercadoLibre(), tipoEnvio);
         String jsonResponse = res.readEntity(String.class);
-        console.log(Level.INFO, "{0}", jsonResponse);
+        CONSOLE.log(Level.INFO, "{0}", jsonResponse);
         return Response.ok(jsonResponse).build();
     }
 
@@ -964,7 +1043,7 @@ public class MercadoLibreREST {
             MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "items");
             Response res = client.configurarEnvioItem(cargarTokenJson().getAccessToken(), itemFacade.find(ref).getuIdMercadoLibre(), confEnvio.getShipping());
             String jsonResponse = res.readEntity(String.class);
-            console.log(Level.INFO, "{0}", jsonResponse);
+            CONSOLE.log(Level.INFO, "{0}", jsonResponse);
             resp.add(jsonResponse);
         }
         return Response.ok(resp).build();
@@ -982,7 +1061,7 @@ public class MercadoLibreREST {
             ActualizarImagenesItemDTO imagenes = new ActualizarImagenesItemDTO();
             List<String> sources = consultarImagenesDisponibles(ref);
             for (String fileName : sources) {
-                imagenes.agregarImagen("https://www.matisses.co/modules/wsmatisses/files/" + ref + "/images/" + fileName);
+                imagenes.agregarImagen("https://img.matisses.co/" + ref + "/images/" + fileName);
             }
             ItemInventario itemEntidad = itemFacade.find(ref);
             if (borrarPrimero) {
@@ -991,7 +1070,7 @@ public class MercadoLibreREST {
             }
             Response res = clientActualizar.actualizarImagenes(itemEntidad.getuIdMercadoLibre(), imagenes, token.getAccessToken());
             String jsonResponse = res.readEntity(String.class);
-            console.log(Level.INFO, "{0}", jsonResponse);
+            CONSOLE.log(Level.INFO, "{0}", jsonResponse);
             resp.add(jsonResponse);
         }
         return Response.ok(resp).build();
@@ -1011,12 +1090,12 @@ public class MercadoLibreREST {
     @Produces({MediaType.APPLICATION_JSON})
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public Response publicarItem(String[] itemCodes, @PathParam("solomedellin") Boolean soloMedellin) {
-        console.log(Level.INFO, "Procesando {0} referencias. ", itemCodes.length);
+        CONSOLE.log(Level.INFO, "Procesando {0} referencias. ", itemCodes.length);
         List<ResponseDTO> response = new ArrayList<>();
         int refIndex = 0;
         for (String ref : itemCodes) {
             response.add(procesarItem(ref, soloMedellin));
-            console.log(Level.INFO, "Avance: {0}%", (float) ++refIndex / itemCodes.length * 100);
+            CONSOLE.log(Level.INFO, "Avance: {0}%", (float) ++refIndex / itemCodes.length * 100);
         }
         return Response.ok(response).build();
     }
@@ -1034,13 +1113,14 @@ public class MercadoLibreREST {
         try {
             MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "items");
             ModificarDescripcionMercadolibreDTO modDto = new ModificarDescripcionMercadolibreDTO();
-            modDto.setText(construirDescripcionHTML(referencia, itemEntidad.getFrgnName(), itemEntidad.getUdescripciona(), itemEntidad.getuCodigoMarca()));
+            //modDto.setText(construirDescripcionHTML(referencia, itemEntidad.getFrgnName(), itemEntidad.getUdescripciona(), itemEntidad.getuCodigoMarca()));
+            modDto.setPlainText(construirDescripcionPlana(referencia, itemEntidad.getFrgnName(), itemEntidad.getUdescripciona(), itemEntidad.getuCodigoMarca()));
             Response res = client.actualizarDescripcion(itemEntidad.getuIdMercadoLibre(), modDto, token.getAccessToken());
             String jsonResponse = res.readEntity(String.class);
-            console.log(Level.INFO, "Se modifico la descripcion del item {0} satisfactoriamente {1}", new Object[]{referencia, jsonResponse});
+            CONSOLE.log(Level.INFO, "Se modifico la descripcion del item {0} satisfactoriamente {1}", new Object[]{referencia, jsonResponse});
             return Response.ok(jsonResponse).build();
         } catch (Exception e) {
-            console.log(Level.SEVERE, "Ocurrio un error al modificar la descripcion del item " + referencia + " en mdolibre. ", e);
+            CONSOLE.log(Level.SEVERE, "Ocurrio un error al modificar la descripcion del item " + referencia + " en mdolibre. ", e);
             return Response.ok("Ocurrio un error al modificar la descripcion del item " + referencia + " en mdolibre. " + e.getMessage()).build();
         }
     }
@@ -1068,9 +1148,11 @@ public class MercadoLibreREST {
             return new ArrayList<>();
         }
         String[] files = imgDirectoy.list((File dir, String name) -> name != null && name.endsWith(".jpg"));
-        for (String fileName : files) {
-            console.log(Level.INFO, fileName);
-        }
+        /*for (String fileName : files) {
+            if(fileName.startsWith(referencia)){
+                console.log(Level.INFO, fileName);
+            }
+        }*/
         List<String> fileNames = Arrays.asList(files);
         Collections.sort(fileNames);
         return fileNames;
@@ -1082,10 +1164,10 @@ public class MercadoLibreREST {
             long currentTime = System.currentTimeMillis();
             TokenMercadoLibre tokenEntidad = tokenFacade.consultarUltimoToken();
             if (tokenEntidad == null) {
-                console.log(Level.SEVERE, "No se encontro un token en la base de datos. Se debe obtener uno nuevo");
+                CONSOLE.log(Level.SEVERE, "No se encontro un token en la base de datos. Se debe obtener uno nuevo");
                 return null;
             } else if ((currentTime - tokenEntidad.getSystime()) / 1000 > tokenEntidad.getExpiresIn()) {
-                console.log(Level.SEVERE, "El token ha expirado. Obteniendo uno nuevo");
+                CONSOLE.log(Level.SEVERE, "El token ha expirado. Obteniendo uno nuevo");
                 dto = renovarAccessToken(tokenEntidad.getRefreshToken());
             } else {
                 dto = new MercadolibreAccessCodeResponseDTO();
@@ -1097,10 +1179,10 @@ public class MercadoLibreREST {
                 dto.setTokenType("bearer");
                 dto.setUserId(tokenEntidad.getUserId());
             }
-            console.log(Level.INFO, "Tiempo de vigencia restante: {0}seg", dto.getExpiresIn() - (currentTime - dto.getSysTime()) / 1000);
+            CONSOLE.log(Level.INFO, "Tiempo de vigencia restante: {0}seg", dto.getExpiresIn() - (currentTime - dto.getSysTime()) / 1000);
             return dto;
         } catch (Exception e) {
-            console.log(Level.SEVERE, "Ocurrio un error al cargar la informacion del archivo. ", e);
+            CONSOLE.log(Level.SEVERE, "Ocurrio un error al cargar la informacion del archivo. ", e);
             return null;
         }
     }
@@ -1118,8 +1200,127 @@ public class MercadoLibreREST {
             String templateContent = new String(Files.readAllBytes(Paths.get(fullTemplateName)), StandardCharsets.UTF_8);
             return StrSubstitutor.replace(templateContent, params);
         } catch (Exception e) {
-            console.log(Level.SEVERE, "Ocurrio un error al procesar la plantilla de descripcion para el item de mercadolibre. ", e);
+            CONSOLE.log(Level.SEVERE, "Ocurrio un error al procesar la plantilla de descripcion para el item de mercadolibre. ", e);
             return descripcion;
         }
+    }
+
+    private String construirDescripcionPlana(String referencia, String nombreExtranjero, String descripcion, String marca) {
+        try {
+            StringBuilder sb = new StringBuilder();
+            sb.append(nombreExtranjero.substring(0, 1).toUpperCase());
+            sb.append(nombreExtranjero.substring(1).toLowerCase());
+            sb.append(". \n\n");
+            sb.append(descripcion);
+            sb.append("\n\n");
+            sb.append("Nuestro horario de atención:");
+            sb.append("\n");
+            sb.append("Estamos atentos a responder todas tus inquietudes. Nuestros asesores responderán de lunes a viernes de 8:00 am a 6:00 pm y sábados de 8:00 am a 12:00 pm.");
+            return sb.toString();
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    @POST
+    @Path("sincronizarcategorias")
+    @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"})
+    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+    public Response sincronizarCategorias(List<String> categoriasAProcesar) {
+        MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"));
+        Response res = client.consultarCategorias();
+        List<LinkedHashMap> categorias = res.readEntity(List.class);
+        for (LinkedHashMap categoria : categorias) {
+            if (categoriasAProcesar == null || categoriasAProcesar.isEmpty() || categoriasAProcesar.contains((String) categoria.get("id"))) {
+                procesarCategoria(client, (String) categoria.get("id"), null);
+            } else {
+                CONSOLE.log(Level.INFO, "La categoria {0} no se procesara porque no se incluyo en la lista", categoria);
+            }
+        }
+        return Response.ok().build();
+    }
+
+    private void procesarCategoria(MercadoLibreClient client, String idCategoria, String idCategoriaPadre) {
+        CONSOLE.log(Level.INFO, "{0}", idCategoria);
+        Response resCat = client.consultarCategoria(idCategoria);
+        try {
+            CategoriaMercadolibreDTO categoria = resCat.readEntity(CategoriaMercadolibreDTO.class);
+            CONSOLE.log(Level.INFO, categoria.pathFromRoot());
+            if (categoria.getChildrenCategories() != null && !categoria.getChildrenCategories().isEmpty()) {
+                for (CategoriaMercadolibreDTO.SubcategoriaMercadolibreDTO dto : categoria.getChildrenCategories()) {
+                    procesarCategoria(client, dto.getId(), idCategoria);
+                }
+            }
+            try {
+                CategoriaMercadolibre entidad = categoriaMercadolibreFacade.find(categoria.getId());
+                //TODO: La categoria ya existe en la base de datos
+                if (!entidad.getNombre().equalsIgnoreCase(categoria.getName())) {
+                    entidad.setNombre(categoria.getName());
+                    categoriaMercadolibreFacade.edit(entidad);
+                }
+            } catch (Exception e) {
+                //TODO: La categoria no existe en base de datos
+                try {
+                    CategoriaMercadolibre entidad = new CategoriaMercadolibre(categoria.getId(), categoria.getName(), idCategoriaPadre, null);
+                    categoriaMercadolibreFacade.create(entidad);
+                    CONSOLE.log(Level.INFO, "Se creo con exito la categoria {0}", entidad);
+                } catch (Exception ex) {
+                    CONSOLE.log(Level.SEVERE, "Ocurrio un error al crear la categoria en la base de datos. ", ex);
+                }
+            }
+        } catch (Exception e) {
+            CONSOLE.log(Level.SEVERE, "Ocurrio un error al procesar la respuesta del servicio para la categoria " + idCategoria, e);
+        }
+    }
+
+    private boolean tieneMercadoEnvioHabilitado(String idCategoria) {
+        MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"));
+        Response res = client.consultarCategoria(idCategoria);
+        try {
+            CategoriaMercadolibreDTO dto = res.readEntity(CategoriaMercadolibreDTO.class);
+            if (dto.getSettings().getShippingModes().contains("me2")) {
+                return true;
+            }
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
+    @GET
+    @Path("duplicados")
+    @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"})
+    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+    public Response consultarDuplicados() {
+        Set<String> refs = new HashSet<>();
+        HashMap<String, Integer> duplicadas = new HashMap<>();
+        MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"));
+        int pagina = 1;
+        MercadolibrePublicacionDTO dto = client.consultarItemsPublicados(pagina).readEntity(MercadolibrePublicacionDTO.class);
+        while (!dto.getResults().isEmpty()) {
+            int fila = 0;
+            CONSOLE.log(Level.INFO, "Procesando pagina #{0}", pagina);
+            for (MercadolibrePublicarItemDTO itemDto : dto.getResults()) {
+                String refCorta = StringUtils.right(itemDto.getTitle(), 7);
+                if (refs.contains(refCorta)) {
+                    if (duplicadas.containsKey(refCorta)) {
+                        duplicadas.put(refCorta, duplicadas.get(refCorta) + 1);
+                    } else {
+                        duplicadas.put(refCorta, 1);
+                    }
+                } else {
+                    refs.add(refCorta);
+                }
+                fila++;
+            }
+            if (fila == 200) {
+                //TODO: Carga siguiente pagina;
+                dto = client.consultarItemsPublicados(++pagina).readEntity(MercadolibrePublicacionDTO.class);
+            } else {
+                dto.setResults(new ArrayList<>());
+            }
+        }
+        CONSOLE.log(Level.INFO, "Finalizo validacion de duplicados en mercadolibre. {0} refs activas, {1} refs duplicadas",
+                new Object[]{refs.size(), duplicadas.size()});
+        return Response.ok(duplicadas).build();
     }
 }

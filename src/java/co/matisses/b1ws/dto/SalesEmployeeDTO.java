@@ -11,6 +11,7 @@ import java.util.Objects;
  */
 public class SalesEmployeeDTO {
 
+    private Double comision;
     private String id;
     private String name;
     private String slpCode;
@@ -21,6 +22,20 @@ public class SalesEmployeeDTO {
     public SalesEmployeeDTO(String name, String slpCode) {
         this.name = name;
         this.slpCode = slpCode;
+    }
+
+    public SalesEmployeeDTO(Double comision, String name, String slpCode) {
+        this.comision = comision;
+        this.name = name;
+        this.slpCode = slpCode;
+    }
+
+    public Double getComision() {
+        return comision;
+    }
+
+    public void setComision(Double comision) {
+        this.comision = comision;
     }
 
     public String getId() {

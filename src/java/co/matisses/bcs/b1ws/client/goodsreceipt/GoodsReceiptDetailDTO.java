@@ -14,6 +14,7 @@ public class GoodsReceiptDetailDTO {
     private String itemCode;
     private Integer quantity;
     private Double price;
+    private Double discount;
     private String whsCode;
     private String accountCode;
     private List<GoodsReceiptLocationsDTO> locations;
@@ -36,6 +37,14 @@ public class GoodsReceiptDetailDTO {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Double discount) {
+        this.discount = discount;
     }
 
     public String getItemName() {

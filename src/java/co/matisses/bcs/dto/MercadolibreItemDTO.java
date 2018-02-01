@@ -1,5 +1,6 @@
 package co.matisses.bcs.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,27 +9,30 @@ import java.util.List;
  *
  * @author dbotero
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MercadolibreItemDTO {
 
+    private int price;
+    private int availableQuantity;
     private String title;
     private String categoryId;
-    private int price;
     private String currencyId;
-    private int availableQuantity;
     private String buyingMode;
     private String listingType;
     private String condition;
-    private String description;
     private String officialStoreId;
     private String warranty;
     private String status;
+    private String permaLink;
     private List<Picture> pictures;
     private List<Attribute> attributes;
+    private Description description;
     private Shipping shipping;
 
     public MercadolibreItemDTO() {
         pictures = new ArrayList<>();
         attributes = new ArrayList<>();
+        description = new Description();
     }
 
     public String getTitle() {
@@ -109,12 +113,13 @@ public class MercadolibreItemDTO {
         this.condition = condition;
     }
 
-    public String getDescription() {
+    public Description getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(String html, String plainText) {
+        description.setPlainText(plainText);
+        description.setText(html);
     }
 
     public String getWarranty() {
@@ -157,6 +162,16 @@ public class MercadolibreItemDTO {
         this.shipping = shipping;
     }
 
+    @JsonProperty("permalink")
+    public String getPermaLink() {
+        return permaLink;
+    }
+
+    public void setPermaLink(String permaLink) {
+        this.permaLink = permaLink;
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Picture {
 
         private String source;
@@ -177,11 +192,13 @@ public class MercadolibreItemDTO {
         }
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Shipping {
 
         private String mode;
         private Boolean freeShipping;
         private Boolean localPickUp;
+        private Boolean storePickUp;
         private List<FreeMethod> freeMethods;
 
         public Shipping() {
@@ -215,6 +232,15 @@ public class MercadolibreItemDTO {
             this.localPickUp = localPickUp;
         }
 
+        @JsonProperty("store_pick_up")
+        public Boolean getStorePickUp() {
+            return storePickUp;
+        }
+
+        public void setStorePickUp(Boolean storePickUp) {
+            this.storePickUp = storePickUp;
+        }
+
         public String getMode() {
             return mode;
         }
@@ -223,6 +249,7 @@ public class MercadolibreItemDTO {
             this.mode = mode;
         }
 
+        @JsonIgnoreProperties(ignoreUnknown = true)
         public static class FreeMethod {
 
             private Long id;
@@ -244,6 +271,7 @@ public class MercadolibreItemDTO {
                 this.rule = rule;
             }
 
+            @JsonIgnoreProperties(ignoreUnknown = true)
             public static class Rule {
 
                 private Boolean def;
@@ -280,6 +308,7 @@ public class MercadolibreItemDTO {
         }
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Attribute {
 
         private String id;
@@ -303,4 +332,27 @@ public class MercadolibreItemDTO {
         }
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class Description {
+
+        private String text;
+        private String plainText;
+
+        @JsonProperty("plain_text")
+        public String getPlainText() {
+            return plainText;
+        }
+
+        public void setPlainText(String plainText) {
+            this.plainText = plainText;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public void setText(String text) {
+            this.text = text;
+        }
+    }
 }

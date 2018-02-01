@@ -1,6 +1,7 @@
 package co.matisses.bcs.b1ws.client.payments;
 
 import co.matisses.bcs.util.ObjectUtils;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,13 +9,12 @@ import java.util.List;
  *
  * @author dbotero
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PaymentDTO {
 
     private String cardCode;
     private String cashAccount;
     private String seriesCode;
-    private String invoiceDocEntry;
-    private String paidTotal;
     private String paidCash;
     private String paidBalance;
     private String creditType;
@@ -26,6 +26,7 @@ public class PaymentDTO {
     private ConstantTypes.BPType businessPartnerType;
     private List<CreditCardPaymentDTO> creditCardPayments;
     private List<PaymentAccountDTO> accountPayments;
+    private List<PaymentInvoicesDTO> paymentInvoice;
 
     public PaymentDTO() {
         creditCardPayments = new ArrayList<>();
@@ -64,14 +65,6 @@ public class PaymentDTO {
         this.seriesCode = seriesCode;
     }
 
-    public String getInvoiceDocEntry() {
-        return invoiceDocEntry;
-    }
-
-    public void setInvoiceDocEntry(String invoiceDocEntry) {
-        this.invoiceDocEntry = invoiceDocEntry;
-    }
-
     public String getPaidCash() {
         return paidCash;
     }
@@ -86,10 +79,6 @@ public class PaymentDTO {
 
     public void setPaidBalance(String paidBalance) {
         this.paidBalance = paidBalance;
-    }
-
-    public String getPaidTotal() {
-        return paidTotal;
     }
 
     public String getTransferReference() {
@@ -122,10 +111,6 @@ public class PaymentDTO {
 
     public void setCreditType(String creditType) {
         this.creditType = creditType;
-    }
-
-    public void setPaidTotal(String paidTotal) {
-        this.paidTotal = paidTotal;
     }
 
     public List<CreditCardPaymentDTO> getCreditCardPayments() {
@@ -166,6 +151,14 @@ public class PaymentDTO {
 
     public void setPaymentType(PaymentTypeDTO paymentType) {
         this.paymentType = paymentType;
+    }
+
+    public List<PaymentInvoicesDTO> getPaymentInvoice() {
+        return paymentInvoice;
+    }
+
+    public void setPaymentInvoice(List<PaymentInvoicesDTO> paymentInvoice) {
+        this.paymentInvoice = paymentInvoice;
     }
 
     @Override

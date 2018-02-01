@@ -1,20 +1,13 @@
 package co.matisses.bcs.mbean;
 
-import co.matisses.persistence.sap.entity.Almacen;
 import co.matisses.persistence.sap.entity.ItemInventario;
-import co.matisses.persistence.sap.entity.SocioDeNegocios;
-import co.matisses.persistence.sap.entity.UbicacionSAP;
-import co.matisses.persistence.sap.facade.AlmacenFacade;
 import co.matisses.persistence.sap.facade.ItemInventarioFacade;
 import co.matisses.persistence.sap.facade.PrecioVentaItemFacade;
-import co.matisses.persistence.sap.facade.SalesPersonFacade;
-import co.matisses.persistence.sap.facade.SocioDeNegociosFacade;
-import co.matisses.persistence.sap.facade.UbicacionSAPFacade;
-import java.io.File;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -29,28 +22,20 @@ import org.apache.commons.lang3.StringUtils;
  * @author ygil
  */
 @ApplicationScoped
-@Named(value = "baruGenericMBean")
-public class BcsGenericMBean implements Serializable {
+@Named(value = "bcsGenericMBean")
+public class BCSGenericMBean implements Serializable {
 
     @Inject
     private BCSApplicationMBean applicationMBean;
     private static final Locale LOCALE_MX = new Locale("es", "MX");
     private static final DecimalFormat FORMATO = (DecimalFormat) NumberFormat.getInstance(LOCALE_MX);
-    private static final Logger log = Logger.getLogger(BcsGenericMBean.class.getSimpleName());
+    private static final Logger log = Logger.getLogger(BCSGenericMBean.class.getSimpleName());
     @EJB
     private ItemInventarioFacade itemInventarioFacade;
     @EJB
     private PrecioVentaItemFacade precioVentaItemFacade;
-    @EJB
-    private UbicacionSAPFacade ubicacionSAPFacade;
-    @EJB
-    private AlmacenFacade almacenFacade;
-    @EJB
-    private SocioDeNegociosFacade socioDeNegociosFacade;
-    @EJB
-    private SalesPersonFacade salesPersonFacade;
 
-    public BcsGenericMBean() {
+    public BCSGenericMBean() {
     }
 
     @PostConstruct
@@ -132,142 +117,24 @@ public class BcsGenericMBean implements Serializable {
         return valor;
     }
 
-    public String obtenerAliasUbicacion(Integer absEntry) {
-        if (absEntry != null && absEntry != 0) {
-            UbicacionSAP u = ubicacionSAPFacade.find(absEntry);
-
-            if (u != null && u.getAbsEntry() != null && u.getAbsEntry() != 0) {
-                return u.getAttr2Val();
+    public String convertirCaracteresEspeciales(String texto) {
+        log.log(Level.INFO, "Actual texto sin conversion de caracteres especiales {0}", texto);
+        for (Entry<String, String> caracteres : applicationMBean.getCaracteresEspeciales().entrySet()) {
+            if (texto.contains(caracteres.getKey())) {
+                texto = texto.replaceAll(caracteres.getKey(), caracteres.getValue());
             }
         }
-        return "";
+
+        log.log(Level.INFO, "Nuevo texto con conversion de caracteres especiales {0}", texto);
+        return texto;
     }
 
-    public String obtenerNombreWebAlmacen(String almacen) {
-        if (almacen != null && !almacen.isEmpty()) {
-            Almacen alm = almacenFacade.find(almacen);
-
-            if (alm != null && alm.getWhsCode() != null && !alm.getWhsCode().isEmpty()) {
-                if (alm.getUnombrextablet() != null && !alm.getUnombrextablet().isEmpty()) {
-                    return alm.getUnombrextablet();
-                } else {
-                    return alm.getWhsCode();
-                }
-            } else {
-                return almacen;
-            }
-        }
-        return "";
-    }
-
-    public String obtenerNombreUsuario(String cardCode) {
-        if (cardCode != null && !cardCode.isEmpty()) {
-            SocioDeNegocios socio = socioDeNegociosFacade.findByCardCode(cardCode);
-
-            if (socio != null && socio.getCardCode() != null && !socio.getCardCode().isEmpty()) {
-                if (socio.getApellido2() != null && !socio.getApellido2().isEmpty()) {
-                    return socio.getNombres() + " " + socio.getApellido1() + " " + socio.getApellido2();
-                } else {
-                    return socio.getNombres() + " " + socio.getApellido1();
-                }
-            }
-        }
-        return cardCode;
-    }
-
-    public String obtenerNombreAsesor(Integer slpCode) {
-        if (slpCode != null && slpCode != 0) {
-            String salesPerson = salesPersonFacade.obtenerNombreAsesor(slpCode);
-
-            if (salesPerson != null && !salesPerson.isEmpty()) {
-                return salesPerson;
-            }
-
-            return "";
-        }
-        return "";
-    }
-
-    public String obtenerRutaFotoEmpleado(String cedula) {
-        String urlWeb = applicationMBean.obtenerValorPropiedad("empleados.url.web.image");
-        if (urlWeb == null) {
-            log.log(Level.SEVERE, "No se encontro el valor de [empleados.url.web.image] en baru.properties");
-            return applicationMBean.obtenerValorPropiedad("empleados.url.web.noimage");
-        }
-        urlWeb = String.format(urlWeb, cedula);
-
-        String url = applicationMBean.obtenerValorPropiedad("empleados.url.local.image");
-        if (url != null) {
-            url = String.format(url, cedula);
+    public Integer redondearValor(Integer valor, Integer multiplo) {
+        Integer residuo = valor % multiplo;
+        if (residuo == 0) {
+            return valor;
         } else {
-            log.log(Level.SEVERE, "No se encontro el valor de [empleados.url.local.image] en baru.properties");
-            return applicationMBean.obtenerValorPropiedad("empleados.url.web.noimage");
-        }
-
-        File f = new File(url);
-        if (f.exists()) {
-            return urlWeb;
-        } else {
-            log.log(Level.WARNING, "el empleado [{0}] no tiene imagen ", cedula);
-            return applicationMBean.obtenerValorPropiedad("empleados.url.web.noimage");
-        }
-    }
-
-    public String obtenerRutaPDFFactura(String numeroFactura, boolean adjunto) {
-        String urlWeb = applicationMBean.obtenerValorPropiedad("url.web.pdf.factura");
-        if (urlWeb == null) {
-            log.log(Level.SEVERE, "No se encontro el valor de [url.web.pdf.factura] en baru.properties");
-            return null;
-        }
-        urlWeb = String.format(urlWeb, numeroFactura);
-
-        String url = applicationMBean.obtenerValorPropiedad("url.local.pdf.factura");
-        if (url != null) {
-            url = String.format(url, numeroFactura);
-        } else {
-            log.log(Level.SEVERE, "No se encontro el valor de [url.local.pdf.factura] en baru.properties");
-            return null;
-        }
-
-        File f = new File(url);
-        if (f.exists()) {
-            if (adjunto) {
-                return f.getPath();
-            } else {
-                return urlWeb;
-            }
-        } else {
-            log.log(Level.WARNING, "No se encontro la factura [{0}]", numeroFactura);
-            return null;
-        }
-    }
-
-    public String obtenerRutaPDFCotizacion(String numeroCotizacion, boolean adjunto) {
-        String urlWeb = applicationMBean.obtenerValorPropiedad("url.web.pdf.cotizacion");
-        if (urlWeb == null) {
-            log.log(Level.SEVERE, "No se encontro el valor de [url.web.pdf.cotizacion] en baru.properties");
-            return null;
-        }
-        urlWeb = String.format(urlWeb, numeroCotizacion);
-
-        String url = applicationMBean.obtenerValorPropiedad("url.local.pdf.cotizacion");
-        if (url != null) {
-            url = String.format(url, numeroCotizacion);
-        } else {
-            log.log(Level.SEVERE, "No se encontro el valor de [url.local.pdf.cotizacion] en baru.properties");
-            return null;
-        }
-
-        File f = new File(url);
-        if (f.exists()) {
-            if (adjunto) {
-                return f.getPath();
-            } else {
-                return urlWeb;
-            }
-        } else {
-            log.log(Level.WARNING, "No se encontro la cotizacion [{0}]", numeroCotizacion);
-            return null;
+            return valor + (multiplo - residuo);
         }
     }
 }

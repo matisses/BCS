@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class B1WSServiceInfo {
 
     //Variables de conexion con el servidor
-    public static final String RUTA_WSDL = "http://192.168.5.76/B1WS/WebReferences/%1$s.wsdl";
+    public static final String RUTA_WSDL = "http://192.168.5.75/B1WS/WebReferences/%1$s.wsdl";
 //    public static String DATABASE_SERVER = "CRONOS";
 //    public static String DATABASE_NAME = "BARU";
     public static String DATABASE_TYPE = "dst_MSSQL2012";
@@ -75,6 +75,8 @@ public class B1WSServiceInfo {
     public static final String BIN_LOCATIONS_SERVICE_WSDL_NAME = "BinLocationsService";
     public static final String WAREHOUSE_SUBLEVEL_CODES_SERVICE_WSDL_NAME = "WarehouseSublevelCodesService";
     public static final String BIN_LOCATION_ATTRIBUTES_SERVICE_WSDL_NAME = "BinLocationAttributesService";
+    //Variables para servicio de empleados
+    public static final String EMPLOYEES_INFO_SERVICE_WSDL_NAME = "EmployeesInfoService";
 
     public B1WSServiceInfo() {
 

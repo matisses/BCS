@@ -7,8 +7,11 @@ package co.matisses.bcs.b1ws.client.orders;
 public class OrderDetailDTO {
 
     private Long lineNum;
+    private Long uLineNumFv;
     private String itemCode;
     private Double quantity;
+    private Double price;
+    private Double discount;
     private String warehouseCode;
     private String estado;
 
@@ -21,6 +24,14 @@ public class OrderDetailDTO {
 
     public void setLineNum(Long lineNum) {
         this.lineNum = lineNum;
+    }
+
+    public Long getuLineNumFv() {
+        return uLineNumFv;
+    }
+
+    public void setuLineNumFv(Long uLineNumFv) {
+        this.uLineNumFv = uLineNumFv;
     }
 
     public String getItemCode() {
@@ -37,6 +48,22 @@ public class OrderDetailDTO {
 
     public void setQuantity(Double quantity) {
         this.quantity = quantity;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Double discount) {
+        this.discount = discount;
     }
 
     public String getWarehouseCode() {

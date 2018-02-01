@@ -26,8 +26,9 @@ import co.matisses.bcs.b1ws.client.orders.OrderServiceException;
 import co.matisses.bcs.b1ws.client.orders.OrdersServiceConnector;
 import co.matisses.bcs.b1ws.client.payments.IncomingPaymentServiceException;
 import co.matisses.bcs.dto.MailMessageDTO;
+import co.matisses.bcs.dto.ResponseDTO;
 import co.matisses.bcs.mbean.BCSApplicationMBean;
-import co.matisses.bcs.mbean.BcsGenericMBean;
+import co.matisses.bcs.mbean.BCSGenericMBean;
 import co.matisses.bcs.mbean.SAPB1WSBean;
 import co.matisses.persistence.sap.entity.Almacen;
 import co.matisses.persistence.sap.entity.AsientoContable;
@@ -78,9 +79,10 @@ import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import org.apache.commons.lang3.time.DateUtils;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -95,7 +97,7 @@ public class ProcesarDocumentoREST {
     @Inject
     private SAPB1WSBean sapB1MBean;
     @Inject
-    private BcsGenericMBean bcsGenericMBean;
+    private BCSGenericMBean bcsGenericMBean;
     @Inject
     private SendHtmlEmailREST emailREST;
     private static final Logger console = Logger.getLogger(ProcesarDocumentoREST.class.getSimpleName());
@@ -134,14 +136,14 @@ public class ProcesarDocumentoREST {
     }
 
     @GET
-    @Path("ejecutarsonda/")
+    @Path("ejecutarsonda/{procesando}")
     @Produces({MediaType.APPLICATION_JSON})
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-    public void ejecutarSonda() {
+    public Response ejecutarSonda(@PathParam("procesando") String procesando) {
         /*Se abre sesion en SAP para poder realizar las operaciones*/
         String sesionSAP = sapB1MBean.obtenerSesionSAP();
         try {
-            List<BaruDocumentoPendiente> pendingDocuments = documentoPendienteFacade.obtenerDocumentosPendientes();
+            List<BaruDocumentoPendiente> pendingDocuments = documentoPendienteFacade.obtenerDocumentosPendientes(procesando.charAt(0));
 
             if (pendingDocuments != null && !pendingDocuments.isEmpty()) {
                 for (BaruDocumentoPendiente b : pendingDocuments) {
@@ -287,12 +289,13 @@ public class ProcesarDocumentoREST {
 
                             List<Object[]> enc = facturaSAPFacade.consultarDatosFacturaAnulacion(String.valueOf(invoice.getDocNum()));
 
+                            int guardadoPendiente = 0;
                             SalesDocumentDTO dto = new SalesDocumentDTO();
                             if (enc != null && !enc.isEmpty()) {
-                                if (!DateUtils.isSameDay((Date) enc.get(0)[1], new Date())) {
-                                    console.log(Level.SEVERE, "No se puede realizar la anulacion de una factura de fechas pasadas. ");
-                                    continue;
-                                }
+//                                if (!DateUtils.isSameDay((Date) enc.get(0)[1], new Date())) {
+//                                    console.log(Level.SEVERE, "No se puede realizar la anulacion de una factura de fechas pasadas. ");
+//                                    continue;
+//                                }
                                 dto.setDocEntry(((Integer) enc.get(0)[2]).longValue());
                                 dto.setRefDocnum(String.valueOf(invoice.getDocNum()));
                                 dto.setCardCode((String) enc.get(0)[4]);
@@ -335,7 +338,10 @@ public class ProcesarDocumentoREST {
 
                                 List<SalesDocumentLineDTO> detDtos = new ArrayList<>();
                                 for (Object[] cols : enc) {
-                                    dto.setShippingStatus((String) cols[28]);
+                                    if (((String) cols[28]).equals("G") || ((String) cols[28]).equals("P")) {
+                                        guardadoPendiente++;
+                                    }
+//                                    dto.setShippingStatus((String) cols[28]);
                                     dto.setSalesCostingCode((String) cols[24]);
                                     dto.setLogisticsCostingCode((String) cols[25]);
                                     dto.setRouteCostingCode((String) cols[26]);
@@ -462,7 +468,7 @@ public class ProcesarDocumentoREST {
                                 }
                             }
                             /*Se valida si se necesita salida de mercancia y cierre de orden de venta*/
-                            if (dto.getShippingStatus().trim().isEmpty() || dto.getShippingStatus().equals("P")) {
+                            if (/*dto.getShippingStatus().trim().isEmpty() || dto.getShippingStatus().equals("P")*/guardadoPendiente > 0) {
                                 if (!salidaMercancia) {
                                     try {
                                         numeroSalidaMercancia = crearSalidaMercancia(sesionSAP, dto, String.valueOf(invoice.getDocNum()), numeroNotaCredito);
@@ -565,10 +571,11 @@ public class ProcesarDocumentoREST {
                 }
             }
         } catch (Exception e) {
-            console.log(Level.SEVERE, "Ocurrio un error al procesar el documento pendiente.", e);
+            console.log(Level.SEVERE, "Ocurrio un error al procesar el documento pendiente. ", e);
+            return Response.ok(new ResponseDTO(0, "Ocurrio un error al procesar el documento pendiente. " + e.getMessage())).build();
         } finally {
-
         }
+        return Response.ok(new ResponseDTO(1)).build();
     }
 
     private void registrarDetalleDocumentoPendiente(String codeDocPdte, Integer numeroDocumento, String tipoDocumento) {
@@ -647,7 +654,10 @@ public class ProcesarDocumentoREST {
                 } else {
                     detEntrada.setWhsCode(d.getWhsCode().contains("CL") ? d.getWhsCode() : "CL" + d.getWhsCode());
                 }
-                detEntrada.setPrice(bcsGenericMBean.obtenerPrecioVenta(d.getItemCode()).doubleValue());
+                if (d.getDiscPrcnt() != null && d.getDiscPrcnt().doubleValue() > 0) {
+                    detEntrada.setDiscount(d.getDiscPrcnt().doubleValue());
+                }
+                detEntrada.setPrice(d.getPrice().doubleValue());
 
                 entrada.addDetail(detEntrada);
                 contador++;
@@ -724,10 +734,15 @@ public class ProcesarDocumentoREST {
                 detail.setItemCode(d.getItemCode());
                 detail.setLineNum(contador.longValue());
                 detail.setQuantity(d.getQuantity().doubleValue());
+                detail.setuLineNumFv(((Integer) d.getDetalleFacturaSAPPK().getLineNum()).longValue());
                 if (almacen != null && almacen.getuBodegaClientes() != null && !almacen.getuBodegaClientes().isEmpty()) {
                     detail.setWarehouseCode(almacen.getuBodegaClientes());
                 } else {
                     detail.setWarehouseCode(d.getWhsCode().contains("CL") ? d.getWhsCode() : "CL" + d.getWhsCode());
+                }
+                detail.setPrice(d.getPrice().doubleValue());
+                if (d.getDiscPrcnt() != null && d.getDiscPrcnt().doubleValue() > 0) {
+                    detail.setDiscount(d.getDiscPrcnt().doubleValue());
                 }
 
                 order.addLine(detail);
@@ -751,10 +766,12 @@ public class ProcesarDocumentoREST {
         if (asientos != null && !asientos.isEmpty() && asientos.size() > 1) {
             StringBuilder sb = new StringBuilder();
 
-            for (AsientoContable e : asientos) {
+            asientos.stream().map((e) -> {
                 sb.append(e.getTransId());
+                return e;
+            }).forEach((_item) -> {
                 sb.append(", ");
-            }
+            });
 
             if (sb.length() > 0) {
                 sb.deleteCharAt(sb.length() - 1);
@@ -965,10 +982,12 @@ public class ProcesarDocumentoREST {
                 List<DetalleOrdenVenta> detOrden = detalleOrdenVentaFacade.obtenerDetalleOrdenVenta(o.getDocEntry());
 
                 if (detOrden != null && !detOrden.isEmpty()) {
-                    for (DetalleOrdenVenta d : detOrden) {
+                    detOrden.stream().map((_item) -> {
                         sb.append(o.getDocNum());
+                        return _item;
+                    }).forEach((_item) -> {
                         sb.append(", ");
-                    }
+                    });
                 }
             }
 

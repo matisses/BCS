@@ -63,32 +63,6 @@ public class ImagenProductoMBean implements Serializable {
         }
     }
 
-    public String obtenerUrlFotoTienda(String tienda) {
-        String urlWeb = aplicacionBean.obtenerValorPropiedad("url.web.sketch");
-        if (urlWeb == null) {
-            log.log(Level.SEVERE, "No se encontro el valor de [url.web.sketch] en baru.properties");
-            return aplicacionBean.obtenerValorPropiedad("url.web.noimage");
-        }
-        urlWeb = String.format(urlWeb, tienda, "", "");
-
-        String url = aplicacionBean.obtenerValorPropiedad("url.local.sketch");
-        if (url != null) {
-            url = String.format(url, tienda, "", "");
-        } else {
-            log.log(Level.SEVERE, "No se encontro el valor de [url.local.sketch] en baru.properties");
-            return aplicacionBean.obtenerValorPropiedad("url.web.noimage");
-        }
-
-        File f = new File(url);
-        if (f.exists()) {
-            log.log(Level.INFO, "Retornando la ruta de la tienda [{0}]", tienda);
-            return urlWeb;
-        } else {
-            log.log(Level.WARNING, "La tienda [{0}] no tiene imagen ", tienda);
-            return aplicacionBean.obtenerValorPropiedad("url.web.noimage");
-        }
-    }
-
     public String obtenerPlantilla(String referencia) {
         String urlWeb = aplicacionBean.obtenerValorPropiedad("url.web.plantilla");
         if (urlWeb != null) {

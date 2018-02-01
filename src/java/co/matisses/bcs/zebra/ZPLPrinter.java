@@ -45,10 +45,10 @@ public class ZPLPrinter {
 //        Doc doc = new SimpleDoc(ZPLPrinter.getPrintData(dto), DocFlavor.BYTE_ARRAY.AUTOSENSE, null);
 //        job.print(doc, null);
 //    }
-
     private final static int LABEL_32X15 = 1;
     private final static int LABEL_40X30 = 2;
     private final static int LABEL_32X25 = 3;
+    private final static int LABEL_32X15VEGAS = 4;
 
     private final static String IMAGE = "~DG000.GRF,03840,040,,::::::gT03780,gT03F80,::gT03F,gT03F80,::gT03780,gT03F80,::gT03F,gT03F80,::gT03780U010W010,"
             + "L0HA80I02AA80M0IAJ06FHFEFE3FE0H0HF80I02FF80K0HFE80K0HF80,K05FHFC001FHFE0L07FHFC0H07FJFC1FC007FHFJ07FFE0J07FHFD0J07FHF0,"
@@ -80,6 +80,9 @@ public class ZPLPrinter {
         switch (dto.getLabelType()) {
             case LABEL_32X15:
                 bytes.addAll(generateData32x15(dto));
+                break;
+            case LABEL_32X15VEGAS:
+                bytes.addAll(generateData32x15Vegas(dto));
                 break;
             case LABEL_40X30:
                 bytes.addAll(generateData40x30(dto));
@@ -118,6 +121,31 @@ public class ZPLPrinter {
                     if (row < (totalLabels / dto.getColumns()) + (totalLabels % dto.getColumns())) {
                         bytes.addAll(endLine());
                         bytes.addAll(startLine32x15());
+                        col = 1;
+                    }
+                }
+            }
+        }
+        bytes.addAll(endLine());
+        return bytes;
+    }
+
+    private static List<Byte> generateData32x15Vegas(ZebraPrintDTO dto) {
+        List<Byte> bytes = new ArrayList<>();
+        bytes.addAll(startLine32x15Vegas());
+        int totalLabels = calculateTotalLabels(dto);
+        int col = 1;
+        int row = 0;
+        for (ItemLabelDTO label : dto.getItems()) {
+            for (int i = 0; i < label.getQuantity(); i++) {
+                bytes.addAll(addItem32x15Vegas(label.getItemCode(), label.getItemName(), label.getPrice(), label.getProvCode(), label.getType(), col));
+                if (col < dto.getColumns()) {
+                    col++;
+                } else {
+                    row++;
+                    if (row < (totalLabels / dto.getColumns()) + (totalLabels % dto.getColumns())) {
+                        bytes.addAll(endLine());
+                        bytes.addAll(startLine32x15Vegas());
                         col = 1;
                     }
                 }
@@ -177,6 +205,56 @@ public class ZPLPrinter {
         bytes.add((byte) ',');
         bytes.add((byte) '5');
         bytes.add((byte) '0');
+        bytes.add((byte) '^');
+        bytes.add((byte) 'B');
+        bytes.add((byte) 'C');
+        bytes.add((byte) 'N');
+        bytes.add((byte) ',');
+        bytes.add((byte) ',');
+        bytes.add((byte) 'N');
+        bytes.add((byte) ',');
+        bytes.add((byte) 'N');
+
+        //^FD>;itemCode^FS
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'D');
+        bytes.add((byte) '>');
+        bytes.add((byte) ';');
+        for (byte b : itemCode.getBytes()) {
+            bytes.add(b);
+        }
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'S');
+
+        return bytes;
+    }
+
+    private static List<Byte> addBarcode32x15Vegas(String itemCode, int col) {
+        List<Byte> bytes = new ArrayList<>();
+        //^BY2,3,86^FT14,119^BCN,,Y,N
+        bytes.add((byte) '^');
+        bytes.add((byte) 'B');
+        bytes.add((byte) 'Y');
+        bytes.add((byte) '1');
+        bytes.add((byte) ',');
+        bytes.add((byte) '3');
+        bytes.add((byte) ',');
+        bytes.add((byte) '4');
+        bytes.add((byte) '9');
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'T');
+
+        int x = 295 * col - 292;// 5+(280*(x-1));
+        for (byte b : Integer.toString(x).getBytes()) {
+            bytes.add(b);
+        }
+
+        bytes.add((byte) ',');
+        bytes.add((byte) '5');
+        bytes.add((byte) '5');
         bytes.add((byte) '^');
         bytes.add((byte) 'B');
         bytes.add((byte) 'C');
@@ -298,7 +376,61 @@ public class ZPLPrinter {
         bytes.add((byte) '^');
         bytes.add((byte) 'F');
         bytes.add((byte) 'D');
-        String shortItemCode = itemCode.substring(0, 3).concat(".").concat(itemCode.substring(16));
+        String shortItemCode = itemCode.substring(0, 3).concat("*").concat(itemCode.substring(16));
+        for (byte b : shortItemCode.getBytes()) {
+            bytes.add(b);
+        }
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'S');
+        return bytes;
+    }
+
+    private static List<Byte> addShortItemCode32x15Vegas(String itemCode, int col) {
+        List<Byte> bytes = new ArrayList<>();
+        //^FB93,1,0,R,0
+        //^FT43,107^A0N,17,16^FH\^FDshortItemCode^FS
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'B');
+        bytes.add((byte) '9');
+        bytes.add((byte) '3');
+        bytes.add((byte) ',');
+        bytes.add((byte) '1');
+        bytes.add((byte) ',');
+        bytes.add((byte) '0');
+        bytes.add((byte) ',');
+        bytes.add((byte) 'C');
+        bytes.add((byte) ',');
+        bytes.add((byte) '0');
+
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'T');
+
+        int x = 295 * col - 150;// 150+(280*(x-1));
+        for (byte b : Integer.toString(x).getBytes()) {
+            bytes.add(b);
+        }
+        bytes.add((byte) ',');
+        bytes.add((byte) '2');
+        bytes.add((byte) '6');
+        bytes.add((byte) '^');
+
+        bytes.add((byte) 'A');
+        bytes.add((byte) '0');
+        bytes.add((byte) 'N');
+        bytes.add((byte) ',');
+        bytes.add((byte) '2');
+        bytes.add((byte) '3');
+        bytes.add((byte) ',');
+        bytes.add((byte) '2');
+        bytes.add((byte) '0');
+
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'D');
+        String shortItemCode = itemCode.substring(0, 3).concat("*").concat(itemCode.substring(16));
         for (byte b : shortItemCode.getBytes()) {
             bytes.add(b);
         }
@@ -354,7 +486,7 @@ public class ZPLPrinter {
         bytes.add((byte) '^');
         bytes.add((byte) 'F');
         bytes.add((byte) 'D');
-        String shortItemCode = itemCode.substring(0, 3).concat(".").concat(itemCode.substring(16));
+        String shortItemCode = itemCode.substring(0, 3).concat("*").concat(itemCode.substring(16));
         for (byte b : shortItemCode.getBytes()) {
             bytes.add(b);
         }
@@ -406,6 +538,70 @@ public class ZPLPrinter {
         bytes.add((byte) ',');
         bytes.add((byte) '8');
         bytes.add((byte) '3');
+        bytes.add((byte) '^');
+        bytes.add((byte) 'A');
+        bytes.add((byte) '0');
+        bytes.add((byte) 'N');
+        bytes.add((byte) ',');
+        bytes.add((byte) '1');
+        bytes.add((byte) '8');
+        bytes.add((byte) ',');
+        bytes.add((byte) '1');
+        bytes.add((byte) '6');
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'D');
+        for (byte b : itemName.getBytes()) {
+            bytes.add(b);
+        }
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'S');
+        return bytes;
+    }
+
+    private static List<Byte> addItemName32x15Vegas(String itemName, int col) {
+        /**
+         * ^FB245,2,0,C,0 Crea una caja de 245 puntos de ancho, maximo dos
+         * lineas, sin espacio adicional entre lineas, alieneada al centro y sin
+         * sangria en la segunda linea
+         *
+         * ^FT5,80 Ubica el texto a 5 puntos de la izquierda y a 80 puntos del
+         * borde superior
+         *
+         * ^A0N,18,16 Configura la fuente tipo 0, con orientacion normal, 18
+         * puntos de alto y 16 puntos de ancho
+         *
+         * ^FD[itemName]^FS Agrega el texto
+         */
+        List<Byte> bytes = new ArrayList<>();
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'B');
+        bytes.add((byte) '2');
+        bytes.add((byte) '4');
+        bytes.add((byte) '5');
+        bytes.add((byte) ',');
+        bytes.add((byte) '2');
+        bytes.add((byte) ',');
+        bytes.add((byte) '0');
+        bytes.add((byte) ',');
+        bytes.add((byte) 'C');
+        bytes.add((byte) ',');
+        bytes.add((byte) '0');
+
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'T');
+
+        int x = 295 * col - 292;// 150+(280*(x-1));
+        for (byte b : Integer.toString(x).getBytes()) {
+            bytes.add(b);
+        }
+
+        bytes.add((byte) ',');
+        bytes.add((byte) '8');
+        bytes.add((byte) '8');
         bytes.add((byte) '^');
         bytes.add((byte) 'A');
         bytes.add((byte) '0');
@@ -544,6 +740,57 @@ public class ZPLPrinter {
         return bytes;
     }
 
+    private static List<Byte> addPrice32x15Vegas(String price, int col) {
+        List<Byte> bytes = new ArrayList<>();
+        //^FB93,1,0,R,0
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'B');
+        bytes.add((byte) '9');
+        bytes.add((byte) '5');
+        bytes.add((byte) ',');
+        bytes.add((byte) '1');
+        bytes.add((byte) ',');
+        bytes.add((byte) '0');
+        bytes.add((byte) ',');
+        bytes.add((byte) 'C');
+        bytes.add((byte) ',');
+        bytes.add((byte) '0');
+
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'T');
+
+        int x = 295 * col - 147;// 150+(280*(x-1));
+        for (byte b : Integer.toString(x).getBytes()) {
+            bytes.add(b);
+        }
+
+        bytes.add((byte) ',');
+        bytes.add((byte) '5');
+        bytes.add((byte) '3');
+        bytes.add((byte) '^');
+        bytes.add((byte) 'A');
+        bytes.add((byte) '0');
+        bytes.add((byte) 'N');
+        bytes.add((byte) ',');
+        bytes.add((byte) '2');
+        bytes.add((byte) '0');
+        bytes.add((byte) ',');
+        bytes.add((byte) '1');
+        bytes.add((byte) '8');
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'D');
+        for (byte b : price.getBytes()) {
+            bytes.add(b);
+        }
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'S');
+        return bytes;
+    }
+
     private static List<Byte> addPrice40x30(String text, int col) {
         List<Byte> bytes = new ArrayList<>();
         //^FB93,1,0,R,0
@@ -652,6 +899,59 @@ public class ZPLPrinter {
         return bytes;
     }
 
+    private static List<Byte> addProviderCode32x15Vegas(String provCode, int col) {
+        List<Byte> bytes = new ArrayList<>();
+        //^FB245,2,0,C,0
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'B');
+        bytes.add((byte) '2');
+        bytes.add((byte) '4');
+        bytes.add((byte) '5');
+        bytes.add((byte) ',');
+        bytes.add((byte) '2');
+        bytes.add((byte) ',');
+        bytes.add((byte) '0');
+        bytes.add((byte) ',');
+        bytes.add((byte) 'C');
+        bytes.add((byte) ',');
+        bytes.add((byte) '0');
+
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'T');
+
+        int x = 295 * col - 292;// 150+(280*(x-1));
+        for (byte b : Integer.toString(x).getBytes()) {
+            bytes.add(b);
+        }
+
+        bytes.add((byte) ',');
+        bytes.add((byte) '1');
+        bytes.add((byte) '1');
+        bytes.add((byte) '7');
+        bytes.add((byte) '^');
+        bytes.add((byte) 'A');
+        bytes.add((byte) '0');
+        bytes.add((byte) 'N');
+        bytes.add((byte) ',');
+        bytes.add((byte) '1');
+        bytes.add((byte) '5');
+        bytes.add((byte) ',');
+        bytes.add((byte) '1');
+        bytes.add((byte) '4');
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'D');
+        for (byte b : provCode.getBytes()) {
+            bytes.add(b);
+        }
+        bytes.add((byte) '^');
+        bytes.add((byte) 'F');
+        bytes.add((byte) 'S');
+        return bytes;
+    }
+
     private static List<Byte> addProviderCode40x30(String provCode, int col) {
         List<Byte> bytes = new ArrayList<>();
         //^FB245,2,0,C,0
@@ -728,6 +1028,29 @@ public class ZPLPrinter {
         return bytes;
     }
 
+    private static List<Byte> addItem32x15Vegas(String itemCode, String itemName, String price, String provCode, String type, int col) {
+        List<Byte> bytes = new ArrayList<>();
+        bytes.addAll(addBarcode32x15Vegas(itemCode, col));
+        bytes.addAll(addShortItemCode32x15Vegas(itemCode, col));
+        bytes.addAll(addItemName32x15Vegas(itemName, col));
+        switch (type) {
+            case "VENTAS":
+                bytes.addAll(addPrice32x15Vegas("$" + price, col));
+                break;
+            case "DOTACION":
+                bytes.addAll(addPrice32x15Vegas("DOTACION", col));
+                break;
+            case "ACTIVO FIJO":
+                bytes.addAll(addPrice32x15Vegas("A. FIJO", col));
+                break;
+            default:
+                break;
+        }
+        bytes.addAll(addProviderCode32x15Vegas(provCode, col));
+
+        return bytes;
+    }
+
     private static List<Byte> addItem40x30(String itemCode, String itemName, String price, String provCode, String type, int col) {
         List<Byte> bytes = new ArrayList<>();
         bytes.addAll(addImage40x30(col));
@@ -773,18 +1096,20 @@ public class ZPLPrinter {
         int col = 1;
         int row = 0;
         for (CodigoRevisadoLabelDTO label : dto.getCodigos()) {
-            for (int i = 0; i < label.getCantidad(); i++) {
-                bytes.addAll(addCodigoRevisado32x25(label.getCodigoRevisado(), col));
-                bytes.addAll(addNombreEmpleado32x25(label.getNombreEmpleado(), col));
-                bytes.addAll(addFecha32x25(label.getFecha(), col));
-                if (col < dto.getColumns()) {
-                    col++;
-                } else {
-                    row++;
-                    if (row < (totalLabels / dto.getColumns()) + (totalLabels % dto.getColumns())) {
-                        bytes.addAll(endLine());
-                        bytes.addAll(startLine32x25());
-                        col = 1;
+            if (label.getCodigoRevisado() != null && label.getNombreEmpleado() != null) {
+                for (int i = 0; i < label.getCantidad(); i++) {
+                    bytes.addAll(addCodigoRevisado32x25(label.getCodigoRevisado(), col));
+                    bytes.addAll(addNombreEmpleado32x25(label.getNombreEmpleado(), col));
+                    bytes.addAll(addFecha32x25(label.getFecha(), col));
+                    if (col < dto.getColumns()) {
+                        col++;
+                    } else {
+                        row++;
+                        if (row < (totalLabels / dto.getColumns()) + (totalLabels % dto.getColumns())) {
+                            bytes.addAll(endLine());
+                            bytes.addAll(startLine32x25());
+                            col = 1;
+                        }
                     }
                 }
             }
@@ -947,7 +1272,7 @@ public class ZPLPrinter {
         bytes.add((byte) 'S');
         return bytes;
     }
-    
+
     private static List<Byte> loadImage40x30() {
         List<Byte> bytes = new ArrayList<>();
         for (byte b : IMAGE.getBytes()) {
@@ -1006,6 +1331,23 @@ public class ZPLPrinter {
         bytes.add((byte) '8');
         bytes.add((byte) '1');
         bytes.add((byte) '5');
+        return bytes;
+    }
+
+    private static List<Byte> startLine32x15Vegas() {
+        List<Byte> bytes = new ArrayList<>();
+        //^XA
+        bytes.add((byte) '^');
+        bytes.add((byte) 'X');
+        bytes.add((byte) 'A');
+
+        //^PW655
+        bytes.add((byte) '^');
+        bytes.add((byte) 'P');
+        bytes.add((byte) 'W');
+        bytes.add((byte) '8');
+        bytes.add((byte) '4');
+        bytes.add((byte) '0');
         return bytes;
     }
 

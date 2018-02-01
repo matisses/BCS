@@ -36,6 +36,7 @@ public class SAPSessionManager extends B1WSServiceInfo {
     }
 
     public void logout(String sessionId) throws B1WSServiceUnavailableException {
+        log.log(Level.INFO, "Closing SAP connection {0}", sessionId);
         if (loginService == null) {
             throw new B1WSServiceUnavailableException("El servicio B1WS no se encuentra disponible. ");
         }

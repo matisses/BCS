@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "InventoryGenExitService", targetNamespace = "InventoryGenExitService", wsdlLocation = "http://192.168.5.76/B1WS/WebReferences/InventoryGenExitService.wsdl")
+@WebServiceClient(name = "InventoryGenExitService", targetNamespace = "InventoryGenExitService", wsdlLocation = "http://192.168.5.75/B1WS/WebReferences/InventoryGenExitService.wsdl")
 public class InventoryGenExitService
     extends Service
 {
@@ -30,7 +30,7 @@ public class InventoryGenExitService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://192.168.5.76/B1WS/WebReferences/InventoryGenExitService.wsdl");
+            url = new URL("http://192.168.5.75/B1WS/WebReferences/InventoryGenExitService.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

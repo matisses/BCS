@@ -21,7 +21,7 @@ public class MailMessageDTO {
     private List<String> to;
     private List<String> cc;
     private List<String> bcc;
-    private String subject;
+    private String subject;     
 
     public MailMessageDTO() {
         to = new ArrayList<>();

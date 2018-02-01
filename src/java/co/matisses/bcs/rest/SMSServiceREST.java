@@ -4,6 +4,7 @@ import co.matisses.bcs.dto.MensajeTextoDTO;
 import co.matisses.bcs.dto.SMSServiceResponseDTO;
 import co.matisses.persistence.web.entity.SmsEnviado;
 import co.matisses.persistence.web.facade.SmsEnviadoFacade;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStream;
@@ -11,6 +12,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.Normalizer;
 import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -29,7 +31,6 @@ import javax.ws.rs.container.AsyncResponse;
 import javax.ws.rs.container.Suspended;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import org.primefaces.json.JSONObject;
 
 /**
  *
@@ -59,7 +60,8 @@ public class SMSServiceREST {
             //TODO: parametrizar url y apikey (appbean o properties)
             String urlRequest = "http://panel.smasivos.com/api.envio.new.php";
             String urlParametros = "apikey=" + URLEncoder.encode("d4b4d68828633964808035cd81bcbe0041d03476", "UTF-8")
-                    + "&mensaje=" + URLEncoder.encode(sms.getMensaje(), "UTF-8")
+                    + "&mensaje=" + URLEncoder.encode(Normalizer.normalize(sms.getMensaje(), 
+                            Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", ""), "UTF-8")
                     + "&numcelular=" + URLEncoder.encode(sms.getDestino(), "UTF-8")
                     + "&numregion=" + URLEncoder.encode(sms.getCodigoPais(), "UTF-8")
                     + (sms.isPruebas() ? "&sandbox=1" : "");
@@ -92,27 +94,36 @@ public class SMSServiceREST {
                 }
                 rd.close();
                 String respuesta = responsee.toString();
+                log.log(Level.INFO, respuesta);
                 //-------------Decodificar JSON con libreria org.json--------------
-                JSONObject jsonObject = new JSONObject(respuesta);
-                SMSServiceResponseDTO response = new SMSServiceResponseDTO();
                 try {
-                    response.setCodigo(jsonObject.getString("codigo"));
+                    SMSServiceResponseDTO response = new ObjectMapper().readValue(respuesta, SMSServiceResponseDTO.class);
+                    log.log(Level.INFO, "Finalizo envio de SMS. {0}", response);
+                    return response;
                 } catch (Exception e) {
+                    log.log(Level.SEVERE, "Ocurrio un error al procesar la respuesta. ", e);
+                    return new SMSServiceResponseDTO("-1", "Ocurrio un error al procesar la respuesta. " + e.getMessage(), null, null);
                 }
-                try {
-                    response.setMensaje(jsonObject.getString("mensaje"));
-                } catch (Exception e) {
-                }
-                try {
-                    response.setReferencia(jsonObject.getString("referencia"));
-                } catch (Exception e) {
-                }
-                try {
-                    response.setStatus(jsonObject.getString("estatus"));
-                } catch (Exception e) {
-                }
-                log.log(Level.INFO, "Finalizo envio de SMS. {0}", response);
-                return response;
+
+                //JSONObject jsonObject = new JSONObject(respuesta);
+                //SMSServiceResponseDTO response = new SMSServiceResponseDTO();
+                //try {
+//                    response.setCodigo(jsonObject.getString("codigo"));
+//                } catch (Exception e) {
+//                }
+//                try {
+//                    response.setMensaje(jsonObject.getString("mensaje"));
+//                } catch (Exception e) {
+//                }
+//                try {
+//                    response.setReferencia(jsonObject.getString("referencia"));
+//                } catch (Exception e) {
+//                }
+//                try {
+//                    response.setStatus(jsonObject.getString("estatus"));
+//                } catch (Exception e) {
+//                }
+//                return response;
             } catch (Exception e) {
                 log.log(Level.SEVERE, "Ocurrio un error al enviar el SMS. ", e);
                 return new SMSServiceResponseDTO(null, e.getMessage(), null, "ERROR");
@@ -184,5 +195,14 @@ public class SMSServiceREST {
         SMSServiceResponseDTO dto = enviar(sms);
         crearRegistroBD(sms, dto);
         return Response.ok().build();
+    }
+
+    public static void main(String[] args) {
+        String input = "Árvíztűrő tükörfúrñÑáógép";
+        System.out.println("Input: " + input);
+        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+        System.out.println("Normalized: " + normalized);
+        String accentRemoved = normalized.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+        System.out.println("Result: " + accentRemoved);
     }
 }

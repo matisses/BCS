@@ -112,9 +112,35 @@ public class MercadoLibreClient {
                 .request(MediaType.APPLICATION_JSON).put(Entity.entity(actDto, MediaType.APPLICATION_JSON), Response.class);
     }
 
+    public Response consultarCategorias() {
+        return webTarget.path("sites/MCO/categories").request(MediaType.APPLICATION_JSON).get(Response.class);
+    }
+
+    public Response consultarCategoria(String id) {
+        return webTarget.path("categories").path(id).request(MediaType.APPLICATION_JSON).get(Response.class);
+    }
+
+    public Response consultarItemsTienda() {
+        return webTarget.path("sites").path("MCO").path("search")
+                .queryParam("official_store_id", 276).request(MediaType.APPLICATION_JSON).get(Response.class);
+    }
+
     public <T> T ejecutarConsulta(String path, String accessToken, Class<T> responseType) {
         return webTarget.path(path).queryParam("access_token", accessToken)
                 .request(MediaType.APPLICATION_JSON).get(responseType);
+    }
+
+    public Response consultarItemsPublicados(Integer pagina) {
+        return webTarget.path("sites").path("MCO").path("search")
+                .queryParam("official_store_id", 276)
+                .queryParam("limit", 200)
+                .queryParam("offset", (pagina - 1) * 200)
+                .queryParam("sort", "price_asc")
+                .request(MediaType.APPLICATION_JSON).get(Response.class);
+    }
+
+    public Response obtenerDatosItem(String idMercadolibre) {
+        return webTarget.path("items").path(idMercadolibre).request(MediaType.APPLICATION_JSON).get(Response.class);
     }
 
     public void close() {

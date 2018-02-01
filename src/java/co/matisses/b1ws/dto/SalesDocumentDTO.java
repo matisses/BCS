@@ -12,6 +12,9 @@ import java.util.List;
  */
 public class SalesDocumentDTO {
 
+    private Long posShiftId;
+    private Long docEntry;
+    private Long salesPerson;
     private String binAbsEntry;
     private String cardCode;
     private String comments;
@@ -29,10 +32,12 @@ public class SalesDocumentDTO {
     private String prestashopOrderID;
     private String designerCode;
     private Date docDate;
-    private Long posShiftId;
-    private Long docEntry;
     private List<SalesDocumentLineDTO> documentLines;
     private List<SalesEmployeeDTO> salesEmployees;
+
+    /*Variables para facturas por servicio (Transporte)*/
+    private String docType;
+    private String uNumFact;
 
     public SalesDocumentDTO() {
         documentLines = new ArrayList<>();
@@ -53,6 +58,14 @@ public class SalesDocumentDTO {
 
     public void setDocEntry(Long docEntry) {
         this.docEntry = docEntry;
+    }
+
+    public Long getSalesPerson() {
+        return salesPerson;
+    }
+
+    public void setSalesPerson(Long salesPerson) {
+        this.salesPerson = salesPerson;
     }
 
     public String getRefDocnum() {
@@ -221,6 +234,22 @@ public class SalesDocumentDTO {
         this.shippingStatus = shippingStatus;
     }
 
+    public String getDocType() {
+        return docType;
+    }
+
+    public void setDocType(String docType) {
+        this.docType = docType;
+    }
+
+    public String getuNumFact() {
+        return uNumFact;
+    }
+
+    public void setuNumFact(String uNumFact) {
+        this.uNumFact = uNumFact;
+    }
+
     public static float calculateCommission(int salesPerson, int totalSalesPeople) {
         float total = 1.0f;
         Float part = total / totalSalesPeople;
@@ -241,7 +270,11 @@ public class SalesDocumentDTO {
 
     @Override
     public String toString() {
-        return "SalesDocumentDTO{" + "binAbsEntry=" + binAbsEntry + ", cardCode=" + cardCode + ", comments=" + comments + ", salesCostingCode=" + salesCostingCode + ", logisticsCostingCode=" + logisticsCostingCode + ", paymentGroupCode=" + paymentGroupCode + ", routeCostingCode=" + routeCostingCode + ", projectCode=" + projectCode + ", seriesCode=" + seriesCode + ", wuid=" + wuid + ", source=" + source + ", refDocnum=" + refDocnum + ", creditNoteType=" + creditNoteType + ", prestashopOrderID=" + prestashopOrderID + ", designerCode=" + designerCode + ", docDate=" + docDate + ", posShiftId=" + posShiftId + ", docEntry=" + docEntry + ", documentLines=" + documentLines + ", salesEmployees=" + salesEmployees + '}';
+        return "SalesDocumentDTO{" + "posShiftId=" + posShiftId + ", docEntry=" + docEntry + ", salesPerson=" + salesPerson + ", binAbsEntry=" + binAbsEntry
+                + ", cardCode=" + cardCode + ", comments=" + comments + ", salesCostingCode=" + salesCostingCode + ", logisticsCostingCode=" + logisticsCostingCode
+                + ", paymentGroupCode=" + paymentGroupCode + ", routeCostingCode=" + routeCostingCode + ", projectCode=" + projectCode + ", seriesCode=" + seriesCode
+                + ", wuid=" + wuid + ", shippingStatus=" + shippingStatus + ", source=" + source + ", refDocnum=" + refDocnum + ", creditNoteType=" + creditNoteType
+                + ", prestashopOrderID=" + prestashopOrderID + ", designerCode=" + designerCode + ", docDate=" + docDate + ", documentLines=" + documentLines
+                + ", salesEmployees=" + salesEmployees + ", docType=" + docType + ", uNumFact=" + uNumFact + '}';
     }
-
 }

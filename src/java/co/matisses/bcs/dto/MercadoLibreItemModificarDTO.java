@@ -16,13 +16,13 @@ public class MercadoLibreItemModificarDTO {
     private int availableQuantity;
     private List<Picture> pictures;
 
-    public MercadoLibreItemModificarDTO(MercadolibreItemDTO dto) {
+    public MercadoLibreItemModificarDTO(MercadolibrePublicarItemDTO dto) {
         this.title = dto.getTitle();
         this.status = dto.getStatus();
         this.price = dto.getPrice();
         this.availableQuantity = dto.getAvailableQuantity();
         this.pictures = new ArrayList<>();
-        for (MercadolibreItemDTO.Picture p : dto.getPictures()) {
+        for (MercadolibrePublicarItemDTO.Picture p : dto.getPictures()) {
             Picture imagen = new Picture();
             imagen.setSource(p.getSource());
             this.pictures.add(imagen);

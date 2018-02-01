@@ -1,8 +1,8 @@
 package co.matisses.bcs.b1ws.client.payments;
 
+import co.matisses.bcs.b1ws.client.B1WSServiceUnavailableException;
+import co.matisses.bcs.b1ws.client.SAPSessionManager;
 import co.matisses.bcs.dto.ResponseDTO;
-import co.matisses.bcs.dto.SesionSAPB1WSDTO;
-import co.matisses.bcs.mbean.BCSApplicationMBean;
 import co.matisses.bcs.mbean.SAPB1WSBean;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,25 +25,35 @@ public class IncomingPaymentServiceREST {
     private static final Logger console = Logger.getLogger(IncomingPaymentServiceREST.class.getSimpleName());
 
     @Inject
-    private BCSApplicationMBean applicationMBean;
-    @Inject
     private SAPB1WSBean sapB1WSBean;
+    private SAPSessionManager sessionManager = new SAPSessionManager();
 
     @POST
     @Path("add/{username}")
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response addIncomingPayment(PaymentDTO paymentDto, @PathParam("username") String username) {
-        SesionSAPB1WSDTO sesionSAPDTO = applicationMBean.obtenerSesionSAP(username);
-        if (sesionSAPDTO == null) {
-            console.log(Level.SEVERE, "No fue posible iniciar una sesion en SAP B1WS.");
-            return Response.ok(new ResponseDTO(-1, "No fue posible iniciar una sesión en SAP B1WS.")).build();
+    public Response addIncomingPayment(PaymentDTO paymentDto, @PathParam("username") String username) throws B1WSServiceUnavailableException {
+        if (sapB1WSBean == null) {
+            sapB1WSBean = new SAPB1WSBean();
+            sapB1WSBean.initialize();
         }
-        IncomingPaymentServiceConnector ipsc = sapB1WSBean.getIncomingPaymentServiceConnectorInstance(sesionSAPDTO.getIdSesionSAP());
+
+        String sesionId = sessionManager.login();
+        if (sesionId == null) {
+            console.log(Level.SEVERE, "No fue posible iniciar una sesion en SAP B1WS.");
+            return Response.ok(new ResponseDTO(0, "No fue posible iniciar una sesión en SAP B1WS.")).build();
+        }
+
+        IncomingPaymentServiceConnector ipsc = sapB1WSBean.getIncomingPaymentServiceConnectorInstance(sesionId);
+
         try {
-            return Response.ok(new ResponseDTO(0, ipsc.addPayment(paymentDto).toString())).build();
+            Long docEntry = ipsc.addPayment(paymentDto);
+
+            return Response.ok(new ResponseDTO(0, docEntry.toString())).build();
         } catch (Exception e) {
             return Response.ok(new ResponseDTO(-1, "Ocurrio un error al invocar el servicio. " + e.getMessage())).build();
+        } finally {
+            sessionManager.logout(sesionId);
         }
     }
 }

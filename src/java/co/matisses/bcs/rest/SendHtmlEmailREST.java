@@ -1,7 +1,9 @@
 package co.matisses.bcs.rest;
 
 import co.matisses.bcs.dto.MailMessageDTO;
+import co.matisses.bcs.dto.ResponseDTO;
 import co.matisses.bcs.mbean.BCSApplicationMBean;
+import co.matisses.bcs.mbean.BCSGenericMBean;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -47,6 +49,8 @@ public class SendHtmlEmailREST {
 
     @Inject
     private BCSApplicationMBean applicationMBean;
+    @Inject
+    private BCSGenericMBean bcsGenericMBean;
     private static final Logger log = Logger.getLogger(SendHtmlEmailREST.class.getSimpleName());
     private String username;
     private String password;
@@ -55,7 +59,7 @@ public class SendHtmlEmailREST {
     private Properties propsConn;
 
     public static enum MessageTemplate {
-        lista_regalos_codigo_ingreso, lista_regalos_pago_vencido, sonda_mercadolibre
+        lista_regalos_codigo_ingreso, lista_regalos_pago_vencido, sonda_mercadolibre, error_sonda_documentos
     }
 
     @PostConstruct
@@ -78,10 +82,10 @@ public class SendHtmlEmailREST {
     @POST
     @Path("enviarEmail")
     @Consumes({MediaType.APPLICATION_JSON})
-    @Produces({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"})
     public Response sendMail(MailMessageDTO mailMessage) {
         if (username == null || password == null || host == null || templatesFolder == null) {
-            log.log(Level.SEVERE, "No fue posible cargar los valores de configuracion del archivo baru.properties, por lo tanto no es posible enviar el mensaje {0}. ",
+            log.log(Level.SEVERE, "No fue posible cargar los valores de configuracion del archivo bcs.properties, por lo tanto no es posible enviar el mensaje {0}. ",
                     mailMessage.toString());
             return Response.serverError().build();
         }
@@ -144,6 +148,76 @@ public class SendHtmlEmailREST {
             return Response.serverError().build();
         }
         return Response.ok().build();
+    }
+
+    @POST
+    @Path("enviaremail360")
+    @Consumes({MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"})
+    public ResponseDTO sendMail360(MailMessageDTO mailMessage) {
+        if (username == null || password == null || host == null || templatesFolder == null) {
+            log.log(Level.SEVERE, "No fue posible cargar los valores de configuracion del archivo bcs.properties, por lo tanto no es posible enviar el mensaje {0}. ", mailMessage.toString());
+            return new ResponseDTO(0, "No fue posible cargar los valores de configuracion del archivo bcs.properties, por lo tanto no es posible enviar el mensaje " + mailMessage.toString());
+        }
+        log.log(Level.INFO, "Iniciando sesion en servidor de correo");
+        // Get the Session object.
+        Session session = Session.getInstance(propsConn, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+        log.log(Level.INFO, "Sesion iniciada correctamente en servidor de correo");
+
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(mailMessage.getFrom()));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(getAsList(mailMessage.getTo())));
+            message.addRecipients(Message.RecipientType.CC, InternetAddress.parse(getAsList(mailMessage.getCc())));
+            message.addRecipients(Message.RecipientType.BCC, InternetAddress.parse(getAsList(mailMessage.getBcc())));
+            message.setSubject(mailMessage.getSubject());
+
+            //Valida que la plantilla exista
+            String fullTemplateName = templatesFolder + mailMessage.getTemplateName() + ".html";
+            log.log(Level.INFO, "Buscando plantilla {0}", fullTemplateName);
+            if (!new File(fullTemplateName).exists()) {
+                log.log(Level.SEVERE, "No fue posible enviar el mensaje. La plantilla {0} no existe.", fullTemplateName);
+                return new ResponseDTO(0, "No fue posible enviar el mensaje. La plantilla " + fullTemplateName + " no existe.");
+            }
+
+            Multipart multipart = new MimeMultipart();
+            BodyPart contentBodyPart = new MimeBodyPart();
+            //Agrega el cuerpo del mensaje a partir de una plantilla
+            try {
+                String templateContent = new String(Files.readAllBytes(Paths.get(fullTemplateName)), StandardCharsets.UTF_8);
+                contentBodyPart.setContent(bcsGenericMBean.convertirCaracteresEspeciales(StrSubstitutor.replace(templateContent, mailMessage.getParams())), "text/html");
+                multipart.addBodyPart(contentBodyPart);
+            } catch (IOException | MessagingException e) {
+                log.log(Level.SEVERE, "No fue posible cargar la plantilla del mensaje. ", e);
+                return new ResponseDTO(0, "No fue posible cargar la plantilla del mensaje. " + e);
+            }
+
+            //Agrega los archivos adjuntos
+            try {
+                if (mailMessage.getAttachments() != null) {
+                    for (String[] filename : mailMessage.getAttachments()) {
+                        BodyPart attachmentBodyPart = new MimeBodyPart();
+                        DataSource source = new FileDataSource(filename[0]);
+                        attachmentBodyPart.setDataHandler(new DataHandler(source));
+                        attachmentBodyPart.setFileName(filename[1]);
+                        multipart.addBodyPart(attachmentBodyPart);
+                    }
+                }
+            } catch (Exception e) {
+                log.log(Level.WARNING, "No fue posible procesar los archivos adjuntos. ", e);
+            }
+            message.setContent(multipart);
+            Transport.send(message);
+        } catch (MessagingException e) {
+            log.log(Level.SEVERE, "No fue posible enviar el mensaje de correo. ", e);
+            return new ResponseDTO(0, "No fue posible enviar el mensaje de correo. " + e);
+        }
+        return new ResponseDTO(1, "Se envio el correo correctamente.");
     }
 
     private String getAsList(List<String> addresses) {

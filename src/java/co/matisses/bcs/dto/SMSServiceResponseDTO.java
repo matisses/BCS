@@ -1,6 +1,7 @@
 package co.matisses.bcs.dto;
 
 import co.matisses.bcs.util.ObjectUtils;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  *
@@ -47,6 +48,7 @@ public class SMSServiceResponseDTO {
         this.referencia = referencia;
     }
 
+    @JsonProperty("estatus")
     public String getStatus() {
         return status;
     }

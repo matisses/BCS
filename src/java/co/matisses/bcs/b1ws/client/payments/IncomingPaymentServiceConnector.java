@@ -77,19 +77,27 @@ public class IncomingPaymentServiceConnector extends B1WSServiceInfo {
             payment.setCashAccount(paymentDto.getCashAccount());
             payment.setCashSum(new BigDecimal(paymentDto.getPaidCash()));
         }
-        if (paymentDto.getInvoiceDocEntry() != null) {
-            Payment.PaymentInvoices paymentInvoices = new Payment.PaymentInvoices();
-            Payment.PaymentInvoices.PaymentInvoice paymentInvoice = new Payment.PaymentInvoices.PaymentInvoice();
-            paymentInvoice.setDocEntry(Long.parseLong(paymentDto.getInvoiceDocEntry()));
-            paymentInvoice.setPaidSum(new BigDecimal(paymentDto.getPaidTotal()));
-            paymentInvoices.getPaymentInvoice().add(paymentInvoice);
-            payment.setPaymentInvoices(paymentInvoices);
+        if (paymentDto.getPaymentInvoice() != null && !paymentDto.getPaymentInvoice().isEmpty()) {
+            Payment.PaymentInvoices PaymentInvoices = new Payment.PaymentInvoices();
+
+            for (PaymentInvoicesDTO payInvoice : paymentDto.getPaymentInvoice()) {
+                Payment.PaymentInvoices.PaymentInvoice paymentInvoice = new Payment.PaymentInvoices.PaymentInvoice();
+
+                paymentInvoice.setDocEntry(payInvoice.getInvoiceDocEntry());
+                paymentInvoice.setPaidSum(new BigDecimal(payInvoice.getInvoicePaidSum()));
+                paymentInvoice.setSumApplied(new BigDecimal(payInvoice.getInvoicePaidSum()));
+                PaymentInvoices.getPaymentInvoice().add(paymentInvoice);
+
+                payment.setPaymentInvoices(PaymentInvoices);
+            }
         }
 
         //Agrega datos de pago con cruce
         payment.setTransferAccount(paymentDto.getTransferAccount());
         payment.setTransferReference(paymentDto.getTransferReference());
-        payment.setTransferSum(new BigDecimal(paymentDto.getTransferSum()));
+        if (paymentDto.getTransferSum() != null && !paymentDto.getTransferSum().isEmpty()) {
+            payment.setTransferSum(new BigDecimal(paymentDto.getTransferSum()));
+        }
         try {
             payment.setTransferDate(DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar()));
         } catch (Exception e) {
@@ -121,8 +129,8 @@ public class IncomingPaymentServiceConnector extends B1WSServiceInfo {
                 paymentCreditCard.setOwnerPhone(paymentDto.getCardCode());
                 paymentCreditCard.setNumOfPayments(1L);
                 paymentCreditCard.setNumOfCreditPayments(Long.parseLong(creditPayment.getNumberOfPayments()));
-                paymentCreditCard.setFirstPaymentSum(new BigDecimal(Long.parseLong(creditPayment.getPaidSum())));
-                paymentCreditCard.setCreditSum(new BigDecimal(Long.parseLong(creditPayment.getPaidSum())));
+                paymentCreditCard.setFirstPaymentSum(new BigDecimal(creditPayment.getPaidSum()));
+                paymentCreditCard.setCreditSum(new BigDecimal(creditPayment.getPaidSum()));
                 paymentCreditCard.setCreditType(paymentDto.getCreditType());
                 paymentCreditCards.getPaymentCreditCard().add(paymentCreditCard);
             } catch (NumberFormatException | DatatypeConfigurationException e) {

@@ -43,15 +43,20 @@ public class ProgramacionDescuentoDTO {
         if (canal == null) {
             return;
         }
-        if (canal.equals("PO")) {
-            this.canal = "Tienda Física (Complementos)";
-        } else {
-            if (canal.equals("SA")) {
+
+        switch (canal) {
+            case "PO":
+                this.canal = "Tienda Física (Complementos)";
+                break;
+            case "SA":
                 this.canal = "Tienda Física (SAP)";
-            } else {
+                break;
+            case "WE":
+                this.canal = "Página WEB";
+                break;
+            default:
                 this.canal = canal;
-            }
+                break;
         }
     }
-
 }

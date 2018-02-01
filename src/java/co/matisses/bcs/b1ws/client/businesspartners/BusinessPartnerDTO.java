@@ -21,7 +21,7 @@ public class BusinessPartnerDTO {
     private String selfRetainer;
     private String salesPersonCode;
     private CardType cardType;
-    private FiscalIdType fiscalIdType;
+    private String fiscalIdType;
     private ForeignType foreignType;
     private Gender gender;
     private Nationality nationality;
@@ -105,11 +105,11 @@ public class BusinessPartnerDTO {
         this.taxRegime = taxRegime;
     }
 
-    public FiscalIdType getFiscalIdType() {
+    public String getFiscalIdType() {
         return fiscalIdType;
     }
 
-    public void setFiscalIdType(FiscalIdType fiscalIdType) {
+    public void setFiscalIdType(String fiscalIdType) {
         this.fiscalIdType = fiscalIdType;
     }
 

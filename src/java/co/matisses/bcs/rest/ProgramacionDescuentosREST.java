@@ -28,7 +28,7 @@ import org.apache.commons.lang3.StringUtils;
 @Path("descuentos")
 public class ProgramacionDescuentosREST {
 
-    private static final Logger console = Logger.getLogger(ProgramacionDescuentosREST.class.getSimpleName());
+    private static final Logger CONSOLE = Logger.getLogger(ProgramacionDescuentosREST.class.getSimpleName());
     @EJB
     private ProgramacionDescuentoFacade descuentosFacade;
     @EJB
@@ -39,7 +39,7 @@ public class ProgramacionDescuentosREST {
     @Produces({MediaType.APPLICATION_JSON})
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public Response consultarPrecioArticulo(@PathParam("referencia") String referencia) {
-        console.log(Level.INFO, "Iniciando proceso de consulta de precio y descuentos activos para la referencia [{0}]", referencia);
+        CONSOLE.log(Level.FINE, "Iniciando proceso de consulta de precio y descuentos activos para la referencia [{0}]", referencia);
         if (referencia == null || referencia.trim().isEmpty() || referencia.length() > 20) {
             return Response.ok(new ProgramacionDescuentoResponseDTO(-1, "La referencia ingresada no es válida")).build();
         }
@@ -48,7 +48,7 @@ public class ProgramacionDescuentosREST {
         referencia = referencia.replaceAll("\\*", "");
         referencia = StringUtils.rightPad(referencia.substring(0, 3), 20 - (referencia.length() - 3), "0") + referencia.substring(3);
 
-        console.log(Level.INFO, "Consultando precio y descuentos para la referencia [{0}]", referencia);
+        CONSOLE.log(Level.FINE, "Consultando precio y descuentos para la referencia [{0}]", referencia);
         ProgramacionDescuentoResponseDTO response = new ProgramacionDescuentoResponseDTO(precioFacade.findByItemCodeTaxIncluded(referencia));
         List<ProgramacionDescuento> descuentos = descuentosFacade.obtenerProgramacionesReferencia(referencia);
         for (ProgramacionDescuento entidad : descuentos) {
@@ -58,8 +58,42 @@ public class ProgramacionDescuentosREST {
         return Response.ok(response).build();
     }
 
-    public static void main(String[] args) {
-        String referencia = "22270456";
-        System.out.println(StringUtils.rightPad(referencia.substring(0, 3), 20 - (referencia.length() - 3), "0") + referencia.substring(3));
+    @GET
+    @Path("consultaritemweb/{referencia}")
+    @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"})
+    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+    public Response consultarDescuentoWeb(@PathParam("referencia") String referencia) {
+        CONSOLE.log(Level.FINE, "Iniciando proceso de consulta de precio y descuentos activos para la referencia [{0}] para la pagina web", referencia);
+        if (referencia == null || referencia.trim().isEmpty() || referencia.length() > 20) {
+            return Response.ok(new ProgramacionDescuentoResponseDTO(-1, "La referencia ingresada no es válida")).build();
+        }
+
+        CONSOLE.log(Level.FINE, "Consultando precio y descuentos para la referencia [{0}] para la pagina web", referencia);
+        ProgramacionDescuentoResponseDTO response = new ProgramacionDescuentoResponseDTO(precioFacade.findByItemCodeTaxIncluded(referencia));
+        List<ProgramacionDescuento> descuentos = descuentosFacade.obtenerProgramacionesWebReferencia(referencia);
+        for (ProgramacionDescuento entidad : descuentos) {
+            response.getDescuentos().add(new ProgramacionDescuentoDTO(referencia, entidad.getPorcentaje(), entidad.getCanal()));
+        }
+
+        return Response.ok(response).build();
+    }
+
+    @GET
+    @Path("consultardescuento/{referencia}/{canal}")
+    @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"})
+    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+    public Response consultarDescuento(@PathParam("referencia") String referencia, @PathParam("canal") String canal) {
+        CONSOLE.log(Level.FINE, "Iniciando proceso de consulta de precio y descuentos activos para la referencia [{0}] para promos de la pagina web", referencia);
+        if (referencia == null || referencia.trim().isEmpty() || referencia.length() > 20) {
+            return Response.ok(new ProgramacionDescuentoResponseDTO(-1, "La referencia ingresada no es válida")).build();
+        }
+
+        CONSOLE.log(Level.FINE, "Consultando precio y descuentos para la referencia [{0}] para promos de la pagina web", referencia);
+        ProgramacionDescuentoResponseDTO response = new ProgramacionDescuentoResponseDTO(precioFacade.findByItemCodeTaxIncluded(referencia));
+        ProgramacionDescuento descuento = descuentosFacade.consultarDescuentosReferencia(canal, referencia);
+
+        response.getDescuentos().add(new ProgramacionDescuentoDTO(referencia, descuento.getPorcentaje(), descuento.getCanal()));
+
+        return Response.ok(response).build();
     }
 }

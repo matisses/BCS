@@ -47,23 +47,43 @@ public class CreditNotesServiceConnector extends B1WSServiceInfo {
                 switch (i) {
                     case 0:
                         document.setUVendedor1(slpName);
-                        document.setUComVend1(String.valueOf(SalesDocumentDTO.calculateCommission(1, salesEmployees)));
+                        if (docDto.getSalesEmployees().get(i).getComision() != null && docDto.getSalesEmployees().get(i).getComision() != 0) {
+                            document.setUComVend1(String.valueOf(docDto.getSalesEmployees().get(i).getComision()));
+                        } else {
+                            document.setUComVend1(String.valueOf(SalesDocumentDTO.calculateCommission(1, salesEmployees)));
+                        }
                         break;
                     case 1:
                         document.setUVendedor2(slpName);
-                        document.setUComVend2(String.valueOf(SalesDocumentDTO.calculateCommission(2, salesEmployees)));
+                        if (docDto.getSalesEmployees().get(i).getComision() != null && docDto.getSalesEmployees().get(i).getComision() != 0) {
+                            document.setUComVend2(String.valueOf(docDto.getSalesEmployees().get(i).getComision()));
+                        } else {
+                            document.setUComVend2(String.valueOf(SalesDocumentDTO.calculateCommission(2, salesEmployees)));
+                        }
                         break;
                     case 2:
                         document.setUVendedor3(slpName);
-                        document.setUComVend3(String.valueOf(SalesDocumentDTO.calculateCommission(3, salesEmployees)));
+                        if (docDto.getSalesEmployees().get(i).getComision() != null && docDto.getSalesEmployees().get(i).getComision() != 0) {
+                            document.setUComVend3(String.valueOf(docDto.getSalesEmployees().get(i).getComision()));
+                        } else {
+                            document.setUComVend3(String.valueOf(SalesDocumentDTO.calculateCommission(3, salesEmployees)));
+                        }
                         break;
                     case 3:
                         document.setUVendedor4(slpName);
-                        document.setUComVend4(String.valueOf(SalesDocumentDTO.calculateCommission(4, salesEmployees)));
+                        if (docDto.getSalesEmployees().get(i).getComision() != null && docDto.getSalesEmployees().get(i).getComision() != 0) {
+                            document.setUComVend4(String.valueOf(docDto.getSalesEmployees().get(i).getComision()));
+                        } else {
+                            document.setUComVend4(String.valueOf(SalesDocumentDTO.calculateCommission(4, salesEmployees)));
+                        }
                         break;
                     case 4:
                         document.setUVendedor5(slpName);
-                        document.setUComVend5(String.valueOf(SalesDocumentDTO.calculateCommission(5, salesEmployees)));
+                        if (docDto.getSalesEmployees().get(i).getComision() != null && docDto.getSalesEmployees().get(i).getComision() != 0) {
+                            document.setUComVend5(String.valueOf(docDto.getSalesEmployees().get(i).getComision()));
+                        } else {
+                            document.setUComVend5(String.valueOf(SalesDocumentDTO.calculateCommission(5, salesEmployees)));
+                        }
                         break;
                     default:
                         break;
@@ -73,7 +93,7 @@ public class CreditNotesServiceConnector extends B1WSServiceInfo {
 
         document.setNumAtCard(docDto.getRefDocnum());
         document.setUOrigen(docDto.getSource());
-        document.setSalesPersonCode(98L);
+        document.setSalesPersonCode((docDto.getSalesPerson() != null && docDto.getSalesPerson() != 0) ? docDto.getSalesPerson() : 98L);
         document.setSeries(Long.parseLong(docDto.getSeriesCode()));
         document.setPaymentGroupCode(Long.parseLong(docDto.getPaymentGroupCode()));
         document.setUWUID(docDto.getWuid());
@@ -87,6 +107,9 @@ public class CreditNotesServiceConnector extends B1WSServiceInfo {
             line.setItemCode(docLine.getItemCode());
             line.setQuantity(docLine.getQuantity().doubleValue());
             line.setWarehouseCode(docLine.getWhsCode());
+            if (docLine.getGrossBuyPrice() != null && docLine.getGrossBuyPrice() != 0) {
+                line.setGrossBuyPrice(docLine.getGrossBuyPrice());
+            }
             //ventas
             line.setCostingCode2(docDto.getSalesCostingCode());
             //logistica
@@ -101,9 +124,11 @@ public class CreditNotesServiceConnector extends B1WSServiceInfo {
             }
             line.setLineNum(lineNum);
 
-            line.setBaseEntry(docDto.getDocEntry());
-            line.setBaseLine(docLine.getLineNum().longValue());
-            line.setBaseType(Long.valueOf(ConstantTypes.DocType.INVOICE.value));
+            if (!docDto.getCreditNoteType().equals("D")) {
+                line.setBaseEntry(docDto.getDocEntry());
+                line.setBaseLine(docLine.getLineNum().longValue());
+                line.setBaseType(Long.valueOf(ConstantTypes.DocType.INVOICE.value));
+            }
 
             Document.DocumentLines.DocumentLine.DocumentLinesBinAllocations binAllocations = new Document.DocumentLines.DocumentLine.DocumentLinesBinAllocations();
 

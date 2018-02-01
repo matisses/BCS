@@ -14,12 +14,18 @@ public class SalesDocumentLineDTO {
     private Integer lineNum;
     private Double discountPercent;
     private Double price;
+    private Double grossBuyPrice;
     private Long baseEntry;
     private Long baseLine;
     private String itemCode;
     private String whsCode;
     private String shippingStatus;
     private List<SalesDocumentLineBinAllocationDTO> binAllocations;
+
+    /*Variables para detalle facturas por servicio (Transporte)*/
+    private Long acctCode;
+    private String dscription;
+    private String taxCode;
 
     public SalesDocumentLineDTO() {
         binAllocations = new ArrayList<>();
@@ -29,6 +35,14 @@ public class SalesDocumentLineDTO {
         this.itemCode = itemCode;
         this.whsCode = whsCode;
         this.price = price;
+        binAllocations = new ArrayList<>();
+    }
+
+    public SalesDocumentLineDTO(String itemCode, String whsCode, Double price, Double discountPercent) {
+        this.itemCode = itemCode;
+        this.whsCode = whsCode;
+        this.price = price;
+        this.discountPercent = discountPercent;
         binAllocations = new ArrayList<>();
     }
 
@@ -70,6 +84,14 @@ public class SalesDocumentLineDTO {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Double getGrossBuyPrice() {
+        return grossBuyPrice;
+    }
+
+    public void setGrossBuyPrice(Double grossBuyPrice) {
+        this.grossBuyPrice = grossBuyPrice;
     }
 
     public Double getDiscountPercent() {
@@ -125,6 +147,30 @@ public class SalesDocumentLineDTO {
         return binAllocations;
     }
 
+    public Long getAcctCode() {
+        return acctCode;
+    }
+
+    public void setAcctCode(Long acctCode) {
+        this.acctCode = acctCode;
+    }
+
+    public String getDscription() {
+        return dscription;
+    }
+
+    public void setDscription(String dscription) {
+        this.dscription = dscription;
+    }
+
+    public String getTaxCode() {
+        return taxCode;
+    }
+
+    public void setTaxCode(String taxCode) {
+        this.taxCode = taxCode;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -156,6 +202,9 @@ public class SalesDocumentLineDTO {
 
     @Override
     public String toString() {
-        return "SalesDocumentLineDTO{" + "itemCode=" + itemCode + ", whsCode=" + whsCode + ", quantity=" + quantity + ", lineNum=" + lineNum + ", price=" + price + ", binAllocations=" + binAllocations + '}';
+        return "SalesDocumentLineDTO{" + "quantity=" + quantity + ", lineNum=" + lineNum + ", discountPercent=" + discountPercent
+                + ", price=" + price + ", baseEntry=" + baseEntry + ", baseLine=" + baseLine + ", itemCode=" + itemCode
+                + ", whsCode=" + whsCode + ", shippingStatus=" + shippingStatus + ", binAllocations=" + binAllocations
+                + ", acctCode=" + acctCode + ", dscription=" + dscription + ", taxCode=" + taxCode + '}';
     }
 }

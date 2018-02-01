@@ -10,7 +10,6 @@ import co.matisses.bcs.b1ws.ws.businessparters.Update;
 import co.matisses.bcs.b1ws.client.B1WSServiceInfo;
 import co.matisses.bcs.b1ws.ws.businessparters.BusinessPartnerParams;
 import co.matisses.bcs.b1ws.ws.businessparters.GetByParams;
-import co.matisses.bcs.b1ws.ws.businessparters.GetByParamsResponse;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -35,17 +34,82 @@ public class BusinessPartnersServiceConnector extends B1WSServiceInfo {
     }
 
     public BusinessPartner findBusinessPartner(String cardCode) throws BusinessPartnerServiceException {
+        BusinessPartnersServiceSoap port = service.getBusinessPartnersServiceSoap12();
+        if (sessionId == null) {
+            throw new BusinessPartnerServiceException("No se recibio un ID de sesion de B1WS valido. ");
+        }
+
         MsgHeader header = new MsgHeader();
         header.setSessionID(sessionId);
         header.setServiceName(BUSINESS_PARTNERS_SERVICE_WSDL_NAME);
 
-        BusinessPartnerParams params = new BusinessPartnerParams();
-        params.setCardCode(cardCode);
-        GetByParams get = new GetByParams();
-        get.setBusinessPartnerParams(params);
+        if (cardCode != null && !cardCode.contains("CL")) {
+            cardCode += "CL";
+        } else if (cardCode == null || cardCode.isEmpty()) {
+            return null;
+        }
+
+        BusinessPartnerParams customer = new BusinessPartnerParams();
+        customer.setCardCode(cardCode);
+
+        try {
+            GetByParams value = new GetByParams();
+            value.setBusinessPartnerParams(customer);
+            log.log(Level.INFO, "Se obtuvo el cliente con nit {0} satisfactoriamente", customer.getCardCode());
+
+            BusinessPartner businessPartner = (port.getByParams(value, header)).getBusinessPartner();
+
+            log.log(Level.INFO, businessPartner.toString());
+
+            return businessPartner;
+        } catch (Exception e) {
+            log.log(Level.SEVERE, "Ocurrio un error al obtener un cliente usando B1WS. ", e);
+            throw new BusinessPartnerServiceException("No fue posible obtener el cliente. " + e.getMessage());
+        }
+    }
+
+    public void createBusinessPartner(BusinessPartner business) throws BusinessPartnerServiceException {
+        log.log(Level.INFO, "Creando cliente {0} con sesion {1}", new Object[]{business, sessionId});
         BusinessPartnersServiceSoap port = service.getBusinessPartnersServiceSoap12();
-        GetByParamsResponse response = port.getByParams(get, header);
-        return response.getBusinessPartner();
+        if (sessionId == null) {
+            throw new BusinessPartnerServiceException("No se recibio un ID de sesion de B1WS valido. ");
+        }
+
+        MsgHeader header = new MsgHeader();
+        header.setSessionID(sessionId);
+        header.setServiceName(BUSINESS_PARTNERS_SERVICE_WSDL_NAME);
+
+        try {
+            Add value = new Add();
+            value.setBusinessPartner(business);
+            AddResponse resp = port.add(value, header);
+            log.log(Level.INFO, "Se registro el cliente con nit {0} satisfactoriamente", resp.getBusinessPartnerParams().getCardCode());
+        } catch (Exception e) {
+            log.log(Level.SEVERE, "Ocurrio un error al crear un nuevo cliente usando B1WS. ", e);
+            throw new BusinessPartnerServiceException("No fue posible crear el cliente. " + e.getMessage());
+        }
+    }
+
+    public void editBusinessPartner(BusinessPartner business) throws BusinessPartnerServiceException {
+        log.log(Level.INFO, business.toString());
+        BusinessPartnersServiceSoap port = service.getBusinessPartnersServiceSoap12();
+        if (sessionId == null) {
+            throw new BusinessPartnerServiceException("No se recibio un ID de sesion de B1WS valido. ");
+        }
+
+        MsgHeader header = new MsgHeader();
+        header.setSessionID(sessionId);
+        header.setServiceName(BUSINESS_PARTNERS_SERVICE_WSDL_NAME);
+
+        try {
+            Update value = new Update();
+            value.setBusinessPartner(business);
+            port.update(value, header);
+            log.log(Level.INFO, "Se actualizo el cliente con nit {0} satisfactoriamente", business.getCardCode());
+        } catch (Exception e) {
+            log.log(Level.SEVERE, "Ocurrio un error al modificar un cliente usando B1WS. ", e);
+            throw new BusinessPartnerServiceException("No fue posible modificar el cliente. " + e.getMessage());
+        }
     }
 
     public void editBusinessPartner(BusinessPartnerDTO dto) throws BusinessPartnerServiceException {
@@ -65,7 +129,7 @@ public class BusinessPartnersServiceConnector extends B1WSServiceInfo {
         customer.setFederalTaxID(dto.getFiscalID());//lictradnum
         customer.setUEsAutorret(dto.getSelfRetainer());//autorretenedor Y/N
         customer.setUBPCORTC(dto.getTaxRegime().getRegime());//regimen tributario
-        customer.setUBPCOTDC(dto.getFiscalIdType().getType());//tipo documento
+        customer.setUBPCOTDC(dto.getFiscalIdType());//tipo documento
         customer.setUBPCOTP(dto.getPersonType().getType());//tipo persona
         customer.setUBPCONombre(dto.getFirstName().toUpperCase());
         customer.setUBPCO1Apellido(dto.getLastName1().toUpperCase());
@@ -208,7 +272,7 @@ public class BusinessPartnersServiceConnector extends B1WSServiceInfo {
         customer.setFederalTaxID(dto.getFiscalID());//lictradnum
         customer.setUEsAutorret(dto.getSelfRetainer());//autorretenedor Y/N
         customer.setUBPCORTC(dto.getTaxRegime().getRegime());//regimen tributario
-        customer.setUBPCOTDC(dto.getFiscalIdType().getType());//tipo documento
+        customer.setUBPCOTDC(dto.getFiscalIdType());//tipo documento
         customer.setUBPCOTP(dto.getPersonType().getType());//tipo persona
         if (dto.getPersonType().equals(BusinessPartnerDTO.PersonType.NATURAL)) {
             customer.setUBPCONombre(dto.getFirstName().toUpperCase());

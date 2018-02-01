@@ -1,7 +1,6 @@
 package co.matisses.bcs.mbean;
 
 import co.matisses.bcs.b1ws.client.payments.IncomingPaymentServiceConnector;
-import co.matisses.bcs.b1ws.client.journalentries.JournalEntriesServiceConnector;
 import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.GOODS_RECEIPT_SERVICE_WSDL_NAME;
 import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.INCOMING_PAYMENT_SERVICE_WSDL_NAME;
 import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.JOURNAL_ENTRIES_SERVICE_WSDL_NAME;
@@ -35,10 +34,22 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.BIN_LOCATIONS_SERVICE_WSDL_NAME;
 import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.BIN_LOCATION_ATTRIBUTES_SERVICE_WSDL_NAME;
+import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.EMPLOYEES_INFO_SERVICE_WSDL_NAME;
+import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.QUOTATIONS_SERVICE_WSDL_NAME;
+import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.STOCK_TRANSFER_SERVICE_WSDL_NAME;
 import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.WAREHOUSE_SUBLEVEL_CODES_SERVICE_WSDL_NAME;
+import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.ITEMS_SERVICE_WSDL_NAME;
 import co.matisses.bcs.b1ws.client.binlocationattributes.BinLocationAttributesServiceConnector;
+import co.matisses.bcs.b1ws.client.employeesinfo.EmployeesInfoServiceConnector;
+import co.matisses.bcs.b1ws.client.items.ItemsServiceConnector;
+import co.matisses.bcs.b1ws.client.quotations.QuotationsServiceConnector;
+import co.matisses.bcs.b1ws.client.stocktransfer.StockTransferServiceConnector;
 import co.matisses.bcs.b1ws.client.warehousesublevelcodes.WarehouseSublevelCodesServiceConnector;
 import co.matisses.bcs.b1ws.ws.binlocationattributes.BinLocationAttributesService;
+import co.matisses.bcs.b1ws.ws.employeesinfo.EmployeesInfoService;
+import co.matisses.bcs.b1ws.ws.items.ItemsService;
+import co.matisses.bcs.b1ws.ws.quotations.QuotationsService;
+import co.matisses.bcs.b1ws.ws.stocktransfer.StockTransferService;
 import co.matisses.bcs.b1ws.ws.warehousesublevelcodes.WarehouseSublevelCodesService;
 
 /**
@@ -62,6 +73,10 @@ public class SAPB1WSBean {
     private BinLocationsService binLocationsService = null;
     private BinLocationAttributesService binLocationAttributesService = null;
     private WarehouseSublevelCodesService warehouseSublevelCodesService = null;
+    private StockTransferService stockTransferService = null;
+    private QuotationsService quotationsService = null;
+    private ItemsService itemService = null;
+    private EmployeesInfoService employeesInfoService = null;
 
     @PostConstruct
     public void initialize() {
@@ -135,6 +150,30 @@ public class SAPB1WSBean {
         } catch (Exception e) {
             log.log(Level.SEVERE, "Ocurrio un error al inicializar el servicio de propiedades ubicaciones. ", e);
         }
+
+        try {
+            stockTransferService = new StockTransferService(new URL(String.format(RUTA_WSDL, STOCK_TRANSFER_SERVICE_WSDL_NAME)));
+        } catch (Exception e) {
+            log.log(Level.SEVERE, "Ocurrio un error al inicializar el servicio de traslados. ", e);
+        }
+
+        try {
+            quotationsService = new QuotationsService(new URL(String.format(RUTA_WSDL, QUOTATIONS_SERVICE_WSDL_NAME)));
+        } catch (Exception e) {
+            log.log(Level.SEVERE, "Ocurrio un error al inicializar el servicio de cotizaciones. ", e);
+        }
+
+        try {
+            itemService = new ItemsService(new URL(String.format(RUTA_WSDL, ITEMS_SERVICE_WSDL_NAME)));
+        } catch (Exception e) {
+            log.log(Level.SEVERE, "Ocurrio un error al inicializar el servicio de articulos. ", e);
+        }
+
+        try {
+            employeesInfoService = new EmployeesInfoService(new URL(String.format(RUTA_WSDL, EMPLOYEES_INFO_SERVICE_WSDL_NAME)));
+        } catch (Exception e) {
+            log.log(Level.SEVERE, "Ocurrio un error al inicializar el servicio de empleados. ", e);
+        }
     }
 
     public BusinessPartnersServiceConnector getBusinessPartnersServiceConnectorInstance(String sessionId) {
@@ -179,6 +218,22 @@ public class SAPB1WSBean {
 
     public WarehouseSublevelCodesServiceConnector getWarehouseSublevelCodesServiceConnectorInstance(String sessionId) {
         return new WarehouseSublevelCodesServiceConnector(warehouseSublevelCodesService, sessionId);
+    }
+
+    public StockTransferServiceConnector getStockTransferServiceConnectorInstance(String sessionId) {
+        return new StockTransferServiceConnector(stockTransferService, sessionId);
+    }
+
+    public QuotationsServiceConnector getQuotationsServiceConnectorInstance(String sessionId) {
+        return new QuotationsServiceConnector(quotationsService, sessionId);
+    }
+
+    public ItemsServiceConnector getItemService(String sessionId) {
+        return new ItemsServiceConnector(itemService, sessionId);
+    }
+
+    public EmployeesInfoServiceConnector getEmployeesInfoService(String sessionId) {
+        return new EmployeesInfoServiceConnector(sessionId, employeesInfoService);
     }
 
     public String obtenerSesionSAP() {

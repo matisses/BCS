@@ -1,5 +1,7 @@
 package co.matisses.bcs.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  *
  * @author dbotero
@@ -7,6 +9,7 @@ package co.matisses.bcs.dto;
 public class ModificarDescripcionMercadolibreDTO {
 
     private String text;
+    private String plainText;
 
     public ModificarDescripcionMercadolibreDTO() {
     }
@@ -19,4 +22,12 @@ public class ModificarDescripcionMercadolibreDTO {
         this.text = text;
     }
 
+    @JsonProperty("plain_text")
+    public String getPlainText() {
+        return plainText;
+    }
+
+    public void setPlainText(String plainText) {
+        this.plainText = plainText;
+    }
 }
