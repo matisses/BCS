@@ -1,0 +1,66 @@
+<style type="text/css">
+    body, html, .body {
+        /*background: #f3f3f3 !important; */
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        color: #444;
+    }
+
+    td {
+        width: 100%;
+        text-align: center;
+    }
+
+    .advertencia{
+        color: #1F497D;
+    }
+</style>
+<container>
+    <spacer size="16"></spacer>
+    <row>
+        <columns>
+            <center>
+                <img src="https://img.matisses.co/360/360_150h.png" alt="logo">
+            </center>
+        </columns>
+    </row>
+    <row>
+        <columns large="8">
+            <table style="width: 100%">
+                <tr>
+                    <td style="width: 100%; text-align: center;">
+                        <br/>
+                        <h1>Solicitud de servicio #${numero}</h1>
+                    </td>
+                </tr>
+            </table>
+        </columns>
+        <columns large="8">
+            <table style="width: 100%">
+                <tr>
+                    <td>
+                        <br/>
+                        <b>Estado</b>: ${estado}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/>
+                        ${mensaje}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/>
+                        ${comentario}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/>
+                        Haga clic <a href="${link}">aqu&iacute;</a> para revisar el avance de la solicitud.
+                    </td>
+                </tr>
+            </table>
+        </columns>
+    </row>
+</container>

@@ -11,6 +11,7 @@ import co.matisses.bcs.b1ws.ws.creditnotes.CreditNotesService;
 import co.matisses.bcs.b1ws.ws.creditnotes.CreditNotesServiceSoap;
 import co.matisses.bcs.b1ws.ws.creditnotes.Document;
 import co.matisses.bcs.b1ws.ws.creditnotes.MsgHeader;
+import co.matisses.bcs.mbean.BCSApplicationMBean;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,7 +30,7 @@ public class CreditNotesServiceConnector extends B1WSServiceInfo {
         this.creditNotesService = creditNotesService;
     }
 
-    private Document createBasicDocument(SalesDocumentDTO docDto) {
+    private Document createBasicDocument(SalesDocumentDTO docDto, BCSApplicationMBean applicationMBean) {
         Document document = new Document();
 
         document.setCardCode(docDto.getCardCode());
@@ -98,6 +99,11 @@ public class CreditNotesServiceConnector extends B1WSServiceInfo {
         document.setPaymentGroupCode(Long.parseLong(docDto.getPaymentGroupCode()));
         document.setUWUID(docDto.getWuid());
         document.setPOSCashierNumber(docDto.getPosShiftId());
+        document.setUDiseno(docDto.getDesignerCode());
+
+        if (docDto.getCreditNoteType().equals("D")) {
+            document.setJournalMemo("Notas de crédito clientes - " + docDto.getCardCode());
+        }
 
         Document.DocumentLines documentLines = new Document.DocumentLines();
 
@@ -116,11 +122,21 @@ public class CreditNotesServiceConnector extends B1WSServiceInfo {
             line.setCostingCode3(docDto.getLogisticsCostingCode());
             //ruta
             line.setCostingCode4(docDto.getRouteCostingCode());
-            line.setProjectCode(PROYECTO_POS);
+            if (docDto.getProjectCode() != null && !docDto.getProjectCode().isEmpty()) {
+                line.setProjectCode(docDto.getProjectCode());
+            } else {
+                line.setProjectCode(PROYECTO_POS);
+            }
             if (docDto.getShippingStatus() == null || docDto.getShippingStatus().trim().isEmpty()) {
                 line.setUEstadoP(ESTADO_PRODUCTO_DESPACHADO);
             } else {
                 line.setUEstadoP(docDto.getShippingStatus());
+            }
+            if (docLine.getDiscountPercent() != null && docLine.getDiscountPercent() > 0) {
+                line.setDiscountPercent(docLine.getDiscountPercent());
+            }
+            if (docLine.getPrice() != null && docLine.getPrice().doubleValue() > 0) {
+                line.setPriceAfterVAT(docLine.getPrice());
             }
             line.setLineNum(lineNum);
 
@@ -128,6 +144,12 @@ public class CreditNotesServiceConnector extends B1WSServiceInfo {
                 line.setBaseEntry(docDto.getDocEntry());
                 line.setBaseLine(docLine.getLineNum().longValue());
                 line.setBaseType(Long.valueOf(ConstantTypes.DocType.INVOICE.value));
+            } else {
+                line.setTaxCode(applicationMBean.getIvas().get(docLine.getTaxCode()));
+            }
+
+            if (docLine.getLineNumFV() != null) {
+                line.setULineNumFv(docLine.getLineNumFV().longValue());
             }
 
             Document.DocumentLines.DocumentLine.DocumentLinesBinAllocations binAllocations = new Document.DocumentLines.DocumentLine.DocumentLinesBinAllocations();
@@ -149,7 +171,7 @@ public class CreditNotesServiceConnector extends B1WSServiceInfo {
         return document;
     }
 
-    public Long createCreditNote(SalesDocumentDTO docDto) throws CreditNotesServiceException {
+    public Long createCreditNote(SalesDocumentDTO docDto, BCSApplicationMBean applicationMBean) throws CreditNotesServiceException {
         CreditNotesServiceSoap port = creditNotesService.getCreditNotesServiceSoap12();
         if (sessionId == null) {
             throw new CreditNotesServiceException("No se recibio un ID de sesion de B1WS valido. ");
@@ -160,7 +182,7 @@ public class CreditNotesServiceConnector extends B1WSServiceInfo {
         requestHeader.setSessionID(sessionId);
         requestHeader.setServiceName(CREDIT_NOTES_SERVICE_WSDL_NAME);
 
-        Document document = createBasicDocument(docDto);
+        Document document = createBasicDocument(docDto, applicationMBean);
 
         Add addOperation = new Add();
         addOperation.setDocument(document);

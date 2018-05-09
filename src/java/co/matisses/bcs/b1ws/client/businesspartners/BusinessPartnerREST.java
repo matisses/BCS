@@ -8,12 +8,15 @@ import co.matisses.bcs.mbean.SAPB1WSBean;
 import co.matisses.persistence.sap.entity.DepartamentoPK;
 import co.matisses.persistence.sap.entity.DireccionSocioDeNegocios;
 import co.matisses.persistence.sap.entity.DireccionSocioDeNegociosPK;
+import co.matisses.persistence.sap.entity.PersonaContacto;
 import co.matisses.persistence.sap.entity.SocioDeNegocios;
 import co.matisses.persistence.sap.facade.BaruMunicipiosFacade;
 import co.matisses.persistence.sap.facade.DepartamentoSAPFacade;
 import co.matisses.persistence.sap.facade.DireccionSocioDeNegociosFacade;
+import co.matisses.persistence.sap.facade.PersonaContactoFacade;
 import co.matisses.persistence.sap.facade.SocioDeNegociosFacade;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
@@ -47,6 +50,27 @@ public class BusinessPartnerREST {
     private DepartamentoSAPFacade departamentoSAPFacade;
     @EJB
     private BaruMunicipiosFacade municipiosFacade;
+    @EJB
+    private PersonaContactoFacade personaContactoFacade;
+
+    private String separarApellidos(String apellidos, int ubicacion) {
+        if (apellidos != null && !apellidos.isEmpty()) {
+            String[] s = apellidos.split(" ");
+
+            if (s.length > 0) {
+                return s[ubicacion];
+            }
+        }
+
+        return "";
+    }
+
+   /* public static void main(String[] args) {
+        BusinessPartnerREST rs = new BusinessPartnerREST();
+        String apell1 = rs.separarApellidos("GUISAO DELGADO",0);
+        String apell2 = rs.separarApellidos("GUISAO DELGADO",1);
+        System.out.print(apell1 + " " + apell2);
+    }*/
 
     @POST
     @Path("create/{usuario}")
@@ -141,6 +165,24 @@ public class BusinessPartnerREST {
                 bpDto.addAddress(address);
             }
 
+            if (entidad.getTipoDocumento().equals("31")) {
+                PersonaContacto contacto = personaContactoFacade.obtenerPersonaContacto(entidad.getCardCode());
+                if (contacto != null) {
+                    BusinessPartnerContactDTO entidadCont = new BusinessPartnerContactDTO();
+                    entidadCont.setName(contacto.getName());
+                    entidadCont.setFirstName(contacto.getFirstName());
+                    entidadCont.setMiddleName(contacto.getMiddleName());
+                    entidadCont.setLastName1(separarApellidos(contacto.getLastName(),0));
+                    entidadCont.setLastName2(separarApellidos(contacto.getLastName(),1));
+                    entidadCont.setAddress(contacto.getAddress());
+                    entidadCont.setTel1(contacto.getTel1());
+                    entidadCont.setCellolar(contacto.getCellolar());
+                    entidadCont.seteMailL(contacto.geteMailL());
+
+                    bpDto.setContacts(entidadCont);
+                }
+            }
+
             return Response.ok(bpDto).build();
         } catch (Exception e) {
             console.log(Level.SEVERE, "Ocurrio un error al consultar o procesar los datos del cliente " + id, e);
@@ -178,7 +220,7 @@ public class BusinessPartnerREST {
     @POST
     @Path("create")
     @Produces({MediaType.APPLICATION_JSON + ";charset=utf-8"})
-    public Response findClient(BusinessPartner bussiness) throws B1WSServiceUnavailableException {
+    public Response createClient(BusinessPartner bussiness) throws B1WSServiceUnavailableException {
         String sesionId = sessionManager.login();
 
         if (sesionId == null) {

@@ -1,24 +1,140 @@
-<table align="center" style="width: 600px; padding: 10px; border-collapse: collapse;">
-    <tr>
-        <td style="text-align: center; padding: 0">
-            <img src="https://www.matisses.co/mailing/notificacion/images/logo.png">
-        </td>
-    </tr>
+<style type="text/css">
+    body, html, .body {
+        font-family: "Century Gothic"; 
+        font-size: 16px; 
+        font-style: normal; 
+        font-weight: 500;
+        color: #444;
+    }
 
-    <tr>
-        <td>
-            <div style="max-width: 600px; color: #626262; text-align: center; font-family: serif">
-                <h1 style="font-size: 30pt; color: #BD9E1F; margin: 0 0 7px; text-align:center; font-weight: normal;">
-                    Nuevo mensaje de contacto
-                </h1>
-                <p style="font-size: 15pt; margin: 0">
-                    <br><b>${nombre}</b> acaba de escribir al formulario de contacto de listas de regalos.<br>
-                    <b>Asunto:</b> ${asunto}<br><br>
-                    Mensaje:<br>
-                    ${mensaje}<br><br><br>
-                    <small>Para responderle, simplemente responde este mensaje</small>
-                </p>
-            </div>
-        </td>
-    </tr>
-</table>
+    hr {
+        color: #D9D6D6;
+        height: 1px;
+        border: 0;
+    }
+</style>
+<container>
+    <spacer size="16"></spacer>
+    <row>
+        <columns large="8">
+            <table style="width: 100%; text-align: center">
+                <tr>
+                    <td>
+                        <table style="width: 40%; text-align: left">
+                            <tr>
+                                <td>
+                                    <img src="https://img.matisses.co/360/BCS/cont-header.png"/>
+                                </td>
+                            </tr>
+                            <tr style="letter-spacing: 3.5px; color: #E07D7D;">
+                                <td>
+                                    LISTA DE REGALOS
+                                    <hr>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; font-size: 14px;">
+                                    <p>
+                                        <b style="color: #D77D7D; font-size: 20px">Tu mensaje ha sido enviado exit&oacute;samente</b>
+                                        <br/>
+                                        al centro de Atenci&oacute;n al cliente MATISSES
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style="width: 100%">
+                                        <tr>
+                                            <td style="width: 100%;">
+                                                <br/>
+                                                <b>Cliente: </b>${cliente}
+                                                <br/>
+                                                <b>Celular: </b>${celular}
+                                                <br/>
+                                                <b>Tel&eacute;fono: </b>${telefono}
+                                                <br/>
+                                                <b>Correo: </b>${correo}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style="width: 100%">
+                                        <tr>
+                                            <td style="width: 100%;">
+                                                <br/>
+                                                <hr>
+                                                <br/>
+                                                <b>Mensaje:</b>
+                                                <br/>
+                                                <p style="text-align: justify;">
+                                                    ${mensaje}
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <br/>
+                            <P style="color: #FFFFFF; background: #D77D7D; text-align: center;">
+                                Te responderemos en el menor tiempo posible
+                            </P>
+                            <tr>
+                                <td>
+                                    <img src="https://img.matisses.co/360/BCS/cont-details-lista-regalos.png" alt="details"/>
+                                </td>
+                            <hr>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">
+                                    <img src="https://img.matisses.co/360/BCS/cont-phone.png" alt="phone"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">
+                                    <img src="https://img.matisses.co/360/BCS/cont-footer.png" alt="footer"/>
+                                    <hr>
+                                </td>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <td>
+                                    <table style="width: 100%">
+                                        <tr>
+                                            <td>
+                                                <a href="https://www.matisses.co/tiendas">
+                                                    <img src="https://img.matisses.co/360/BCS/btn-tiendas.png" alt="tiendas"/>
+                                                </a> 
+                                            </td>
+                                            <td>
+                                            </td>
+                                            <td> 
+                                                Con&eacute;ctate con nosotros
+                                            </td>
+                                            <td>
+                                                <a href="https://www.facebook.com/matissesfanpage">
+                                                    <img src="https://img.matisses.co/360/BCS/icon-facebook.png" alt="facebook"/>
+                                                </a>
+                                                <a href="https://www.instagram.com/matisses/">
+                                                    <img src="https://img.matisses.co/360/BCS/icon-instagram.png" alt="instagram"/>
+                                                </a>
+                                                <a href="https://co.pinterest.com/matisses/">
+                                                    <img src="https://img.matisses.co/360/BCS/icon-pinterest.png" alt="pinterest"/>
+                                                </a>
+                                                <a href="https://www.houzz.es/pro/matisses/matisses">
+                                                    <img src="https://img.matisses.co/360/BCS/icon-houzz.png" alt="houzz"/>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </columns>
+    </row>
+</container>

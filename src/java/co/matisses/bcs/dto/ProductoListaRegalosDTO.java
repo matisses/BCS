@@ -23,6 +23,7 @@ public class ProductoListaRegalosDTO {
     private String mensajeAgradecimiento;
     private Boolean favorito;
     private Boolean active;
+    private Integer precioTotal;
 
     public ProductoListaRegalosDTO() {
     }
@@ -121,6 +122,14 @@ public class ProductoListaRegalosDTO {
 
     public void setPrecio(Integer precio) {
         this.precio = precio;
+    }
+    
+     public Integer getPrecioTotal() {
+        return precioTotal;
+    }
+
+    public void setPrecioTotal(Integer precioTotal) {
+        this.precioTotal = precioTotal;
     }
 
     @Override

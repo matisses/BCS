@@ -1,13 +1,10 @@
 package co.matisses.bcs.rest;
 
 import co.matisses.bcs.dto.MailMessageDTO;
+import co.matisses.bcs.dto.MensajeTextoDTO;
 import co.matisses.bcs.mbean.BCSApplicationMBean;
 import co.matisses.bcs.mbean.BCSGenericMBean;
 import co.matisses.bcs.mbean.ImagenProductoMBean;
-import co.matisses.persistence.sap.facade.DetalleDevolucionSAPFacade;
-import co.matisses.persistence.sap.facade.DetalleFacturaSAPFacade;
-import co.matisses.persistence.sap.facade.DevolucionSAPFacade;
-import co.matisses.persistence.sap.facade.FacturaSAPFacade;
 import co.matisses.persistence.web.entity.CompraListaRegalos;
 import co.matisses.persistence.web.entity.ListaRegalos;
 import co.matisses.persistence.web.facade.CompraListaRegalosFacade;
@@ -26,6 +23,7 @@ import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -47,23 +45,18 @@ public class NotificacionesListaRegalosREST {
     @EJB
     private SendHtmlEmailREST emailREST;
     @EJB
+    private SMSServiceREST smsServiceREST;
+    @EJB
     private ListaRegalosFacade listaRegalosFacade;
     @EJB
     private CompraListaRegalosFacade compraListaRegalosFacade;
-    @EJB
-    private FacturaSAPFacade facturaSAPFacade;
-    @EJB
-    private DetalleFacturaSAPFacade detalleFacturaSAPFacade;
-    @EJB
-    private DevolucionSAPFacade devolucionSAPFacade;
-    @EJB
-    private DetalleDevolucionSAPFacade detalleDevolucionSAPFacade;
 
     @GET
-    @Path("diaria")
+    @Path("diaria/{pruebas}")
     @Consumes({MediaType.APPLICATION_JSON + ";charset=utf-8"})
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-    public Response ejecutarDiario() {
+    public Response ejecutarDiario(@PathParam("pruebas") boolean pruebas) {
+        CONSOLE.log(Level.INFO, "Se esta ejecutando la sonda de notificacion diaria de lista de regalos");
         List<ListaRegalos> listas = listaRegalosFacade.obtenerListasNotificacionDiaria();
 
         if (listas != null && !listas.isEmpty()) {
@@ -95,6 +88,39 @@ public class NotificacionesListaRegalosREST {
                     if (datos != null && !datos.isEmpty()) {
                         armarCorreo("Este es el resumen diario de los regalos que te han comprado por Lista de Regalos", l, datos);
                     }
+
+                    try {
+                        MensajeTextoDTO sms = new MensajeTextoDTO();
+
+                        sms.setCodigoPais("57");
+                        sms.setIp("192.168.5.56");
+                        sms.setPruebas(pruebas);
+                        sms.setUsuario("sonda");
+
+                        if (l.getNotificacionDiariaSmsCreador()) {
+                            sms.setDestino(l.getTelefonoCreador());
+
+                            if (l.getNotificacionDiariaMailCreador()) {
+                                sms.setMensaje("Hola " + l.getNombreCreador() + ", ya se genero tu informe diario con los regalos comprados. Revisa tu correo para mas detalle.");
+                            } else {
+                                sms.setMensaje("Hola " + l.getNombreCreador() + ", ya se genero tu informe diario con los regalos comprados. Revisa tu lista para mas detalle.");
+                            }
+
+                            smsServiceREST.enviarSMS(sms);
+                        }
+                        if (l.getNotificacionDiariaSmsCocreador()) {
+                            sms.setDestino(l.getTelefonoCocreador());
+
+                            if (l.getNotificacionDiariaMailCocreador()) {
+                                sms.setMensaje("Hola " + l.getNombreCocreador() + ", ya se genero tu informe diario con los regalos comprados. Revisa tu correo para mas detalle.");
+                            } else {
+                                sms.setMensaje("Hola " + l.getNombreCocreador() + ", ya se genero tu informe diario con los regalos comprados. Revisa tu lista para mas detalle.");
+                            }
+
+                            smsServiceREST.enviarSMS(sms);
+                        }
+                    } catch (Exception e) {
+                    }
                 }
             }
         }
@@ -103,10 +129,10 @@ public class NotificacionesListaRegalosREST {
     }
 
     @GET
-    @Path("semana")
+    @Path("semana/{pruebas}")
     @Consumes({MediaType.APPLICATION_JSON + ";charset=utf-8"})
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-    public Response ejecutarSemanal() {
+    public Response ejecutarSemanal(@PathParam("pruebas") boolean pruebas) {
         List<ListaRegalos> listas = listaRegalosFacade.obtenerListasNotificacionSemanal();
 
         if (listas != null && !listas.isEmpty()) {
@@ -137,6 +163,39 @@ public class NotificacionesListaRegalosREST {
 
                     if (datos != null && !datos.isEmpty()) {
                         armarCorreo("Este es el resumen semanal de los regalos que te han comprado por Lista de Regalos", l, datos);
+                    }
+
+                    try {
+                        MensajeTextoDTO sms = new MensajeTextoDTO();
+
+                        sms.setCodigoPais("57");
+                        sms.setIp("192.168.5.56");
+                        sms.setPruebas(pruebas);
+                        sms.setUsuario("sonda");
+
+                        if (l.getNotificacionDiariaSmsCreador()) {
+                            sms.setDestino(l.getTelefonoCreador());
+
+                            if (l.getNotificacionDiariaMailCreador()) {
+                                sms.setMensaje("Hola " + l.getNombreCreador() + ", ya se genero tu informe semanal con los regalos comprados. Revisa tu correo para mas detalle.");
+                            } else {
+                                sms.setMensaje("Hola " + l.getNombreCreador() + ", ya se genero tu informe semanal con los regalos comprados. Revisa tu lista para mas detalle.");
+                            }
+
+                            smsServiceREST.enviarSMS(sms);
+                        }
+                        if (l.getNotificacionDiariaSmsCocreador()) {
+                            sms.setDestino(l.getTelefonoCocreador());
+
+                            if (l.getNotificacionDiariaMailCocreador()) {
+                                sms.setMensaje("Hola " + l.getNombreCocreador() + ", ya se genero tu informe semanal con los regalos comprados. Revisa tu correo para mas detalle.");
+                            } else {
+                                sms.setMensaje("Hola " + l.getNombreCocreador() + ", ya se genero tu informe semanal con los regalos comprados. Revisa tu lista para mas detalle.");
+                            }
+
+                            smsServiceREST.enviarSMS(sms);
+                        }
+                    } catch (Exception e) {
                     }
                 }
             }

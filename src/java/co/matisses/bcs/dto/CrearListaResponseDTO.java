@@ -10,6 +10,7 @@ public class CrearListaResponseDTO {
 
     private int codigo;
     private String mensaje;
+    private String idLista;
 
     public CrearListaResponseDTO() {
     }
@@ -17,6 +18,12 @@ public class CrearListaResponseDTO {
     public CrearListaResponseDTO(int codigo, String mensaje) {
         this.codigo = codigo;
         this.mensaje = mensaje;
+    }
+
+    public CrearListaResponseDTO(int codigo, String mensaje, String idLista) {
+        this.codigo = codigo;
+        this.mensaje = mensaje;
+        this.idLista = idLista;
     }
 
     public void setCodigo(int codigo) {
@@ -33,6 +40,14 @@ public class CrearListaResponseDTO {
 
     public String getMensaje() {
         return mensaje;
+    }
+
+    public void setIdLista(String idLista) {
+        this.idLista = idLista;
+    }
+
+    public String getIdLista() {
+        return idLista;
     }
 
     @Override

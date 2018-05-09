@@ -43,7 +43,7 @@ public class MercadoLibreClient {
                 .put(Entity.entity(dto, MediaType.APPLICATION_JSON), Response.class);
     }
 
-    public Response modifificarPublicacion(String accessToken, String itemId, Object requestEntity) throws ClientErrorException {
+    public Response modificarPublicacion(String accessToken, String itemId, Object requestEntity) throws ClientErrorException {
         return webTarget.path(itemId).queryParam("access_token", accessToken)
                 .request(MediaType.APPLICATION_JSON)
                 .put(Entity.entity(requestEntity, MediaType.APPLICATION_JSON), Response.class);
@@ -53,6 +53,12 @@ public class MercadoLibreClient {
         return webTarget.path(itemId).queryParam("access_token", accessToken)
                 .request(MediaType.APPLICATION_JSON)
                 .put(Entity.entity("{\"status\": \"paused\"}", MediaType.APPLICATION_JSON), Response.class);
+    }
+
+    public Response reactivarPublicacion(String accessToken, String itemId) throws ClientErrorException {
+        return webTarget.path(itemId).queryParam("access_token", accessToken)
+                .request(MediaType.APPLICATION_JSON)
+                .put(Entity.entity("{\"status\": \"active\"}", MediaType.APPLICATION_JSON), Response.class);
     }
 
     public Response finalizarPublicacion(String accessToken, String itemId) throws ClientErrorException {

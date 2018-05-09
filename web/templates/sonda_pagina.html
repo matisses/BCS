@@ -1,0 +1,66 @@
+<style type="text/css">
+    body, html, .body {
+        /*background: #f3f3f3 !important; */
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        color: #444;
+    }
+
+    .advertencia{
+        color: #1F497D;
+    }
+
+    td {
+        width: 100%;
+        text-align: center;
+    }
+</style>
+<container>
+    <spacer size="16"></spacer>
+    <row>
+        <columns>
+            <center>
+                <img src="http://img.matisses.co/360/360_150h.png" alt="logo">
+            </center>
+        </columns>
+    </row>
+    <row>
+        <columns large="8">
+            <table style="width: 100%">
+                <tr>
+                    <td style="width: 100%; text-align: center;">
+                        <br/>
+                        <h1>Sonda p&aacute;gina (${fecha} ${hora})</h1>
+                    </td>
+                </tr>
+            </table>
+        </columns>
+        <columns large="8">
+            <table style="width: 100%">
+                <tr>
+                    <td>
+                        <br/>
+                        Resumen de la ejecuci&oacute;n de la sonda de productos para la p&aacute;gina:
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Art&iacute;culos procesados <b>${totalItems}</b>:
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/>
+                        ${tablaItems}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="advertencia">
+                        <br/>
+                        <br/>
+                        Este es un correo generado autom&aacute;ticamente, por favor evite responderlo.
+                    </td>
+                </tr>
+            </table>
+        </columns>
+    </row>
+</container>

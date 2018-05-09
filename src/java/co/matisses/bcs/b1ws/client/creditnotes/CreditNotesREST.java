@@ -4,6 +4,7 @@ import co.matisses.b1ws.dto.SalesDocumentDTO;
 import co.matisses.bcs.b1ws.client.B1WSServiceUnavailableException;
 import co.matisses.bcs.b1ws.client.SAPSessionManager;
 import co.matisses.bcs.dto.ResponseDTO;
+import co.matisses.bcs.mbean.BCSApplicationMBean;
 import co.matisses.bcs.mbean.SAPB1WSBean;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +28,8 @@ public class CreditNotesREST {
 
     @Inject
     private SAPB1WSBean sapB1WSBean;
+    @Inject
+    private BCSApplicationMBean applicationMBean;
     private final SAPSessionManager sessionManager = new SAPSessionManager();
     private static final Logger CONSOLE = Logger.getLogger(CreditNotesREST.class.getSimpleName());
 
@@ -46,7 +49,7 @@ public class CreditNotesREST {
         CreditNotesServiceConnector connection = sapB1WSBean.getCreditNotesServiceConnectorInstance(sesionId);
 
         try {
-            Long docEntry = connection.createCreditNote(dto);
+            Long docEntry = connection.createCreditNote(dto, applicationMBean);
 
             if (docEntry == null || docEntry <= 0) {
                 return new ResponseDTO(0, "No fue posible crear la nota credito.");

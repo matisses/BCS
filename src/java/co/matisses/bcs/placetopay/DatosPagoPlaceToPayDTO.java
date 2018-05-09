@@ -15,6 +15,7 @@ public class DatosPagoPlaceToPayDTO {
     private String returnUrl;
     private String ipAddress;
     private String codigoLista;
+    private String message;
 
     public DatosPagoPlaceToPayDTO() {
         this.locale = "es_CO";
@@ -386,5 +387,13 @@ public class DatosPagoPlaceToPayDTO {
 
     public void setCodigoLista(String codigoLista) {
         this.codigoLista = codigoLista;
+    }
+    
+     public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

@@ -507,6 +507,22 @@ public class Item {
     protected String scsCode;
     @XmlElement(name = "SpProdType")
     protected String spProdType;
+    @XmlElement(name = "InCostRollup")
+    protected String inCostRollup;
+    @XmlElement(name = "VirtualAssetItem")
+    protected String virtualAssetItem;
+    @XmlElement(name = "EnforceAssetSerialNumbers")
+    protected String enforceAssetSerialNumbers;
+    @XmlElement(name = "GSTRelevnt")
+    protected String gSTRelevnt;
+    @XmlElement(name = "SACEntry")
+    protected Long sACEntry;
+    @XmlElement(name = "GSTTaxCategory")
+    protected String gSTTaxCategory;
+    @XmlElement(name = "UpdateDate")
+    protected String updateDate;
+    @XmlElement(name = "UpdateTime")
+    protected String updateTime;
     @XmlElement(name = "U_BA_IsFA")
     protected String ubaIsFA;
     @XmlElement(name = "U_BA_TypID")
@@ -622,8 +638,16 @@ public class Item {
     protected String uBloqueado;
     @XmlElement(name = "U_PrecioVisibleWeb")
     protected String uPrecioVisibleWeb;
+    @XmlElement(name = "U_CalcAIU")
+    protected String uCalcAIU;
     @XmlElement(name = "U_ID_MERCADOLIBRE")
     protected String uIdMercadolibre;
+    @XmlElement(name = "U_Disenador")
+    protected String uDisenador;
+    @XmlElement(name = "U_nombreMCL")
+    protected String uNombreMCL;
+    @XmlElement(name = "ProdStdCost")
+    protected String prodStdCost;
     @XmlElement(name = "ItemPrices")
     protected Item.ItemPrices itemPrices;
     @XmlElement(name = "ItemWarehouseInfoCollection")
@@ -5509,6 +5533,70 @@ public class Item {
         this.spProdType = value;
     }
 
+    public String getInCostRollup() {
+        return inCostRollup;
+    }
+
+    public void setInCostRollup(String inCostRollup) {
+        this.inCostRollup = inCostRollup;
+    }
+
+    public String getVirtualAssetItem() {
+        return virtualAssetItem;
+    }
+
+    public void setVirtualAssetItem(String virtualAssetItem) {
+        this.virtualAssetItem = virtualAssetItem;
+    }
+
+    public String getEnforceAssetSerialNumbers() {
+        return enforceAssetSerialNumbers;
+    }
+
+    public void setEnforceAssetSerialNumbers(String enforceAssetSerialNumbers) {
+        this.enforceAssetSerialNumbers = enforceAssetSerialNumbers;
+    }
+
+    public String getgSTRelevnt() {
+        return gSTRelevnt;
+    }
+
+    public void setgSTRelevnt(String gSTRelevnt) {
+        this.gSTRelevnt = gSTRelevnt;
+    }
+
+    public Long getsACEntry() {
+        return sACEntry;
+    }
+
+    public void setsACEntry(Long sACEntry) {
+        this.sACEntry = sACEntry;
+    }
+
+    public String getgSTTaxCategory() {
+        return gSTTaxCategory;
+    }
+
+    public void setgSTTaxCategory(String gSTTaxCategory) {
+        this.gSTTaxCategory = gSTTaxCategory;
+    }
+
+    public String getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(String updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
     /**
      * Obtiene el valor de la propiedad ubaIsFA.
      *
@@ -6617,12 +6705,44 @@ public class Item {
         this.uPrecioVisibleWeb = uPrecioVisibleWeb;
     }
 
+    public String getuCalcAIU() {
+        return uCalcAIU;
+    }
+
+    public void setuCalcAIU(String uCalcAIU) {
+        this.uCalcAIU = uCalcAIU;
+    }
+
     public String getuIdMercadolibre() {
         return uIdMercadolibre;
     }
 
     public void setuIdMercadolibre(String uIdMercadolibre) {
         this.uIdMercadolibre = uIdMercadolibre;
+    }
+
+    public String getuDisenador() {
+        return uDisenador;
+    }
+
+    public void setuDisenador(String uDisenador) {
+        this.uDisenador = uDisenador;
+    }
+
+    public String getuNombreMCL() {
+        return uNombreMCL;
+    }
+
+    public void setuNombreMCL(String uNombreMCL) {
+        this.uNombreMCL = uNombreMCL;
+    }
+
+    public String getProdStdCost() {
+        return prodStdCost;
+    }
+
+    public void setProdStdCost(String prodStdCost) {
+        this.prodStdCost = prodStdCost;
     }
 
     /**

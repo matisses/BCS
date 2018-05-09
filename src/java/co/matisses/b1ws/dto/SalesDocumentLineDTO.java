@@ -1,5 +1,6 @@
 package co.matisses.b1ws.dto;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -12,8 +13,9 @@ public class SalesDocumentLineDTO {
 
     private Integer quantity;
     private Integer lineNum;
+    private Integer lineNumFV;
     private Double discountPercent;
-    private Double price;
+    private BigDecimal price;
     private Double grossBuyPrice;
     private Long baseEntry;
     private Long baseLine;
@@ -31,14 +33,32 @@ public class SalesDocumentLineDTO {
         binAllocations = new ArrayList<>();
     }
 
-    public SalesDocumentLineDTO(String itemCode, String whsCode, Double price) {
+    public SalesDocumentLineDTO(SalesDocumentLineDTO line) {
+        quantity = line.getQuantity();
+        lineNum = line.getLineNum();
+        lineNumFV = line.getLineNumFV();
+        discountPercent = line.getDiscountPercent();
+        price = line.getPrice();
+        grossBuyPrice = line.getGrossBuyPrice();
+        baseEntry = line.getBaseEntry();
+        baseLine = line.getBaseLine();
+        itemCode = line.getItemCode();
+        whsCode = line.getWhsCode();
+        shippingStatus = line.getShippingStatus();
+        binAllocations = line.getBinAllocations();
+        acctCode = line.getAcctCode();
+        dscription = line.getDscription();
+        taxCode = line.getTaxCode();
+    }
+
+    public SalesDocumentLineDTO(String itemCode, String whsCode, BigDecimal price) {
         this.itemCode = itemCode;
         this.whsCode = whsCode;
         this.price = price;
         binAllocations = new ArrayList<>();
     }
 
-    public SalesDocumentLineDTO(String itemCode, String whsCode, Double price, Double discountPercent) {
+    public SalesDocumentLineDTO(String itemCode, String whsCode, BigDecimal price, Double discountPercent) {
         this.itemCode = itemCode;
         this.whsCode = whsCode;
         this.price = price;
@@ -62,6 +82,14 @@ public class SalesDocumentLineDTO {
         this.lineNum = lineNum;
     }
 
+    public Integer getLineNumFV() {
+        return lineNumFV;
+    }
+
+    public void setLineNumFV(Integer lineNumFV) {
+        this.lineNumFV = lineNumFV;
+    }
+
     public Integer getQuantity() {
         return quantity;
     }
@@ -78,11 +106,11 @@ public class SalesDocumentLineDTO {
         this.whsCode = whsCode;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

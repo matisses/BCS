@@ -1,5 +1,6 @@
 package co.matisses.bcs.b1ws.ws.invoices;
 
+import co.matisses.bcs.util.ObjectUtils;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -577,6 +578,11 @@ public class Document {
     protected Document.TaxExtension taxExtension;
     @XmlElement(namespace = "", name = "AddressExtension")
     protected Document.AddressExtension addressExtension;
+
+    @Override
+    public String toString() {
+        return ObjectUtils.toString(this);
+    }
 
     public Long getDocEntry() {
         return docEntry;

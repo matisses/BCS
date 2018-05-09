@@ -77,6 +77,8 @@ public class B1WSServiceInfo {
     public static final String BIN_LOCATION_ATTRIBUTES_SERVICE_WSDL_NAME = "BinLocationAttributesService";
     //Variables para servicio de empleados
     public static final String EMPLOYEES_INFO_SERVICE_WSDL_NAME = "EmployeesInfoService";
+    //Variables para servicio de actividades
+    public static final String ACTIVITIES_SERVICE_WSDL_NAME = "ActivitiesService";
 
     public B1WSServiceInfo() {
 

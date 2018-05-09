@@ -18,6 +18,7 @@ public class ListaRegalosDTO {
     private Integer invitados;
     private Integer valorMinimoBono;
     private Integer idDecorador;
+    private Integer contadorDias;
     private String codigo;
     private String nombre;
     private String cedulaCreador;
@@ -52,31 +53,33 @@ public class ListaRegalosDTO {
     private String lugar;
     private String tiendaContacto;
     private String formatoFechaEvento;
-    private Boolean listaPrivada;
-    private Boolean aceptaBonos;
-    private Boolean permitirEntregaPersonal;
-    private Boolean activa;
-    private Boolean notificacionInmediataMailCreador;
-    private Boolean notificacionInmediataSmsCreador;
-    private Boolean notificacionDiariaMailCreador;
-    private Boolean notificacionDiariaSmsCreador;
-    private Boolean notificacionSemanalMailCreador;
-    private Boolean notificacionSemanalSmsCreador;
-    private Boolean notificacionInmediataMailCocreador;
-    private Boolean notificacionInmediataSmsCocreador;
-    private Boolean notificacionDiariaMailCocreador;
-    private Boolean notificacionDiariaSmsCocreador;
-    private Boolean notificacionSemanalMailCocreador;
-    private Boolean notificacionSemanalSmsCocreador;
-    private Boolean usarDatosCreador;
-    private Boolean usarDatosCocreador;
-    private Boolean aceptaTerminos;
+    private boolean listaPrivada;
+    private boolean aceptaBonos;
+    private boolean permitirEntregaPersonal;
+    private boolean activa;
+    private boolean notificacionInmediataMailCreador;
+    private boolean notificacionInmediataSmsCreador;
+    private boolean notificacionDiariaMailCreador;
+    private boolean notificacionDiariaSmsCreador;
+    private boolean notificacionSemanalMailCreador;
+    private boolean notificacionSemanalSmsCreador;
+    private boolean notificacionInmediataMailCocreador;
+    private boolean notificacionInmediataSmsCocreador;
+    private boolean notificacionDiariaMailCocreador;
+    private boolean notificacionDiariaSmsCocreador;
+    private boolean notificacionSemanalMailCocreador;
+    private boolean notificacionSemanalSmsCocreador;
+    private boolean usarDatosCreador;
+    private boolean usarDatosCocreador;
+    private boolean aceptaTerminos;
     private Date fechaCreacion;
     private Date fechaEvento;
     private EstadoListaRegalosDTO estado;
     private TipoEventoDTO tipoEvento;
     private CategoriaListaRegalosDTO categoria;
     private ArrayList<ProductoListaRegalosDTO> productos;
+    private String formatoFechaEntrega;
+    private Date fechaEntrega;
 
     public ListaRegalosDTO() {
         productos = new ArrayList<>();
@@ -91,7 +94,7 @@ public class ListaRegalosDTO {
         this.nombreCocreador = nombreCocreador;
         this.apellidoCocreador = apellidoCocreador;
     }
-    
+
     public Long getIdLista() {
         return idLista;
     }
@@ -201,14 +204,6 @@ public class ListaRegalosDTO {
         this.tipoEvento = tipoEvento;
     }
 
-    public Boolean getListaPrivada() {
-        return listaPrivada;
-    }
-
-    public void setListaPrivada(Boolean listaPrivada) {
-        this.listaPrivada = listaPrivada;
-    }
-
     public String getRutaImagenPerfil() {
         return rutaImagenPerfil;
     }
@@ -255,14 +250,6 @@ public class ListaRegalosDTO {
 
     public void setValorMinimoBono(Integer valorMinimoBono) {
         this.valorMinimoBono = valorMinimoBono;
-    }
-
-    public Boolean getAceptaBonos() {
-        return aceptaBonos;
-    }
-
-    public void setAceptaBonos(Boolean aceptaBonos) {
-        this.aceptaBonos = aceptaBonos;
     }
 
     public String getNotificacionInmediataCreador() {
@@ -329,14 +316,6 @@ public class ListaRegalosDTO {
         this.notificacionCambioCategoriaCocreador = notificacionCambioCategoriaCocreador;
     }
 
-    public Boolean getPermitirEntregaPersonal() {
-        return permitirEntregaPersonal;
-    }
-
-    public void setPermitirEntregaPersonal(Boolean permitirEntregaPersonal) {
-        this.permitirEntregaPersonal = permitirEntregaPersonal;
-    }
-
     public CategoriaListaRegalosDTO getCategoria() {
         return categoria;
     }
@@ -355,14 +334,6 @@ public class ListaRegalosDTO {
 
     public void agregarProducto(ProductoListaRegalosDTO producto) {
         this.productos.add(producto);
-    }
-
-    public Boolean getActiva() {
-        return activa;
-    }
-
-    public void setActiva(Boolean activa) {
-        this.activa = activa;
     }
 
     public String getEmailCreador() {
@@ -385,104 +356,8 @@ public class ListaRegalosDTO {
         return idDecorador;
     }
 
-    public Boolean getNotificacionInmediataMailCreador() {
-        return notificacionInmediataMailCreador;
-    }
-
-    public Boolean getNotificacionInmediataSmsCreador() {
-        return notificacionInmediataSmsCreador;
-    }
-
-    public Boolean getNotificacionDiariaMailCreador() {
-        return notificacionDiariaMailCreador;
-    }
-
-    public Boolean getNotificacionDiariaSmsCreador() {
-        return notificacionDiariaSmsCreador;
-    }
-
-    public Boolean getNotificacionSemanalMailCreador() {
-        return notificacionSemanalMailCreador;
-    }
-
-    public Boolean getNotificacionSemanalSmsCreador() {
-        return notificacionSemanalSmsCreador;
-    }
-
-    public Boolean getNotificacionInmediataMailCocreador() {
-        return notificacionInmediataMailCocreador;
-    }
-
-    public Boolean getNotificacionInmediataSmsCocreador() {
-        return notificacionInmediataSmsCocreador;
-    }
-
-    public Boolean getNotificacionDiariaMailCocreador() {
-        return notificacionDiariaMailCocreador;
-    }
-
-    public Boolean getNotificacionDiariaSmsCocreador() {
-        return notificacionDiariaSmsCocreador;
-    }
-
-    public Boolean getNotificacionSemanalMailCocreador() {
-        return notificacionSemanalMailCocreador;
-    }
-
-    public Boolean getNotificacionSemanalSmsCocreador() {
-        return notificacionSemanalSmsCocreador;
-    }
-
     public void setIdDecorador(Integer idDecorador) {
         this.idDecorador = idDecorador;
-    }
-
-    public void setNotificacionInmediataMailCreador(Boolean notificacionInmediataMailCreador) {
-        this.notificacionInmediataMailCreador = notificacionInmediataMailCreador;
-    }
-
-    public void setNotificacionInmediataSmsCreador(Boolean notificacionInmediataSmsCreador) {
-        this.notificacionInmediataSmsCreador = notificacionInmediataSmsCreador;
-    }
-
-    public void setNotificacionDiariaMailCreador(Boolean notificacionDiariaMailCreador) {
-        this.notificacionDiariaMailCreador = notificacionDiariaMailCreador;
-    }
-
-    public void setNotificacionDiariaSmsCreador(Boolean notificacionDiariaSmsCreador) {
-        this.notificacionDiariaSmsCreador = notificacionDiariaSmsCreador;
-    }
-
-    public void setNotificacionSemanalMailCreador(Boolean notificacionSemanalMailCreador) {
-        this.notificacionSemanalMailCreador = notificacionSemanalMailCreador;
-    }
-
-    public void setNotificacionSemanalSmsCreador(Boolean notificacionSemanalSmsCreador) {
-        this.notificacionSemanalSmsCreador = notificacionSemanalSmsCreador;
-    }
-
-    public void setNotificacionInmediataMailCocreador(Boolean notificacionInmediataMailCocreador) {
-        this.notificacionInmediataMailCocreador = notificacionInmediataMailCocreador;
-    }
-
-    public void setNotificacionInmediataSmsCocreador(Boolean notificacionInmediataSmsCocreador) {
-        this.notificacionInmediataSmsCocreador = notificacionInmediataSmsCocreador;
-    }
-
-    public void setNotificacionDiariaMailCocreador(Boolean notificacionDiariaMailCocreador) {
-        this.notificacionDiariaMailCocreador = notificacionDiariaMailCocreador;
-    }
-
-    public void setNotificacionDiariaSmsCocreador(Boolean notificacionDiariaSmsCocreador) {
-        this.notificacionDiariaSmsCocreador = notificacionDiariaSmsCocreador;
-    }
-
-    public void setNotificacionSemanalMailCocreador(Boolean notificacionSemanalMailCocreador) {
-        this.notificacionSemanalMailCocreador = notificacionSemanalMailCocreador;
-    }
-
-    public void setNotificacionSemanalSmsCocreador(Boolean notificacionSemanalSmsCocreador) {
-        this.notificacionSemanalSmsCocreador = notificacionSemanalSmsCocreador;
     }
 
     public String getCorreoCreador() {
@@ -573,36 +448,188 @@ public class ListaRegalosDTO {
         this.tiendaContacto = tiendaContacto;
     }
 
-    public Boolean getUsarDatosCreador() {
-        return usarDatosCreador;
-    }
-
-    public void setUsarDatosCreador(Boolean usarDatosCreador) {
-        this.usarDatosCreador = usarDatosCreador;
-    }
-
-    public Boolean getUsarDatosCocreador() {
-        return usarDatosCocreador;
-    }
-
-    public void setUsarDatosCocreador(Boolean usarDatosCocreador) {
-        this.usarDatosCocreador = usarDatosCocreador;
-    }
-
-    public Boolean getAceptaTerminos() {
-        return aceptaTerminos;
-    }
-
-    public void setAceptaTerminos(Boolean aceptaTerminos) {
-        this.aceptaTerminos = aceptaTerminos;
-    }
-
     public String getFormatoFechaEvento() {
         return formatoFechaEvento;
     }
 
     public void setFormatoFechaEvento(String formatoFechaEvento) {
         this.formatoFechaEvento = formatoFechaEvento;
+    }
+
+    public String getFormatoFechaEntrega() {
+        return formatoFechaEntrega;
+    }
+
+    public void setFormatoFechaEntrega(String formatoFechaEntrega) {
+        this.formatoFechaEntrega = formatoFechaEntrega;
+    }
+
+    public Date getFechaEntrega() {
+        return fechaEntrega;
+    }
+
+    public void setFechaEntrega(Date fechaCreacion) {
+        this.fechaEntrega = fechaCreacion;
+    }
+
+    public Integer getContadorDias() {
+        return contadorDias;
+    }
+
+    public void setContadorDias(Integer contadorDias) {
+        this.contadorDias = contadorDias;
+    }
+
+    public boolean isListaPrivada() {
+        return listaPrivada;
+    }
+
+    public void setListaPrivada(boolean listaPrivada) {
+        this.listaPrivada = listaPrivada;
+    }
+
+    public boolean isAceptaBonos() {
+        return aceptaBonos;
+    }
+
+    public void setAceptaBonos(boolean aceptaBonos) {
+        this.aceptaBonos = aceptaBonos;
+    }
+
+    public boolean isPermitirEntregaPersonal() {
+        return permitirEntregaPersonal;
+    }
+
+    public void setPermitirEntregaPersonal(boolean permitirEntregaPersonal) {
+        this.permitirEntregaPersonal = permitirEntregaPersonal;
+    }
+
+    public boolean isActiva() {
+        return activa;
+    }
+
+    public void setActiva(boolean activa) {
+        this.activa = activa;
+    }
+
+    public boolean isNotificacionInmediataMailCreador() {
+        return notificacionInmediataMailCreador;
+    }
+
+    public void setNotificacionInmediataMailCreador(boolean notificacionInmediataMailCreador) {
+        this.notificacionInmediataMailCreador = notificacionInmediataMailCreador;
+    }
+
+    public boolean isNotificacionInmediataSmsCreador() {
+        return notificacionInmediataSmsCreador;
+    }
+
+    public void setNotificacionInmediataSmsCreador(boolean notificacionInmediataSmsCreador) {
+        this.notificacionInmediataSmsCreador = notificacionInmediataSmsCreador;
+    }
+
+    public boolean isNotificacionDiariaMailCreador() {
+        return notificacionDiariaMailCreador;
+    }
+
+    public void setNotificacionDiariaMailCreador(boolean notificacionDiariaMailCreador) {
+        this.notificacionDiariaMailCreador = notificacionDiariaMailCreador;
+    }
+
+    public boolean isNotificacionDiariaSmsCreador() {
+        return notificacionDiariaSmsCreador;
+    }
+
+    public void setNotificacionDiariaSmsCreador(boolean notificacionDiariaSmsCreador) {
+        this.notificacionDiariaSmsCreador = notificacionDiariaSmsCreador;
+    }
+
+    public boolean isNotificacionSemanalMailCreador() {
+        return notificacionSemanalMailCreador;
+    }
+
+    public void setNotificacionSemanalMailCreador(boolean notificacionSemanalMailCreador) {
+        this.notificacionSemanalMailCreador = notificacionSemanalMailCreador;
+    }
+
+    public boolean isNotificacionSemanalSmsCreador() {
+        return notificacionSemanalSmsCreador;
+    }
+
+    public void setNotificacionSemanalSmsCreador(boolean notificacionSemanalSmsCreador) {
+        this.notificacionSemanalSmsCreador = notificacionSemanalSmsCreador;
+    }
+
+    public boolean isNotificacionInmediataMailCocreador() {
+        return notificacionInmediataMailCocreador;
+    }
+
+    public void setNotificacionInmediataMailCocreador(boolean notificacionInmediataMailCocreador) {
+        this.notificacionInmediataMailCocreador = notificacionInmediataMailCocreador;
+    }
+
+    public boolean isNotificacionInmediataSmsCocreador() {
+        return notificacionInmediataSmsCocreador;
+    }
+
+    public void setNotificacionInmediataSmsCocreador(boolean notificacionInmediataSmsCocreador) {
+        this.notificacionInmediataSmsCocreador = notificacionInmediataSmsCocreador;
+    }
+
+    public boolean isNotificacionDiariaMailCocreador() {
+        return notificacionDiariaMailCocreador;
+    }
+
+    public void setNotificacionDiariaMailCocreador(boolean notificacionDiariaMailCocreador) {
+        this.notificacionDiariaMailCocreador = notificacionDiariaMailCocreador;
+    }
+
+    public boolean isNotificacionDiariaSmsCocreador() {
+        return notificacionDiariaSmsCocreador;
+    }
+
+    public void setNotificacionDiariaSmsCocreador(boolean notificacionDiariaSmsCocreador) {
+        this.notificacionDiariaSmsCocreador = notificacionDiariaSmsCocreador;
+    }
+
+    public boolean isNotificacionSemanalMailCocreador() {
+        return notificacionSemanalMailCocreador;
+    }
+
+    public void setNotificacionSemanalMailCocreador(boolean notificacionSemanalMailCocreador) {
+        this.notificacionSemanalMailCocreador = notificacionSemanalMailCocreador;
+    }
+
+    public boolean isNotificacionSemanalSmsCocreador() {
+        return notificacionSemanalSmsCocreador;
+    }
+
+    public void setNotificacionSemanalSmsCocreador(boolean notificacionSemanalSmsCocreador) {
+        this.notificacionSemanalSmsCocreador = notificacionSemanalSmsCocreador;
+    }
+
+    public boolean isUsarDatosCreador() {
+        return usarDatosCreador;
+    }
+
+    public void setUsarDatosCreador(boolean usarDatosCreador) {
+        this.usarDatosCreador = usarDatosCreador;
+    }
+
+    public boolean isUsarDatosCocreador() {
+        return usarDatosCocreador;
+    }
+
+    public void setUsarDatosCocreador(boolean usarDatosCocreador) {
+        this.usarDatosCocreador = usarDatosCocreador;
+    }
+
+    public boolean isAceptaTerminos() {
+        return aceptaTerminos;
+    }
+
+    public void setAceptaTerminos(boolean aceptaTerminos) {
+        this.aceptaTerminos = aceptaTerminos;
     }
 
     @Override

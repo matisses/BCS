@@ -48,7 +48,7 @@ import org.apache.pdfbox.printing.PDFPageable;
 @Path("printreport")
 public class PrintReportREST {
 
-    private static final Logger log = Logger.getLogger(PrintReportREST.class.getSimpleName());
+    private static final Logger CONSOLE = Logger.getLogger(PrintReportREST.class.getSimpleName());
     @Inject
     private BCSApplicationMBean applicationMBean;
     @Inject
@@ -156,8 +156,26 @@ public class PrintReportREST {
                 break;
             case "custodias":
                 rutaArchivo = applicationMBean.obtenerValorPropiedad("url.archivo.empleados");
-                reportName = dto.getAlias() + "["+ dto.getId() + "].pdf";
+                reportName = dto.getAlias() + "[" + dto.getId() + "].pdf";
                 report = JasperCompileManager.compileReportToFile(applicationMBean.obtenerValorPropiedad("url.jasper.custodias") + dto.getAlias() + ".jrxml");
+                rutaArchivo = rutaArchivo + dto.getDocumento() + File.separator + reportName;
+                break;
+            case "invitados":
+                rutaArchivo = applicationMBean.obtenerValorPropiedad("url.archivo.listaRegalos");
+                reportName = dto.getDirigido() + ".pdf";
+                report = JasperCompileManager.compileReportToFile(applicationMBean.obtenerValorPropiedad("url.jasper.listaRegalos") + dto.getDocumento() + ".jrxml");
+                rutaArchivo = rutaArchivo + dto.getDocumento() + File.separator + reportName;
+                break;
+            case "terminosCondiciones":
+                rutaArchivo = applicationMBean.obtenerValorPropiedad("url.archivo.listaRegalos");
+                reportName = dto.getDirigido() + ".pdf";
+                report = JasperCompileManager.compileReportToFile(applicationMBean.obtenerValorPropiedad("url.jasper.listaRegalos") + dto.getDocumento() + ".jrxml");
+                rutaArchivo = rutaArchivo + dto.getDocumento() + File.separator + reportName;
+                break;
+            case "servicio":
+                rutaArchivo = applicationMBean.obtenerValorPropiedad("url.archivo.logistica");
+                reportName = dto.getId() + ".pdf";
+                report = JasperCompileManager.compileReportToFile(applicationMBean.obtenerValorPropiedad("url.jasper.servicio") + dto.getDocumento() + ".jrxml");
                 rutaArchivo = rutaArchivo + dto.getDocumento() + File.separator + reportName;
                 break;
             default:
@@ -181,7 +199,8 @@ public class PrintReportREST {
             mapa.put("dirigido", dto.getDirigido().toUpperCase());
         }
 
-        if (dto.getDocumento().equals("alarmaVentas") || dto.getDocumento().equals("alarmaDevoluciones")) {
+        if (dto.getDocumento().equals("alarmaVentas") || dto.getDocumento().equals("alarmaDevoluciones") || dto.getDocumento().equals("invitados")
+                || dto.getDocumento().equals("terminosCondiciones")) {
             mapa.put("parameter", dto.getDirigido());
         }
 
@@ -245,7 +264,7 @@ public class PrintReportREST {
         JasperPrint jasperPrint = JasperFillManager.fillReport(report, mapa, connection);
         JasperExportManager.exportReportToPdfFile(jasperPrint, rutaArchivo);
         PDDocument document = PDDocument.load(new File(rutaArchivo));
-        log.log(Level.INFO, "Se guardo el documento {0} numero {1}", new Object[]{dto.getDocumento(), dto.getId()});
+        CONSOLE.log(Level.INFO, "Se guardo el documento {0} numero {1}", new Object[]{dto.getDocumento(), dto.getId()});
 
         //TODO: Se imprime el documento solo si se necesita
         if (dto.isImprimir()) {
@@ -261,11 +280,11 @@ public class PrintReportREST {
                 PrinterJob printerJob = PrinterJob.getPrinterJob();
 
                 if (myPrintService != null) {
-                    log.log(Level.INFO, "Impresora seleccionada: {0}", myPrintService.getName());
+                    CONSOLE.log(Level.INFO, "Impresora seleccionada: {0}", myPrintService.getName());
                     printerJob.setPageable(new PDFPageable(document));
                     printerJob.setPrintService(myPrintService);
                     printerJob.print(pras);
-                    log.log(Level.INFO, "Se mando a imprimir el documento {0} numero {2} a la impresora {1}",
+                    CONSOLE.log(Level.INFO, "Se mando a imprimir el documento {0} numero {2} a la impresora {1}",
                             new Object[]{dto.getDocumento(), myPrintService.getName(), dto.getId()});
                 }
             }

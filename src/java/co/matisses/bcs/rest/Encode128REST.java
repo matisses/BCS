@@ -5,7 +5,6 @@ import co.matisses.bcs.b1ws.client.items.ItemsREST;
 import co.matisses.bcs.b1ws.ws.items.Item;
 import co.matisses.bcs.encode.Encode128;
 import co.matisses.persistence.sap.facade.ItemInventarioFacade;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -49,9 +48,8 @@ public class Encode128REST {
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Response calcularCodeBarItem() {
-        List<String> items = new ArrayList<>();
+        List<String> items = itemInventarioFacade.obternerItemSinCodeBars();
 
-        items = itemInventarioFacade.obternerItemSinCodeBars();
         if (!items.isEmpty()) {
             for (String item : items) {
                 try {

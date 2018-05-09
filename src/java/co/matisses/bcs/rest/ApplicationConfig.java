@@ -25,6 +25,7 @@ public class ApplicationConfig extends Application {
      * out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(co.matisses.bcs.b1ws.client.activities.ActivitiesREST.class);
         resources.add(co.matisses.bcs.b1ws.client.binlocationattributes.BinLocationAttributesREST.class);
         resources.add(co.matisses.bcs.b1ws.client.binlocations.BinLocationsREST.class);
         resources.add(co.matisses.bcs.b1ws.client.businesspartners.BusinessPartnerREST.class);
@@ -39,6 +40,7 @@ public class ApplicationConfig extends Application {
         resources.add(co.matisses.bcs.b1ws.client.payments.IncomingPaymentREST.class);
         resources.add(co.matisses.bcs.b1ws.client.payments.IncomingPaymentServiceREST.class);
         resources.add(co.matisses.bcs.b1ws.client.quotations.QuotationsREST.class);
+        resources.add(co.matisses.bcs.b1ws.client.serviceCalls.ServiceCallsREST.class);
         resources.add(co.matisses.bcs.b1ws.client.stocktransfer.StockTransferREST.class);
         resources.add(co.matisses.bcs.b1ws.client.warehousesublevelcodes.WarehouseSublevelCodesREST.class);
         resources.add(co.matisses.bcs.google.URLShortener.class);
@@ -49,9 +51,13 @@ public class ApplicationConfig extends Application {
         resources.add(co.matisses.bcs.rest.CaptacionClientesREST.class);
         resources.add(co.matisses.bcs.rest.CoordinadoraWSREST.class);
         resources.add(co.matisses.bcs.rest.CotizacionWEBREST.class);
+        resources.add(co.matisses.bcs.rest.DigitoVerificacionREST.class);
+        resources.add(co.matisses.bcs.rest.EmailPatternValidatorREST.class);
         resources.add(co.matisses.bcs.rest.Encode128REST.class);
         resources.add(co.matisses.bcs.rest.FiltrosProductoREST.class);
+        resources.add(co.matisses.bcs.rest.InformeRotacionREST.class);
         resources.add(co.matisses.bcs.rest.JWTTokenValidatorREST.class);
+        resources.add(co.matisses.bcs.rest.ListaRegalosREST.class);
         resources.add(co.matisses.bcs.rest.ListaRegalosSessionValidatorREST.class);
         resources.add(co.matisses.bcs.rest.MercadoLibreREST.class);
         resources.add(co.matisses.bcs.rest.NotificacionesListaRegalosREST.class);
@@ -62,9 +68,12 @@ public class ApplicationConfig extends Application {
         resources.add(co.matisses.bcs.rest.ProgramacionDescuentosREST.class);
         resources.add(co.matisses.bcs.rest.SMSServiceREST.class);
         resources.add(co.matisses.bcs.rest.SendHtmlEmailREST.class);
+        resources.add(co.matisses.bcs.rest.SessionUsuarioPaginaREST.class);
         resources.add(co.matisses.bcs.rest.ShippingMethodsREST.class);
         resources.add(co.matisses.bcs.rest.ShoppingCartValidatorREST.class);
         resources.add(co.matisses.bcs.rest.SondaItemsREST.class);
+        resources.add(co.matisses.bcs.rest.SondaSolucionesLlamadaREST.class);
+        resources.add(co.matisses.bcs.rest.TiempoRotacionREST.class);
         resources.add(co.matisses.bcs.rest.ValidarInventarioCompraWebREST.class);
         resources.add(co.matisses.bcs.rest.ZebraPrintREST.class);
         resources.add(co.matisses.bcs.sync.ItemDataBrandService.class);

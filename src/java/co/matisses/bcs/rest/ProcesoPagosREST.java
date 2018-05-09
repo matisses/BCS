@@ -891,7 +891,7 @@ public class ProcesoPagosREST implements Serializable {
         }
         //crea la nota credito por anulacion
         CreditNotesServiceConnector sc = sapB1WSBean.getCreditNotesServiceConnectorInstance(sesionSAPDTO.getIdSesionSAP());
-        Long docEntry = sc.createCreditNote(enc);
+        Long docEntry = sc.createCreditNote(enc, applicationBean);
         if (docEntry == null) {
             CONSOLE.log(Level.SEVERE, "No se pudo registrar la nota credito en SAP.");
             throw new Exception("No se pudo registrar la nota credito en SAP. ");
@@ -983,7 +983,7 @@ public class ProcesoPagosREST implements Serializable {
                 binAllocDto.setWhsCode((String) cols[22]);
 
                 //SalesDocumentLineDTO lineDto = new SalesDocumentLineDTO((String) cols[20], binAllocDto.getWhsCode(), ((BigDecimal) cols[21]).intValue(), (Integer) cols[19], (Integer) cols[32]);
-                SalesDocumentLineDTO lineDto = new SalesDocumentLineDTO((String) cols[20], binAllocDto.getWhsCode(), ((Integer) cols[32]).doubleValue(), ((BigDecimal) cols[33]).doubleValue());
+                SalesDocumentLineDTO lineDto = new SalesDocumentLineDTO((String) cols[20], binAllocDto.getWhsCode(), new BigDecimal(((Integer) cols[32])), ((BigDecimal) cols[33]).doubleValue());
                 int pos = detDtos.indexOf(lineDto);
                 if (pos >= 0) {
                     lineDto = detDtos.get(pos);

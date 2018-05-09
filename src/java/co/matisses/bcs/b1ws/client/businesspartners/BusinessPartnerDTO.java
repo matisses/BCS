@@ -1,5 +1,6 @@
 package co.matisses.bcs.b1ws.client.businesspartners;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,8 +8,9 @@ import java.util.List;
  *
  * @author dbotero
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BusinessPartnerDTO {
- 
+
     private String birthDate;
     private String cardCode;
     private String cardName;
@@ -28,6 +30,7 @@ public class BusinessPartnerDTO {
     private PersonType personType;
     private TaxRegime taxRegime;
     private List<BusinessPartnerAddressDTO> addresses;
+    private BusinessPartnerContactDTO contacts;
 
     public BusinessPartnerDTO() {
         addresses = new ArrayList<>();
@@ -181,13 +184,24 @@ public class BusinessPartnerDTO {
         return addresses;
     }
 
+    public BusinessPartnerContactDTO getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(BusinessPartnerContactDTO contacts) {
+        this.contacts = contacts;
+    }
+
     public void addAddress(BusinessPartnerAddressDTO address) {
         addresses.add(address);
     }
 
     @Override
     public String toString() {
-        return "BusinessPartnerDTO{" + "cardCode=" + cardCode + ", cardType=" + cardType + ", cardName=" + cardName + ", firstName=" + firstName + ", lastName1=" + lastName1 + ", lastName2=" + lastName2 + ", fiscalID=" + fiscalID + ", selfRetainer=" + selfRetainer + ", taxRegime=" + taxRegime + ", fiscalIdType=" + fiscalIdType + ", personType=" + personType + ", nationality=" + nationality + ", foreignType=" + foreignType + ", defaultShippingAddress=" + defaultShippingAddress + ", defaultBillingAddress=" + defaultBillingAddress + ", birthDate=" + birthDate + ", gender=" + gender + ", salesPersonCode=" + salesPersonCode + ", addresses=" + addresses + '}';
+        return "BusinessPartnerDTO{" + "birthDate=" + birthDate + ", cardCode=" + cardCode + ", cardName=" + cardName + ", defaultShippingAddress=" + defaultShippingAddress + ", defaultBillingAddress="
+                + defaultBillingAddress + ", firstName=" + firstName + ", lastName1=" + lastName1 + ", lastName2=" + lastName2 + ", fiscalID=" + fiscalID + ", selfRetainer=" + selfRetainer + ", salesPersonCode="
+                + salesPersonCode + ", cardType=" + cardType + ", fiscalIdType=" + fiscalIdType + ", foreignType=" + foreignType + ", gender=" + gender + ", nationality=" + nationality + ", personType="
+                + personType + ", taxRegime=" + taxRegime + ", addresses=" + addresses + ", contacts=" + contacts + '}';
     }
 
     public enum Nationality {

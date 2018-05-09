@@ -58,13 +58,18 @@ public class SMSServiceREST {
     private SMSServiceResponseDTO enviar(final MensajeTextoDTO sms) {
         try {
             //TODO: parametrizar url y apikey (appbean o properties)
-            String urlRequest = "http://panel.smasivos.com/api.envio.new.php";
+            String urlRequest = "https://panel.smasivos.com/api.envio.new.php";
             String urlParametros = "apikey=" + URLEncoder.encode("d4b4d68828633964808035cd81bcbe0041d03476", "UTF-8")
-                    + "&mensaje=" + URLEncoder.encode(Normalizer.normalize(sms.getMensaje(), 
+                    + "&mensaje=" + URLEncoder.encode(Normalizer.normalize(sms.getMensaje(),
                             Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", ""), "UTF-8")
                     + "&numcelular=" + URLEncoder.encode(sms.getDestino(), "UTF-8")
                     + "&numregion=" + URLEncoder.encode(sms.getCodigoPais(), "UTF-8")
                     + (sms.isPruebas() ? "&sandbox=1" : "");
+//            String urlParametros = "apikey=" + URLEncoder.encode("d4b4d68828633964808035cd81bcbe0041d03476", "UTF-8")
+//                    + "&mensaje=" + URLEncoder.encode(sms.getMensaje(), "UTF-8")
+//                    + "&numcelular=" + URLEncoder.encode(sms.getDestino(), "UTF-8")
+//                    + "&numregion=" + URLEncoder.encode(sms.getCodigoPais(), "UTF-8");
+
             URL url;
             HttpURLConnection conexion = null;
             try {
@@ -75,6 +80,7 @@ public class SMSServiceREST {
                 conexion.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                 conexion.setRequestProperty("Content-Length", "" + Integer.toString(urlParametros.getBytes().length));
                 conexion.setRequestProperty("Content-Language", "en-US");
+                conexion.setRequestProperty("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.119 Safari/537.36");
                 conexion.setUseCaches(false);
                 conexion.setDoInput(true);
                 conexion.setDoOutput(true);
@@ -147,18 +153,15 @@ public class SMSServiceREST {
         response.setTimeout(15, TimeUnit.SECONDS);
 
         try {
-            mtf.execute(new Runnable() {
-                @Override
-                public void run() {
-                    log.log(Level.INFO, "Iniciando ejecucion del metodo. {0}", sms.toString());
+            mtf.execute(() -> {
+                log.log(Level.INFO, "Iniciando ejecucion del metodo. {0}", sms.toString());
 
-                    SMSServiceResponseDTO dto = enviar(sms);
+                SMSServiceResponseDTO dto = enviar(sms);
 
-                    if (dto != null) {
-                        crearRegistroBD(sms, dto);
-                    }
-                    response.resume("OK");
+                if (dto != null) {
+                    crearRegistroBD(sms, dto);
                 }
+                response.resume("OK");
             });
         } catch (Exception e) {
             response.resume("ERROR. " + e.getMessage());

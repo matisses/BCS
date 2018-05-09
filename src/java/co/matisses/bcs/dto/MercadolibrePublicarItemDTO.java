@@ -16,6 +16,8 @@ public class MercadolibrePublicarItemDTO {
     private int availableQuantity;
     private String title;
     private String categoryId;
+    //private int basePrice;
+    //private int originalPrice;
     private String currencyId;
     private String buyingMode;
     private String listingType;
@@ -68,6 +70,23 @@ public class MercadolibrePublicarItemDTO {
         this.price = price;
     }
 
+//    @JsonProperty("base_price")
+//    public int getBasePrice() {
+//        return basePrice;
+//    }
+//
+//    public void setBasePrice(int basePrice) {
+//        this.basePrice = basePrice;
+//    }
+//
+//    @JsonProperty("original_price")
+//    public int getOriginalPrice() {
+//        return originalPrice;
+//    }
+//
+//    public void setOriginalPrice(int originalPrice) {
+//        this.originalPrice = originalPrice;
+//    }
     @JsonProperty("currency_id")
     public String getCurrencyId() {
         return currencyId;

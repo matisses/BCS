@@ -62,7 +62,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -545,7 +544,7 @@ public class MercadoLibreREST {
                         CONSOLE.log(Level.SEVERE, "Ocurrio un error al agregar las nuevas direcciones al cliente. ", e);
                     }
                 } else {
-                    //TODO: TODO: Si la direccion "mercadolibre" ya existe, valida si son iguales. Sino, la modifica
+                    //TODO: Si la direccion "mercadolibre" ya existe, valida si son iguales. Sino, la modifica
                 }
             }
 
@@ -724,47 +723,6 @@ public class MercadoLibreREST {
         }
     }
 
-    /*
-    private Long crearReciboCaja(String docEntryFactura, TransactionStatusResponseDTO datosPago) throws Exception {
-        String nroDocumento = datosPago.getRequest().getPayer().getDocument();
-        if (!nroDocumento.toUpperCase().endsWith("CL")) {
-            nroDocumento += "CL";
-        }
-        PaymentDTO pagoDto = new PaymentDTO();
-        pagoDto.setPaymentType(PaymentDTO.PaymentTypeDTO.CUSTOMER);
-        pagoDto.setCardCode(nroDocumento);
-        pagoDto.setCreditType("I");
-        pagoDto.setInvoiceDocEntry(docEntryFactura);
-        pagoDto.setPaidTotal(Long.toString(datosPago.getRequest().getPayment().getAmount().getTotal()));
-        pagoDto.setSeriesCode("151"); //TODO: parametrizar serie de numeracion
-        pagoDto.setDocType(ConstantTypes.DocType.INVOICE);
-        List<CreditCardPaymentDTO> creditCardPayments = new ArrayList<>();
-
-        CreditCardPaymentDTO creditPayment = new CreditCardPaymentDTO();
-        creditPayment.setCreditCardCode(applicationBean.getTipoTarjetaP2P(datosPago.getPayment().get(0).getFranchise()).getIdTarjetaSAP().toString());
-        creditPayment.setCreditCardNumber(StringUtils.right(datosPago.getPayment().get(0).getProcessorFields().get(0).getValue(), 4));
-        creditPayment.setNumberOfPayments("1");
-        creditPayment.setPaidSum(pagoDto.getPaidTotal());
-        creditPayment.setValidUntil(null);//TODO: configurar fecha de validez
-        creditPayment.setVoucherNumber(datosPago.getPayment().get(0).getAuthorization());
-        creditCardPayments.add(creditPayment);
-        pagoDto.setCreditCardPayments(creditCardPayments);
-
-        String sesionSAP = null;
-        try {
-            sesionSAP = sapB1MBean.obtenerSesionSAP();
-            IncomingPaymentServiceConnector ipsc = sapB1MBean.getIncomingPaymentServiceConnectorInstance(sesionSAP);
-            Long docEntryRecibo = ipsc.addPayment(pagoDto);
-            console.log(Level.INFO, "Se creo satisfactoriamente el recibo de caja con DocEntry={0}", docEntryRecibo);
-            return docEntryRecibo;
-        } catch (Exception e) {
-        } finally {
-            if (sesionSAP != null) {
-                sapB1MBean.cerrarSesionSAP(sesionSAP);
-            }
-        }
-    }
-     */
     private HashMap<String, Double> cargarDescuentosVigentes() {
         HashMap<String, Double> descuentosVigentes = new HashMap<>();
         List<ProgramacionDescuento> entidades = descuentoFacade.consultarDescuentosCanalActivos("ML");
@@ -830,6 +788,7 @@ public class MercadoLibreREST {
         try {
             MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "items");
             MercadolibreAccessCodeResponseDTO tokenInfo = cargarTokenJson();
+
             if (tokenInfo == null) {
                 CONSOLE.log(Level.SEVERE, "No se pudo obtener un token valido");
                 return new ResponseDTO(-1, "No se pudo obtener un token valido");
@@ -839,22 +798,6 @@ public class MercadoLibreREST {
             Integer saldo = itemFacade.consultarSaldoParaMercadolibre(itemCode, soloMedellin);
             Integer precio = itemFacade.getItemPrice(itemCode, true);
             ProgramacionDescuento descuento = descuentoFacade.consultarDescuentosReferencia("ME", itemCode);
-            if (saldo == null || saldo <= 0 || precio == null || precio == 0) {
-                if (itemEntidad.getuIdMercadoLibre() == null || itemEntidad.getuIdMercadoLibre().isEmpty()) {
-                    CONSOLE.log(Level.INFO, "El item no se ha publicado aun, no tiene precio o no tiene saldo");
-                    return new ResponseDTO(-1, "El item " + itemCode + " no se ha publicado aun, no tiene precio o no tiene saldo");
-                }
-                try {
-                    Response res = client.finalizarPublicacion(tokenInfo.getAccessToken(), itemEntidad.getuIdMercadoLibre());
-                    String obj = res.readEntity(String.class);
-                    CONSOLE.log(Level.INFO, "Se finalizo la publicacion del item {0}", obj);
-                    itemFacade.actualizarIdMercadoLibre(itemCode, null);
-                    return new ResponseDTO(0, "publicacion finalizada " + obj);
-                } catch (Exception e) {
-                    CONSOLE.log(Level.SEVERE, "Ocurrio un error al suspender el item. ", e);
-                    return new ResponseDTO(-1, "Ocurrio un error al suspender el item " + itemCode + ". " + e.getMessage());
-                }
-            }
 
             BaruSubgrupo subgrupoEntidad = subgrupoFacade.find(itemEntidad.getUSubGrupo());
             if (subgrupoEntidad.getUcategoriaML() == null) {
@@ -868,10 +811,8 @@ public class MercadoLibreREST {
             item.setCategoryId(subgrupoEntidad.getUcategoriaML());
             item.setCondition("new");
             item.setCurrencyId("COP");
-            //String descripcionHtml = construirDescripcionHTML(itemCode, itemEntidad.getFrgnName(), itemEntidad.getUdescripciona(), itemEntidad.getuCodigoMarca());
             String descripcionPlana = construirDescripcionPlana(itemCode, itemEntidad.getFrgnName(), itemEntidad.getUdescripciona(), itemEntidad.getuCodigoMarca());
             item.setDescription(null, descripcionPlana);
-            //item.setOriginalPrice(precio);
             item.setPrice(precio);
             /*if (descuento != null && descuento.getPorcentaje() > 0D) {
                 Integer precioFinal = new Double(precio * (100 - descuento.getPorcentaje()) / 100).intValue();
@@ -945,10 +886,15 @@ public class MercadoLibreREST {
                 sb.append(itemCode.substring(16));
 
                 if (sb.length() > 60) {
-                    return new ResponseDTO(-1, "El titulo del item supera los 60 caracteres. ");
+                    //Setear campo U_nombreMCL
+                    if (itemEntidad.getuNombreMCL() == null) {
+                        return new ResponseDTO(-1, "El título del ítem supera los 60 caracteres y nombreMCL no existe.");
+                    } else {
+                        item.setTitle(itemEntidad.getuNombreMCL());
+                    }
+                } else {
+                    item.setTitle(sb.toString());
                 }
-
-                item.setTitle(sb.toString());
             }
             if (!itemEntidad.getuCodigoMarca().equals("0001")) {
                 MercadolibrePublicarItemDTO.Attribute attr = new MercadolibrePublicarItemDTO.Attribute();
@@ -974,14 +920,20 @@ public class MercadoLibreREST {
 
             Response res;
             CONSOLE.log(Level.INFO, "{0}", item.toString());
+
             if (itemEntidad.getuIdMercadoLibre() == null || itemEntidad.getuIdMercadoLibre().trim().isEmpty()) {
-                /*Crear publicacion*/
-                res = client.listarProducto(tokenInfo.getAccessToken(), item);
+                if (item.getAvailableQuantity() > 0 && item.getPrice() > 0) {
+                    /*Crear publicacion*/
+                    res = client.listarProducto(tokenInfo.getAccessToken(), item);
+                } else {
+                    CONSOLE.log(Level.INFO, "El item no se ha publicado aun, no tiene saldo o no tiene precio");
+                    return new ResponseDTO(-1, "El item " + itemCode + " no se ha publicado aun, no tiene saldo o no tiene precio");
+                }
             } else {
                 /*Modificar publicacion*/
-                res = client.modifificarPublicacion(tokenInfo.getAccessToken(),
-                        itemEntidad.getuIdMercadoLibre(), new MercadoLibreItemModificarDTO(item));
+                res = client.modificarPublicacion(tokenInfo.getAccessToken(), itemEntidad.getuIdMercadoLibre(), new MercadoLibreItemModificarDTO(item));
             }
+
             String jsonResponse = res.readEntity(String.class);
             ObjectMapper mapper = new ObjectMapper();
             try {
@@ -1014,7 +966,8 @@ public class MercadoLibreREST {
         for (String ref : itemCodes) {
             MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "items");
             Response res = client.configurarEnvioGratuito(cargarTokenJson().getAccessToken(), itemFacade.find(ref).getuIdMercadoLibre());
-            String jsonResponse = res.readEntity(String.class);
+            String jsonResponse = res.readEntity(String.class
+            );
             CONSOLE.log(Level.INFO, "{0}", jsonResponse);
             CONSOLE.log(Level.INFO, "  Avance: {0}%", (float) ++refIndex / itemCodes.length * 100);
         }
@@ -1028,7 +981,8 @@ public class MercadoLibreREST {
     public Response configurarTipoEnvio(String tipoEnvio, @PathParam("itemcode") String itemCode) {
         MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "items");
         Response res = client.configurarEnvioItem(cargarTokenJson().getAccessToken(), itemFacade.find(itemCode).getuIdMercadoLibre(), tipoEnvio);
-        String jsonResponse = res.readEntity(String.class);
+        String jsonResponse = res.readEntity(String.class
+        );
         CONSOLE.log(Level.INFO, "{0}", jsonResponse);
         return Response.ok(jsonResponse).build();
     }
@@ -1042,7 +996,8 @@ public class MercadoLibreREST {
         for (String ref : confEnvio.getItems()) {
             MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"), "items");
             Response res = client.configurarEnvioItem(cargarTokenJson().getAccessToken(), itemFacade.find(ref).getuIdMercadoLibre(), confEnvio.getShipping());
-            String jsonResponse = res.readEntity(String.class);
+            String jsonResponse = res.readEntity(String.class
+            );
             CONSOLE.log(Level.INFO, "{0}", jsonResponse);
             resp.add(jsonResponse);
         }
@@ -1069,7 +1024,8 @@ public class MercadoLibreREST {
                 clientBorrar.borrarImagenes(itemEntidad.getuIdMercadoLibre(), token.getAccessToken());
             }
             Response res = clientActualizar.actualizarImagenes(itemEntidad.getuIdMercadoLibre(), imagenes, token.getAccessToken());
-            String jsonResponse = res.readEntity(String.class);
+            String jsonResponse = res.readEntity(String.class
+            );
             CONSOLE.log(Level.INFO, "{0}", jsonResponse);
             resp.add(jsonResponse);
         }
@@ -1116,7 +1072,8 @@ public class MercadoLibreREST {
             //modDto.setText(construirDescripcionHTML(referencia, itemEntidad.getFrgnName(), itemEntidad.getUdescripciona(), itemEntidad.getuCodigoMarca()));
             modDto.setPlainText(construirDescripcionPlana(referencia, itemEntidad.getFrgnName(), itemEntidad.getUdescripciona(), itemEntidad.getuCodigoMarca()));
             Response res = client.actualizarDescripcion(itemEntidad.getuIdMercadoLibre(), modDto, token.getAccessToken());
-            String jsonResponse = res.readEntity(String.class);
+            String jsonResponse = res.readEntity(String.class
+            );
             CONSOLE.log(Level.INFO, "Se modifico la descripcion del item {0} satisfactoriamente {1}", new Object[]{referencia, jsonResponse});
             return Response.ok(jsonResponse).build();
         } catch (Exception e) {
@@ -1148,12 +1105,12 @@ public class MercadoLibreREST {
             return new ArrayList<>();
         }
         String[] files = imgDirectoy.list((File dir, String name) -> name != null && name.endsWith(".jpg"));
-        /*for (String fileName : files) {
-            if(fileName.startsWith(referencia)){
-                console.log(Level.INFO, fileName);
-            }
-        }*/
-        List<String> fileNames = Arrays.asList(files);
+
+        List<String> fileNames = new ArrayList<>();
+        for (int i = 0; i < ((files.length > 11) ? 11 : files.length); i++) {
+            fileNames.add(files[i]);
+        }
+
         Collections.sort(fileNames);
         return fileNames;
     }
@@ -1229,7 +1186,8 @@ public class MercadoLibreREST {
     public Response sincronizarCategorias(List<String> categoriasAProcesar) {
         MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"));
         Response res = client.consultarCategorias();
-        List<LinkedHashMap> categorias = res.readEntity(List.class);
+        List<LinkedHashMap> categorias = res.readEntity(List.class
+        );
         for (LinkedHashMap categoria : categorias) {
             if (categoriasAProcesar == null || categoriasAProcesar.isEmpty() || categoriasAProcesar.contains((String) categoria.get("id"))) {
                 procesarCategoria(client, (String) categoria.get("id"), null);
@@ -1243,8 +1201,10 @@ public class MercadoLibreREST {
     private void procesarCategoria(MercadoLibreClient client, String idCategoria, String idCategoriaPadre) {
         CONSOLE.log(Level.INFO, "{0}", idCategoria);
         Response resCat = client.consultarCategoria(idCategoria);
+
         try {
-            CategoriaMercadolibreDTO categoria = resCat.readEntity(CategoriaMercadolibreDTO.class);
+            CategoriaMercadolibreDTO categoria = resCat.readEntity(CategoriaMercadolibreDTO.class
+            );
             CONSOLE.log(Level.INFO, categoria.pathFromRoot());
             if (categoria.getChildrenCategories() != null && !categoria.getChildrenCategories().isEmpty()) {
                 for (CategoriaMercadolibreDTO.SubcategoriaMercadolibreDTO dto : categoria.getChildrenCategories()) {
@@ -1276,8 +1236,10 @@ public class MercadoLibreREST {
     private boolean tieneMercadoEnvioHabilitado(String idCategoria) {
         MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"));
         Response res = client.consultarCategoria(idCategoria);
+
         try {
-            CategoriaMercadolibreDTO dto = res.readEntity(CategoriaMercadolibreDTO.class);
+            CategoriaMercadolibreDTO dto = res.readEntity(CategoriaMercadolibreDTO.class
+            );
             if (dto.getSettings().getShippingModes().contains("me2")) {
                 return true;
             }
@@ -1292,29 +1254,35 @@ public class MercadoLibreREST {
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     public Response consultarDuplicados() {
         Set<String> refs = new HashSet<>();
-        HashMap<String, Integer> duplicadas = new HashMap<>();
+        List<String> duplicadas = new ArrayList<>();
         MercadoLibreClient client = new MercadoLibreClient(applicationMBean.obtenerValorPropiedad("mdolibre.service.url"));
         int pagina = 1;
-        MercadolibrePublicacionDTO dto = client.consultarItemsPublicados(pagina).readEntity(MercadolibrePublicacionDTO.class);
+        MercadolibrePublicacionDTO dto = client.consultarItemsPublicados(pagina).readEntity(MercadolibrePublicacionDTO.class
+        );
         while (!dto.getResults().isEmpty()) {
             int fila = 0;
             CONSOLE.log(Level.INFO, "Procesando pagina #{0}", pagina);
             for (MercadolibrePublicarItemDTO itemDto : dto.getResults()) {
                 String refCorta = StringUtils.right(itemDto.getTitle(), 7);
+                String refCompleta = StringUtils.left(refCorta, 3) + "0000000000000" + StringUtils.right(refCorta, 4);
                 if (refs.contains(refCorta)) {
-                    if (duplicadas.containsKey(refCorta)) {
-                        duplicadas.put(refCorta, duplicadas.get(refCorta) + 1);
+                    if (duplicadas.contains(refCorta)) {
+                        //duplicadas.put(refCompleta, duplicadas.get(refCorta) + 1);
+                        duplicadas.add(refCompleta);
                     } else {
-                        duplicadas.put(refCorta, 1);
+                        //duplicadas.put(refCompleta, 1);
+                        duplicadas.add(refCompleta);
                     }
                 } else {
                     refs.add(refCorta);
                 }
                 fila++;
+
             }
             if (fila == 200) {
                 //TODO: Carga siguiente pagina;
-                dto = client.consultarItemsPublicados(++pagina).readEntity(MercadolibrePublicacionDTO.class);
+                dto = client.consultarItemsPublicados(++pagina).readEntity(MercadolibrePublicacionDTO.class
+                );
             } else {
                 dto.setResults(new ArrayList<>());
             }

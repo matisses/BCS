@@ -13,6 +13,7 @@ public class ConsultaProductosListaDTO {
     private int registrosPagina;
     private String orderBy;
     private String sortOrder;
+    private String keywords;
 
     public ConsultaProductosListaDTO() {
     }
@@ -55,6 +56,14 @@ public class ConsultaProductosListaDTO {
 
     public void setSortOrder(String sortOrder) {
         this.sortOrder = sortOrder;
+    }
+    
+     public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
     }
 
     @Override

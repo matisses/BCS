@@ -1,6 +1,7 @@
-
 package co.matisses.bcs.b1ws.ws.creditnotes;
 
+import co.matisses.bcs.util.ObjectUtils;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -11,12 +12,14 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-
 /**
- * <p>Clase Java para anonymous complex type.
- * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
- * 
+ * <p>
+ * Clase Java para anonymous complex type.
+ *
+ * <p>
+ * El siguiente fragmento de esquema especifica el contenido que se espera que
+ * haya en esta clase.
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -1968,13 +1971,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-
-})
+@XmlType(name = "", propOrder = {})
 @XmlRootElement(name = "Document")
 public class Document {
 
@@ -2533,13 +2534,16 @@ public class Document {
     @XmlElement(name = "AddressExtension")
     protected Document.AddressExtension addressExtension;
 
+    @Override
+    public String toString() {
+        return ObjectUtils.toString(this);
+    }
+
     /**
      * Obtiene el valor de la propiedad docEntry.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getDocEntry() {
         return docEntry;
@@ -2547,11 +2551,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad docEntry.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setDocEntry(Long value) {
         this.docEntry = value;
@@ -2559,11 +2561,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad docNum.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getDocNum() {
         return docNum;
@@ -2571,11 +2571,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad docNum.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setDocNum(Long value) {
         this.docNum = value;
@@ -2583,11 +2581,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad docType.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getDocType() {
         return docType;
@@ -2595,11 +2591,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad docType.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setDocType(String value) {
         this.docType = value;
@@ -2607,11 +2601,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad handWritten.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getHandWritten() {
         return handWritten;
@@ -2619,11 +2611,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad handWritten.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setHandWritten(String value) {
         this.handWritten = value;
@@ -2631,11 +2621,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad printed.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPrinted() {
         return printed;
@@ -2643,11 +2631,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad printed.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPrinted(String value) {
         this.printed = value;
@@ -2655,11 +2641,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad docDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getDocDate() {
         return docDate;
@@ -2667,11 +2651,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad docDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setDocDate(XMLGregorianCalendar value) {
         this.docDate = value;
@@ -2679,11 +2661,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad docDueDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getDocDueDate() {
         return docDueDate;
@@ -2691,11 +2671,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad docDueDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setDocDueDate(XMLGregorianCalendar value) {
         this.docDueDate = value;
@@ -2703,11 +2681,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad cardCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getCardCode() {
         return cardCode;
@@ -2715,11 +2691,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad cardCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setCardCode(String value) {
         this.cardCode = value;
@@ -2727,11 +2701,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad cardName.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getCardName() {
         return cardName;
@@ -2739,11 +2711,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad cardName.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setCardName(String value) {
         this.cardName = value;
@@ -2751,11 +2721,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad address.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getAddress() {
         return address;
@@ -2763,11 +2731,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad address.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setAddress(String value) {
         this.address = value;
@@ -2775,11 +2741,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad numAtCard.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNumAtCard() {
         return numAtCard;
@@ -2787,11 +2751,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad numAtCard.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setNumAtCard(String value) {
         this.numAtCard = value;
@@ -2799,11 +2761,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad docTotal.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getDocTotal() {
         return docTotal;
@@ -2811,11 +2771,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad docTotal.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setDocTotal(Double value) {
         this.docTotal = value;
@@ -2823,11 +2781,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad attachmentEntry.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getAttachmentEntry() {
         return attachmentEntry;
@@ -2835,11 +2791,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad attachmentEntry.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setAttachmentEntry(Long value) {
         this.attachmentEntry = value;
@@ -2847,11 +2801,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad docCurrency.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getDocCurrency() {
         return docCurrency;
@@ -2859,11 +2811,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad docCurrency.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setDocCurrency(String value) {
         this.docCurrency = value;
@@ -2871,11 +2821,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad docRate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getDocRate() {
         return docRate;
@@ -2883,11 +2831,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad docRate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setDocRate(Double value) {
         this.docRate = value;
@@ -2895,11 +2841,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad reference1.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getReference1() {
         return reference1;
@@ -2907,11 +2851,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad reference1.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setReference1(String value) {
         this.reference1 = value;
@@ -2919,11 +2861,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad reference2.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getReference2() {
         return reference2;
@@ -2931,11 +2871,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad reference2.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setReference2(String value) {
         this.reference2 = value;
@@ -2943,11 +2881,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad comments.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getComments() {
         return comments;
@@ -2955,11 +2891,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad comments.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setComments(String value) {
         this.comments = value;
@@ -2967,11 +2901,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad journalMemo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getJournalMemo() {
         return journalMemo;
@@ -2979,11 +2911,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad journalMemo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setJournalMemo(String value) {
         this.journalMemo = value;
@@ -2991,11 +2921,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad paymentGroupCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getPaymentGroupCode() {
         return paymentGroupCode;
@@ -3003,11 +2931,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad paymentGroupCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setPaymentGroupCode(Long value) {
         this.paymentGroupCode = value;
@@ -3015,11 +2941,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad docTime.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getDocTime() {
         return docTime;
@@ -3027,11 +2951,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad docTime.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setDocTime(XMLGregorianCalendar value) {
         this.docTime = value;
@@ -3039,11 +2961,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad salesPersonCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getSalesPersonCode() {
         return salesPersonCode;
@@ -3051,11 +2971,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad salesPersonCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setSalesPersonCode(Long value) {
         this.salesPersonCode = value;
@@ -3063,11 +2981,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad transportationCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getTransportationCode() {
         return transportationCode;
@@ -3075,11 +2991,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad transportationCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setTransportationCode(Long value) {
         this.transportationCode = value;
@@ -3087,11 +3001,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad confirmed.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getConfirmed() {
         return confirmed;
@@ -3099,11 +3011,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad confirmed.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setConfirmed(String value) {
         this.confirmed = value;
@@ -3111,11 +3021,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad importFileNum.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getImportFileNum() {
         return importFileNum;
@@ -3123,11 +3031,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad importFileNum.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setImportFileNum(Long value) {
         this.importFileNum = value;
@@ -3135,11 +3041,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad summeryType.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getSummeryType() {
         return summeryType;
@@ -3147,11 +3051,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad summeryType.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setSummeryType(String value) {
         this.summeryType = value;
@@ -3159,11 +3061,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad contactPersonCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getContactPersonCode() {
         return contactPersonCode;
@@ -3171,11 +3071,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad contactPersonCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setContactPersonCode(Long value) {
         this.contactPersonCode = value;
@@ -3183,11 +3081,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad showSCN.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getShowSCN() {
         return showSCN;
@@ -3195,11 +3091,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad showSCN.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setShowSCN(String value) {
         this.showSCN = value;
@@ -3207,11 +3101,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad series.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getSeries() {
         return series;
@@ -3219,11 +3111,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad series.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setSeries(Long value) {
         this.series = value;
@@ -3231,11 +3121,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad taxDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getTaxDate() {
         return taxDate;
@@ -3243,11 +3131,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad taxDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setTaxDate(XMLGregorianCalendar value) {
         this.taxDate = value;
@@ -3255,11 +3141,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad partialSupply.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPartialSupply() {
         return partialSupply;
@@ -3267,11 +3151,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad partialSupply.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPartialSupply(String value) {
         this.partialSupply = value;
@@ -3279,11 +3161,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad docObjectCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getDocObjectCode() {
         return docObjectCode;
@@ -3291,11 +3171,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad docObjectCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setDocObjectCode(String value) {
         this.docObjectCode = value;
@@ -3303,11 +3181,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad shipToCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getShipToCode() {
         return shipToCode;
@@ -3315,11 +3191,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad shipToCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setShipToCode(String value) {
         this.shipToCode = value;
@@ -3327,11 +3201,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad indicator.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getIndicator() {
         return indicator;
@@ -3339,11 +3211,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad indicator.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setIndicator(String value) {
         this.indicator = value;
@@ -3351,11 +3221,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad federalTaxID.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getFederalTaxID() {
         return federalTaxID;
@@ -3363,11 +3231,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad federalTaxID.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setFederalTaxID(String value) {
         this.federalTaxID = value;
@@ -3375,11 +3241,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad discountPercent.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getDiscountPercent() {
         return discountPercent;
@@ -3387,11 +3251,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad discountPercent.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setDiscountPercent(Double value) {
         this.discountPercent = value;
@@ -3399,11 +3261,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad paymentReference.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPaymentReference() {
         return paymentReference;
@@ -3411,11 +3271,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad paymentReference.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPaymentReference(String value) {
         this.paymentReference = value;
@@ -3423,11 +3281,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad creationDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getCreationDate() {
         return creationDate;
@@ -3435,11 +3291,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad creationDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setCreationDate(XMLGregorianCalendar value) {
         this.creationDate = value;
@@ -3447,11 +3301,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad updateDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getUpdateDate() {
         return updateDate;
@@ -3459,11 +3311,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad updateDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setUpdateDate(XMLGregorianCalendar value) {
         this.updateDate = value;
@@ -3471,11 +3321,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad financialPeriod.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getFinancialPeriod() {
         return financialPeriod;
@@ -3483,11 +3331,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad financialPeriod.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setFinancialPeriod(Long value) {
         this.financialPeriod = value;
@@ -3495,11 +3341,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad transNum.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getTransNum() {
         return transNum;
@@ -3507,11 +3351,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad transNum.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setTransNum(Long value) {
         this.transNum = value;
@@ -3519,11 +3361,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad vatSum.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getVatSum() {
         return vatSum;
@@ -3531,11 +3371,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad vatSum.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setVatSum(Double value) {
         this.vatSum = value;
@@ -3543,11 +3381,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad vatSumSys.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getVatSumSys() {
         return vatSumSys;
@@ -3555,11 +3391,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad vatSumSys.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setVatSumSys(Double value) {
         this.vatSumSys = value;
@@ -3567,11 +3401,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad vatSumFc.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getVatSumFc() {
         return vatSumFc;
@@ -3579,11 +3411,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad vatSumFc.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setVatSumFc(Double value) {
         this.vatSumFc = value;
@@ -3591,11 +3421,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad netProcedure.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNetProcedure() {
         return netProcedure;
@@ -3603,11 +3431,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad netProcedure.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setNetProcedure(String value) {
         this.netProcedure = value;
@@ -3615,11 +3441,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad docTotalFc.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getDocTotalFc() {
         return docTotalFc;
@@ -3627,11 +3451,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad docTotalFc.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setDocTotalFc(Double value) {
         this.docTotalFc = value;
@@ -3639,11 +3461,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad docTotalSys.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getDocTotalSys() {
         return docTotalSys;
@@ -3651,11 +3471,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad docTotalSys.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setDocTotalSys(Double value) {
         this.docTotalSys = value;
@@ -3663,11 +3481,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad form1099.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getForm1099() {
         return form1099;
@@ -3675,11 +3491,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad form1099.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setForm1099(Long value) {
         this.form1099 = value;
@@ -3687,11 +3501,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad box1099.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getBox1099() {
         return box1099;
@@ -3699,11 +3511,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad box1099.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setBox1099(String value) {
         this.box1099 = value;
@@ -3711,11 +3521,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad revisionPo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRevisionPo() {
         return revisionPo;
@@ -3723,11 +3531,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad revisionPo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setRevisionPo(String value) {
         this.revisionPo = value;
@@ -3735,11 +3541,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad requriedDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getRequriedDate() {
         return requriedDate;
@@ -3747,11 +3551,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad requriedDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setRequriedDate(XMLGregorianCalendar value) {
         this.requriedDate = value;
@@ -3759,11 +3561,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad cancelDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getCancelDate() {
         return cancelDate;
@@ -3771,11 +3571,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad cancelDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setCancelDate(XMLGregorianCalendar value) {
         this.cancelDate = value;
@@ -3783,11 +3581,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad blockDunning.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getBlockDunning() {
         return blockDunning;
@@ -3795,11 +3591,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad blockDunning.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setBlockDunning(String value) {
         this.blockDunning = value;
@@ -3807,11 +3601,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad submitted.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getSubmitted() {
         return submitted;
@@ -3819,11 +3611,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad submitted.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setSubmitted(String value) {
         this.submitted = value;
@@ -3831,11 +3621,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad segment.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getSegment() {
         return segment;
@@ -3843,11 +3631,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad segment.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setSegment(Long value) {
         this.segment = value;
@@ -3855,11 +3641,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad pickStatus.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPickStatus() {
         return pickStatus;
@@ -3867,11 +3651,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad pickStatus.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPickStatus(String value) {
         this.pickStatus = value;
@@ -3879,11 +3661,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad pick.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPick() {
         return pick;
@@ -3891,11 +3671,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad pick.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPick(String value) {
         this.pick = value;
@@ -3903,11 +3681,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad paymentMethod.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPaymentMethod() {
         return paymentMethod;
@@ -3915,11 +3691,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad paymentMethod.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPaymentMethod(String value) {
         this.paymentMethod = value;
@@ -3927,11 +3701,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad paymentBlock.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPaymentBlock() {
         return paymentBlock;
@@ -3939,11 +3711,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad paymentBlock.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPaymentBlock(String value) {
         this.paymentBlock = value;
@@ -3951,11 +3721,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad paymentBlockEntry.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getPaymentBlockEntry() {
         return paymentBlockEntry;
@@ -3963,11 +3731,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad paymentBlockEntry.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setPaymentBlockEntry(Long value) {
         this.paymentBlockEntry = value;
@@ -3975,11 +3741,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad centralBankIndicator.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getCentralBankIndicator() {
         return centralBankIndicator;
@@ -3987,11 +3751,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad centralBankIndicator.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setCentralBankIndicator(String value) {
         this.centralBankIndicator = value;
@@ -3999,11 +3761,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad maximumCashDiscount.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getMaximumCashDiscount() {
         return maximumCashDiscount;
@@ -4011,11 +3771,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad maximumCashDiscount.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setMaximumCashDiscount(String value) {
         this.maximumCashDiscount = value;
@@ -4023,11 +3781,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad reserve.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getReserve() {
         return reserve;
@@ -4035,11 +3791,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad reserve.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setReserve(String value) {
         this.reserve = value;
@@ -4047,11 +3801,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad project.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getProject() {
         return project;
@@ -4059,11 +3811,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad project.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setProject(String value) {
         this.project = value;
@@ -4071,11 +3821,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad exemptionValidityDateFrom.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getExemptionValidityDateFrom() {
         return exemptionValidityDateFrom;
@@ -4083,11 +3831,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad exemptionValidityDateFrom.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setExemptionValidityDateFrom(XMLGregorianCalendar value) {
         this.exemptionValidityDateFrom = value;
@@ -4095,11 +3841,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad exemptionValidityDateTo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getExemptionValidityDateTo() {
         return exemptionValidityDateTo;
@@ -4107,11 +3851,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad exemptionValidityDateTo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setExemptionValidityDateTo(XMLGregorianCalendar value) {
         this.exemptionValidityDateTo = value;
@@ -4119,11 +3861,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad wareHouseUpdateType.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getWareHouseUpdateType() {
         return wareHouseUpdateType;
@@ -4131,11 +3871,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad wareHouseUpdateType.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setWareHouseUpdateType(String value) {
         this.wareHouseUpdateType = value;
@@ -4143,11 +3881,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad rounding.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRounding() {
         return rounding;
@@ -4155,11 +3891,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad rounding.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setRounding(String value) {
         this.rounding = value;
@@ -4167,11 +3901,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad externalCorrectedDocNum.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getExternalCorrectedDocNum() {
         return externalCorrectedDocNum;
@@ -4179,11 +3911,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad externalCorrectedDocNum.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setExternalCorrectedDocNum(String value) {
         this.externalCorrectedDocNum = value;
@@ -4191,11 +3921,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad internalCorrectedDocNum.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getInternalCorrectedDocNum() {
         return internalCorrectedDocNum;
@@ -4203,11 +3931,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad internalCorrectedDocNum.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setInternalCorrectedDocNum(Long value) {
         this.internalCorrectedDocNum = value;
@@ -4215,11 +3941,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad nextCorrectingDocument.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getNextCorrectingDocument() {
         return nextCorrectingDocument;
@@ -4227,11 +3951,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad nextCorrectingDocument.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setNextCorrectingDocument(Long value) {
         this.nextCorrectingDocument = value;
@@ -4239,11 +3961,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad deferredTax.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getDeferredTax() {
         return deferredTax;
@@ -4251,11 +3971,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad deferredTax.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setDeferredTax(String value) {
         this.deferredTax = value;
@@ -4263,11 +3981,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad taxExemptionLetterNum.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getTaxExemptionLetterNum() {
         return taxExemptionLetterNum;
@@ -4275,11 +3991,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad taxExemptionLetterNum.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setTaxExemptionLetterNum(String value) {
         this.taxExemptionLetterNum = value;
@@ -4287,11 +4001,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad wtApplied.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getWTApplied() {
         return wtApplied;
@@ -4299,11 +4011,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad wtApplied.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setWTApplied(Double value) {
         this.wtApplied = value;
@@ -4311,11 +4021,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad wtAppliedFC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getWTAppliedFC() {
         return wtAppliedFC;
@@ -4323,11 +4031,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad wtAppliedFC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setWTAppliedFC(Double value) {
         this.wtAppliedFC = value;
@@ -4335,11 +4041,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad billOfExchangeReserved.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getBillOfExchangeReserved() {
         return billOfExchangeReserved;
@@ -4347,11 +4051,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad billOfExchangeReserved.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setBillOfExchangeReserved(String value) {
         this.billOfExchangeReserved = value;
@@ -4359,11 +4061,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad agentCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getAgentCode() {
         return agentCode;
@@ -4371,11 +4071,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad agentCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setAgentCode(String value) {
         this.agentCode = value;
@@ -4383,11 +4081,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad wtAppliedSC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getWTAppliedSC() {
         return wtAppliedSC;
@@ -4395,11 +4091,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad wtAppliedSC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setWTAppliedSC(Double value) {
         this.wtAppliedSC = value;
@@ -4407,11 +4101,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad totalEqualizationTax.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getTotalEqualizationTax() {
         return totalEqualizationTax;
@@ -4419,11 +4111,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad totalEqualizationTax.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setTotalEqualizationTax(Double value) {
         this.totalEqualizationTax = value;
@@ -4431,11 +4121,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad totalEqualizationTaxFC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getTotalEqualizationTaxFC() {
         return totalEqualizationTaxFC;
@@ -4443,11 +4131,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad totalEqualizationTaxFC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setTotalEqualizationTaxFC(Double value) {
         this.totalEqualizationTaxFC = value;
@@ -4455,11 +4141,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad totalEqualizationTaxSC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getTotalEqualizationTaxSC() {
         return totalEqualizationTaxSC;
@@ -4467,11 +4151,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad totalEqualizationTaxSC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setTotalEqualizationTaxSC(Double value) {
         this.totalEqualizationTaxSC = value;
@@ -4479,11 +4161,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad numberOfInstallments.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getNumberOfInstallments() {
         return numberOfInstallments;
@@ -4491,11 +4171,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad numberOfInstallments.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setNumberOfInstallments(Long value) {
         this.numberOfInstallments = value;
@@ -4503,11 +4181,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad applyTaxOnFirstInstallment.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getApplyTaxOnFirstInstallment() {
         return applyTaxOnFirstInstallment;
@@ -4515,11 +4191,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad applyTaxOnFirstInstallment.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setApplyTaxOnFirstInstallment(String value) {
         this.applyTaxOnFirstInstallment = value;
@@ -4527,11 +4201,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad wtNonSubjectAmount.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getWTNonSubjectAmount() {
         return wtNonSubjectAmount;
@@ -4539,11 +4211,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad wtNonSubjectAmount.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setWTNonSubjectAmount(Double value) {
         this.wtNonSubjectAmount = value;
@@ -4551,11 +4221,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad wtNonSubjectAmountSC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getWTNonSubjectAmountSC() {
         return wtNonSubjectAmountSC;
@@ -4563,11 +4231,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad wtNonSubjectAmountSC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setWTNonSubjectAmountSC(Double value) {
         this.wtNonSubjectAmountSC = value;
@@ -4575,11 +4241,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad wtNonSubjectAmountFC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getWTNonSubjectAmountFC() {
         return wtNonSubjectAmountFC;
@@ -4587,11 +4251,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad wtNonSubjectAmountFC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setWTNonSubjectAmountFC(Double value) {
         this.wtNonSubjectAmountFC = value;
@@ -4599,11 +4261,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad wtExemptedAmount.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getWTExemptedAmount() {
         return wtExemptedAmount;
@@ -4611,11 +4271,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad wtExemptedAmount.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setWTExemptedAmount(Double value) {
         this.wtExemptedAmount = value;
@@ -4623,11 +4281,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad wtExemptedAmountSC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getWTExemptedAmountSC() {
         return wtExemptedAmountSC;
@@ -4635,11 +4291,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad wtExemptedAmountSC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setWTExemptedAmountSC(Double value) {
         this.wtExemptedAmountSC = value;
@@ -4647,11 +4301,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad wtExemptedAmountFC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getWTExemptedAmountFC() {
         return wtExemptedAmountFC;
@@ -4659,11 +4311,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad wtExemptedAmountFC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setWTExemptedAmountFC(Double value) {
         this.wtExemptedAmountFC = value;
@@ -4671,11 +4321,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad baseAmount.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getBaseAmount() {
         return baseAmount;
@@ -4683,11 +4331,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad baseAmount.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setBaseAmount(Double value) {
         this.baseAmount = value;
@@ -4695,11 +4341,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad baseAmountSC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getBaseAmountSC() {
         return baseAmountSC;
@@ -4707,11 +4351,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad baseAmountSC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setBaseAmountSC(Double value) {
         this.baseAmountSC = value;
@@ -4719,11 +4361,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad baseAmountFC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getBaseAmountFC() {
         return baseAmountFC;
@@ -4731,11 +4371,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad baseAmountFC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setBaseAmountFC(Double value) {
         this.baseAmountFC = value;
@@ -4743,11 +4381,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad wtAmount.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getWTAmount() {
         return wtAmount;
@@ -4755,11 +4391,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad wtAmount.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setWTAmount(Double value) {
         this.wtAmount = value;
@@ -4767,11 +4401,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad wtAmountSC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getWTAmountSC() {
         return wtAmountSC;
@@ -4779,11 +4411,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad wtAmountSC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setWTAmountSC(Double value) {
         this.wtAmountSC = value;
@@ -4791,11 +4421,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad wtAmountFC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getWTAmountFC() {
         return wtAmountFC;
@@ -4803,11 +4431,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad wtAmountFC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setWTAmountFC(Double value) {
         this.wtAmountFC = value;
@@ -4815,11 +4441,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad vatDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getVatDate() {
         return vatDate;
@@ -4827,11 +4451,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad vatDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setVatDate(XMLGregorianCalendar value) {
         this.vatDate = value;
@@ -4839,11 +4461,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad documentsOwner.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getDocumentsOwner() {
         return documentsOwner;
@@ -4851,11 +4471,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad documentsOwner.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setDocumentsOwner(Long value) {
         this.documentsOwner = value;
@@ -4863,11 +4481,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad folioPrefixString.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getFolioPrefixString() {
         return folioPrefixString;
@@ -4875,11 +4491,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad folioPrefixString.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setFolioPrefixString(String value) {
         this.folioPrefixString = value;
@@ -4887,11 +4501,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad folioNumber.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getFolioNumber() {
         return folioNumber;
@@ -4899,11 +4511,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad folioNumber.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setFolioNumber(Long value) {
         this.folioNumber = value;
@@ -4911,11 +4521,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad documentSubType.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getDocumentSubType() {
         return documentSubType;
@@ -4923,11 +4531,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad documentSubType.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setDocumentSubType(String value) {
         this.documentSubType = value;
@@ -4935,11 +4541,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad bpChannelCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getBPChannelCode() {
         return bpChannelCode;
@@ -4947,11 +4551,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad bpChannelCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setBPChannelCode(String value) {
         this.bpChannelCode = value;
@@ -4959,11 +4561,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad bpChannelContact.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getBPChannelContact() {
         return bpChannelContact;
@@ -4971,11 +4571,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad bpChannelContact.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setBPChannelContact(Long value) {
         this.bpChannelContact = value;
@@ -4983,11 +4581,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad address2.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getAddress2() {
         return address2;
@@ -4995,11 +4591,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad address2.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setAddress2(String value) {
         this.address2 = value;
@@ -5007,11 +4601,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad documentStatus.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getDocumentStatus() {
         return documentStatus;
@@ -5019,11 +4611,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad documentStatus.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setDocumentStatus(String value) {
         this.documentStatus = value;
@@ -5031,11 +4621,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad periodIndicator.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPeriodIndicator() {
         return periodIndicator;
@@ -5043,11 +4631,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad periodIndicator.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPeriodIndicator(String value) {
         this.periodIndicator = value;
@@ -5055,11 +4641,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad payToCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPayToCode() {
         return payToCode;
@@ -5067,11 +4651,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad payToCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPayToCode(String value) {
         this.payToCode = value;
@@ -5079,11 +4661,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad manualNumber.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getManualNumber() {
         return manualNumber;
@@ -5091,11 +4671,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad manualNumber.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setManualNumber(String value) {
         this.manualNumber = value;
@@ -5103,11 +4681,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad useShpdGoodsAct.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUseShpdGoodsAct() {
         return useShpdGoodsAct;
@@ -5115,11 +4691,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad useShpdGoodsAct.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUseShpdGoodsAct(String value) {
         this.useShpdGoodsAct = value;
@@ -5127,11 +4701,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad isPayToBank.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getIsPayToBank() {
         return isPayToBank;
@@ -5139,11 +4711,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad isPayToBank.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setIsPayToBank(String value) {
         this.isPayToBank = value;
@@ -5151,11 +4721,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad payToBankCountry.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPayToBankCountry() {
         return payToBankCountry;
@@ -5163,11 +4731,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad payToBankCountry.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPayToBankCountry(String value) {
         this.payToBankCountry = value;
@@ -5175,11 +4741,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad payToBankCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPayToBankCode() {
         return payToBankCode;
@@ -5187,11 +4751,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad payToBankCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPayToBankCode(String value) {
         this.payToBankCode = value;
@@ -5199,11 +4761,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad payToBankAccountNo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPayToBankAccountNo() {
         return payToBankAccountNo;
@@ -5211,11 +4771,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad payToBankAccountNo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPayToBankAccountNo(String value) {
         this.payToBankAccountNo = value;
@@ -5223,11 +4781,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad payToBankBranch.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPayToBankBranch() {
         return payToBankBranch;
@@ -5235,11 +4791,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad payToBankBranch.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPayToBankBranch(String value) {
         this.payToBankBranch = value;
@@ -5247,11 +4801,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad bplidAssignedToInvoice.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getBPLIDAssignedToInvoice() {
         return bplidAssignedToInvoice;
@@ -5259,11 +4811,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad bplidAssignedToInvoice.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setBPLIDAssignedToInvoice(Long value) {
         this.bplidAssignedToInvoice = value;
@@ -5271,11 +4821,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad downPayment.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getDownPayment() {
         return downPayment;
@@ -5283,11 +4831,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad downPayment.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setDownPayment(Double value) {
         this.downPayment = value;
@@ -5295,11 +4841,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad reserveInvoice.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getReserveInvoice() {
         return reserveInvoice;
@@ -5307,11 +4851,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad reserveInvoice.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setReserveInvoice(String value) {
         this.reserveInvoice = value;
@@ -5319,11 +4861,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad languageCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getLanguageCode() {
         return languageCode;
@@ -5331,11 +4871,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad languageCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setLanguageCode(Long value) {
         this.languageCode = value;
@@ -5343,11 +4881,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad trackingNumber.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getTrackingNumber() {
         return trackingNumber;
@@ -5355,11 +4891,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad trackingNumber.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setTrackingNumber(String value) {
         this.trackingNumber = value;
@@ -5367,11 +4901,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad pickRemark.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPickRemark() {
         return pickRemark;
@@ -5379,11 +4911,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad pickRemark.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPickRemark(String value) {
         this.pickRemark = value;
@@ -5391,11 +4921,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad closingDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getClosingDate() {
         return closingDate;
@@ -5403,11 +4931,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad closingDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setClosingDate(XMLGregorianCalendar value) {
         this.closingDate = value;
@@ -5415,11 +4941,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad sequenceCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getSequenceCode() {
         return sequenceCode;
@@ -5427,11 +4951,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad sequenceCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setSequenceCode(Long value) {
         this.sequenceCode = value;
@@ -5439,11 +4961,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad sequenceSerial.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getSequenceSerial() {
         return sequenceSerial;
@@ -5451,11 +4971,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad sequenceSerial.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setSequenceSerial(Long value) {
         this.sequenceSerial = value;
@@ -5463,11 +4981,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad seriesString.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getSeriesString() {
         return seriesString;
@@ -5475,11 +4991,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad seriesString.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setSeriesString(String value) {
         this.seriesString = value;
@@ -5487,11 +5001,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad subSeriesString.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getSubSeriesString() {
         return subSeriesString;
@@ -5499,11 +5011,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad subSeriesString.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setSubSeriesString(String value) {
         this.subSeriesString = value;
@@ -5511,11 +5021,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad sequenceModel.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getSequenceModel() {
         return sequenceModel;
@@ -5523,11 +5031,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad sequenceModel.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setSequenceModel(String value) {
         this.sequenceModel = value;
@@ -5535,11 +5041,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad useCorrectionVATGroup.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUseCorrectionVATGroup() {
         return useCorrectionVATGroup;
@@ -5547,11 +5051,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad useCorrectionVATGroup.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUseCorrectionVATGroup(String value) {
         this.useCorrectionVATGroup = value;
@@ -5559,11 +5061,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad totalDiscount.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getTotalDiscount() {
         return totalDiscount;
@@ -5571,11 +5071,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad totalDiscount.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setTotalDiscount(Double value) {
         this.totalDiscount = value;
@@ -5583,11 +5081,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad downPaymentAmount.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getDownPaymentAmount() {
         return downPaymentAmount;
@@ -5595,11 +5091,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad downPaymentAmount.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setDownPaymentAmount(Double value) {
         this.downPaymentAmount = value;
@@ -5607,11 +5101,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad downPaymentPercentage.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getDownPaymentPercentage() {
         return downPaymentPercentage;
@@ -5619,11 +5111,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad downPaymentPercentage.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setDownPaymentPercentage(Double value) {
         this.downPaymentPercentage = value;
@@ -5631,11 +5121,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad downPaymentType.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getDownPaymentType() {
         return downPaymentType;
@@ -5643,11 +5131,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad downPaymentType.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setDownPaymentType(String value) {
         this.downPaymentType = value;
@@ -5655,11 +5141,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad downPaymentAmountSC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getDownPaymentAmountSC() {
         return downPaymentAmountSC;
@@ -5667,11 +5151,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad downPaymentAmountSC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setDownPaymentAmountSC(Double value) {
         this.downPaymentAmountSC = value;
@@ -5679,11 +5161,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad downPaymentAmountFC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getDownPaymentAmountFC() {
         return downPaymentAmountFC;
@@ -5691,11 +5171,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad downPaymentAmountFC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setDownPaymentAmountFC(Double value) {
         this.downPaymentAmountFC = value;
@@ -5703,11 +5181,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad vatPercent.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getVatPercent() {
         return vatPercent;
@@ -5715,11 +5191,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad vatPercent.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setVatPercent(Double value) {
         this.vatPercent = value;
@@ -5727,11 +5201,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad serviceGrossProfitPercent.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getServiceGrossProfitPercent() {
         return serviceGrossProfitPercent;
@@ -5739,11 +5211,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad serviceGrossProfitPercent.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setServiceGrossProfitPercent(Double value) {
         this.serviceGrossProfitPercent = value;
@@ -5751,11 +5221,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad openingRemarks.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getOpeningRemarks() {
         return openingRemarks;
@@ -5763,11 +5231,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad openingRemarks.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setOpeningRemarks(String value) {
         this.openingRemarks = value;
@@ -5775,11 +5241,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad closingRemarks.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getClosingRemarks() {
         return closingRemarks;
@@ -5787,11 +5251,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad closingRemarks.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setClosingRemarks(String value) {
         this.closingRemarks = value;
@@ -5799,11 +5261,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad roundingDiffAmount.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getRoundingDiffAmount() {
         return roundingDiffAmount;
@@ -5811,11 +5271,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad roundingDiffAmount.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setRoundingDiffAmount(Double value) {
         this.roundingDiffAmount = value;
@@ -5823,11 +5281,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad roundingDiffAmountFC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getRoundingDiffAmountFC() {
         return roundingDiffAmountFC;
@@ -5835,11 +5291,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad roundingDiffAmountFC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setRoundingDiffAmountFC(Double value) {
         this.roundingDiffAmountFC = value;
@@ -5847,11 +5301,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad roundingDiffAmountSC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getRoundingDiffAmountSC() {
         return roundingDiffAmountSC;
@@ -5859,11 +5311,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad roundingDiffAmountSC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setRoundingDiffAmountSC(Double value) {
         this.roundingDiffAmountSC = value;
@@ -5871,11 +5321,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad cancelled.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getCancelled() {
         return cancelled;
@@ -5883,11 +5331,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad cancelled.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setCancelled(String value) {
         this.cancelled = value;
@@ -5895,11 +5341,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad signatureInputMessage.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getSignatureInputMessage() {
         return signatureInputMessage;
@@ -5907,11 +5351,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad signatureInputMessage.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setSignatureInputMessage(String value) {
         this.signatureInputMessage = value;
@@ -5919,11 +5361,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad signatureDigest.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getSignatureDigest() {
         return signatureDigest;
@@ -5931,11 +5371,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad signatureDigest.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setSignatureDigest(String value) {
         this.signatureDigest = value;
@@ -5943,11 +5381,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad certificationNumber.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getCertificationNumber() {
         return certificationNumber;
@@ -5955,11 +5391,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad certificationNumber.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setCertificationNumber(String value) {
         this.certificationNumber = value;
@@ -5967,11 +5401,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad privateKeyVersion.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getPrivateKeyVersion() {
         return privateKeyVersion;
@@ -5979,11 +5411,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad privateKeyVersion.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setPrivateKeyVersion(Long value) {
         this.privateKeyVersion = value;
@@ -5991,11 +5421,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad controlAccount.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getControlAccount() {
         return controlAccount;
@@ -6003,11 +5431,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad controlAccount.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setControlAccount(String value) {
         this.controlAccount = value;
@@ -6015,11 +5441,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad insuranceOperation347.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getInsuranceOperation347() {
         return insuranceOperation347;
@@ -6027,11 +5451,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad insuranceOperation347.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setInsuranceOperation347(String value) {
         this.insuranceOperation347 = value;
@@ -6039,11 +5461,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad archiveNonremovableSalesQuotation.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getArchiveNonremovableSalesQuotation() {
         return archiveNonremovableSalesQuotation;
@@ -6051,11 +5471,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad archiveNonremovableSalesQuotation.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setArchiveNonremovableSalesQuotation(String value) {
         this.archiveNonremovableSalesQuotation = value;
@@ -6063,11 +5481,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad gtsChecker.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getGTSChecker() {
         return gtsChecker;
@@ -6075,11 +5491,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad gtsChecker.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setGTSChecker(Long value) {
         this.gtsChecker = value;
@@ -6087,11 +5501,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad gtsPayee.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getGTSPayee() {
         return gtsPayee;
@@ -6099,11 +5511,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad gtsPayee.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setGTSPayee(Long value) {
         this.gtsPayee = value;
@@ -6111,11 +5521,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad extraMonth.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getExtraMonth() {
         return extraMonth;
@@ -6123,11 +5531,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad extraMonth.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setExtraMonth(Long value) {
         this.extraMonth = value;
@@ -6135,11 +5541,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad extraDays.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getExtraDays() {
         return extraDays;
@@ -6147,11 +5551,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad extraDays.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setExtraDays(Long value) {
         this.extraDays = value;
@@ -6159,11 +5561,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad cashDiscountDateOffset.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getCashDiscountDateOffset() {
         return cashDiscountDateOffset;
@@ -6171,11 +5571,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad cashDiscountDateOffset.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setCashDiscountDateOffset(Long value) {
         this.cashDiscountDateOffset = value;
@@ -6183,11 +5581,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad startFrom.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getStartFrom() {
         return startFrom;
@@ -6195,11 +5591,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad startFrom.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setStartFrom(String value) {
         this.startFrom = value;
@@ -6207,11 +5601,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad ntsApproved.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNTSApproved() {
         return ntsApproved;
@@ -6219,11 +5611,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad ntsApproved.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setNTSApproved(String value) {
         this.ntsApproved = value;
@@ -6231,11 +5621,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad eTaxWebSite.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getETaxWebSite() {
         return eTaxWebSite;
@@ -6243,11 +5631,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad eTaxWebSite.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setETaxWebSite(Long value) {
         this.eTaxWebSite = value;
@@ -6255,11 +5641,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad eTaxNumber.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getETaxNumber() {
         return eTaxNumber;
@@ -6267,11 +5651,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad eTaxNumber.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setETaxNumber(String value) {
         this.eTaxNumber = value;
@@ -6279,11 +5661,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad ntsApprovedNumber.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getNTSApprovedNumber() {
         return ntsApprovedNumber;
@@ -6291,11 +5671,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad ntsApprovedNumber.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setNTSApprovedNumber(String value) {
         this.ntsApprovedNumber = value;
@@ -6303,11 +5681,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad eDocGenerationType.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getEDocGenerationType() {
         return eDocGenerationType;
@@ -6315,11 +5691,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad eDocGenerationType.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setEDocGenerationType(String value) {
         this.eDocGenerationType = value;
@@ -6327,11 +5701,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad eDocSeries.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getEDocSeries() {
         return eDocSeries;
@@ -6339,11 +5711,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad eDocSeries.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setEDocSeries(Long value) {
         this.eDocSeries = value;
@@ -6351,11 +5721,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad eDocNum.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getEDocNum() {
         return eDocNum;
@@ -6363,11 +5731,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad eDocNum.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setEDocNum(String value) {
         this.eDocNum = value;
@@ -6375,11 +5741,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad eDocExportFormat.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getEDocExportFormat() {
         return eDocExportFormat;
@@ -6387,11 +5751,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad eDocExportFormat.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setEDocExportFormat(Long value) {
         this.eDocExportFormat = value;
@@ -6399,11 +5761,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad eDocStatus.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getEDocStatus() {
         return eDocStatus;
@@ -6411,11 +5771,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad eDocStatus.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setEDocStatus(String value) {
         this.eDocStatus = value;
@@ -6423,11 +5781,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad eDocErrorCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getEDocErrorCode() {
         return eDocErrorCode;
@@ -6435,11 +5791,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad eDocErrorCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setEDocErrorCode(String value) {
         this.eDocErrorCode = value;
@@ -6447,11 +5801,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad eDocErrorMessage.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getEDocErrorMessage() {
         return eDocErrorMessage;
@@ -6459,11 +5811,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad eDocErrorMessage.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setEDocErrorMessage(String value) {
         this.eDocErrorMessage = value;
@@ -6471,11 +5821,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad downPaymentStatus.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getDownPaymentStatus() {
         return downPaymentStatus;
@@ -6483,11 +5831,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad downPaymentStatus.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setDownPaymentStatus(String value) {
         this.downPaymentStatus = value;
@@ -6495,11 +5841,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad groupSeries.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getGroupSeries() {
         return groupSeries;
@@ -6507,11 +5851,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad groupSeries.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setGroupSeries(Long value) {
         this.groupSeries = value;
@@ -6519,11 +5861,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad groupNumber.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getGroupNumber() {
         return groupNumber;
@@ -6531,11 +5871,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad groupNumber.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setGroupNumber(Long value) {
         this.groupNumber = value;
@@ -6543,11 +5881,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad groupHandWritten.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getGroupHandWritten() {
         return groupHandWritten;
@@ -6555,11 +5891,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad groupHandWritten.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setGroupHandWritten(String value) {
         this.groupHandWritten = value;
@@ -6567,11 +5901,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad reopenOriginalDocument.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getReopenOriginalDocument() {
         return reopenOriginalDocument;
@@ -6579,11 +5911,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad reopenOriginalDocument.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setReopenOriginalDocument(String value) {
         this.reopenOriginalDocument = value;
@@ -6591,11 +5921,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad reopenManuallyClosedOrCanceledDocument.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getReopenManuallyClosedOrCanceledDocument() {
         return reopenManuallyClosedOrCanceledDocument;
@@ -6603,11 +5931,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad reopenManuallyClosedOrCanceledDocument.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setReopenManuallyClosedOrCanceledDocument(String value) {
         this.reopenManuallyClosedOrCanceledDocument = value;
@@ -6615,11 +5941,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad createOnlineQuotation.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getCreateOnlineQuotation() {
         return createOnlineQuotation;
@@ -6627,11 +5951,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad createOnlineQuotation.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setCreateOnlineQuotation(String value) {
         this.createOnlineQuotation = value;
@@ -6639,11 +5961,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad posEquipmentNumber.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPOSEquipmentNumber() {
         return posEquipmentNumber;
@@ -6651,11 +5971,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad posEquipmentNumber.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPOSEquipmentNumber(String value) {
         this.posEquipmentNumber = value;
@@ -6663,11 +5981,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad posManufacturerSerialNumber.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPOSManufacturerSerialNumber() {
         return posManufacturerSerialNumber;
@@ -6675,11 +5991,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad posManufacturerSerialNumber.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPOSManufacturerSerialNumber(String value) {
         this.posManufacturerSerialNumber = value;
@@ -6687,11 +6001,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad posCashierNumber.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getPOSCashierNumber() {
         return posCashierNumber;
@@ -6699,35 +6011,31 @@ public class Document {
 
     /**
      * Define el valor de la propiedad posCashierNumber.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setPOSCashierNumber(Long value) {
         this.posCashierNumber = value;
     }
 
     /**
-     * Obtiene el valor de la propiedad applyCurrentVATRatesForDownPaymentsToDraw.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * Obtiene el valor de la propiedad
+     * applyCurrentVATRatesForDownPaymentsToDraw.
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getApplyCurrentVATRatesForDownPaymentsToDraw() {
         return applyCurrentVATRatesForDownPaymentsToDraw;
     }
 
     /**
-     * Define el valor de la propiedad applyCurrentVATRatesForDownPaymentsToDraw.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * Define el valor de la propiedad
+     * applyCurrentVATRatesForDownPaymentsToDraw.
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setApplyCurrentVATRatesForDownPaymentsToDraw(String value) {
         this.applyCurrentVATRatesForDownPaymentsToDraw = value;
@@ -6735,11 +6043,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad closingOption.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getClosingOption() {
         return closingOption;
@@ -6747,11 +6053,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad closingOption.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setClosingOption(String value) {
         this.closingOption = value;
@@ -6759,11 +6063,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad specifiedClosingDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getSpecifiedClosingDate() {
         return specifiedClosingDate;
@@ -6771,11 +6073,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad specifiedClosingDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setSpecifiedClosingDate(XMLGregorianCalendar value) {
         this.specifiedClosingDate = value;
@@ -6783,11 +6083,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad openForLandedCosts.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getOpenForLandedCosts() {
         return openForLandedCosts;
@@ -6795,11 +6093,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad openForLandedCosts.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setOpenForLandedCosts(String value) {
         this.openForLandedCosts = value;
@@ -6807,11 +6103,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad authorizationStatus.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getAuthorizationStatus() {
         return authorizationStatus;
@@ -6819,11 +6113,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad authorizationStatus.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setAuthorizationStatus(String value) {
         this.authorizationStatus = value;
@@ -6831,11 +6123,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad totalDiscountFC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getTotalDiscountFC() {
         return totalDiscountFC;
@@ -6843,11 +6133,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad totalDiscountFC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setTotalDiscountFC(Double value) {
         this.totalDiscountFC = value;
@@ -6855,11 +6143,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad totalDiscountSC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getTotalDiscountSC() {
         return totalDiscountSC;
@@ -6867,11 +6153,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad totalDiscountSC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setTotalDiscountSC(Double value) {
         this.totalDiscountSC = value;
@@ -6879,11 +6163,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad relevantToGTS.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getRelevantToGTS() {
         return relevantToGTS;
@@ -6891,11 +6173,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad relevantToGTS.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setRelevantToGTS(String value) {
         this.relevantToGTS = value;
@@ -6903,11 +6183,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad bplName.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getBPLName() {
         return bplName;
@@ -6915,11 +6193,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad bplName.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setBPLName(String value) {
         this.bplName = value;
@@ -6927,11 +6203,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad vatRegNum.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getVATRegNum() {
         return vatRegNum;
@@ -6939,11 +6213,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad vatRegNum.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setVATRegNum(String value) {
         this.vatRegNum = value;
@@ -6951,11 +6223,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad annualInvoiceDeclarationReference.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getAnnualInvoiceDeclarationReference() {
         return annualInvoiceDeclarationReference;
@@ -6963,11 +6233,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad annualInvoiceDeclarationReference.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setAnnualInvoiceDeclarationReference(Long value) {
         this.annualInvoiceDeclarationReference = value;
@@ -6975,11 +6243,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad supplier.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getSupplier() {
         return supplier;
@@ -6987,11 +6253,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad supplier.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setSupplier(String value) {
         this.supplier = value;
@@ -6999,11 +6263,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad releaser.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getReleaser() {
         return releaser;
@@ -7011,11 +6273,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad releaser.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setReleaser(Long value) {
         this.releaser = value;
@@ -7023,11 +6283,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad receiver.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getReceiver() {
         return receiver;
@@ -7035,11 +6293,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad receiver.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setReceiver(Long value) {
         this.receiver = value;
@@ -7047,11 +6303,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad blanketAgreementNumber.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getBlanketAgreementNumber() {
         return blanketAgreementNumber;
@@ -7059,11 +6313,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad blanketAgreementNumber.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setBlanketAgreementNumber(Long value) {
         this.blanketAgreementNumber = value;
@@ -7071,11 +6323,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad isAlteration.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getIsAlteration() {
         return isAlteration;
@@ -7083,11 +6333,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad isAlteration.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setIsAlteration(String value) {
         this.isAlteration = value;
@@ -7095,11 +6343,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad cancelStatus.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getCancelStatus() {
         return cancelStatus;
@@ -7107,11 +6353,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad cancelStatus.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setCancelStatus(String value) {
         this.cancelStatus = value;
@@ -7119,11 +6363,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad assetValueDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getAssetValueDate() {
         return assetValueDate;
@@ -7131,11 +6373,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad assetValueDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setAssetValueDate(XMLGregorianCalendar value) {
         this.assetValueDate = value;
@@ -7143,11 +6383,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad documentDelivery.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getDocumentDelivery() {
         return documentDelivery;
@@ -7155,11 +6393,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad documentDelivery.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setDocumentDelivery(String value) {
         this.documentDelivery = value;
@@ -7167,11 +6403,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad authorizationCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getAuthorizationCode() {
         return authorizationCode;
@@ -7179,11 +6413,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad authorizationCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setAuthorizationCode(String value) {
         this.authorizationCode = value;
@@ -7191,11 +6423,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad startDeliveryDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getStartDeliveryDate() {
         return startDeliveryDate;
@@ -7203,11 +6433,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad startDeliveryDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setStartDeliveryDate(XMLGregorianCalendar value) {
         this.startDeliveryDate = value;
@@ -7215,11 +6443,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad startDeliveryTime.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getStartDeliveryTime() {
         return startDeliveryTime;
@@ -7227,11 +6453,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad startDeliveryTime.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setStartDeliveryTime(XMLGregorianCalendar value) {
         this.startDeliveryTime = value;
@@ -7239,11 +6463,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad endDeliveryDate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getEndDeliveryDate() {
         return endDeliveryDate;
@@ -7251,11 +6473,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad endDeliveryDate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setEndDeliveryDate(XMLGregorianCalendar value) {
         this.endDeliveryDate = value;
@@ -7263,11 +6483,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad endDeliveryTime.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is {@link XMLGregorianCalendar }
+     *
      */
     public XMLGregorianCalendar getEndDeliveryTime() {
         return endDeliveryTime;
@@ -7275,11 +6493,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad endDeliveryTime.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is {@link XMLGregorianCalendar }
+     *
      */
     public void setEndDeliveryTime(XMLGregorianCalendar value) {
         this.endDeliveryTime = value;
@@ -7287,11 +6503,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad vehiclePlate.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getVehiclePlate() {
         return vehiclePlate;
@@ -7299,11 +6513,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad vehiclePlate.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setVehiclePlate(String value) {
         this.vehiclePlate = value;
@@ -7311,11 +6523,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad atDocumentType.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getATDocumentType() {
         return atDocumentType;
@@ -7323,11 +6533,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad atDocumentType.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setATDocumentType(String value) {
         this.atDocumentType = value;
@@ -7335,11 +6543,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad elecCommStatus.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getElecCommStatus() {
         return elecCommStatus;
@@ -7347,11 +6553,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad elecCommStatus.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setElecCommStatus(String value) {
         this.elecCommStatus = value;
@@ -7359,11 +6563,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad elecCommMessage.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getElecCommMessage() {
         return elecCommMessage;
@@ -7371,11 +6573,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad elecCommMessage.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setElecCommMessage(String value) {
         this.elecCommMessage = value;
@@ -7383,11 +6583,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad reuseDocumentNum.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getReuseDocumentNum() {
         return reuseDocumentNum;
@@ -7395,11 +6593,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad reuseDocumentNum.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setReuseDocumentNum(String value) {
         this.reuseDocumentNum = value;
@@ -7407,11 +6603,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad reuseNotaFiscalNum.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getReuseNotaFiscalNum() {
         return reuseNotaFiscalNum;
@@ -7419,11 +6613,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad reuseNotaFiscalNum.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setReuseNotaFiscalNum(String value) {
         this.reuseNotaFiscalNum = value;
@@ -7431,11 +6623,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad printSEPADirect.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPrintSEPADirect() {
         return printSEPADirect;
@@ -7443,11 +6633,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad printSEPADirect.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPrintSEPADirect(String value) {
         this.printSEPADirect = value;
@@ -7455,11 +6643,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad fiscalDocNum.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getFiscalDocNum() {
         return fiscalDocNum;
@@ -7467,11 +6653,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad fiscalDocNum.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setFiscalDocNum(String value) {
         this.fiscalDocNum = value;
@@ -7479,11 +6663,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad posDailySummaryNo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getPOSDailySummaryNo() {
         return posDailySummaryNo;
@@ -7491,11 +6673,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad posDailySummaryNo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setPOSDailySummaryNo(Long value) {
         this.posDailySummaryNo = value;
@@ -7503,11 +6683,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad posReceiptNo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getPOSReceiptNo() {
         return posReceiptNo;
@@ -7515,11 +6693,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad posReceiptNo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setPOSReceiptNo(Long value) {
         this.posReceiptNo = value;
@@ -7527,11 +6703,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad pointOfIssueCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getPointOfIssueCode() {
         return pointOfIssueCode;
@@ -7539,11 +6713,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad pointOfIssueCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setPointOfIssueCode(String value) {
         this.pointOfIssueCode = value;
@@ -7551,11 +6723,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad letter.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getLetter() {
         return letter;
@@ -7563,11 +6733,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad letter.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setLetter(String value) {
         this.letter = value;
@@ -7575,11 +6743,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad folioNumberFrom.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getFolioNumberFrom() {
         return folioNumberFrom;
@@ -7587,11 +6753,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad folioNumberFrom.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setFolioNumberFrom(Long value) {
         this.folioNumberFrom = value;
@@ -7599,11 +6763,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad folioNumberTo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getFolioNumberTo() {
         return folioNumberTo;
@@ -7611,11 +6773,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad folioNumberTo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setFolioNumberTo(Long value) {
         this.folioNumberTo = value;
@@ -7623,11 +6783,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad interimType.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getInterimType() {
         return interimType;
@@ -7635,11 +6793,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad interimType.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setInterimType(String value) {
         this.interimType = value;
@@ -7647,11 +6803,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad relatedType.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getRelatedType() {
         return relatedType;
@@ -7659,11 +6813,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad relatedType.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setRelatedType(Long value) {
         this.relatedType = value;
@@ -7671,11 +6823,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad relatedEntry.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getRelatedEntry() {
         return relatedEntry;
@@ -7683,11 +6833,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad relatedEntry.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setRelatedEntry(Long value) {
         this.relatedEntry = value;
@@ -7695,11 +6843,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uAutorret.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUAutorret() {
         return uAutorret;
@@ -7707,11 +6853,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uAutorret.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUAutorret(String value) {
         this.uAutorret = value;
@@ -7719,11 +6863,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad ubpcost.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUBPCOST() {
         return ubpcost;
@@ -7731,11 +6873,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad ubpcost.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUBPCOST(String value) {
         this.ubpcost = value;
@@ -7743,11 +6883,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uwuid.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUWUID() {
         return uwuid;
@@ -7755,11 +6893,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uwuid.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUWUID(String value) {
         this.uwuid = value;
@@ -7767,11 +6903,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uTipoNota.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUTipoNota() {
         return uTipoNota;
@@ -7779,11 +6913,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uTipoNota.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUTipoNota(String value) {
         this.uTipoNota = value;
@@ -7791,11 +6923,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uRetefue.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getURetefue() {
         return uRetefue;
@@ -7803,11 +6933,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uRetefue.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setURetefue(String value) {
         this.uRetefue = value;
@@ -7815,11 +6943,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uReteIca.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUReteIca() {
         return uReteIca;
@@ -7827,11 +6953,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uReteIca.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUReteIca(String value) {
         this.uReteIca = value;
@@ -7839,11 +6963,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uok1IVAPA.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUOK1IVAPA() {
         return uok1IVAPA;
@@ -7851,11 +6973,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uok1IVAPA.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUOK1IVAPA(String value) {
         this.uok1IVAPA = value;
@@ -7863,11 +6983,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uok1IFRS.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUOK1IFRS() {
         return uok1IFRS;
@@ -7875,11 +6993,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uok1IFRS.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUOK1IFRS(String value) {
         this.uok1IFRS = value;
@@ -7887,11 +7003,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uDiseno.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUDiseno() {
         return uDiseno;
@@ -7899,11 +7013,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uDiseno.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUDiseno(String value) {
         this.uDiseno = value;
@@ -7911,11 +7023,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uDiseno2.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUDiseno2() {
         return uDiseno2;
@@ -7923,11 +7033,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uDiseno2.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUDiseno2(String value) {
         this.uDiseno2 = value;
@@ -7935,11 +7043,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uComdeco1.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getUComdeco1() {
         return uComdeco1;
@@ -7947,11 +7053,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uComdeco1.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setUComdeco1(Long value) {
         this.uComdeco1 = value;
@@ -7959,11 +7063,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uComdeco2.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getUComdeco2() {
         return uComdeco2;
@@ -7971,11 +7073,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uComdeco2.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setUComdeco2(Long value) {
         this.uComdeco2 = value;
@@ -7983,11 +7083,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uVendedor1.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUVendedor1() {
         return uVendedor1;
@@ -7995,11 +7093,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uVendedor1.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUVendedor1(String value) {
         this.uVendedor1 = value;
@@ -8007,11 +7103,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uVendedor2.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUVendedor2() {
         return uVendedor2;
@@ -8019,11 +7113,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uVendedor2.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUVendedor2(String value) {
         this.uVendedor2 = value;
@@ -8031,11 +7123,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uVendedor3.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUVendedor3() {
         return uVendedor3;
@@ -8043,11 +7133,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uVendedor3.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUVendedor3(String value) {
         this.uVendedor3 = value;
@@ -8055,11 +7143,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uVendedor4.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUVendedor4() {
         return uVendedor4;
@@ -8067,11 +7153,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uVendedor4.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUVendedor4(String value) {
         this.uVendedor4 = value;
@@ -8079,11 +7163,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uVendedor5.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUVendedor5() {
         return uVendedor5;
@@ -8091,11 +7173,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uVendedor5.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUVendedor5(String value) {
         this.uVendedor5 = value;
@@ -8103,11 +7183,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uFactor.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getUFactor() {
         return uFactor;
@@ -8115,11 +7193,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uFactor.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setUFactor(Long value) {
         this.uFactor = value;
@@ -8127,11 +7203,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad unwrPicS.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUNWRPicS() {
         return unwrPicS;
@@ -8139,11 +7213,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad unwrPicS.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUNWRPicS(String value) {
         this.unwrPicS = value;
@@ -8151,11 +7223,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad unwrbRet.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUNWRBRet() {
         return unwrbRet;
@@ -8163,11 +7233,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad unwrbRet.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUNWRBRet(String value) {
         this.unwrbRet = value;
@@ -8175,11 +7243,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uNwrPAut.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getUNwrPAut() {
         return uNwrPAut;
@@ -8187,11 +7253,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uNwrPAut.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setUNwrPAut(Long value) {
         this.uNwrPAut = value;
@@ -8199,11 +7263,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uNwrNote.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUNwrNote() {
         return uNwrNote;
@@ -8211,11 +7273,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uNwrNote.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUNwrNote(String value) {
         this.uNwrNote = value;
@@ -8223,11 +7283,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uNwrTag.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUNwrTag() {
         return uNwrTag;
@@ -8235,11 +7293,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uNwrTag.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUNwrTag(String value) {
         this.uNwrTag = value;
@@ -8247,11 +7303,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uNwrFrgt.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Double }
-     *     
+     *
+     * @return possible object is {@link Double }
+     *
      */
     public Double getUNwrFrgt() {
         return uNwrFrgt;
@@ -8259,11 +7313,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uNwrFrgt.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Double }
-     *     
+     *
+     * @param value allowed object is {@link Double }
+     *
      */
     public void setUNwrFrgt(Double value) {
         this.uNwrFrgt = value;
@@ -8271,11 +7323,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad unwrnorm.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUNWRNORM() {
         return unwrnorm;
@@ -8283,11 +7333,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad unwrnorm.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUNWRNORM(String value) {
         this.unwrnorm = value;
@@ -8295,11 +7343,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uTypeExped.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUTypeExped() {
         return uTypeExped;
@@ -8307,11 +7353,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uTypeExped.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUTypeExped(String value) {
         this.uTypeExped = value;
@@ -8319,11 +7363,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uCreaNC.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUCreaNC() {
         return uCreaNC;
@@ -8331,11 +7373,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uCreaNC.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUCreaNC(String value) {
         this.uCreaNC = value;
@@ -8343,11 +7383,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uNumFact.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUNumFact() {
         return uNumFact;
@@ -8355,11 +7393,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uNumFact.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUNumFact(String value) {
         this.uNumFact = value;
@@ -8367,11 +7403,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uAprobado.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUAprobado() {
         return uAprobado;
@@ -8379,11 +7413,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uAprobado.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUAprobado(String value) {
         this.uAprobado = value;
@@ -8391,11 +7423,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uComVend1.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUComVend1() {
         return uComVend1;
@@ -8403,11 +7433,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uComVend1.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUComVend1(String value) {
         this.uComVend1 = value;
@@ -8415,11 +7443,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uComVend2.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUComVend2() {
         return uComVend2;
@@ -8427,11 +7453,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uComVend2.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUComVend2(String value) {
         this.uComVend2 = value;
@@ -8439,11 +7463,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uComVend3.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUComVend3() {
         return uComVend3;
@@ -8451,11 +7473,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uComVend3.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUComVend3(String value) {
         this.uComVend3 = value;
@@ -8463,11 +7483,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uComVend4.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUComVend4() {
         return uComVend4;
@@ -8475,11 +7493,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uComVend4.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUComVend4(String value) {
         this.uComVend4 = value;
@@ -8487,11 +7503,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uComVend5.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUComVend5() {
         return uComVend5;
@@ -8499,11 +7513,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uComVend5.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUComVend5(String value) {
         this.uComVend5 = value;
@@ -8511,11 +7523,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uActCosto.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUActCosto() {
         return uActCosto;
@@ -8523,11 +7533,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uActCosto.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUActCosto(String value) {
         this.uActCosto = value;
@@ -8535,11 +7543,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uDocEntryLeg.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getUDocEntryLeg() {
         return uDocEntryLeg;
@@ -8547,11 +7553,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uDocEntryLeg.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setUDocEntryLeg(Long value) {
         this.uDocEntryLeg = value;
@@ -8559,11 +7563,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uIdLineLeg.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUIdLineLeg() {
         return uIdLineLeg;
@@ -8571,11 +7573,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uIdLineLeg.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUIdLineLeg(String value) {
         this.uIdLineLeg = value;
@@ -8583,11 +7583,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uSerieLeg.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
+     *
+     * @return possible object is {@link Long }
+     *
      */
     public Long getUSerieLeg() {
         return uSerieLeg;
@@ -8595,11 +7593,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uSerieLeg.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
+     *
+     * @param value allowed object is {@link Long }
+     *
      */
     public void setUSerieLeg(Long value) {
         this.uSerieLeg = value;
@@ -8607,11 +7603,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uEsIndep.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUEsIndep() {
         return uEsIndep;
@@ -8619,11 +7613,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uEsIndep.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUEsIndep(String value) {
         this.uEsIndep = value;
@@ -8631,11 +7623,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uFirma.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUFirma() {
         return uFirma;
@@ -8643,11 +7633,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uFirma.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUFirma(String value) {
         this.uFirma = value;
@@ -8655,11 +7643,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uCedula.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUCedula() {
         return uCedula;
@@ -8667,11 +7653,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uCedula.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUCedula(String value) {
         this.uCedula = value;
@@ -8679,11 +7663,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uDifCode.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUDifCode() {
         return uDifCode;
@@ -8691,11 +7673,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uDifCode.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUDifCode(String value) {
         this.uDifCode = value;
@@ -8703,11 +7683,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uCatRet.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUCatRet() {
         return uCatRet;
@@ -8715,11 +7693,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uCatRet.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUCatRet(String value) {
         this.uCatRet = value;
@@ -8727,11 +7703,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad uOrigen.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is {@link String }
+     *
      */
     public String getUOrigen() {
         return uOrigen;
@@ -8739,11 +7713,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad uOrigen.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is {@link String }
+     *
      */
     public void setUOrigen(String value) {
         this.uOrigen = value;
@@ -8751,11 +7723,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad documentApprovalRequests.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Document.DocumentApprovalRequests }
-     *     
+     *
+     * @return possible object is {@link Document.DocumentApprovalRequests }
+     *
      */
     public Document.DocumentApprovalRequests getDocumentApprovalRequests() {
         return documentApprovalRequests;
@@ -8763,11 +7733,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad documentApprovalRequests.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Document.DocumentApprovalRequests }
-     *     
+     *
+     * @param value allowed object is {@link Document.DocumentApprovalRequests }
+     *
      */
     public void setDocumentApprovalRequests(Document.DocumentApprovalRequests value) {
         this.documentApprovalRequests = value;
@@ -8775,11 +7743,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad documentLines.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Document.DocumentLines }
-     *     
+     *
+     * @return possible object is {@link Document.DocumentLines }
+     *
      */
     public Document.DocumentLines getDocumentLines() {
         return documentLines;
@@ -8787,11 +7753,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad documentLines.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Document.DocumentLines }
-     *     
+     *
+     * @param value allowed object is {@link Document.DocumentLines }
+     *
      */
     public void setDocumentLines(Document.DocumentLines value) {
         this.documentLines = value;
@@ -8799,11 +7763,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad documentAdditionalExpenses.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Document.DocumentAdditionalExpenses }
-     *     
+     *
+     * @return possible object is {@link Document.DocumentAdditionalExpenses }
+     *
      */
     public Document.DocumentAdditionalExpenses getDocumentAdditionalExpenses() {
         return documentAdditionalExpenses;
@@ -8811,11 +7773,10 @@ public class Document {
 
     /**
      * Define el valor de la propiedad documentAdditionalExpenses.
-     * 
-     * @param value
-     *     allowed object is
+     *
+     * @param value allowed object is
      *     {@link Document.DocumentAdditionalExpenses }
-     *     
+     *
      */
     public void setDocumentAdditionalExpenses(Document.DocumentAdditionalExpenses value) {
         this.documentAdditionalExpenses = value;
@@ -8823,11 +7784,10 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad withholdingTaxDataWTXCollection.
-     * 
-     * @return
-     *     possible object is
+     *
+     * @return possible object is
      *     {@link Document.WithholdingTaxDataWTXCollection }
-     *     
+     *
      */
     public Document.WithholdingTaxDataWTXCollection getWithholdingTaxDataWTXCollection() {
         return withholdingTaxDataWTXCollection;
@@ -8835,11 +7795,10 @@ public class Document {
 
     /**
      * Define el valor de la propiedad withholdingTaxDataWTXCollection.
-     * 
-     * @param value
-     *     allowed object is
+     *
+     * @param value allowed object is
      *     {@link Document.WithholdingTaxDataWTXCollection }
-     *     
+     *
      */
     public void setWithholdingTaxDataWTXCollection(Document.WithholdingTaxDataWTXCollection value) {
         this.withholdingTaxDataWTXCollection = value;
@@ -8847,11 +7806,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad withholdingTaxDataCollection.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Document.WithholdingTaxDataCollection }
-     *     
+     *
+     * @return possible object is {@link Document.WithholdingTaxDataCollection }
+     *
      */
     public Document.WithholdingTaxDataCollection getWithholdingTaxDataCollection() {
         return withholdingTaxDataCollection;
@@ -8859,11 +7816,10 @@ public class Document {
 
     /**
      * Define el valor de la propiedad withholdingTaxDataCollection.
-     * 
-     * @param value
-     *     allowed object is
+     *
+     * @param value allowed object is
      *     {@link Document.WithholdingTaxDataCollection }
-     *     
+     *
      */
     public void setWithholdingTaxDataCollection(Document.WithholdingTaxDataCollection value) {
         this.withholdingTaxDataCollection = value;
@@ -8871,11 +7827,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad documentSpecialLines.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Document.DocumentSpecialLines }
-     *     
+     *
+     * @return possible object is {@link Document.DocumentSpecialLines }
+     *
      */
     public Document.DocumentSpecialLines getDocumentSpecialLines() {
         return documentSpecialLines;
@@ -8883,11 +7837,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad documentSpecialLines.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Document.DocumentSpecialLines }
-     *     
+     *
+     * @param value allowed object is {@link Document.DocumentSpecialLines }
+     *
      */
     public void setDocumentSpecialLines(Document.DocumentSpecialLines value) {
         this.documentSpecialLines = value;
@@ -8895,11 +7847,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad downPaymentsToDraw.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Document.DownPaymentsToDraw }
-     *     
+     *
+     * @return possible object is {@link Document.DownPaymentsToDraw }
+     *
      */
     public Document.DownPaymentsToDraw getDownPaymentsToDraw() {
         return downPaymentsToDraw;
@@ -8907,11 +7857,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad downPaymentsToDraw.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Document.DownPaymentsToDraw }
-     *     
+     *
+     * @param value allowed object is {@link Document.DownPaymentsToDraw }
+     *
      */
     public void setDownPaymentsToDraw(Document.DownPaymentsToDraw value) {
         this.downPaymentsToDraw = value;
@@ -8919,11 +7867,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad taxExtension.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Document.TaxExtension }
-     *     
+     *
+     * @return possible object is {@link Document.TaxExtension }
+     *
      */
     public Document.TaxExtension getTaxExtension() {
         return taxExtension;
@@ -8931,11 +7877,9 @@ public class Document {
 
     /**
      * Define el valor de la propiedad taxExtension.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Document.TaxExtension }
-     *     
+     *
+     * @param value allowed object is {@link Document.TaxExtension }
+     *
      */
     public void setTaxExtension(Document.TaxExtension value) {
         this.taxExtension = value;
@@ -8943,11 +7887,9 @@ public class Document {
 
     /**
      * Obtiene el valor de la propiedad addressExtension.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Document.AddressExtension }
-     *     
+     *
+     * @return possible object is {@link Document.AddressExtension }
+     *
      */
     public Document.AddressExtension getAddressExtension() {
         return addressExtension;
@@ -8955,22 +7897,22 @@ public class Document {
 
     /**
      * Define el valor de la propiedad addressExtension.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Document.AddressExtension }
-     *     
+     *
+     * @param value allowed object is {@link Document.AddressExtension }
+     *
      */
     public void setAddressExtension(Document.AddressExtension value) {
         this.addressExtension = value;
     }
 
-
     /**
-     * <p>Clase Java para anonymous complex type.
-     * 
-     * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-     * 
+     * <p>
+     * Clase Java para anonymous complex type.
+     *
+     * <p>
+     * El siguiente fragmento de esquema especifica el contenido que se espera
+     * que haya en esta clase.
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -9007,13 +7949,11 @@ public class Document {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-
-    })
+    @XmlType(name = "", propOrder = {})
     public static class AddressExtension {
 
         @XmlElement(name = "ShipToStreet")
@@ -9071,11 +8011,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad shipToStreet.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getShipToStreet() {
             return shipToStreet;
@@ -9083,11 +8021,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad shipToStreet.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setShipToStreet(String value) {
             this.shipToStreet = value;
@@ -9095,11 +8031,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad shipToStreetNo.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getShipToStreetNo() {
             return shipToStreetNo;
@@ -9107,11 +8041,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad shipToStreetNo.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setShipToStreetNo(String value) {
             this.shipToStreetNo = value;
@@ -9119,11 +8051,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad shipToBlock.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getShipToBlock() {
             return shipToBlock;
@@ -9131,11 +8061,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad shipToBlock.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setShipToBlock(String value) {
             this.shipToBlock = value;
@@ -9143,11 +8071,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad shipToBuilding.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getShipToBuilding() {
             return shipToBuilding;
@@ -9155,11 +8081,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad shipToBuilding.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setShipToBuilding(String value) {
             this.shipToBuilding = value;
@@ -9167,11 +8091,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad shipToCity.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getShipToCity() {
             return shipToCity;
@@ -9179,11 +8101,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad shipToCity.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setShipToCity(String value) {
             this.shipToCity = value;
@@ -9191,11 +8111,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad shipToZipCode.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getShipToZipCode() {
             return shipToZipCode;
@@ -9203,11 +8121,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad shipToZipCode.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setShipToZipCode(String value) {
             this.shipToZipCode = value;
@@ -9215,11 +8131,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad shipToCounty.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getShipToCounty() {
             return shipToCounty;
@@ -9227,11 +8141,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad shipToCounty.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setShipToCounty(String value) {
             this.shipToCounty = value;
@@ -9239,11 +8151,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad shipToState.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getShipToState() {
             return shipToState;
@@ -9251,11 +8161,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad shipToState.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setShipToState(String value) {
             this.shipToState = value;
@@ -9263,11 +8171,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad shipToCountry.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getShipToCountry() {
             return shipToCountry;
@@ -9275,11 +8181,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad shipToCountry.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setShipToCountry(String value) {
             this.shipToCountry = value;
@@ -9287,11 +8191,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad shipToAddressType.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getShipToAddressType() {
             return shipToAddressType;
@@ -9299,11 +8201,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad shipToAddressType.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setShipToAddressType(String value) {
             this.shipToAddressType = value;
@@ -9311,11 +8211,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad billToStreet.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBillToStreet() {
             return billToStreet;
@@ -9323,11 +8221,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad billToStreet.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBillToStreet(String value) {
             this.billToStreet = value;
@@ -9335,11 +8231,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad billToStreetNo.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBillToStreetNo() {
             return billToStreetNo;
@@ -9347,11 +8241,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad billToStreetNo.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBillToStreetNo(String value) {
             this.billToStreetNo = value;
@@ -9359,11 +8251,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad billToBlock.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBillToBlock() {
             return billToBlock;
@@ -9371,11 +8261,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad billToBlock.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBillToBlock(String value) {
             this.billToBlock = value;
@@ -9383,11 +8271,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad billToBuilding.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBillToBuilding() {
             return billToBuilding;
@@ -9395,11 +8281,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad billToBuilding.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBillToBuilding(String value) {
             this.billToBuilding = value;
@@ -9407,11 +8291,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad billToCity.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBillToCity() {
             return billToCity;
@@ -9419,11 +8301,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad billToCity.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBillToCity(String value) {
             this.billToCity = value;
@@ -9431,11 +8311,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad billToZipCode.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBillToZipCode() {
             return billToZipCode;
@@ -9443,11 +8321,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad billToZipCode.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBillToZipCode(String value) {
             this.billToZipCode = value;
@@ -9455,11 +8331,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad billToCounty.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBillToCounty() {
             return billToCounty;
@@ -9467,11 +8341,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad billToCounty.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBillToCounty(String value) {
             this.billToCounty = value;
@@ -9479,11 +8351,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad billToState.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBillToState() {
             return billToState;
@@ -9491,11 +8361,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad billToState.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBillToState(String value) {
             this.billToState = value;
@@ -9503,11 +8371,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad billToCountry.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBillToCountry() {
             return billToCountry;
@@ -9515,11 +8381,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad billToCountry.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBillToCountry(String value) {
             this.billToCountry = value;
@@ -9527,11 +8391,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad billToAddressType.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBillToAddressType() {
             return billToAddressType;
@@ -9539,11 +8401,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad billToAddressType.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBillToAddressType(String value) {
             this.billToAddressType = value;
@@ -9551,11 +8411,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad shipToGlobalLocationNumber.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getShipToGlobalLocationNumber() {
             return shipToGlobalLocationNumber;
@@ -9563,11 +8421,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad shipToGlobalLocationNumber.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setShipToGlobalLocationNumber(String value) {
             this.shipToGlobalLocationNumber = value;
@@ -9575,11 +8431,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad billToGlobalLocationNumber.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBillToGlobalLocationNumber() {
             return billToGlobalLocationNumber;
@@ -9587,11 +8441,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad billToGlobalLocationNumber.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBillToGlobalLocationNumber(String value) {
             this.billToGlobalLocationNumber = value;
@@ -9599,11 +8451,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad shipToAddress2.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getShipToAddress2() {
             return shipToAddress2;
@@ -9611,11 +8461,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad shipToAddress2.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setShipToAddress2(String value) {
             this.shipToAddress2 = value;
@@ -9623,11 +8471,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad shipToAddress3.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getShipToAddress3() {
             return shipToAddress3;
@@ -9635,11 +8481,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad shipToAddress3.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setShipToAddress3(String value) {
             this.shipToAddress3 = value;
@@ -9647,11 +8491,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad billToAddress2.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBillToAddress2() {
             return billToAddress2;
@@ -9659,11 +8501,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad billToAddress2.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBillToAddress2(String value) {
             this.billToAddress2 = value;
@@ -9671,11 +8511,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad billToAddress3.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBillToAddress3() {
             return billToAddress3;
@@ -9683,11 +8521,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad billToAddress3.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBillToAddress3(String value) {
             this.billToAddress3 = value;
@@ -9695,12 +8531,14 @@ public class Document {
 
     }
 
-
     /**
-     * <p>Clase Java para anonymous complex type.
-     * 
-     * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-     * 
+     * <p>
+     * Clase Java para anonymous complex type.
+     *
+     * <p>
+     * El siguiente fragmento de esquema especifica el contenido que se espera
+     * que haya en esta clase.
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -9861,8 +8699,8 @@ public class Document {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -9875,25 +8713,25 @@ public class Document {
 
         /**
          * Gets the value of the documentAdditionalExpense property.
-         * 
+         *
          * <p>
-         * This accessor method returns a reference to the live list,
-         * not a snapshot. Therefore any modification you make to the
-         * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the documentAdditionalExpense property.
-         * 
+         * This accessor method returns a reference to the live list, not a
+         * snapshot. Therefore any modification you make to the returned list
+         * will be present inside the JAXB object. This is why there is not a
+         * <CODE>set</CODE> method for the documentAdditionalExpense property.
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getDocumentAdditionalExpense().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Document.DocumentAdditionalExpenses.DocumentAdditionalExpense }
-         * 
-         * 
+         *
+         *
          */
         public List<Document.DocumentAdditionalExpenses.DocumentAdditionalExpense> getDocumentAdditionalExpense() {
             if (documentAdditionalExpense == null) {
@@ -9902,12 +8740,14 @@ public class Document {
             return this.documentAdditionalExpense;
         }
 
-
         /**
-         * <p>Clase Java para anonymous complex type.
-         * 
-         * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-         * 
+         * <p>
+         * Clase Java para anonymous complex type.
+         *
+         * <p>
+         * El siguiente fragmento de esquema especifica el contenido que se
+         * espera que haya en esta clase.
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -10058,13 +8898,11 @@ public class Document {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
-
-        })
+        @XmlType(name = "", propOrder = {})
         public static class DocumentAdditionalExpense {
 
             @XmlElement(name = "ExpenseCode")
@@ -10168,11 +9006,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad expenseCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getExpenseCode() {
                 return expenseCode;
@@ -10180,11 +9016,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad expenseCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setExpenseCode(Long value) {
                 this.expenseCode = value;
@@ -10192,11 +9026,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lineTotal.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getLineTotal() {
                 return lineTotal;
@@ -10204,11 +9036,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lineTotal.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setLineTotal(Double value) {
                 this.lineTotal = value;
@@ -10216,11 +9046,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lineTotalFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getLineTotalFC() {
                 return lineTotalFC;
@@ -10228,11 +9056,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lineTotalFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setLineTotalFC(Double value) {
                 this.lineTotalFC = value;
@@ -10240,11 +9066,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lineTotalSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getLineTotalSys() {
                 return lineTotalSys;
@@ -10252,11 +9076,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lineTotalSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setLineTotalSys(Double value) {
                 this.lineTotalSys = value;
@@ -10264,11 +9086,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad paidToDate.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getPaidToDate() {
                 return paidToDate;
@@ -10276,11 +9096,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad paidToDate.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setPaidToDate(Double value) {
                 this.paidToDate = value;
@@ -10288,11 +9106,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad paidToDateFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getPaidToDateFC() {
                 return paidToDateFC;
@@ -10300,11 +9116,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad paidToDateFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setPaidToDateFC(Double value) {
                 this.paidToDateFC = value;
@@ -10312,11 +9126,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad paidToDateSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getPaidToDateSys() {
                 return paidToDateSys;
@@ -10324,11 +9136,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad paidToDateSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setPaidToDateSys(Double value) {
                 this.paidToDateSys = value;
@@ -10336,11 +9146,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad remarks.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getRemarks() {
                 return remarks;
@@ -10348,11 +9156,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad remarks.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setRemarks(String value) {
                 this.remarks = value;
@@ -10360,11 +9166,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad distributionMethod.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getDistributionMethod() {
                 return distributionMethod;
@@ -10372,11 +9176,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad distributionMethod.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setDistributionMethod(String value) {
                 this.distributionMethod = value;
@@ -10384,11 +9186,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxLiable.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getTaxLiable() {
                 return taxLiable;
@@ -10396,11 +9196,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxLiable.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setTaxLiable(String value) {
                 this.taxLiable = value;
@@ -10408,11 +9206,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad vatGroup.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getVatGroup() {
                 return vatGroup;
@@ -10420,11 +9216,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad vatGroup.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setVatGroup(String value) {
                 this.vatGroup = value;
@@ -10432,11 +9226,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxPercent.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxPercent() {
                 return taxPercent;
@@ -10444,11 +9236,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxPercent.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxPercent(Double value) {
                 this.taxPercent = value;
@@ -10456,11 +9246,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxSum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxSum() {
                 return taxSum;
@@ -10468,11 +9256,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxSum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxSum(Double value) {
                 this.taxSum = value;
@@ -10480,11 +9266,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxSumFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxSumFC() {
                 return taxSumFC;
@@ -10492,11 +9276,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxSumFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxSumFC(Double value) {
                 this.taxSumFC = value;
@@ -10504,11 +9286,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxSumSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxSumSys() {
                 return taxSumSys;
@@ -10516,11 +9296,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxSumSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxSumSys(Double value) {
                 this.taxSumSys = value;
@@ -10528,11 +9306,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad deductibleTaxSum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getDeductibleTaxSum() {
                 return deductibleTaxSum;
@@ -10540,11 +9316,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad deductibleTaxSum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setDeductibleTaxSum(Double value) {
                 this.deductibleTaxSum = value;
@@ -10552,11 +9326,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad deductibleTaxSumFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getDeductibleTaxSumFC() {
                 return deductibleTaxSumFC;
@@ -10564,11 +9336,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad deductibleTaxSumFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setDeductibleTaxSumFC(Double value) {
                 this.deductibleTaxSumFC = value;
@@ -10576,11 +9346,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad deductibleTaxSumSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getDeductibleTaxSumSys() {
                 return deductibleTaxSumSys;
@@ -10588,11 +9356,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad deductibleTaxSumSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setDeductibleTaxSumSys(Double value) {
                 this.deductibleTaxSumSys = value;
@@ -10600,11 +9366,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad aquisitionTax.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getAquisitionTax() {
                 return aquisitionTax;
@@ -10612,11 +9376,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad aquisitionTax.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setAquisitionTax(String value) {
                 this.aquisitionTax = value;
@@ -10624,11 +9386,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getTaxCode() {
                 return taxCode;
@@ -10636,11 +9396,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setTaxCode(String value) {
                 this.taxCode = value;
@@ -10648,11 +9406,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getTaxType() {
                 return taxType;
@@ -10660,11 +9416,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setTaxType(String value) {
                 this.taxType = value;
@@ -10672,11 +9426,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxPaid.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxPaid() {
                 return taxPaid;
@@ -10684,11 +9436,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxPaid.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxPaid(Double value) {
                 this.taxPaid = value;
@@ -10696,11 +9446,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxPaidFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxPaidFC() {
                 return taxPaidFC;
@@ -10708,11 +9456,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxPaidFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxPaidFC(Double value) {
                 this.taxPaidFC = value;
@@ -10720,11 +9466,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxPaidSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxPaidSys() {
                 return taxPaidSys;
@@ -10732,11 +9476,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxPaidSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxPaidSys(Double value) {
                 this.taxPaidSys = value;
@@ -10744,11 +9486,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad equalizationTaxPercent.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getEqualizationTaxPercent() {
                 return equalizationTaxPercent;
@@ -10756,11 +9496,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad equalizationTaxPercent.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setEqualizationTaxPercent(Double value) {
                 this.equalizationTaxPercent = value;
@@ -10768,11 +9506,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad equalizationTaxSum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getEqualizationTaxSum() {
                 return equalizationTaxSum;
@@ -10780,11 +9516,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad equalizationTaxSum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setEqualizationTaxSum(Double value) {
                 this.equalizationTaxSum = value;
@@ -10792,11 +9526,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad equalizationTaxFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getEqualizationTaxFC() {
                 return equalizationTaxFC;
@@ -10804,11 +9536,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad equalizationTaxFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setEqualizationTaxFC(Double value) {
                 this.equalizationTaxFC = value;
@@ -10816,11 +9546,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad equalizationTaxSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getEqualizationTaxSys() {
                 return equalizationTaxSys;
@@ -10828,11 +9556,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad equalizationTaxSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setEqualizationTaxSys(Double value) {
                 this.equalizationTaxSys = value;
@@ -10840,11 +9566,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxTotalSum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxTotalSum() {
                 return taxTotalSum;
@@ -10852,11 +9576,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxTotalSum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxTotalSum(Double value) {
                 this.taxTotalSum = value;
@@ -10864,11 +9586,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxTotalSumFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxTotalSumFC() {
                 return taxTotalSumFC;
@@ -10876,11 +9596,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxTotalSumFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxTotalSumFC(Double value) {
                 this.taxTotalSumFC = value;
@@ -10888,11 +9606,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxTotalSumSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxTotalSumSys() {
                 return taxTotalSumSys;
@@ -10900,11 +9616,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxTotalSumSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxTotalSumSys(Double value) {
                 this.taxTotalSumSys = value;
@@ -10912,11 +9626,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseDocEntry.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getBaseDocEntry() {
                 return baseDocEntry;
@@ -10924,11 +9636,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseDocEntry.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setBaseDocEntry(Long value) {
                 this.baseDocEntry = value;
@@ -10936,11 +9646,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseDocLine.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getBaseDocLine() {
                 return baseDocLine;
@@ -10948,11 +9656,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseDocLine.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setBaseDocLine(Long value) {
                 this.baseDocLine = value;
@@ -10960,11 +9666,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseDocType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getBaseDocType() {
                 return baseDocType;
@@ -10972,11 +9676,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseDocType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setBaseDocType(Long value) {
                 this.baseDocType = value;
@@ -10984,11 +9686,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseDocumentReference.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getBaseDocumentReference() {
                 return baseDocumentReference;
@@ -10996,11 +9696,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseDocumentReference.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setBaseDocumentReference(Long value) {
                 this.baseDocumentReference = value;
@@ -11008,11 +9706,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lineNum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getLineNum() {
                 return lineNum;
@@ -11020,11 +9716,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lineNum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setLineNum(Long value) {
                 this.lineNum = value;
@@ -11032,11 +9726,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lastPurchasePrice.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getLastPurchasePrice() {
                 return lastPurchasePrice;
@@ -11044,11 +9736,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lastPurchasePrice.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setLastPurchasePrice(String value) {
                 this.lastPurchasePrice = value;
@@ -11056,11 +9746,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad status.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getStatus() {
                 return status;
@@ -11068,11 +9756,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad status.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setStatus(String value) {
                 this.status = value;
@@ -11080,11 +9766,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad stock.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getStock() {
                 return stock;
@@ -11092,11 +9776,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad stock.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setStock(String value) {
                 this.stock = value;
@@ -11104,11 +9786,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad targetAbsEntry.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getTargetAbsEntry() {
                 return targetAbsEntry;
@@ -11116,11 +9796,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad targetAbsEntry.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setTargetAbsEntry(Long value) {
                 this.targetAbsEntry = value;
@@ -11128,11 +9806,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad targetType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getTargetType() {
                 return targetType;
@@ -11140,11 +9816,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad targetType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setTargetType(Long value) {
                 this.targetType = value;
@@ -11152,11 +9826,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad wtLiable.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getWTLiable() {
                 return wtLiable;
@@ -11164,11 +9836,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad wtLiable.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setWTLiable(String value) {
                 this.wtLiable = value;
@@ -11176,11 +9846,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad distributionRule.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getDistributionRule() {
                 return distributionRule;
@@ -11188,11 +9856,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad distributionRule.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setDistributionRule(String value) {
                 this.distributionRule = value;
@@ -11200,11 +9866,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad project.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getProject() {
                 return project;
@@ -11212,11 +9876,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad project.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setProject(String value) {
                 this.project = value;
@@ -11224,11 +9886,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad distributionRule2.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getDistributionRule2() {
                 return distributionRule2;
@@ -11236,11 +9896,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad distributionRule2.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setDistributionRule2(String value) {
                 this.distributionRule2 = value;
@@ -11248,11 +9906,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad distributionRule3.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getDistributionRule3() {
                 return distributionRule3;
@@ -11260,11 +9916,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad distributionRule3.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setDistributionRule3(String value) {
                 this.distributionRule3 = value;
@@ -11272,11 +9926,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad distributionRule4.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getDistributionRule4() {
                 return distributionRule4;
@@ -11284,11 +9936,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad distributionRule4.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setDistributionRule4(String value) {
                 this.distributionRule4 = value;
@@ -11296,11 +9946,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad distributionRule5.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getDistributionRule5() {
                 return distributionRule5;
@@ -11308,11 +9956,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad distributionRule5.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setDistributionRule5(String value) {
                 this.distributionRule5 = value;
@@ -11320,11 +9966,10 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad docExpenseTaxJurisdictions.
-             * 
-             * @return
-             *     possible object is
+             *
+             * @return possible object is
              *     {@link Document.DocumentAdditionalExpenses.DocumentAdditionalExpense.DocExpenseTaxJurisdictions }
-             *     
+             *
              */
             public Document.DocumentAdditionalExpenses.DocumentAdditionalExpense.DocExpenseTaxJurisdictions getDocExpenseTaxJurisdictions() {
                 return docExpenseTaxJurisdictions;
@@ -11332,22 +9977,23 @@ public class Document {
 
             /**
              * Define el valor de la propiedad docExpenseTaxJurisdictions.
-             * 
-             * @param value
-             *     allowed object is
+             *
+             * @param value allowed object is
              *     {@link Document.DocumentAdditionalExpenses.DocumentAdditionalExpense.DocExpenseTaxJurisdictions }
-             *     
+             *
              */
             public void setDocExpenseTaxJurisdictions(Document.DocumentAdditionalExpenses.DocumentAdditionalExpense.DocExpenseTaxJurisdictions value) {
                 this.docExpenseTaxJurisdictions = value;
             }
 
-
             /**
-             * <p>Clase Java para anonymous complex type.
-             * 
-             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-             * 
+             * <p>
+             * Clase Java para anonymous complex type.
+             *
+             * <p>
+             * El siguiente fragmento de esquema especifica el contenido que se
+             * espera que haya en esta clase.
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -11377,8 +10023,8 @@ public class Document {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -11391,25 +10037,26 @@ public class Document {
 
                 /**
                  * Gets the value of the docExpenseTaxJurisdiction property.
-                 * 
+                 *
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
-                 * returned list will be present inside the JAXB object.
-                 * This is why there is not a <CODE>set</CODE> method for the docExpenseTaxJurisdiction property.
-                 * 
+                 * returned list will be present inside the JAXB object. This is
+                 * why there is not a <CODE>set</CODE> method for the
+                 * docExpenseTaxJurisdiction property.
+                 *
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getDocExpenseTaxJurisdiction().add(newItem);
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Document.DocumentAdditionalExpenses.DocumentAdditionalExpense.DocExpenseTaxJurisdictions.DocExpenseTaxJurisdiction }
-                 * 
-                 * 
+                 *
+                 *
                  */
                 public List<Document.DocumentAdditionalExpenses.DocumentAdditionalExpense.DocExpenseTaxJurisdictions.DocExpenseTaxJurisdiction> getDocExpenseTaxJurisdiction() {
                     if (docExpenseTaxJurisdiction == null) {
@@ -11418,12 +10065,14 @@ public class Document {
                     return this.docExpenseTaxJurisdiction;
                 }
 
-
                 /**
-                 * <p>Clase Java para anonymous complex type.
-                 * 
-                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-                 * 
+                 * <p>
+                 * Clase Java para anonymous complex type.
+                 *
+                 * <p>
+                 * El siguiente fragmento de esquema especifica el contenido que
+                 * se espera que haya en esta clase.
+                 *
                  * <pre>
                  * &lt;complexType>
                  *   &lt;complexContent>
@@ -11443,13 +10092,11 @@ public class Document {
                  *   &lt;/complexContent>
                  * &lt;/complexType>
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
-                @XmlType(name = "", propOrder = {
-
-                })
+                @XmlType(name = "", propOrder = {})
                 public static class DocExpenseTaxJurisdiction {
 
                     @XmlElement(name = "JurisdictionCode")
@@ -11473,11 +10120,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad jurisdictionCode.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getJurisdictionCode() {
                         return jurisdictionCode;
@@ -11485,11 +10130,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad jurisdictionCode.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setJurisdictionCode(String value) {
                         this.jurisdictionCode = value;
@@ -11497,11 +10140,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad jurisdictionType.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getJurisdictionType() {
                         return jurisdictionType;
@@ -11509,11 +10150,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad jurisdictionType.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setJurisdictionType(Long value) {
                         this.jurisdictionType = value;
@@ -11521,11 +10160,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxAmount.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxAmount() {
                         return taxAmount;
@@ -11533,11 +10170,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxAmount.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxAmount(Double value) {
                         this.taxAmount = value;
@@ -11545,11 +10180,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxAmountSC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxAmountSC() {
                         return taxAmountSC;
@@ -11557,11 +10190,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxAmountSC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxAmountSC(Double value) {
                         this.taxAmountSC = value;
@@ -11569,11 +10200,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxAmountFC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxAmountFC() {
                         return taxAmountFC;
@@ -11581,11 +10210,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxAmountFC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxAmountFC(Double value) {
                         this.taxAmountFC = value;
@@ -11593,11 +10220,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxRate.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxRate() {
                         return taxRate;
@@ -11605,11 +10230,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxRate.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxRate(Double value) {
                         this.taxRate = value;
@@ -11617,11 +10240,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad docEntry.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getDocEntry() {
                         return docEntry;
@@ -11629,11 +10250,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad docEntry.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setDocEntry(Long value) {
                         this.docEntry = value;
@@ -11641,11 +10260,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad lineNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getLineNumber() {
                         return lineNumber;
@@ -11653,11 +10270,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad lineNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setLineNumber(Long value) {
                         this.lineNumber = value;
@@ -11665,11 +10280,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad rowSequence.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getRowSequence() {
                         return rowSequence;
@@ -11677,11 +10290,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad rowSequence.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setRowSequence(Long value) {
                         this.rowSequence = value;
@@ -11695,12 +10306,14 @@ public class Document {
 
     }
 
-
     /**
-     * <p>Clase Java para anonymous complex type.
-     * 
-     * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-     * 
+     * <p>
+     * Clase Java para anonymous complex type.
+     *
+     * <p>
+     * El siguiente fragmento de esquema especifica el contenido que se espera
+     * que haya en esta clase.
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -11723,8 +10336,8 @@ public class Document {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -11737,25 +10350,25 @@ public class Document {
 
         /**
          * Gets the value of the documentApprovalRequest property.
-         * 
+         *
          * <p>
-         * This accessor method returns a reference to the live list,
-         * not a snapshot. Therefore any modification you make to the
-         * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the documentApprovalRequest property.
-         * 
+         * This accessor method returns a reference to the live list, not a
+         * snapshot. Therefore any modification you make to the returned list
+         * will be present inside the JAXB object. This is why there is not a
+         * <CODE>set</CODE> method for the documentApprovalRequest property.
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getDocumentApprovalRequest().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Document.DocumentApprovalRequests.DocumentApprovalRequest }
-         * 
-         * 
+         *
+         *
          */
         public List<Document.DocumentApprovalRequests.DocumentApprovalRequest> getDocumentApprovalRequest() {
             if (documentApprovalRequest == null) {
@@ -11764,12 +10377,14 @@ public class Document {
             return this.documentApprovalRequest;
         }
 
-
         /**
-         * <p>Clase Java para anonymous complex type.
-         * 
-         * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-         * 
+         * <p>
+         * Clase Java para anonymous complex type.
+         *
+         * <p>
+         * El siguiente fragmento de esquema especifica el contenido que se
+         * espera que haya en esta clase.
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -11782,13 +10397,11 @@ public class Document {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
-
-        })
+        @XmlType(name = "", propOrder = {})
         public static class DocumentApprovalRequest {
 
             @XmlElement(name = "ApprovalTemplatesID")
@@ -11798,11 +10411,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad approvalTemplatesID.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getApprovalTemplatesID() {
                 return approvalTemplatesID;
@@ -11810,11 +10421,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad approvalTemplatesID.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setApprovalTemplatesID(Long value) {
                 this.approvalTemplatesID = value;
@@ -11822,11 +10431,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad remarks.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getRemarks() {
                 return remarks;
@@ -11834,11 +10441,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad remarks.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setRemarks(String value) {
                 this.remarks = value;
@@ -11848,12 +10453,14 @@ public class Document {
 
     }
 
-
     /**
-     * <p>Clase Java para anonymous complex type.
-     * 
-     * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-     * 
+     * <p>
+     * Clase Java para anonymous complex type.
+     *
+     * <p>
+     * El siguiente fragmento de esquema especifica el contenido que se espera
+     * que haya en esta clase.
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -12569,8 +11176,8 @@ public class Document {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -12583,25 +11190,25 @@ public class Document {
 
         /**
          * Gets the value of the documentLine property.
-         * 
+         *
          * <p>
-         * This accessor method returns a reference to the live list,
-         * not a snapshot. Therefore any modification you make to the
-         * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the documentLine property.
-         * 
+         * This accessor method returns a reference to the live list, not a
+         * snapshot. Therefore any modification you make to the returned list
+         * will be present inside the JAXB object. This is why there is not a
+         * <CODE>set</CODE> method for the documentLine property.
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getDocumentLine().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Document.DocumentLines.DocumentLine }
-         * 
-         * 
+         *
+         *
          */
         public List<Document.DocumentLines.DocumentLine> getDocumentLine() {
             if (documentLine == null) {
@@ -12610,12 +11217,14 @@ public class Document {
             return this.documentLine;
         }
 
-
         /**
-         * <p>Clase Java para anonymous complex type.
-         * 
-         * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-         * 
+         * <p>
+         * Clase Java para anonymous complex type.
+         *
+         * <p>
+         * El siguiente fragmento de esquema especifica el contenido que se
+         * espera que haya en esta clase.
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -13321,13 +11930,11 @@ public class Document {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
-
-        })
+        @XmlType(name = "", propOrder = {})
         public static class DocumentLine {
 
             @XmlElement(name = "LineNum")
@@ -13344,7 +11951,7 @@ public class Document {
             @XmlElement(name = "Price")
             protected Double price;
             @XmlElement(name = "PriceAfterVAT")
-            protected Double priceAfterVAT;
+            protected BigDecimal priceAfterVAT;
             @XmlElement(name = "Currency")
             protected String currency;
             @XmlElement(name = "Rate")
@@ -13721,11 +12328,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lineNum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getLineNum() {
                 return lineNum;
@@ -13733,11 +12338,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lineNum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setLineNum(Long value) {
                 this.lineNum = value;
@@ -13745,11 +12348,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad itemCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getItemCode() {
                 return itemCode;
@@ -13757,11 +12358,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad itemCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setItemCode(String value) {
                 this.itemCode = value;
@@ -13769,11 +12368,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad itemDescription.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getItemDescription() {
                 return itemDescription;
@@ -13781,11 +12378,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad itemDescription.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setItemDescription(String value) {
                 this.itemDescription = value;
@@ -13793,11 +12388,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad quantity.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getQuantity() {
                 return quantity;
@@ -13805,11 +12398,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad quantity.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setQuantity(Double value) {
                 this.quantity = value;
@@ -13817,11 +12408,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad shipDate.
-             * 
-             * @return
-             *     possible object is
-             *     {@link XMLGregorianCalendar }
-             *     
+             *
+             * @return possible object is {@link XMLGregorianCalendar }
+             *
              */
             public XMLGregorianCalendar getShipDate() {
                 return shipDate;
@@ -13829,11 +12418,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad shipDate.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link XMLGregorianCalendar }
-             *     
+             *
+             * @param value allowed object is {@link XMLGregorianCalendar }
+             *
              */
             public void setShipDate(XMLGregorianCalendar value) {
                 this.shipDate = value;
@@ -13841,11 +12428,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad price.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getPrice() {
                 return price;
@@ -13853,11 +12438,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad price.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setPrice(Double value) {
                 this.price = value;
@@ -13865,35 +12448,29 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad priceAfterVAT.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
-            public Double getPriceAfterVAT() {
+            public BigDecimal getPriceAfterVAT() {
                 return priceAfterVAT;
             }
 
             /**
              * Define el valor de la propiedad priceAfterVAT.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
-            public void setPriceAfterVAT(Double value) {
+            public void setPriceAfterVAT(BigDecimal value) {
                 this.priceAfterVAT = value;
             }
 
             /**
              * Obtiene el valor de la propiedad currency.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCurrency() {
                 return currency;
@@ -13901,11 +12478,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad currency.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCurrency(String value) {
                 this.currency = value;
@@ -13913,11 +12488,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad rate.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getRate() {
                 return rate;
@@ -13925,11 +12498,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad rate.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setRate(Double value) {
                 this.rate = value;
@@ -13937,11 +12508,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad discountPercent.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getDiscountPercent() {
                 return discountPercent;
@@ -13949,11 +12518,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad discountPercent.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setDiscountPercent(Double value) {
                 this.discountPercent = value;
@@ -13961,11 +12528,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad vendorNum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getVendorNum() {
                 return vendorNum;
@@ -13973,11 +12538,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad vendorNum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setVendorNum(String value) {
                 this.vendorNum = value;
@@ -13985,11 +12548,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad serialNum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getSerialNum() {
                 return serialNum;
@@ -13997,11 +12558,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad serialNum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setSerialNum(String value) {
                 this.serialNum = value;
@@ -14009,11 +12568,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad warehouseCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getWarehouseCode() {
                 return warehouseCode;
@@ -14021,11 +12578,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad warehouseCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setWarehouseCode(String value) {
                 this.warehouseCode = value;
@@ -14033,11 +12588,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad salesPersonCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getSalesPersonCode() {
                 return salesPersonCode;
@@ -14045,11 +12598,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad salesPersonCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setSalesPersonCode(Long value) {
                 this.salesPersonCode = value;
@@ -14057,11 +12608,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad commisionPercent.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getCommisionPercent() {
                 return commisionPercent;
@@ -14069,11 +12618,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad commisionPercent.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setCommisionPercent(Double value) {
                 this.commisionPercent = value;
@@ -14081,11 +12628,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad treeType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getTreeType() {
                 return treeType;
@@ -14093,11 +12638,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad treeType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setTreeType(String value) {
                 this.treeType = value;
@@ -14105,11 +12648,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad accountCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getAccountCode() {
                 return accountCode;
@@ -14117,11 +12658,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad accountCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setAccountCode(String value) {
                 this.accountCode = value;
@@ -14129,11 +12668,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad useBaseUnits.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getUseBaseUnits() {
                 return useBaseUnits;
@@ -14141,11 +12678,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad useBaseUnits.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setUseBaseUnits(String value) {
                 this.useBaseUnits = value;
@@ -14153,11 +12688,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad supplierCatNum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getSupplierCatNum() {
                 return supplierCatNum;
@@ -14165,11 +12698,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad supplierCatNum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setSupplierCatNum(String value) {
                 this.supplierCatNum = value;
@@ -14177,11 +12708,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad costingCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCostingCode() {
                 return costingCode;
@@ -14189,11 +12718,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad costingCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCostingCode(String value) {
                 this.costingCode = value;
@@ -14201,11 +12728,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad projectCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getProjectCode() {
                 return projectCode;
@@ -14213,11 +12738,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad projectCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setProjectCode(String value) {
                 this.projectCode = value;
@@ -14225,11 +12748,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad barCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getBarCode() {
                 return barCode;
@@ -14237,11 +12758,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad barCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setBarCode(String value) {
                 this.barCode = value;
@@ -14249,11 +12768,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad vatGroup.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getVatGroup() {
                 return vatGroup;
@@ -14261,11 +12778,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad vatGroup.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setVatGroup(String value) {
                 this.vatGroup = value;
@@ -14273,11 +12788,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad height1.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getHeight1() {
                 return height1;
@@ -14285,11 +12798,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad height1.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setHeight1(Double value) {
                 this.height1 = value;
@@ -14297,11 +12808,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad hight1Unit.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getHight1Unit() {
                 return hight1Unit;
@@ -14309,11 +12818,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad hight1Unit.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setHight1Unit(Long value) {
                 this.hight1Unit = value;
@@ -14321,11 +12828,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad height2.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getHeight2() {
                 return height2;
@@ -14333,11 +12838,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad height2.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setHeight2(Double value) {
                 this.height2 = value;
@@ -14345,11 +12848,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad height2Unit.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getHeight2Unit() {
                 return height2Unit;
@@ -14357,11 +12858,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad height2Unit.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setHeight2Unit(Long value) {
                 this.height2Unit = value;
@@ -14369,11 +12868,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lengh1.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getLengh1() {
                 return lengh1;
@@ -14381,11 +12878,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lengh1.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setLengh1(Double value) {
                 this.lengh1 = value;
@@ -14393,11 +12888,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lengh1Unit.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getLengh1Unit() {
                 return lengh1Unit;
@@ -14405,11 +12898,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lengh1Unit.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setLengh1Unit(Long value) {
                 this.lengh1Unit = value;
@@ -14417,11 +12908,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lengh2.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getLengh2() {
                 return lengh2;
@@ -14429,11 +12918,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lengh2.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setLengh2(Double value) {
                 this.lengh2 = value;
@@ -14441,11 +12928,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lengh2Unit.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getLengh2Unit() {
                 return lengh2Unit;
@@ -14453,11 +12938,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lengh2Unit.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setLengh2Unit(Long value) {
                 this.lengh2Unit = value;
@@ -14465,11 +12948,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad weight1.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getWeight1() {
                 return weight1;
@@ -14477,11 +12958,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad weight1.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setWeight1(Double value) {
                 this.weight1 = value;
@@ -14489,11 +12968,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad weight1Unit.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getWeight1Unit() {
                 return weight1Unit;
@@ -14501,11 +12978,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad weight1Unit.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setWeight1Unit(Long value) {
                 this.weight1Unit = value;
@@ -14513,11 +12988,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad weight2.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getWeight2() {
                 return weight2;
@@ -14525,11 +12998,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad weight2.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setWeight2(Double value) {
                 this.weight2 = value;
@@ -14537,11 +13008,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad weight2Unit.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getWeight2Unit() {
                 return weight2Unit;
@@ -14549,11 +13018,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad weight2Unit.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setWeight2Unit(Long value) {
                 this.weight2Unit = value;
@@ -14561,11 +13028,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad factor1.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getFactor1() {
                 return factor1;
@@ -14573,11 +13038,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad factor1.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setFactor1(Double value) {
                 this.factor1 = value;
@@ -14585,11 +13048,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad factor2.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getFactor2() {
                 return factor2;
@@ -14597,11 +13058,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad factor2.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setFactor2(Double value) {
                 this.factor2 = value;
@@ -14609,11 +13068,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad factor3.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getFactor3() {
                 return factor3;
@@ -14621,11 +13078,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad factor3.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setFactor3(Double value) {
                 this.factor3 = value;
@@ -14633,11 +13088,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad factor4.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getFactor4() {
                 return factor4;
@@ -14645,11 +13098,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad factor4.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setFactor4(Double value) {
                 this.factor4 = value;
@@ -14657,11 +13108,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getBaseType() {
                 return baseType;
@@ -14669,11 +13118,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setBaseType(Long value) {
                 this.baseType = value;
@@ -14681,11 +13128,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseEntry.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getBaseEntry() {
                 return baseEntry;
@@ -14693,11 +13138,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseEntry.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setBaseEntry(Long value) {
                 this.baseEntry = value;
@@ -14705,11 +13148,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseLine.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getBaseLine() {
                 return baseLine;
@@ -14717,11 +13158,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseLine.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setBaseLine(Long value) {
                 this.baseLine = value;
@@ -14729,11 +13168,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad volume.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getVolume() {
                 return volume;
@@ -14741,11 +13178,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad volume.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setVolume(Double value) {
                 this.volume = value;
@@ -14753,11 +13188,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad volumeUnit.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getVolumeUnit() {
                 return volumeUnit;
@@ -14765,11 +13198,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad volumeUnit.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setVolumeUnit(Long value) {
                 this.volumeUnit = value;
@@ -14777,11 +13208,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad width1.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getWidth1() {
                 return width1;
@@ -14789,11 +13218,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad width1.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setWidth1(Double value) {
                 this.width1 = value;
@@ -14801,11 +13228,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad width1Unit.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getWidth1Unit() {
                 return width1Unit;
@@ -14813,11 +13238,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad width1Unit.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setWidth1Unit(Long value) {
                 this.width1Unit = value;
@@ -14825,11 +13248,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad width2.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getWidth2() {
                 return width2;
@@ -14837,11 +13258,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad width2.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setWidth2(Double value) {
                 this.width2 = value;
@@ -14849,11 +13268,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad width2Unit.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getWidth2Unit() {
                 return width2Unit;
@@ -14861,11 +13278,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad width2Unit.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setWidth2Unit(Long value) {
                 this.width2Unit = value;
@@ -14873,11 +13288,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad address.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getAddress() {
                 return address;
@@ -14885,11 +13298,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad address.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setAddress(String value) {
                 this.address = value;
@@ -14897,11 +13308,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getTaxCode() {
                 return taxCode;
@@ -14909,11 +13318,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setTaxCode(String value) {
                 this.taxCode = value;
@@ -14921,11 +13328,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getTaxType() {
                 return taxType;
@@ -14933,11 +13338,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setTaxType(String value) {
                 this.taxType = value;
@@ -14945,11 +13348,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxLiable.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getTaxLiable() {
                 return taxLiable;
@@ -14957,11 +13358,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxLiable.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setTaxLiable(String value) {
                 this.taxLiable = value;
@@ -14969,11 +13368,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad pickStatus.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getPickStatus() {
                 return pickStatus;
@@ -14981,11 +13378,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad pickStatus.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setPickStatus(String value) {
                 this.pickStatus = value;
@@ -14993,11 +13388,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad pickQuantity.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getPickQuantity() {
                 return pickQuantity;
@@ -15005,11 +13398,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad pickQuantity.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setPickQuantity(Double value) {
                 this.pickQuantity = value;
@@ -15017,11 +13408,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad pickListIdNumber.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getPickListIdNumber() {
                 return pickListIdNumber;
@@ -15029,11 +13418,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad pickListIdNumber.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setPickListIdNumber(Long value) {
                 this.pickListIdNumber = value;
@@ -15041,11 +13428,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad originalItem.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getOriginalItem() {
                 return originalItem;
@@ -15053,11 +13438,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad originalItem.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setOriginalItem(String value) {
                 this.originalItem = value;
@@ -15065,11 +13448,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad backOrder.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getBackOrder() {
                 return backOrder;
@@ -15077,11 +13458,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad backOrder.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setBackOrder(String value) {
                 this.backOrder = value;
@@ -15089,11 +13468,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad freeText.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getFreeText() {
                 return freeText;
@@ -15101,11 +13478,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad freeText.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setFreeText(String value) {
                 this.freeText = value;
@@ -15113,11 +13488,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad shippingMethod.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getShippingMethod() {
                 return shippingMethod;
@@ -15125,11 +13498,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad shippingMethod.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setShippingMethod(Long value) {
                 this.shippingMethod = value;
@@ -15137,11 +13508,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad poTargetNum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getPOTargetNum() {
                 return poTargetNum;
@@ -15149,11 +13518,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad poTargetNum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setPOTargetNum(Long value) {
                 this.poTargetNum = value;
@@ -15161,11 +13528,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad poTargetEntry.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getPOTargetEntry() {
                 return poTargetEntry;
@@ -15173,11 +13538,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad poTargetEntry.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setPOTargetEntry(String value) {
                 this.poTargetEntry = value;
@@ -15185,11 +13548,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad poTargetRowNum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getPOTargetRowNum() {
                 return poTargetRowNum;
@@ -15197,11 +13558,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad poTargetRowNum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setPOTargetRowNum(Long value) {
                 this.poTargetRowNum = value;
@@ -15209,11 +13568,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad correctionInvoiceItem.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCorrectionInvoiceItem() {
                 return correctionInvoiceItem;
@@ -15221,11 +13578,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad correctionInvoiceItem.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCorrectionInvoiceItem(String value) {
                 this.correctionInvoiceItem = value;
@@ -15233,11 +13588,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad corrInvAmountToStock.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getCorrInvAmountToStock() {
                 return corrInvAmountToStock;
@@ -15245,11 +13598,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad corrInvAmountToStock.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setCorrInvAmountToStock(Double value) {
                 this.corrInvAmountToStock = value;
@@ -15257,11 +13608,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad corrInvAmountToDiffAcct.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getCorrInvAmountToDiffAcct() {
                 return corrInvAmountToDiffAcct;
@@ -15269,11 +13618,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad corrInvAmountToDiffAcct.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setCorrInvAmountToDiffAcct(Double value) {
                 this.corrInvAmountToDiffAcct = value;
@@ -15281,11 +13628,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad appliedTax.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAppliedTax() {
                 return appliedTax;
@@ -15293,11 +13638,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad appliedTax.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAppliedTax(Double value) {
                 this.appliedTax = value;
@@ -15305,11 +13648,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad appliedTaxFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAppliedTaxFC() {
                 return appliedTaxFC;
@@ -15317,11 +13658,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad appliedTaxFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAppliedTaxFC(Double value) {
                 this.appliedTaxFC = value;
@@ -15329,11 +13668,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad appliedTaxSC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAppliedTaxSC() {
                 return appliedTaxSC;
@@ -15341,11 +13678,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad appliedTaxSC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAppliedTaxSC(Double value) {
                 this.appliedTaxSC = value;
@@ -15353,11 +13688,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad wtLiable.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getWTLiable() {
                 return wtLiable;
@@ -15365,11 +13698,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad wtLiable.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setWTLiable(String value) {
                 this.wtLiable = value;
@@ -15377,11 +13708,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad deferredTax.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getDeferredTax() {
                 return deferredTax;
@@ -15389,11 +13718,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad deferredTax.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setDeferredTax(String value) {
                 this.deferredTax = value;
@@ -15401,11 +13728,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad equalizationTaxPercent.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getEqualizationTaxPercent() {
                 return equalizationTaxPercent;
@@ -15413,11 +13738,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad equalizationTaxPercent.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setEqualizationTaxPercent(Double value) {
                 this.equalizationTaxPercent = value;
@@ -15425,11 +13748,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad totalEqualizationTax.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTotalEqualizationTax() {
                 return totalEqualizationTax;
@@ -15437,11 +13758,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad totalEqualizationTax.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTotalEqualizationTax(Double value) {
                 this.totalEqualizationTax = value;
@@ -15449,11 +13768,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad totalEqualizationTaxFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTotalEqualizationTaxFC() {
                 return totalEqualizationTaxFC;
@@ -15461,11 +13778,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad totalEqualizationTaxFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTotalEqualizationTaxFC(Double value) {
                 this.totalEqualizationTaxFC = value;
@@ -15473,11 +13788,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad totalEqualizationTaxSC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTotalEqualizationTaxSC() {
                 return totalEqualizationTaxSC;
@@ -15485,11 +13798,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad totalEqualizationTaxSC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTotalEqualizationTaxSC(Double value) {
                 this.totalEqualizationTaxSC = value;
@@ -15497,11 +13808,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad netTaxAmount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getNetTaxAmount() {
                 return netTaxAmount;
@@ -15509,11 +13818,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad netTaxAmount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setNetTaxAmount(Double value) {
                 this.netTaxAmount = value;
@@ -15521,11 +13828,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad netTaxAmountFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getNetTaxAmountFC() {
                 return netTaxAmountFC;
@@ -15533,11 +13838,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad netTaxAmountFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setNetTaxAmountFC(Double value) {
                 this.netTaxAmountFC = value;
@@ -15545,11 +13848,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad netTaxAmountSC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getNetTaxAmountSC() {
                 return netTaxAmountSC;
@@ -15557,11 +13858,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad netTaxAmountSC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setNetTaxAmountSC(Double value) {
                 this.netTaxAmountSC = value;
@@ -15569,11 +13868,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad measureUnit.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getMeasureUnit() {
                 return measureUnit;
@@ -15581,11 +13878,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad measureUnit.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setMeasureUnit(String value) {
                 this.measureUnit = value;
@@ -15593,11 +13888,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad unitsOfMeasurment.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getUnitsOfMeasurment() {
                 return unitsOfMeasurment;
@@ -15605,11 +13898,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad unitsOfMeasurment.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setUnitsOfMeasurment(Double value) {
                 this.unitsOfMeasurment = value;
@@ -15617,11 +13908,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lineTotal.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getLineTotal() {
                 return lineTotal;
@@ -15629,11 +13918,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lineTotal.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setLineTotal(Double value) {
                 this.lineTotal = value;
@@ -15641,11 +13928,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxPercentagePerRow.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxPercentagePerRow() {
                 return taxPercentagePerRow;
@@ -15653,11 +13938,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxPercentagePerRow.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxPercentagePerRow(Double value) {
                 this.taxPercentagePerRow = value;
@@ -15665,11 +13948,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxTotal.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxTotal() {
                 return taxTotal;
@@ -15677,11 +13958,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxTotal.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxTotal(Double value) {
                 this.taxTotal = value;
@@ -15689,11 +13968,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad consumerSalesForecast.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getConsumerSalesForecast() {
                 return consumerSalesForecast;
@@ -15701,11 +13978,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad consumerSalesForecast.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setConsumerSalesForecast(String value) {
                 this.consumerSalesForecast = value;
@@ -15713,11 +13988,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad exciseAmount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getExciseAmount() {
                 return exciseAmount;
@@ -15725,11 +13998,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad exciseAmount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setExciseAmount(Double value) {
                 this.exciseAmount = value;
@@ -15737,11 +14008,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxPerUnit.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxPerUnit() {
                 return taxPerUnit;
@@ -15749,11 +14018,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxPerUnit.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxPerUnit(Double value) {
                 this.taxPerUnit = value;
@@ -15761,11 +14028,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad totalInclTax.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTotalInclTax() {
                 return totalInclTax;
@@ -15773,11 +14038,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad totalInclTax.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTotalInclTax(Double value) {
                 this.totalInclTax = value;
@@ -15785,11 +14048,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad countryOrg.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCountryOrg() {
                 return countryOrg;
@@ -15797,11 +14058,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad countryOrg.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCountryOrg(String value) {
                 this.countryOrg = value;
@@ -15809,11 +14068,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad sww.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getSWW() {
                 return sww;
@@ -15821,11 +14078,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad sww.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setSWW(String value) {
                 this.sww = value;
@@ -15833,11 +14088,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad transactionType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getTransactionType() {
                 return transactionType;
@@ -15845,11 +14098,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad transactionType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setTransactionType(String value) {
                 this.transactionType = value;
@@ -15857,11 +14108,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad distributeExpense.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getDistributeExpense() {
                 return distributeExpense;
@@ -15869,11 +14118,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad distributeExpense.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setDistributeExpense(String value) {
                 this.distributeExpense = value;
@@ -15881,11 +14128,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad shipToCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getShipToCode() {
                 return shipToCode;
@@ -15893,11 +14138,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad shipToCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setShipToCode(String value) {
                 this.shipToCode = value;
@@ -15905,11 +14148,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad rowTotalFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getRowTotalFC() {
                 return rowTotalFC;
@@ -15917,11 +14158,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad rowTotalFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setRowTotalFC(Double value) {
                 this.rowTotalFC = value;
@@ -15929,11 +14168,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad rowTotalSC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getRowTotalSC() {
                 return rowTotalSC;
@@ -15941,11 +14178,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad rowTotalSC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setRowTotalSC(Double value) {
                 this.rowTotalSC = value;
@@ -15953,11 +14188,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lastBuyInmPrice.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getLastBuyInmPrice() {
                 return lastBuyInmPrice;
@@ -15965,11 +14198,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lastBuyInmPrice.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setLastBuyInmPrice(Double value) {
                 this.lastBuyInmPrice = value;
@@ -15977,11 +14208,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lastBuyDistributeSumFc.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getLastBuyDistributeSumFc() {
                 return lastBuyDistributeSumFc;
@@ -15989,11 +14218,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lastBuyDistributeSumFc.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setLastBuyDistributeSumFc(Double value) {
                 this.lastBuyDistributeSumFc = value;
@@ -16001,11 +14228,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lastBuyDistributeSumSc.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getLastBuyDistributeSumSc() {
                 return lastBuyDistributeSumSc;
@@ -16013,11 +14238,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lastBuyDistributeSumSc.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setLastBuyDistributeSumSc(Double value) {
                 this.lastBuyDistributeSumSc = value;
@@ -16025,11 +14248,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lastBuyDistributeSum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getLastBuyDistributeSum() {
                 return lastBuyDistributeSum;
@@ -16037,11 +14258,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lastBuyDistributeSum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setLastBuyDistributeSum(Double value) {
                 this.lastBuyDistributeSum = value;
@@ -16049,11 +14268,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad stockDistributesumForeign.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getStockDistributesumForeign() {
                 return stockDistributesumForeign;
@@ -16061,11 +14278,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad stockDistributesumForeign.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setStockDistributesumForeign(Double value) {
                 this.stockDistributesumForeign = value;
@@ -16073,11 +14288,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad stockDistributesumSystem.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getStockDistributesumSystem() {
                 return stockDistributesumSystem;
@@ -16085,11 +14298,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad stockDistributesumSystem.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setStockDistributesumSystem(Double value) {
                 this.stockDistributesumSystem = value;
@@ -16097,11 +14308,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad stockDistributesum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getStockDistributesum() {
                 return stockDistributesum;
@@ -16109,11 +14318,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad stockDistributesum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setStockDistributesum(Double value) {
                 this.stockDistributesum = value;
@@ -16121,11 +14328,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad stockInmPrice.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getStockInmPrice() {
                 return stockInmPrice;
@@ -16133,11 +14338,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad stockInmPrice.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setStockInmPrice(Double value) {
                 this.stockInmPrice = value;
@@ -16145,11 +14348,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad pickStatusEx.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getPickStatusEx() {
                 return pickStatusEx;
@@ -16157,11 +14358,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad pickStatusEx.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setPickStatusEx(String value) {
                 this.pickStatusEx = value;
@@ -16169,11 +14368,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxBeforeDPM.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxBeforeDPM() {
                 return taxBeforeDPM;
@@ -16181,11 +14378,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxBeforeDPM.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxBeforeDPM(Double value) {
                 this.taxBeforeDPM = value;
@@ -16193,11 +14388,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxBeforeDPMFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxBeforeDPMFC() {
                 return taxBeforeDPMFC;
@@ -16205,11 +14398,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxBeforeDPMFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxBeforeDPMFC(Double value) {
                 this.taxBeforeDPMFC = value;
@@ -16217,11 +14408,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxBeforeDPMSC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxBeforeDPMSC() {
                 return taxBeforeDPMSC;
@@ -16229,11 +14418,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxBeforeDPMSC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxBeforeDPMSC(Double value) {
                 this.taxBeforeDPMSC = value;
@@ -16241,11 +14428,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad cfopCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCFOPCode() {
                 return cfopCode;
@@ -16253,11 +14438,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad cfopCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCFOPCode(String value) {
                 this.cfopCode = value;
@@ -16265,11 +14448,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad cstCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCSTCode() {
                 return cstCode;
@@ -16277,11 +14458,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad cstCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCSTCode(String value) {
                 this.cstCode = value;
@@ -16289,11 +14468,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad usage.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getUsage() {
                 return usage;
@@ -16301,11 +14478,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad usage.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setUsage(Long value) {
                 this.usage = value;
@@ -16313,11 +14488,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxOnly.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getTaxOnly() {
                 return taxOnly;
@@ -16325,11 +14498,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxOnly.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setTaxOnly(String value) {
                 this.taxOnly = value;
@@ -16337,11 +14508,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad visualOrder.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getVisualOrder() {
                 return visualOrder;
@@ -16349,11 +14518,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad visualOrder.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setVisualOrder(Long value) {
                 this.visualOrder = value;
@@ -16361,11 +14528,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseOpenQuantity.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getBaseOpenQuantity() {
                 return baseOpenQuantity;
@@ -16373,11 +14538,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseOpenQuantity.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setBaseOpenQuantity(Double value) {
                 this.baseOpenQuantity = value;
@@ -16385,11 +14548,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad unitPrice.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getUnitPrice() {
                 return unitPrice;
@@ -16397,11 +14558,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad unitPrice.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setUnitPrice(Double value) {
                 this.unitPrice = value;
@@ -16409,11 +14568,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lineStatus.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getLineStatus() {
                 return lineStatus;
@@ -16421,11 +14578,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lineStatus.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setLineStatus(String value) {
                 this.lineStatus = value;
@@ -16433,11 +14588,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad packageQuantity.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getPackageQuantity() {
                 return packageQuantity;
@@ -16445,11 +14598,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad packageQuantity.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setPackageQuantity(Double value) {
                 this.packageQuantity = value;
@@ -16457,11 +14608,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad text.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getText() {
                 return text;
@@ -16469,11 +14618,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad text.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setText(String value) {
                 this.text = value;
@@ -16481,11 +14628,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lineType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getLineType() {
                 return lineType;
@@ -16493,11 +14638,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lineType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setLineType(String value) {
                 this.lineType = value;
@@ -16505,11 +14648,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad cogsCostingCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCOGSCostingCode() {
                 return cogsCostingCode;
@@ -16517,11 +14658,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad cogsCostingCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCOGSCostingCode(String value) {
                 this.cogsCostingCode = value;
@@ -16529,11 +14668,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad cogsAccountCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCOGSAccountCode() {
                 return cogsAccountCode;
@@ -16541,11 +14678,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad cogsAccountCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCOGSAccountCode(String value) {
                 this.cogsAccountCode = value;
@@ -16553,11 +14688,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad changeAssemlyBoMWarehouse.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getChangeAssemlyBoMWarehouse() {
                 return changeAssemlyBoMWarehouse;
@@ -16565,11 +14698,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad changeAssemlyBoMWarehouse.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setChangeAssemlyBoMWarehouse(String value) {
                 this.changeAssemlyBoMWarehouse = value;
@@ -16577,11 +14708,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad grossBuyPrice.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getGrossBuyPrice() {
                 return grossBuyPrice;
@@ -16589,11 +14718,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad grossBuyPrice.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setGrossBuyPrice(Double value) {
                 this.grossBuyPrice = value;
@@ -16601,11 +14728,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad grossBase.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getGrossBase() {
                 return grossBase;
@@ -16613,11 +14738,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad grossBase.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setGrossBase(Long value) {
                 this.grossBase = value;
@@ -16625,11 +14748,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad grossProfitTotalBasePrice.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getGrossProfitTotalBasePrice() {
                 return grossProfitTotalBasePrice;
@@ -16637,11 +14758,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad grossProfitTotalBasePrice.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setGrossProfitTotalBasePrice(Double value) {
                 this.grossProfitTotalBasePrice = value;
@@ -16649,11 +14768,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad costingCode2.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCostingCode2() {
                 return costingCode2;
@@ -16661,11 +14778,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad costingCode2.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCostingCode2(String value) {
                 this.costingCode2 = value;
@@ -16673,11 +14788,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad costingCode3.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCostingCode3() {
                 return costingCode3;
@@ -16685,11 +14798,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad costingCode3.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCostingCode3(String value) {
                 this.costingCode3 = value;
@@ -16697,11 +14808,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad costingCode4.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCostingCode4() {
                 return costingCode4;
@@ -16709,11 +14818,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad costingCode4.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCostingCode4(String value) {
                 this.costingCode4 = value;
@@ -16721,11 +14828,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad costingCode5.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCostingCode5() {
                 return costingCode5;
@@ -16733,11 +14838,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad costingCode5.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCostingCode5(String value) {
                 this.costingCode5 = value;
@@ -16745,11 +14848,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad itemDetails.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getItemDetails() {
                 return itemDetails;
@@ -16757,11 +14858,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad itemDetails.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setItemDetails(String value) {
                 this.itemDetails = value;
@@ -16769,11 +14868,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad locationCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getLocationCode() {
                 return locationCode;
@@ -16781,11 +14878,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad locationCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setLocationCode(Long value) {
                 this.locationCode = value;
@@ -16793,11 +14888,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad actualDeliveryDate.
-             * 
-             * @return
-             *     possible object is
-             *     {@link XMLGregorianCalendar }
-             *     
+             *
+             * @return possible object is {@link XMLGregorianCalendar }
+             *
              */
             public XMLGregorianCalendar getActualDeliveryDate() {
                 return actualDeliveryDate;
@@ -16805,11 +14898,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad actualDeliveryDate.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link XMLGregorianCalendar }
-             *     
+             *
+             * @param value allowed object is {@link XMLGregorianCalendar }
+             *
              */
             public void setActualDeliveryDate(XMLGregorianCalendar value) {
                 this.actualDeliveryDate = value;
@@ -16817,11 +14908,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad remainingOpenQuantity.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getRemainingOpenQuantity() {
                 return remainingOpenQuantity;
@@ -16829,11 +14918,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad remainingOpenQuantity.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setRemainingOpenQuantity(Double value) {
                 this.remainingOpenQuantity = value;
@@ -16841,11 +14928,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad openAmount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getOpenAmount() {
                 return openAmount;
@@ -16853,11 +14938,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad openAmount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setOpenAmount(Double value) {
                 this.openAmount = value;
@@ -16865,11 +14948,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad openAmountFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getOpenAmountFC() {
                 return openAmountFC;
@@ -16877,11 +14958,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad openAmountFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setOpenAmountFC(Double value) {
                 this.openAmountFC = value;
@@ -16889,11 +14968,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad openAmountSC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getOpenAmountSC() {
                 return openAmountSC;
@@ -16901,11 +14978,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad openAmountSC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setOpenAmountSC(Double value) {
                 this.openAmountSC = value;
@@ -16913,11 +14988,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad exLineNo.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getExLineNo() {
                 return exLineNo;
@@ -16925,11 +14998,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad exLineNo.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setExLineNo(String value) {
                 this.exLineNo = value;
@@ -16937,11 +15008,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad requiredDate.
-             * 
-             * @return
-             *     possible object is
-             *     {@link XMLGregorianCalendar }
-             *     
+             *
+             * @return possible object is {@link XMLGregorianCalendar }
+             *
              */
             public XMLGregorianCalendar getRequiredDate() {
                 return requiredDate;
@@ -16949,11 +15018,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad requiredDate.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link XMLGregorianCalendar }
-             *     
+             *
+             * @param value allowed object is {@link XMLGregorianCalendar }
+             *
              */
             public void setRequiredDate(XMLGregorianCalendar value) {
                 this.requiredDate = value;
@@ -16961,11 +15028,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad requiredQuantity.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getRequiredQuantity() {
                 return requiredQuantity;
@@ -16973,11 +15038,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad requiredQuantity.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setRequiredQuantity(Double value) {
                 this.requiredQuantity = value;
@@ -16985,11 +15048,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad cogsCostingCode2.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCOGSCostingCode2() {
                 return cogsCostingCode2;
@@ -16997,11 +15058,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad cogsCostingCode2.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCOGSCostingCode2(String value) {
                 this.cogsCostingCode2 = value;
@@ -17009,11 +15068,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad cogsCostingCode3.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCOGSCostingCode3() {
                 return cogsCostingCode3;
@@ -17021,11 +15078,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad cogsCostingCode3.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCOGSCostingCode3(String value) {
                 this.cogsCostingCode3 = value;
@@ -17033,11 +15088,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad cogsCostingCode4.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCOGSCostingCode4() {
                 return cogsCostingCode4;
@@ -17045,11 +15098,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad cogsCostingCode4.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCOGSCostingCode4(String value) {
                 this.cogsCostingCode4 = value;
@@ -17057,11 +15108,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad cogsCostingCode5.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCOGSCostingCode5() {
                 return cogsCostingCode5;
@@ -17069,11 +15118,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad cogsCostingCode5.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCOGSCostingCode5(String value) {
                 this.cogsCostingCode5 = value;
@@ -17081,11 +15128,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad csTforIPI.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCSTforIPI() {
                 return csTforIPI;
@@ -17093,11 +15138,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad csTforIPI.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCSTforIPI(String value) {
                 this.csTforIPI = value;
@@ -17105,11 +15148,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad csTforPIS.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCSTforPIS() {
                 return csTforPIS;
@@ -17117,11 +15158,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad csTforPIS.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCSTforPIS(String value) {
                 this.csTforPIS = value;
@@ -17129,11 +15168,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad csTforCOFINS.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCSTforCOFINS() {
                 return csTforCOFINS;
@@ -17141,11 +15178,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad csTforCOFINS.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCSTforCOFINS(String value) {
                 this.csTforCOFINS = value;
@@ -17153,11 +15188,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad creditOriginCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCreditOriginCode() {
                 return creditOriginCode;
@@ -17165,11 +15198,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad creditOriginCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCreditOriginCode(String value) {
                 this.creditOriginCode = value;
@@ -17177,11 +15208,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad withoutInventoryMovement.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getWithoutInventoryMovement() {
                 return withoutInventoryMovement;
@@ -17189,11 +15218,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad withoutInventoryMovement.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setWithoutInventoryMovement(String value) {
                 this.withoutInventoryMovement = value;
@@ -17201,11 +15228,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad agreementNo.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getAgreementNo() {
                 return agreementNo;
@@ -17213,11 +15238,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad agreementNo.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setAgreementNo(Long value) {
                 this.agreementNo = value;
@@ -17225,11 +15248,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad agreementRowNumber.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getAgreementRowNumber() {
                 return agreementRowNumber;
@@ -17237,11 +15258,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad agreementRowNumber.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setAgreementRowNumber(Long value) {
                 this.agreementRowNumber = value;
@@ -17249,11 +15268,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad shipToDescription.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getShipToDescription() {
                 return shipToDescription;
@@ -17261,11 +15278,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad shipToDescription.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setShipToDescription(String value) {
                 this.shipToDescription = value;
@@ -17273,11 +15288,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad actualBaseEntry.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getActualBaseEntry() {
                 return actualBaseEntry;
@@ -17285,11 +15298,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad actualBaseEntry.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setActualBaseEntry(Long value) {
                 this.actualBaseEntry = value;
@@ -17297,11 +15308,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad actualBaseLine.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getActualBaseLine() {
                 return actualBaseLine;
@@ -17309,11 +15318,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad actualBaseLine.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setActualBaseLine(Long value) {
                 this.actualBaseLine = value;
@@ -17321,11 +15328,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad docEntry.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getDocEntry() {
                 return docEntry;
@@ -17333,11 +15338,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad docEntry.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setDocEntry(Long value) {
                 this.docEntry = value;
@@ -17345,11 +15348,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad surpluses.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getSurpluses() {
                 return surpluses;
@@ -17357,11 +15358,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad surpluses.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setSurpluses(Double value) {
                 this.surpluses = value;
@@ -17369,11 +15368,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad defectAndBreakup.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getDefectAndBreakup() {
                 return defectAndBreakup;
@@ -17381,11 +15378,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad defectAndBreakup.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setDefectAndBreakup(Double value) {
                 this.defectAndBreakup = value;
@@ -17393,11 +15388,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad shortages.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getShortages() {
                 return shortages;
@@ -17405,11 +15398,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad shortages.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setShortages(Double value) {
                 this.shortages = value;
@@ -17417,11 +15408,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad considerQuantity.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getConsiderQuantity() {
                 return considerQuantity;
@@ -17429,11 +15418,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad considerQuantity.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setConsiderQuantity(String value) {
                 this.considerQuantity = value;
@@ -17441,11 +15428,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad partialRetirement.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getPartialRetirement() {
                 return partialRetirement;
@@ -17453,11 +15438,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad partialRetirement.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setPartialRetirement(String value) {
                 this.partialRetirement = value;
@@ -17465,11 +15448,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad retirementQuantity.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getRetirementQuantity() {
                 return retirementQuantity;
@@ -17477,11 +15458,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad retirementQuantity.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setRetirementQuantity(Double value) {
                 this.retirementQuantity = value;
@@ -17489,11 +15468,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad retirementAPC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getRetirementAPC() {
                 return retirementAPC;
@@ -17501,11 +15478,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad retirementAPC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setRetirementAPC(Double value) {
                 this.retirementAPC = value;
@@ -17513,11 +15488,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad thirdParty.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getThirdParty() {
                 return thirdParty;
@@ -17525,11 +15498,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad thirdParty.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setThirdParty(String value) {
                 this.thirdParty = value;
@@ -17537,11 +15508,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad enableReturnCost.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getEnableReturnCost() {
                 return enableReturnCost;
@@ -17549,11 +15518,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad enableReturnCost.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setEnableReturnCost(String value) {
                 this.enableReturnCost = value;
@@ -17561,11 +15528,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad returnCost.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getReturnCost() {
                 return returnCost;
@@ -17573,11 +15538,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad returnCost.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setReturnCost(Double value) {
                 this.returnCost = value;
@@ -17585,11 +15548,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uoMEntry.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getUoMEntry() {
                 return uoMEntry;
@@ -17597,11 +15558,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uoMEntry.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setUoMEntry(Long value) {
                 this.uoMEntry = value;
@@ -17609,11 +15568,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uoMCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getUoMCode() {
                 return uoMCode;
@@ -17621,11 +15578,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uoMCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setUoMCode(String value) {
                 this.uoMCode = value;
@@ -17633,11 +15588,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad inventoryQuantity.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getInventoryQuantity() {
                 return inventoryQuantity;
@@ -17645,11 +15598,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad inventoryQuantity.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setInventoryQuantity(Double value) {
                 this.inventoryQuantity = value;
@@ -17657,11 +15608,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad remainingOpenInventoryQuantity.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getRemainingOpenInventoryQuantity() {
                 return remainingOpenInventoryQuantity;
@@ -17669,11 +15618,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad remainingOpenInventoryQuantity.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setRemainingOpenInventoryQuantity(Double value) {
                 this.remainingOpenInventoryQuantity = value;
@@ -17681,11 +15628,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad parentLineNum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getParentLineNum() {
                 return parentLineNum;
@@ -17693,11 +15638,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad parentLineNum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setParentLineNum(Long value) {
                 this.parentLineNum = value;
@@ -17705,11 +15648,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad incoterms.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getIncoterms() {
                 return incoterms;
@@ -17717,11 +15658,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad incoterms.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setIncoterms(Long value) {
                 this.incoterms = value;
@@ -17729,11 +15668,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad transportMode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getTransportMode() {
                 return transportMode;
@@ -17741,11 +15678,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad transportMode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setTransportMode(Long value) {
                 this.transportMode = value;
@@ -17753,11 +15688,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad itemType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getItemType() {
                 return itemType;
@@ -17765,35 +15698,31 @@ public class Document {
 
             /**
              * Define el valor de la propiedad itemType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setItemType(String value) {
                 this.itemType = value;
             }
 
             /**
-             * Obtiene el valor de la propiedad changeInventoryQuantityIndependently.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             * Obtiene el valor de la propiedad
+             * changeInventoryQuantityIndependently.
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getChangeInventoryQuantityIndependently() {
                 return changeInventoryQuantityIndependently;
             }
 
             /**
-             * Define el valor de la propiedad changeInventoryQuantityIndependently.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             * Define el valor de la propiedad
+             * changeInventoryQuantityIndependently.
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setChangeInventoryQuantityIndependently(String value) {
                 this.changeInventoryQuantityIndependently = value;
@@ -17801,11 +15730,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad freeOfChargeBP.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getFreeOfChargeBP() {
                 return freeOfChargeBP;
@@ -17813,11 +15740,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad freeOfChargeBP.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setFreeOfChargeBP(String value) {
                 this.freeOfChargeBP = value;
@@ -17825,11 +15750,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uivcDone.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getUIVCDone() {
                 return uivcDone;
@@ -17837,11 +15760,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uivcDone.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setUIVCDone(String value) {
                 this.uivcDone = value;
@@ -17849,11 +15770,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uEstadoP.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getUEstadoP() {
                 return uEstadoP;
@@ -17861,11 +15780,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uEstadoP.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setUEstadoP(String value) {
                 this.uEstadoP = value;
@@ -17873,11 +15790,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad unwrBase.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getUNWRBase() {
                 return unwrBase;
@@ -17885,11 +15800,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad unwrBase.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setUNWRBase(String value) {
                 this.unwrBase = value;
@@ -17897,11 +15810,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uCustDate.
-             * 
-             * @return
-             *     possible object is
-             *     {@link XMLGregorianCalendar }
-             *     
+             *
+             * @return possible object is {@link XMLGregorianCalendar }
+             *
              */
             public XMLGregorianCalendar getUCustDate() {
                 return uCustDate;
@@ -17909,11 +15820,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uCustDate.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link XMLGregorianCalendar }
-             *     
+             *
+             * @param value allowed object is {@link XMLGregorianCalendar }
+             *
              */
             public void setUCustDate(XMLGregorianCalendar value) {
                 this.uCustDate = value;
@@ -17921,11 +15830,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad unwrQtyAllocated.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getUNWRQtyAllocated() {
                 return unwrQtyAllocated;
@@ -17933,11 +15840,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad unwrQtyAllocated.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setUNWRQtyAllocated(Double value) {
                 this.unwrQtyAllocated = value;
@@ -17945,11 +15850,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uReclamQty.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getUReclamQty() {
                 return uReclamQty;
@@ -17957,11 +15860,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uReclamQty.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setUReclamQty(Double value) {
                 this.uReclamQty = value;
@@ -17969,11 +15870,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uqaMark.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getUQAMark() {
                 return uqaMark;
@@ -17981,11 +15880,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uqaMark.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setUQAMark(String value) {
                 this.uqaMark = value;
@@ -17993,11 +15890,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uIncomingQty.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getUIncomingQty() {
                 return uIncomingQty;
@@ -18005,11 +15900,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uIncomingQty.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setUIncomingQty(Double value) {
                 this.uIncomingQty = value;
@@ -18017,11 +15910,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uComments.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getUComments() {
                 return uComments;
@@ -18029,11 +15920,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uComments.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setUComments(String value) {
                 this.uComments = value;
@@ -18041,11 +15930,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad udi.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getUDI() {
                 return udi;
@@ -18053,11 +15940,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad udi.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setUDI(String value) {
                 this.udi = value;
@@ -18065,11 +15950,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uLineNumFv.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getULineNumFv() {
                 return uLineNumFv;
@@ -18077,11 +15960,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uLineNumFv.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setULineNumFv(Long value) {
                 this.uLineNumFv = value;
@@ -18089,11 +15970,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uImages.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getUImages() {
                 return uImages;
@@ -18101,11 +15980,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uImages.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setUImages(String value) {
                 this.uImages = value;
@@ -18113,11 +15990,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uNumPartes.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getUNumPartes() {
                 return uNumPartes;
@@ -18125,11 +16000,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uNumPartes.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setUNumPartes(Long value) {
                 this.uNumPartes = value;
@@ -18137,11 +16010,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uAverias.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getUAverias() {
                 return uAverias;
@@ -18149,11 +16020,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uAverias.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setUAverias(String value) {
                 this.uAverias = value;
@@ -18161,11 +16030,10 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lineTaxJurisdictions.
-             * 
-             * @return
-             *     possible object is
+             *
+             * @return possible object is
              *     {@link Document.DocumentLines.DocumentLine.LineTaxJurisdictions }
-             *     
+             *
              */
             public Document.DocumentLines.DocumentLine.LineTaxJurisdictions getLineTaxJurisdictions() {
                 return lineTaxJurisdictions;
@@ -18173,11 +16041,10 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lineTaxJurisdictions.
-             * 
-             * @param value
-             *     allowed object is
+             *
+             * @param value allowed object is
              *     {@link Document.DocumentLines.DocumentLine.LineTaxJurisdictions }
-             *     
+             *
              */
             public void setLineTaxJurisdictions(Document.DocumentLines.DocumentLine.LineTaxJurisdictions value) {
                 this.lineTaxJurisdictions = value;
@@ -18185,11 +16052,10 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad exportProcesses.
-             * 
-             * @return
-             *     possible object is
+             *
+             * @return possible object is
              *     {@link Document.DocumentLines.DocumentLine.ExportProcesses }
-             *     
+             *
              */
             public Document.DocumentLines.DocumentLine.ExportProcesses getExportProcesses() {
                 return exportProcesses;
@@ -18197,11 +16063,10 @@ public class Document {
 
             /**
              * Define el valor de la propiedad exportProcesses.
-             * 
-             * @param value
-             *     allowed object is
+             *
+             * @param value allowed object is
              *     {@link Document.DocumentLines.DocumentLine.ExportProcesses }
-             *     
+             *
              */
             public void setExportProcesses(Document.DocumentLines.DocumentLine.ExportProcesses value) {
                 this.exportProcesses = value;
@@ -18209,11 +16074,10 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad documentLineAdditionalExpenses.
-             * 
-             * @return
-             *     possible object is
+             *
+             * @return possible object is
              *     {@link Document.DocumentLines.DocumentLine.DocumentLineAdditionalExpenses }
-             *     
+             *
              */
             public Document.DocumentLines.DocumentLine.DocumentLineAdditionalExpenses getDocumentLineAdditionalExpenses() {
                 return documentLineAdditionalExpenses;
@@ -18221,11 +16085,10 @@ public class Document {
 
             /**
              * Define el valor de la propiedad documentLineAdditionalExpenses.
-             * 
-             * @param value
-             *     allowed object is
+             *
+             * @param value allowed object is
              *     {@link Document.DocumentLines.DocumentLine.DocumentLineAdditionalExpenses }
-             *     
+             *
              */
             public void setDocumentLineAdditionalExpenses(Document.DocumentLines.DocumentLine.DocumentLineAdditionalExpenses value) {
                 this.documentLineAdditionalExpenses = value;
@@ -18233,11 +16096,10 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad withholdingTaxLines.
-             * 
-             * @return
-             *     possible object is
+             *
+             * @return possible object is
              *     {@link Document.DocumentLines.DocumentLine.WithholdingTaxLines }
-             *     
+             *
              */
             public Document.DocumentLines.DocumentLine.WithholdingTaxLines getWithholdingTaxLines() {
                 return withholdingTaxLines;
@@ -18245,11 +16107,10 @@ public class Document {
 
             /**
              * Define el valor de la propiedad withholdingTaxLines.
-             * 
-             * @param value
-             *     allowed object is
+             *
+             * @param value allowed object is
              *     {@link Document.DocumentLines.DocumentLine.WithholdingTaxLines }
-             *     
+             *
              */
             public void setWithholdingTaxLines(Document.DocumentLines.DocumentLine.WithholdingTaxLines value) {
                 this.withholdingTaxLines = value;
@@ -18257,11 +16118,10 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad serialNumbers.
-             * 
-             * @return
-             *     possible object is
+             *
+             * @return possible object is
              *     {@link Document.DocumentLines.DocumentLine.SerialNumbers }
-             *     
+             *
              */
             public Document.DocumentLines.DocumentLine.SerialNumbers getSerialNumbers() {
                 return serialNumbers;
@@ -18269,11 +16129,10 @@ public class Document {
 
             /**
              * Define el valor de la propiedad serialNumbers.
-             * 
-             * @param value
-             *     allowed object is
+             *
+             * @param value allowed object is
              *     {@link Document.DocumentLines.DocumentLine.SerialNumbers }
-             *     
+             *
              */
             public void setSerialNumbers(Document.DocumentLines.DocumentLine.SerialNumbers value) {
                 this.serialNumbers = value;
@@ -18281,11 +16140,10 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad batchNumbers.
-             * 
-             * @return
-             *     possible object is
+             *
+             * @return possible object is
              *     {@link Document.DocumentLines.DocumentLine.BatchNumbers }
-             *     
+             *
              */
             public Document.DocumentLines.DocumentLine.BatchNumbers getBatchNumbers() {
                 return batchNumbers;
@@ -18293,11 +16151,10 @@ public class Document {
 
             /**
              * Define el valor de la propiedad batchNumbers.
-             * 
-             * @param value
-             *     allowed object is
+             *
+             * @param value allowed object is
              *     {@link Document.DocumentLines.DocumentLine.BatchNumbers }
-             *     
+             *
              */
             public void setBatchNumbers(Document.DocumentLines.DocumentLine.BatchNumbers value) {
                 this.batchNumbers = value;
@@ -18305,11 +16162,10 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad documentLinesBinAllocations.
-             * 
-             * @return
-             *     possible object is
+             *
+             * @return possible object is
              *     {@link Document.DocumentLines.DocumentLine.DocumentLinesBinAllocations }
-             *     
+             *
              */
             public Document.DocumentLines.DocumentLine.DocumentLinesBinAllocations getDocumentLinesBinAllocations() {
                 return documentLinesBinAllocations;
@@ -18317,22 +16173,23 @@ public class Document {
 
             /**
              * Define el valor de la propiedad documentLinesBinAllocations.
-             * 
-             * @param value
-             *     allowed object is
+             *
+             * @param value allowed object is
              *     {@link Document.DocumentLines.DocumentLine.DocumentLinesBinAllocations }
-             *     
+             *
              */
             public void setDocumentLinesBinAllocations(Document.DocumentLines.DocumentLine.DocumentLinesBinAllocations value) {
                 this.documentLinesBinAllocations = value;
             }
 
-
             /**
-             * <p>Clase Java para anonymous complex type.
-             * 
-             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-             * 
+             * <p>
+             * Clase Java para anonymous complex type.
+             *
+             * <p>
+             * El siguiente fragmento de esquema especifica el contenido que se
+             * espera que haya en esta clase.
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -18365,8 +16222,8 @@ public class Document {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -18379,25 +16236,26 @@ public class Document {
 
                 /**
                  * Gets the value of the batchNumber property.
-                 * 
+                 *
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
-                 * returned list will be present inside the JAXB object.
-                 * This is why there is not a <CODE>set</CODE> method for the batchNumber property.
-                 * 
+                 * returned list will be present inside the JAXB object. This is
+                 * why there is not a <CODE>set</CODE> method for the
+                 * batchNumber property.
+                 *
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getBatchNumber().add(newItem);
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Document.DocumentLines.DocumentLine.BatchNumbers.BatchNumber }
-                 * 
-                 * 
+                 *
+                 *
                  */
                 public List<Document.DocumentLines.DocumentLine.BatchNumbers.BatchNumber> getBatchNumber() {
                     if (batchNumber == null) {
@@ -18406,12 +16264,14 @@ public class Document {
                     return this.batchNumber;
                 }
 
-
                 /**
-                 * <p>Clase Java para anonymous complex type.
-                 * 
-                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-                 * 
+                 * <p>
+                 * Clase Java para anonymous complex type.
+                 *
+                 * <p>
+                 * El siguiente fragmento de esquema especifica el contenido que
+                 * se espera que haya en esta clase.
+                 *
                  * <pre>
                  * &lt;complexType>
                  *   &lt;complexContent>
@@ -18434,13 +16294,11 @@ public class Document {
                  *   &lt;/complexContent>
                  * &lt;/complexType>
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
-                @XmlType(name = "", propOrder = {
-
-                })
+                @XmlType(name = "", propOrder = {})
                 public static class BatchNumber {
 
                     @XmlElement(name = "BatchNumber")
@@ -18473,11 +16331,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad batchNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getBatchNumber() {
                         return batchNumber;
@@ -18485,23 +16341,20 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad batchNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setBatchNumber(String value) {
                         this.batchNumber = value;
                     }
 
                     /**
-                     * Obtiene el valor de la propiedad manufacturerSerialNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     * Obtiene el valor de la propiedad
+                     * manufacturerSerialNumber.
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getManufacturerSerialNumber() {
                         return manufacturerSerialNumber;
@@ -18509,11 +16362,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad manufacturerSerialNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setManufacturerSerialNumber(String value) {
                         this.manufacturerSerialNumber = value;
@@ -18521,11 +16372,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad internalSerialNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getInternalSerialNumber() {
                         return internalSerialNumber;
@@ -18533,11 +16382,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad internalSerialNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setInternalSerialNumber(String value) {
                         this.internalSerialNumber = value;
@@ -18545,11 +16392,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad expiryDate.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link XMLGregorianCalendar }
-                     *     
+                     *
+                     * @return possible object is {@link XMLGregorianCalendar }
+                     *
                      */
                     public XMLGregorianCalendar getExpiryDate() {
                         return expiryDate;
@@ -18557,11 +16402,10 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad expiryDate.
-                     * 
-                     * @param value
-                     *     allowed object is
+                     *
+                     * @param value allowed object is
                      *     {@link XMLGregorianCalendar }
-                     *     
+                     *
                      */
                     public void setExpiryDate(XMLGregorianCalendar value) {
                         this.expiryDate = value;
@@ -18569,11 +16413,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad manufacturingDate.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link XMLGregorianCalendar }
-                     *     
+                     *
+                     * @return possible object is {@link XMLGregorianCalendar }
+                     *
                      */
                     public XMLGregorianCalendar getManufacturingDate() {
                         return manufacturingDate;
@@ -18581,11 +16423,10 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad manufacturingDate.
-                     * 
-                     * @param value
-                     *     allowed object is
+                     *
+                     * @param value allowed object is
                      *     {@link XMLGregorianCalendar }
-                     *     
+                     *
                      */
                     public void setManufacturingDate(XMLGregorianCalendar value) {
                         this.manufacturingDate = value;
@@ -18593,11 +16434,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad addmisionDate.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link XMLGregorianCalendar }
-                     *     
+                     *
+                     * @return possible object is {@link XMLGregorianCalendar }
+                     *
                      */
                     public XMLGregorianCalendar getAddmisionDate() {
                         return addmisionDate;
@@ -18605,11 +16444,10 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad addmisionDate.
-                     * 
-                     * @param value
-                     *     allowed object is
+                     *
+                     * @param value allowed object is
                      *     {@link XMLGregorianCalendar }
-                     *     
+                     *
                      */
                     public void setAddmisionDate(XMLGregorianCalendar value) {
                         this.addmisionDate = value;
@@ -18617,11 +16455,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad location.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getLocation() {
                         return location;
@@ -18629,11 +16465,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad location.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setLocation(String value) {
                         this.location = value;
@@ -18641,11 +16475,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad notes.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getNotes() {
                         return notes;
@@ -18653,11 +16485,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad notes.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setNotes(String value) {
                         this.notes = value;
@@ -18665,11 +16495,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad quantity.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getQuantity() {
                         return quantity;
@@ -18677,11 +16505,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad quantity.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setQuantity(Double value) {
                         this.quantity = value;
@@ -18689,11 +16515,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad baseLineNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getBaseLineNumber() {
                         return baseLineNumber;
@@ -18701,11 +16525,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad baseLineNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setBaseLineNumber(Long value) {
                         this.baseLineNumber = value;
@@ -18713,11 +16535,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad trackingNote.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getTrackingNote() {
                         return trackingNote;
@@ -18725,11 +16545,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad trackingNote.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setTrackingNote(Long value) {
                         this.trackingNote = value;
@@ -18737,11 +16555,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad trackingNoteLine.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getTrackingNoteLine() {
                         return trackingNoteLine;
@@ -18749,11 +16565,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad trackingNoteLine.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setTrackingNoteLine(Long value) {
                         this.trackingNoteLine = value;
@@ -18763,12 +16577,14 @@ public class Document {
 
             }
 
-
             /**
-             * <p>Clase Java para anonymous complex type.
-             * 
-             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-             * 
+             * <p>
+             * Clase Java para anonymous complex type.
+             *
+             * <p>
+             * El siguiente fragmento de esquema especifica el contenido que se
+             * espera que haya en esta clase.
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -18886,8 +16702,8 @@ public class Document {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -18900,25 +16716,26 @@ public class Document {
 
                 /**
                  * Gets the value of the documentLineAdditionalExpense property.
-                 * 
+                 *
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
-                 * returned list will be present inside the JAXB object.
-                 * This is why there is not a <CODE>set</CODE> method for the documentLineAdditionalExpense property.
-                 * 
+                 * returned list will be present inside the JAXB object. This is
+                 * why there is not a <CODE>set</CODE> method for the
+                 * documentLineAdditionalExpense property.
+                 *
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getDocumentLineAdditionalExpense().add(newItem);
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Document.DocumentLines.DocumentLine.DocumentLineAdditionalExpenses.DocumentLineAdditionalExpense }
-                 * 
-                 * 
+                 *
+                 *
                  */
                 public List<Document.DocumentLines.DocumentLine.DocumentLineAdditionalExpenses.DocumentLineAdditionalExpense> getDocumentLineAdditionalExpense() {
                     if (documentLineAdditionalExpense == null) {
@@ -18927,12 +16744,14 @@ public class Document {
                     return this.documentLineAdditionalExpense;
                 }
 
-
                 /**
-                 * <p>Clase Java para anonymous complex type.
-                 * 
-                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-                 * 
+                 * <p>
+                 * Clase Java para anonymous complex type.
+                 *
+                 * <p>
+                 * El siguiente fragmento de esquema especifica el contenido que
+                 * se espera que haya en esta clase.
+                 *
                  * <pre>
                  * &lt;complexType>
                  *   &lt;complexContent>
@@ -19040,13 +16859,11 @@ public class Document {
                  *   &lt;/complexContent>
                  * &lt;/complexType>
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
-                @XmlType(name = "", propOrder = {
-
-                })
+                @XmlType(name = "", propOrder = {})
                 public static class DocumentLineAdditionalExpense {
 
                     @XmlElement(name = "LineNumber")
@@ -19132,11 +16949,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad lineNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getLineNumber() {
                         return lineNumber;
@@ -19144,11 +16959,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad lineNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setLineNumber(Long value) {
                         this.lineNumber = value;
@@ -19156,11 +16969,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad groupCode.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getGroupCode() {
                         return groupCode;
@@ -19168,11 +16979,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad groupCode.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setGroupCode(Long value) {
                         this.groupCode = value;
@@ -19180,11 +16989,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad expenseCode.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getExpenseCode() {
                         return expenseCode;
@@ -19192,11 +16999,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad expenseCode.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setExpenseCode(Long value) {
                         this.expenseCode = value;
@@ -19204,11 +17009,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad lineTotal.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getLineTotal() {
                         return lineTotal;
@@ -19216,11 +17019,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad lineTotal.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setLineTotal(Double value) {
                         this.lineTotal = value;
@@ -19228,11 +17029,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad lineTotalFC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getLineTotalFC() {
                         return lineTotalFC;
@@ -19240,11 +17039,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad lineTotalFC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setLineTotalFC(Double value) {
                         this.lineTotalFC = value;
@@ -19252,11 +17049,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad lineTotalSys.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getLineTotalSys() {
                         return lineTotalSys;
@@ -19264,11 +17059,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad lineTotalSys.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setLineTotalSys(Double value) {
                         this.lineTotalSys = value;
@@ -19276,11 +17069,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad paidToDate.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getPaidToDate() {
                         return paidToDate;
@@ -19288,11 +17079,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad paidToDate.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setPaidToDate(Double value) {
                         this.paidToDate = value;
@@ -19300,11 +17089,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad paidToDateFC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getPaidToDateFC() {
                         return paidToDateFC;
@@ -19312,11 +17099,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad paidToDateFC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setPaidToDateFC(Double value) {
                         this.paidToDateFC = value;
@@ -19324,11 +17109,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad paidToDateSys.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getPaidToDateSys() {
                         return paidToDateSys;
@@ -19336,11 +17119,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad paidToDateSys.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setPaidToDateSys(Double value) {
                         this.paidToDateSys = value;
@@ -19348,11 +17129,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxLiable.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getTaxLiable() {
                         return taxLiable;
@@ -19360,11 +17139,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxLiable.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setTaxLiable(String value) {
                         this.taxLiable = value;
@@ -19372,11 +17149,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad vatGroup.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getVatGroup() {
                         return vatGroup;
@@ -19384,11 +17159,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad vatGroup.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setVatGroup(String value) {
                         this.vatGroup = value;
@@ -19396,11 +17169,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxPercent.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxPercent() {
                         return taxPercent;
@@ -19408,11 +17179,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxPercent.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxPercent(Double value) {
                         this.taxPercent = value;
@@ -19420,11 +17189,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxSum.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxSum() {
                         return taxSum;
@@ -19432,11 +17199,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxSum.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxSum(Double value) {
                         this.taxSum = value;
@@ -19444,11 +17209,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxSumFC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxSumFC() {
                         return taxSumFC;
@@ -19456,11 +17219,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxSumFC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxSumFC(Double value) {
                         this.taxSumFC = value;
@@ -19468,11 +17229,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxSumSys.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxSumSys() {
                         return taxSumSys;
@@ -19480,11 +17239,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxSumSys.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxSumSys(Double value) {
                         this.taxSumSys = value;
@@ -19492,11 +17249,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad deductibleTaxSum.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getDeductibleTaxSum() {
                         return deductibleTaxSum;
@@ -19504,11 +17259,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad deductibleTaxSum.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setDeductibleTaxSum(Double value) {
                         this.deductibleTaxSum = value;
@@ -19516,11 +17269,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad deductibleTaxSumFC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getDeductibleTaxSumFC() {
                         return deductibleTaxSumFC;
@@ -19528,11 +17279,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad deductibleTaxSumFC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setDeductibleTaxSumFC(Double value) {
                         this.deductibleTaxSumFC = value;
@@ -19540,11 +17289,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad deductibleTaxSumSys.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getDeductibleTaxSumSys() {
                         return deductibleTaxSumSys;
@@ -19552,11 +17299,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad deductibleTaxSumSys.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setDeductibleTaxSumSys(Double value) {
                         this.deductibleTaxSumSys = value;
@@ -19564,11 +17309,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad aquisitionTax.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getAquisitionTax() {
                         return aquisitionTax;
@@ -19576,11 +17319,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad aquisitionTax.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setAquisitionTax(String value) {
                         this.aquisitionTax = value;
@@ -19588,11 +17329,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxCode.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getTaxCode() {
                         return taxCode;
@@ -19600,11 +17339,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxCode.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setTaxCode(String value) {
                         this.taxCode = value;
@@ -19612,11 +17349,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxType.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getTaxType() {
                         return taxType;
@@ -19624,11 +17359,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxType.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setTaxType(String value) {
                         this.taxType = value;
@@ -19636,11 +17369,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxPaid.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxPaid() {
                         return taxPaid;
@@ -19648,11 +17379,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxPaid.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxPaid(Double value) {
                         this.taxPaid = value;
@@ -19660,11 +17389,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxPaidFC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxPaidFC() {
                         return taxPaidFC;
@@ -19672,11 +17399,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxPaidFC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxPaidFC(Double value) {
                         this.taxPaidFC = value;
@@ -19684,11 +17409,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxPaidSys.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxPaidSys() {
                         return taxPaidSys;
@@ -19696,11 +17419,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxPaidSys.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxPaidSys(Double value) {
                         this.taxPaidSys = value;
@@ -19708,11 +17429,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad equalizationTaxPercent.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getEqualizationTaxPercent() {
                         return equalizationTaxPercent;
@@ -19720,11 +17439,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad equalizationTaxPercent.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setEqualizationTaxPercent(Double value) {
                         this.equalizationTaxPercent = value;
@@ -19732,11 +17449,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad equalizationTaxSum.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getEqualizationTaxSum() {
                         return equalizationTaxSum;
@@ -19744,11 +17459,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad equalizationTaxSum.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setEqualizationTaxSum(Double value) {
                         this.equalizationTaxSum = value;
@@ -19756,11 +17469,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad equalizationTaxFC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getEqualizationTaxFC() {
                         return equalizationTaxFC;
@@ -19768,11 +17479,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad equalizationTaxFC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setEqualizationTaxFC(Double value) {
                         this.equalizationTaxFC = value;
@@ -19780,11 +17489,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad equalizationTaxSys.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getEqualizationTaxSys() {
                         return equalizationTaxSys;
@@ -19792,11 +17499,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad equalizationTaxSys.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setEqualizationTaxSys(Double value) {
                         this.equalizationTaxSys = value;
@@ -19804,11 +17509,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxTotalSum.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxTotalSum() {
                         return taxTotalSum;
@@ -19816,11 +17519,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxTotalSum.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxTotalSum(Double value) {
                         this.taxTotalSum = value;
@@ -19828,11 +17529,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxTotalSumFC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxTotalSumFC() {
                         return taxTotalSumFC;
@@ -19840,11 +17539,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxTotalSumFC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxTotalSumFC(Double value) {
                         this.taxTotalSumFC = value;
@@ -19852,11 +17549,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxTotalSumSys.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxTotalSumSys() {
                         return taxTotalSumSys;
@@ -19864,11 +17559,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxTotalSumSys.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxTotalSumSys(Double value) {
                         this.taxTotalSumSys = value;
@@ -19876,11 +17569,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad wtLiable.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getWTLiable() {
                         return wtLiable;
@@ -19888,11 +17579,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad wtLiable.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setWTLiable(String value) {
                         this.wtLiable = value;
@@ -19900,11 +17589,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad baseGroup.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getBaseGroup() {
                         return baseGroup;
@@ -19912,11 +17599,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad baseGroup.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setBaseGroup(Long value) {
                         this.baseGroup = value;
@@ -19924,11 +17609,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad distributionRule.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getDistributionRule() {
                         return distributionRule;
@@ -19936,11 +17619,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad distributionRule.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setDistributionRule(String value) {
                         this.distributionRule = value;
@@ -19948,11 +17629,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad project.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getProject() {
                         return project;
@@ -19960,11 +17639,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad project.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setProject(String value) {
                         this.project = value;
@@ -19972,11 +17649,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad distributionRule2.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getDistributionRule2() {
                         return distributionRule2;
@@ -19984,11 +17659,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad distributionRule2.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setDistributionRule2(String value) {
                         this.distributionRule2 = value;
@@ -19996,11 +17669,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad distributionRule3.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getDistributionRule3() {
                         return distributionRule3;
@@ -20008,11 +17679,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad distributionRule3.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setDistributionRule3(String value) {
                         this.distributionRule3 = value;
@@ -20020,11 +17689,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad distributionRule4.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getDistributionRule4() {
                         return distributionRule4;
@@ -20032,11 +17699,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad distributionRule4.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setDistributionRule4(String value) {
                         this.distributionRule4 = value;
@@ -20044,11 +17709,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad distributionRule5.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getDistributionRule5() {
                         return distributionRule5;
@@ -20056,46 +17719,46 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad distributionRule5.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setDistributionRule5(String value) {
                         this.distributionRule5 = value;
                     }
 
                     /**
-                     * Obtiene el valor de la propiedad lineExpenseTaxJurisdictions.
-                     * 
-                     * @return
-                     *     possible object is
+                     * Obtiene el valor de la propiedad
+                     * lineExpenseTaxJurisdictions.
+                     *
+                     * @return possible object is
                      *     {@link Document.DocumentLines.DocumentLine.DocumentLineAdditionalExpenses.DocumentLineAdditionalExpense.LineExpenseTaxJurisdictions }
-                     *     
+                     *
                      */
                     public Document.DocumentLines.DocumentLine.DocumentLineAdditionalExpenses.DocumentLineAdditionalExpense.LineExpenseTaxJurisdictions getLineExpenseTaxJurisdictions() {
                         return lineExpenseTaxJurisdictions;
                     }
 
                     /**
-                     * Define el valor de la propiedad lineExpenseTaxJurisdictions.
-                     * 
-                     * @param value
-                     *     allowed object is
+                     * Define el valor de la propiedad
+                     * lineExpenseTaxJurisdictions.
+                     *
+                     * @param value allowed object is
                      *     {@link Document.DocumentLines.DocumentLine.DocumentLineAdditionalExpenses.DocumentLineAdditionalExpense.LineExpenseTaxJurisdictions }
-                     *     
+                     *
                      */
                     public void setLineExpenseTaxJurisdictions(Document.DocumentLines.DocumentLine.DocumentLineAdditionalExpenses.DocumentLineAdditionalExpense.LineExpenseTaxJurisdictions value) {
                         this.lineExpenseTaxJurisdictions = value;
                     }
 
-
                     /**
-                     * <p>Clase Java para anonymous complex type.
-                     * 
-                     * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-                     * 
+                     * <p>
+                     * Clase Java para anonymous complex type.
+                     *
+                     * <p>
+                     * El siguiente fragmento de esquema especifica el contenido
+                     * que se espera que haya en esta clase.
+                     *
                      * <pre>
                      * &lt;complexType>
                      *   &lt;complexContent>
@@ -20125,8 +17788,8 @@ public class Document {
                      *   &lt;/complexContent>
                      * &lt;/complexType>
                      * </pre>
-                     * 
-                     * 
+                     *
+                     *
                      */
                     @XmlAccessorType(XmlAccessType.FIELD)
                     @XmlType(name = "", propOrder = {
@@ -20138,26 +17801,30 @@ public class Document {
                         protected List<Document.DocumentLines.DocumentLine.DocumentLineAdditionalExpenses.DocumentLineAdditionalExpense.LineExpenseTaxJurisdictions.LineExpenseTaxJurisdiction> lineExpenseTaxJurisdiction;
 
                         /**
-                         * Gets the value of the lineExpenseTaxJurisdiction property.
-                         * 
+                         * Gets the value of the lineExpenseTaxJurisdiction
+                         * property.
+                         *
                          * <p>
-                         * This accessor method returns a reference to the live list,
-                         * not a snapshot. Therefore any modification you make to the
-                         * returned list will be present inside the JAXB object.
-                         * This is why there is not a <CODE>set</CODE> method for the lineExpenseTaxJurisdiction property.
-                         * 
+                         * This accessor method returns a reference to the live
+                         * list, not a snapshot. Therefore any modification you
+                         * make to the returned list will be present inside the
+                         * JAXB object. This is why there is not a
+                         * <CODE>set</CODE> method for the
+                         * lineExpenseTaxJurisdiction property.
+                         *
                          * <p>
                          * For example, to add a new item, do as follows:
                          * <pre>
                          *    getLineExpenseTaxJurisdiction().add(newItem);
                          * </pre>
-                         * 
-                         * 
+                         *
+                         *
                          * <p>
-                         * Objects of the following type(s) are allowed in the list
+                         * Objects of the following type(s) are allowed in the
+                         * list
                          * {@link Document.DocumentLines.DocumentLine.DocumentLineAdditionalExpenses.DocumentLineAdditionalExpense.LineExpenseTaxJurisdictions.LineExpenseTaxJurisdiction }
-                         * 
-                         * 
+                         *
+                         *
                          */
                         public List<Document.DocumentLines.DocumentLine.DocumentLineAdditionalExpenses.DocumentLineAdditionalExpense.LineExpenseTaxJurisdictions.LineExpenseTaxJurisdiction> getLineExpenseTaxJurisdiction() {
                             if (lineExpenseTaxJurisdiction == null) {
@@ -20166,12 +17833,14 @@ public class Document {
                             return this.lineExpenseTaxJurisdiction;
                         }
 
-
                         /**
-                         * <p>Clase Java para anonymous complex type.
-                         * 
-                         * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-                         * 
+                         * <p>
+                         * Clase Java para anonymous complex type.
+                         *
+                         * <p>
+                         * El siguiente fragmento de esquema especifica el
+                         * contenido que se espera que haya en esta clase.
+                         *
                          * <pre>
                          * &lt;complexType>
                          *   &lt;complexContent>
@@ -20191,13 +17860,11 @@ public class Document {
                          *   &lt;/complexContent>
                          * &lt;/complexType>
                          * </pre>
-                         * 
-                         * 
+                         *
+                         *
                          */
                         @XmlAccessorType(XmlAccessType.FIELD)
-                        @XmlType(name = "", propOrder = {
-
-                        })
+                        @XmlType(name = "", propOrder = {})
                         public static class LineExpenseTaxJurisdiction {
 
                             @XmlElement(name = "JurisdictionCode")
@@ -20220,12 +17887,11 @@ public class Document {
                             protected Long rowSequence;
 
                             /**
-                             * Obtiene el valor de la propiedad jurisdictionCode.
-                             * 
-                             * @return
-                             *     possible object is
-                             *     {@link String }
-                             *     
+                             * Obtiene el valor de la propiedad
+                             * jurisdictionCode.
+                             *
+                             * @return possible object is {@link String }
+                             *
                              */
                             public String getJurisdictionCode() {
                                 return jurisdictionCode;
@@ -20233,23 +17899,20 @@ public class Document {
 
                             /**
                              * Define el valor de la propiedad jurisdictionCode.
-                             * 
-                             * @param value
-                             *     allowed object is
-                             *     {@link String }
-                             *     
+                             *
+                             * @param value allowed object is {@link String }
+                             *
                              */
                             public void setJurisdictionCode(String value) {
                                 this.jurisdictionCode = value;
                             }
 
                             /**
-                             * Obtiene el valor de la propiedad jurisdictionType.
-                             * 
-                             * @return
-                             *     possible object is
-                             *     {@link Long }
-                             *     
+                             * Obtiene el valor de la propiedad
+                             * jurisdictionType.
+                             *
+                             * @return possible object is {@link Long }
+                             *
                              */
                             public Long getJurisdictionType() {
                                 return jurisdictionType;
@@ -20257,11 +17920,9 @@ public class Document {
 
                             /**
                              * Define el valor de la propiedad jurisdictionType.
-                             * 
-                             * @param value
-                             *     allowed object is
-                             *     {@link Long }
-                             *     
+                             *
+                             * @param value allowed object is {@link Long }
+                             *
                              */
                             public void setJurisdictionType(Long value) {
                                 this.jurisdictionType = value;
@@ -20269,11 +17930,9 @@ public class Document {
 
                             /**
                              * Obtiene el valor de la propiedad taxAmount.
-                             * 
-                             * @return
-                             *     possible object is
-                             *     {@link Double }
-                             *     
+                             *
+                             * @return possible object is {@link Double }
+                             *
                              */
                             public Double getTaxAmount() {
                                 return taxAmount;
@@ -20281,11 +17940,9 @@ public class Document {
 
                             /**
                              * Define el valor de la propiedad taxAmount.
-                             * 
-                             * @param value
-                             *     allowed object is
-                             *     {@link Double }
-                             *     
+                             *
+                             * @param value allowed object is {@link Double }
+                             *
                              */
                             public void setTaxAmount(Double value) {
                                 this.taxAmount = value;
@@ -20293,11 +17950,9 @@ public class Document {
 
                             /**
                              * Obtiene el valor de la propiedad taxAmountSC.
-                             * 
-                             * @return
-                             *     possible object is
-                             *     {@link Double }
-                             *     
+                             *
+                             * @return possible object is {@link Double }
+                             *
                              */
                             public Double getTaxAmountSC() {
                                 return taxAmountSC;
@@ -20305,11 +17960,9 @@ public class Document {
 
                             /**
                              * Define el valor de la propiedad taxAmountSC.
-                             * 
-                             * @param value
-                             *     allowed object is
-                             *     {@link Double }
-                             *     
+                             *
+                             * @param value allowed object is {@link Double }
+                             *
                              */
                             public void setTaxAmountSC(Double value) {
                                 this.taxAmountSC = value;
@@ -20317,11 +17970,9 @@ public class Document {
 
                             /**
                              * Obtiene el valor de la propiedad taxAmountFC.
-                             * 
-                             * @return
-                             *     possible object is
-                             *     {@link Double }
-                             *     
+                             *
+                             * @return possible object is {@link Double }
+                             *
                              */
                             public Double getTaxAmountFC() {
                                 return taxAmountFC;
@@ -20329,11 +17980,9 @@ public class Document {
 
                             /**
                              * Define el valor de la propiedad taxAmountFC.
-                             * 
-                             * @param value
-                             *     allowed object is
-                             *     {@link Double }
-                             *     
+                             *
+                             * @param value allowed object is {@link Double }
+                             *
                              */
                             public void setTaxAmountFC(Double value) {
                                 this.taxAmountFC = value;
@@ -20341,11 +17990,9 @@ public class Document {
 
                             /**
                              * Obtiene el valor de la propiedad taxRate.
-                             * 
-                             * @return
-                             *     possible object is
-                             *     {@link Double }
-                             *     
+                             *
+                             * @return possible object is {@link Double }
+                             *
                              */
                             public Double getTaxRate() {
                                 return taxRate;
@@ -20353,11 +18000,9 @@ public class Document {
 
                             /**
                              * Define el valor de la propiedad taxRate.
-                             * 
-                             * @param value
-                             *     allowed object is
-                             *     {@link Double }
-                             *     
+                             *
+                             * @param value allowed object is {@link Double }
+                             *
                              */
                             public void setTaxRate(Double value) {
                                 this.taxRate = value;
@@ -20365,11 +18010,9 @@ public class Document {
 
                             /**
                              * Obtiene el valor de la propiedad docEntry.
-                             * 
-                             * @return
-                             *     possible object is
-                             *     {@link Long }
-                             *     
+                             *
+                             * @return possible object is {@link Long }
+                             *
                              */
                             public Long getDocEntry() {
                                 return docEntry;
@@ -20377,11 +18020,9 @@ public class Document {
 
                             /**
                              * Define el valor de la propiedad docEntry.
-                             * 
-                             * @param value
-                             *     allowed object is
-                             *     {@link Long }
-                             *     
+                             *
+                             * @param value allowed object is {@link Long }
+                             *
                              */
                             public void setDocEntry(Long value) {
                                 this.docEntry = value;
@@ -20389,11 +18030,9 @@ public class Document {
 
                             /**
                              * Obtiene el valor de la propiedad lineNumber.
-                             * 
-                             * @return
-                             *     possible object is
-                             *     {@link Long }
-                             *     
+                             *
+                             * @return possible object is {@link Long }
+                             *
                              */
                             public Long getLineNumber() {
                                 return lineNumber;
@@ -20401,11 +18040,9 @@ public class Document {
 
                             /**
                              * Define el valor de la propiedad lineNumber.
-                             * 
-                             * @param value
-                             *     allowed object is
-                             *     {@link Long }
-                             *     
+                             *
+                             * @param value allowed object is {@link Long }
+                             *
                              */
                             public void setLineNumber(Long value) {
                                 this.lineNumber = value;
@@ -20413,11 +18050,9 @@ public class Document {
 
                             /**
                              * Obtiene el valor de la propiedad rowSequence.
-                             * 
-                             * @return
-                             *     possible object is
-                             *     {@link Long }
-                             *     
+                             *
+                             * @return possible object is {@link Long }
+                             *
                              */
                             public Long getRowSequence() {
                                 return rowSequence;
@@ -20425,11 +18060,9 @@ public class Document {
 
                             /**
                              * Define el valor de la propiedad rowSequence.
-                             * 
-                             * @param value
-                             *     allowed object is
-                             *     {@link Long }
-                             *     
+                             *
+                             * @param value allowed object is {@link Long }
+                             *
                              */
                             public void setRowSequence(Long value) {
                                 this.rowSequence = value;
@@ -20443,12 +18076,14 @@ public class Document {
 
             }
 
-
             /**
-             * <p>Clase Java para anonymous complex type.
-             * 
-             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-             * 
+             * <p>
+             * Clase Java para anonymous complex type.
+             *
+             * <p>
+             * El siguiente fragmento de esquema especifica el contenido que se
+             * espera que haya en esta clase.
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -20481,8 +18116,8 @@ public class Document {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -20495,25 +18130,26 @@ public class Document {
 
                 /**
                  * Gets the value of the documentLinesBinAllocation property.
-                 * 
+                 *
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
-                 * returned list will be present inside the JAXB object.
-                 * This is why there is not a <CODE>set</CODE> method for the documentLinesBinAllocation property.
-                 * 
+                 * returned list will be present inside the JAXB object. This is
+                 * why there is not a <CODE>set</CODE> method for the
+                 * documentLinesBinAllocation property.
+                 *
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getDocumentLinesBinAllocation().add(newItem);
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Document.DocumentLines.DocumentLine.DocumentLinesBinAllocations.DocumentLinesBinAllocation }
-                 * 
-                 * 
+                 *
+                 *
                  */
                 public List<Document.DocumentLines.DocumentLine.DocumentLinesBinAllocations.DocumentLinesBinAllocation> getDocumentLinesBinAllocation() {
                     if (documentLinesBinAllocation == null) {
@@ -20522,12 +18158,14 @@ public class Document {
                     return this.documentLinesBinAllocation;
                 }
 
-
                 /**
-                 * <p>Clase Java para anonymous complex type.
-                 * 
-                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-                 * 
+                 * <p>
+                 * Clase Java para anonymous complex type.
+                 *
+                 * <p>
+                 * El siguiente fragmento de esquema especifica el contenido que
+                 * se espera que haya en esta clase.
+                 *
                  * <pre>
                  * &lt;complexType>
                  *   &lt;complexContent>
@@ -20550,13 +18188,11 @@ public class Document {
                  *   &lt;/complexContent>
                  * &lt;/complexType>
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
-                @XmlType(name = "", propOrder = {
-
-                })
+                @XmlType(name = "", propOrder = {})
                 public static class DocumentLinesBinAllocation {
 
                     @XmlElement(name = "BinAbsEntry")
@@ -20572,11 +18208,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad binAbsEntry.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getBinAbsEntry() {
                         return binAbsEntry;
@@ -20584,11 +18218,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad binAbsEntry.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setBinAbsEntry(Long value) {
                         this.binAbsEntry = value;
@@ -20596,11 +18228,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad quantity.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getQuantity() {
                         return quantity;
@@ -20608,11 +18238,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad quantity.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setQuantity(Double value) {
                         this.quantity = value;
@@ -20620,11 +18248,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad allowNegativeQuantity.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getAllowNegativeQuantity() {
                         return allowNegativeQuantity;
@@ -20632,35 +18258,31 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad allowNegativeQuantity.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setAllowNegativeQuantity(String value) {
                         this.allowNegativeQuantity = value;
                     }
 
                     /**
-                     * Obtiene el valor de la propiedad serialAndBatchNumbersBaseLine.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     * Obtiene el valor de la propiedad
+                     * serialAndBatchNumbersBaseLine.
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getSerialAndBatchNumbersBaseLine() {
                         return serialAndBatchNumbersBaseLine;
                     }
 
                     /**
-                     * Define el valor de la propiedad serialAndBatchNumbersBaseLine.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     * Define el valor de la propiedad
+                     * serialAndBatchNumbersBaseLine.
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setSerialAndBatchNumbersBaseLine(Long value) {
                         this.serialAndBatchNumbersBaseLine = value;
@@ -20668,11 +18290,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad baseLineNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getBaseLineNumber() {
                         return baseLineNumber;
@@ -20680,11 +18300,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad baseLineNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setBaseLineNumber(Long value) {
                         this.baseLineNumber = value;
@@ -20694,12 +18312,14 @@ public class Document {
 
             }
 
-
             /**
-             * <p>Clase Java para anonymous complex type.
-             * 
-             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-             * 
+             * <p>
+             * Clase Java para anonymous complex type.
+             *
+             * <p>
+             * El siguiente fragmento de esquema especifica el contenido que se
+             * espera que haya en esta clase.
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -20731,8 +18351,8 @@ public class Document {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -20745,25 +18365,26 @@ public class Document {
 
                 /**
                  * Gets the value of the exportProcess property.
-                 * 
+                 *
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
-                 * returned list will be present inside the JAXB object.
-                 * This is why there is not a <CODE>set</CODE> method for the exportProcess property.
-                 * 
+                 * returned list will be present inside the JAXB object. This is
+                 * why there is not a <CODE>set</CODE> method for the
+                 * exportProcess property.
+                 *
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getExportProcess().add(newItem);
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Document.DocumentLines.DocumentLine.ExportProcesses.ExportProcess }
-                 * 
-                 * 
+                 *
+                 *
                  */
                 public List<Document.DocumentLines.DocumentLine.ExportProcesses.ExportProcess> getExportProcess() {
                     if (exportProcess == null) {
@@ -20772,12 +18393,14 @@ public class Document {
                     return this.exportProcess;
                 }
 
-
                 /**
-                 * <p>Clase Java para anonymous complex type.
-                 * 
-                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-                 * 
+                 * <p>
+                 * Clase Java para anonymous complex type.
+                 *
+                 * <p>
+                 * El siguiente fragmento de esquema especifica el contenido que
+                 * se espera que haya en esta clase.
+                 *
                  * <pre>
                  * &lt;complexType>
                  *   &lt;complexContent>
@@ -20799,13 +18422,11 @@ public class Document {
                  *   &lt;/complexContent>
                  * &lt;/complexType>
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
-                @XmlType(name = "", propOrder = {
-
-                })
+                @XmlType(name = "", propOrder = {})
                 public static class ExportProcess {
 
                     @XmlElement(name = "LineNumber")
@@ -20837,11 +18458,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad lineNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getLineNumber() {
                         return lineNumber;
@@ -20849,83 +18468,76 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad lineNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setLineNumber(Long value) {
                         this.lineNumber = value;
                     }
 
                     /**
-                     * Obtiene el valor de la propiedad exportationDocumentTypeCode.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     * Obtiene el valor de la propiedad
+                     * exportationDocumentTypeCode.
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getExportationDocumentTypeCode() {
                         return exportationDocumentTypeCode;
                     }
 
                     /**
-                     * Define el valor de la propiedad exportationDocumentTypeCode.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     * Define el valor de la propiedad
+                     * exportationDocumentTypeCode.
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setExportationDocumentTypeCode(Long value) {
                         this.exportationDocumentTypeCode = value;
                     }
 
                     /**
-                     * Obtiene el valor de la propiedad exportationDeclarationNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     * Obtiene el valor de la propiedad
+                     * exportationDeclarationNumber.
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getExportationDeclarationNumber() {
                         return exportationDeclarationNumber;
                     }
 
                     /**
-                     * Define el valor de la propiedad exportationDeclarationNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     * Define el valor de la propiedad
+                     * exportationDeclarationNumber.
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setExportationDeclarationNumber(Long value) {
                         this.exportationDeclarationNumber = value;
                     }
 
                     /**
-                     * Obtiene el valor de la propiedad exportationDeclarationDate.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link XMLGregorianCalendar }
-                     *     
+                     * Obtiene el valor de la propiedad
+                     * exportationDeclarationDate.
+                     *
+                     * @return possible object is {@link XMLGregorianCalendar }
+                     *
                      */
                     public XMLGregorianCalendar getExportationDeclarationDate() {
                         return exportationDeclarationDate;
                     }
 
                     /**
-                     * Define el valor de la propiedad exportationDeclarationDate.
-                     * 
-                     * @param value
-                     *     allowed object is
+                     * Define el valor de la propiedad
+                     * exportationDeclarationDate.
+                     *
+                     * @param value allowed object is
                      *     {@link XMLGregorianCalendar }
-                     *     
+                     *
                      */
                     public void setExportationDeclarationDate(XMLGregorianCalendar value) {
                         this.exportationDeclarationDate = value;
@@ -20933,11 +18545,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad exportationNatureCode.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getExportationNatureCode() {
                         return exportationNatureCode;
@@ -20945,35 +18555,31 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad exportationNatureCode.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setExportationNatureCode(Long value) {
                         this.exportationNatureCode = value;
                     }
 
                     /**
-                     * Obtiene el valor de la propiedad exportationRegistryNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     * Obtiene el valor de la propiedad
+                     * exportationRegistryNumber.
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getExportationRegistryNumber() {
                         return exportationRegistryNumber;
                     }
 
                     /**
-                     * Define el valor de la propiedad exportationRegistryNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     * Define el valor de la propiedad
+                     * exportationRegistryNumber.
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setExportationRegistryNumber(Long value) {
                         this.exportationRegistryNumber = value;
@@ -20981,11 +18587,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad exportationRegistryDate.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link XMLGregorianCalendar }
-                     *     
+                     *
+                     * @return possible object is {@link XMLGregorianCalendar }
+                     *
                      */
                     public XMLGregorianCalendar getExportationRegistryDate() {
                         return exportationRegistryDate;
@@ -20993,11 +18597,10 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad exportationRegistryDate.
-                     * 
-                     * @param value
-                     *     allowed object is
+                     *
+                     * @param value allowed object is
                      *     {@link XMLGregorianCalendar }
-                     *     
+                     *
                      */
                     public void setExportationRegistryDate(XMLGregorianCalendar value) {
                         this.exportationRegistryDate = value;
@@ -21005,11 +18608,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad ladingBillNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getLadingBillNumber() {
                         return ladingBillNumber;
@@ -21017,11 +18618,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad ladingBillNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setLadingBillNumber(String value) {
                         this.ladingBillNumber = value;
@@ -21029,11 +18628,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad ladingBillDate.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link XMLGregorianCalendar }
-                     *     
+                     *
+                     * @return possible object is {@link XMLGregorianCalendar }
+                     *
                      */
                     public XMLGregorianCalendar getLadingBillDate() {
                         return ladingBillDate;
@@ -21041,35 +18638,33 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad ladingBillDate.
-                     * 
-                     * @param value
-                     *     allowed object is
+                     *
+                     * @param value allowed object is
                      *     {@link XMLGregorianCalendar }
-                     *     
+                     *
                      */
                     public void setLadingBillDate(XMLGregorianCalendar value) {
                         this.ladingBillDate = value;
                     }
 
                     /**
-                     * Obtiene el valor de la propiedad merchandiseLeftCustomsDate.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link XMLGregorianCalendar }
-                     *     
+                     * Obtiene el valor de la propiedad
+                     * merchandiseLeftCustomsDate.
+                     *
+                     * @return possible object is {@link XMLGregorianCalendar }
+                     *
                      */
                     public XMLGregorianCalendar getMerchandiseLeftCustomsDate() {
                         return merchandiseLeftCustomsDate;
                     }
 
                     /**
-                     * Define el valor de la propiedad merchandiseLeftCustomsDate.
-                     * 
-                     * @param value
-                     *     allowed object is
+                     * Define el valor de la propiedad
+                     * merchandiseLeftCustomsDate.
+                     *
+                     * @param value allowed object is
                      *     {@link XMLGregorianCalendar }
-                     *     
+                     *
                      */
                     public void setMerchandiseLeftCustomsDate(XMLGregorianCalendar value) {
                         this.merchandiseLeftCustomsDate = value;
@@ -21077,11 +18672,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad ladingBillTypeCode.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getLadingBillTypeCode() {
                         return ladingBillTypeCode;
@@ -21089,11 +18682,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad ladingBillTypeCode.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setLadingBillTypeCode(Long value) {
                         this.ladingBillTypeCode = value;
@@ -21103,12 +18694,14 @@ public class Document {
 
             }
 
-
             /**
-             * <p>Clase Java para anonymous complex type.
-             * 
-             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-             * 
+             * <p>
+             * Clase Java para anonymous complex type.
+             *
+             * <p>
+             * El siguiente fragmento de esquema especifica el contenido que se
+             * espera que haya en esta clase.
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -21138,8 +18731,8 @@ public class Document {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -21152,25 +18745,26 @@ public class Document {
 
                 /**
                  * Gets the value of the lineTaxJurisdiction property.
-                 * 
+                 *
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
-                 * returned list will be present inside the JAXB object.
-                 * This is why there is not a <CODE>set</CODE> method for the lineTaxJurisdiction property.
-                 * 
+                 * returned list will be present inside the JAXB object. This is
+                 * why there is not a <CODE>set</CODE> method for the
+                 * lineTaxJurisdiction property.
+                 *
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getLineTaxJurisdiction().add(newItem);
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Document.DocumentLines.DocumentLine.LineTaxJurisdictions.LineTaxJurisdiction }
-                 * 
-                 * 
+                 *
+                 *
                  */
                 public List<Document.DocumentLines.DocumentLine.LineTaxJurisdictions.LineTaxJurisdiction> getLineTaxJurisdiction() {
                     if (lineTaxJurisdiction == null) {
@@ -21179,12 +18773,14 @@ public class Document {
                     return this.lineTaxJurisdiction;
                 }
 
-
                 /**
-                 * <p>Clase Java para anonymous complex type.
-                 * 
-                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-                 * 
+                 * <p>
+                 * Clase Java para anonymous complex type.
+                 *
+                 * <p>
+                 * El siguiente fragmento de esquema especifica el contenido que
+                 * se espera que haya en esta clase.
+                 *
                  * <pre>
                  * &lt;complexType>
                  *   &lt;complexContent>
@@ -21204,13 +18800,11 @@ public class Document {
                  *   &lt;/complexContent>
                  * &lt;/complexType>
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
-                @XmlType(name = "", propOrder = {
-
-                })
+                @XmlType(name = "", propOrder = {})
                 public static class LineTaxJurisdiction {
 
                     @XmlElement(name = "JurisdictionCode")
@@ -21234,11 +18828,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad jurisdictionCode.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getJurisdictionCode() {
                         return jurisdictionCode;
@@ -21246,11 +18838,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad jurisdictionCode.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setJurisdictionCode(String value) {
                         this.jurisdictionCode = value;
@@ -21258,11 +18848,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad jurisdictionType.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getJurisdictionType() {
                         return jurisdictionType;
@@ -21270,11 +18858,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad jurisdictionType.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setJurisdictionType(Long value) {
                         this.jurisdictionType = value;
@@ -21282,11 +18868,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxAmount.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxAmount() {
                         return taxAmount;
@@ -21294,11 +18878,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxAmount.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxAmount(Double value) {
                         this.taxAmount = value;
@@ -21306,11 +18888,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxAmountSC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxAmountSC() {
                         return taxAmountSC;
@@ -21318,11 +18898,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxAmountSC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxAmountSC(Double value) {
                         this.taxAmountSC = value;
@@ -21330,11 +18908,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxAmountFC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxAmountFC() {
                         return taxAmountFC;
@@ -21342,11 +18918,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxAmountFC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxAmountFC(Double value) {
                         this.taxAmountFC = value;
@@ -21354,11 +18928,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxRate.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxRate() {
                         return taxRate;
@@ -21366,11 +18938,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxRate.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxRate(Double value) {
                         this.taxRate = value;
@@ -21378,11 +18948,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad docEntry.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getDocEntry() {
                         return docEntry;
@@ -21390,11 +18958,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad docEntry.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setDocEntry(Long value) {
                         this.docEntry = value;
@@ -21402,11 +18968,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad lineNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getLineNumber() {
                         return lineNumber;
@@ -21414,11 +18978,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad lineNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setLineNumber(Long value) {
                         this.lineNumber = value;
@@ -21426,11 +18988,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad rowSequence.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getRowSequence() {
                         return rowSequence;
@@ -21438,11 +18998,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad rowSequence.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setRowSequence(Long value) {
                         this.rowSequence = value;
@@ -21452,12 +19010,14 @@ public class Document {
 
             }
 
-
             /**
-             * <p>Clase Java para anonymous complex type.
-             * 
-             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-             * 
+             * <p>
+             * Clase Java para anonymous complex type.
+             *
+             * <p>
+             * El siguiente fragmento de esquema especifica el contenido que se
+             * espera que haya en esta clase.
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -21493,8 +19053,8 @@ public class Document {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -21507,25 +19067,26 @@ public class Document {
 
                 /**
                  * Gets the value of the serialNumber property.
-                 * 
+                 *
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
-                 * returned list will be present inside the JAXB object.
-                 * This is why there is not a <CODE>set</CODE> method for the serialNumber property.
-                 * 
+                 * returned list will be present inside the JAXB object. This is
+                 * why there is not a <CODE>set</CODE> method for the
+                 * serialNumber property.
+                 *
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getSerialNumber().add(newItem);
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Document.DocumentLines.DocumentLine.SerialNumbers.SerialNumber }
-                 * 
-                 * 
+                 *
+                 *
                  */
                 public List<Document.DocumentLines.DocumentLine.SerialNumbers.SerialNumber> getSerialNumber() {
                     if (serialNumber == null) {
@@ -21534,12 +19095,14 @@ public class Document {
                     return this.serialNumber;
                 }
 
-
                 /**
-                 * <p>Clase Java para anonymous complex type.
-                 * 
-                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-                 * 
+                 * <p>
+                 * Clase Java para anonymous complex type.
+                 *
+                 * <p>
+                 * El siguiente fragmento de esquema especifica el contenido que
+                 * se espera que haya en esta clase.
+                 *
                  * <pre>
                  * &lt;complexType>
                  *   &lt;complexContent>
@@ -21565,13 +19128,11 @@ public class Document {
                  *   &lt;/complexContent>
                  * &lt;/complexType>
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
-                @XmlType(name = "", propOrder = {
-
-                })
+                @XmlType(name = "", propOrder = {})
                 public static class SerialNumber {
 
                     @XmlElement(name = "ManufacturerSerialNumber")
@@ -21611,12 +19172,11 @@ public class Document {
                     protected Long trackingNoteLine;
 
                     /**
-                     * Obtiene el valor de la propiedad manufacturerSerialNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     * Obtiene el valor de la propiedad
+                     * manufacturerSerialNumber.
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getManufacturerSerialNumber() {
                         return manufacturerSerialNumber;
@@ -21624,11 +19184,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad manufacturerSerialNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setManufacturerSerialNumber(String value) {
                         this.manufacturerSerialNumber = value;
@@ -21636,11 +19194,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad internalSerialNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getInternalSerialNumber() {
                         return internalSerialNumber;
@@ -21648,11 +19204,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad internalSerialNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setInternalSerialNumber(String value) {
                         this.internalSerialNumber = value;
@@ -21660,11 +19214,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad expiryDate.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link XMLGregorianCalendar }
-                     *     
+                     *
+                     * @return possible object is {@link XMLGregorianCalendar }
+                     *
                      */
                     public XMLGregorianCalendar getExpiryDate() {
                         return expiryDate;
@@ -21672,11 +19224,10 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad expiryDate.
-                     * 
-                     * @param value
-                     *     allowed object is
+                     *
+                     * @param value allowed object is
                      *     {@link XMLGregorianCalendar }
-                     *     
+                     *
                      */
                     public void setExpiryDate(XMLGregorianCalendar value) {
                         this.expiryDate = value;
@@ -21684,11 +19235,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad manufactureDate.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link XMLGregorianCalendar }
-                     *     
+                     *
+                     * @return possible object is {@link XMLGregorianCalendar }
+                     *
                      */
                     public XMLGregorianCalendar getManufactureDate() {
                         return manufactureDate;
@@ -21696,11 +19245,10 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad manufactureDate.
-                     * 
-                     * @param value
-                     *     allowed object is
+                     *
+                     * @param value allowed object is
                      *     {@link XMLGregorianCalendar }
-                     *     
+                     *
                      */
                     public void setManufactureDate(XMLGregorianCalendar value) {
                         this.manufactureDate = value;
@@ -21708,11 +19256,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad receptionDate.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link XMLGregorianCalendar }
-                     *     
+                     *
+                     * @return possible object is {@link XMLGregorianCalendar }
+                     *
                      */
                     public XMLGregorianCalendar getReceptionDate() {
                         return receptionDate;
@@ -21720,11 +19266,10 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad receptionDate.
-                     * 
-                     * @param value
-                     *     allowed object is
+                     *
+                     * @param value allowed object is
                      *     {@link XMLGregorianCalendar }
-                     *     
+                     *
                      */
                     public void setReceptionDate(XMLGregorianCalendar value) {
                         this.receptionDate = value;
@@ -21732,11 +19277,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad warrantyStart.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link XMLGregorianCalendar }
-                     *     
+                     *
+                     * @return possible object is {@link XMLGregorianCalendar }
+                     *
                      */
                     public XMLGregorianCalendar getWarrantyStart() {
                         return warrantyStart;
@@ -21744,11 +19287,10 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad warrantyStart.
-                     * 
-                     * @param value
-                     *     allowed object is
+                     *
+                     * @param value allowed object is
                      *     {@link XMLGregorianCalendar }
-                     *     
+                     *
                      */
                     public void setWarrantyStart(XMLGregorianCalendar value) {
                         this.warrantyStart = value;
@@ -21756,11 +19298,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad warrantyEnd.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link XMLGregorianCalendar }
-                     *     
+                     *
+                     * @return possible object is {@link XMLGregorianCalendar }
+                     *
                      */
                     public XMLGregorianCalendar getWarrantyEnd() {
                         return warrantyEnd;
@@ -21768,11 +19308,10 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad warrantyEnd.
-                     * 
-                     * @param value
-                     *     allowed object is
+                     *
+                     * @param value allowed object is
                      *     {@link XMLGregorianCalendar }
-                     *     
+                     *
                      */
                     public void setWarrantyEnd(XMLGregorianCalendar value) {
                         this.warrantyEnd = value;
@@ -21780,11 +19319,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad location.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getLocation() {
                         return location;
@@ -21792,11 +19329,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad location.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setLocation(String value) {
                         this.location = value;
@@ -21804,11 +19339,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad notes.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getNotes() {
                         return notes;
@@ -21816,11 +19349,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad notes.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setNotes(String value) {
                         this.notes = value;
@@ -21828,11 +19359,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad batchID.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getBatchID() {
                         return batchID;
@@ -21840,11 +19369,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad batchID.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setBatchID(String value) {
                         this.batchID = value;
@@ -21852,11 +19379,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad systemSerialNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getSystemSerialNumber() {
                         return systemSerialNumber;
@@ -21864,11 +19389,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad systemSerialNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setSystemSerialNumber(Long value) {
                         this.systemSerialNumber = value;
@@ -21876,11 +19399,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad baseLineNumber.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getBaseLineNumber() {
                         return baseLineNumber;
@@ -21888,11 +19409,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad baseLineNumber.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setBaseLineNumber(Long value) {
                         this.baseLineNumber = value;
@@ -21900,11 +19419,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad quantity.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getQuantity() {
                         return quantity;
@@ -21912,11 +19429,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad quantity.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setQuantity(Double value) {
                         this.quantity = value;
@@ -21924,11 +19439,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad trackingNote.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getTrackingNote() {
                         return trackingNote;
@@ -21936,11 +19449,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad trackingNote.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setTrackingNote(Long value) {
                         this.trackingNote = value;
@@ -21948,11 +19459,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad trackingNoteLine.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getTrackingNoteLine() {
                         return trackingNoteLine;
@@ -21960,11 +19469,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad trackingNoteLine.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setTrackingNoteLine(Long value) {
                         this.trackingNoteLine = value;
@@ -21974,12 +19481,14 @@ public class Document {
 
             }
 
-
             /**
-             * <p>Clase Java para anonymous complex type.
-             * 
-             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-             * 
+             * <p>
+             * Clase Java para anonymous complex type.
+             *
+             * <p>
+             * El siguiente fragmento de esquema especifica el contenido que se
+             * espera que haya en esta clase.
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -22036,8 +19545,8 @@ public class Document {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -22050,25 +19559,26 @@ public class Document {
 
                 /**
                  * Gets the value of the withholdingTaxLine property.
-                 * 
+                 *
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
-                 * returned list will be present inside the JAXB object.
-                 * This is why there is not a <CODE>set</CODE> method for the withholdingTaxLine property.
-                 * 
+                 * returned list will be present inside the JAXB object. This is
+                 * why there is not a <CODE>set</CODE> method for the
+                 * withholdingTaxLine property.
+                 *
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getWithholdingTaxLine().add(newItem);
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Document.DocumentLines.DocumentLine.WithholdingTaxLines.WithholdingTaxLine }
-                 * 
-                 * 
+                 *
+                 *
                  */
                 public List<Document.DocumentLines.DocumentLine.WithholdingTaxLines.WithholdingTaxLine> getWithholdingTaxLine() {
                     if (withholdingTaxLine == null) {
@@ -22077,12 +19587,14 @@ public class Document {
                     return this.withholdingTaxLine;
                 }
 
-
                 /**
-                 * <p>Clase Java para anonymous complex type.
-                 * 
-                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-                 * 
+                 * <p>
+                 * Clase Java para anonymous complex type.
+                 *
+                 * <p>
+                 * El siguiente fragmento de esquema especifica el contenido que
+                 * se espera que haya en esta clase.
+                 *
                  * <pre>
                  * &lt;complexType>
                  *   &lt;complexContent>
@@ -22129,13 +19641,11 @@ public class Document {
                  *   &lt;/complexContent>
                  * &lt;/complexType>
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
-                @XmlType(name = "", propOrder = {
-
-                })
+                @XmlType(name = "", propOrder = {})
                 public static class WithholdingTaxLine {
 
                     @XmlElement(name = "WTCode")
@@ -22195,11 +19705,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad wtCode.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getWTCode() {
                         return wtCode;
@@ -22207,11 +19715,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad wtCode.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setWTCode(String value) {
                         this.wtCode = value;
@@ -22219,11 +19725,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad wtAmountSys.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getWTAmountSys() {
                         return wtAmountSys;
@@ -22231,11 +19735,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad wtAmountSys.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setWTAmountSys(Double value) {
                         this.wtAmountSys = value;
@@ -22243,11 +19745,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad wtAmountFC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getWTAmountFC() {
                         return wtAmountFC;
@@ -22255,11 +19755,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad wtAmountFC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setWTAmountFC(Double value) {
                         this.wtAmountFC = value;
@@ -22267,11 +19765,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad wtAmount.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getWTAmount() {
                         return wtAmount;
@@ -22279,11 +19775,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad wtAmount.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setWTAmount(Double value) {
                         this.wtAmount = value;
@@ -22291,11 +19785,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad withholdingType.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getWithholdingType() {
                         return withholdingType;
@@ -22303,11 +19795,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad withholdingType.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setWithholdingType(String value) {
                         this.withholdingType = value;
@@ -22315,11 +19805,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxableAmountinSys.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxableAmountinSys() {
                         return taxableAmountinSys;
@@ -22327,11 +19815,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxableAmountinSys.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxableAmountinSys(Double value) {
                         this.taxableAmountinSys = value;
@@ -22339,11 +19825,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxableAmountFC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxableAmountFC() {
                         return taxableAmountFC;
@@ -22351,11 +19835,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxableAmountFC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxableAmountFC(Double value) {
                         this.taxableAmountFC = value;
@@ -22363,11 +19845,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxableAmount.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxableAmount() {
                         return taxableAmount;
@@ -22375,11 +19855,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxableAmount.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxableAmount(Double value) {
                         this.taxableAmount = value;
@@ -22387,11 +19865,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad roundingType.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getRoundingType() {
                         return roundingType;
@@ -22399,11 +19875,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad roundingType.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setRoundingType(String value) {
                         this.roundingType = value;
@@ -22411,11 +19885,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad rate.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getRate() {
                         return rate;
@@ -22423,11 +19895,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad rate.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setRate(Double value) {
                         this.rate = value;
@@ -22435,11 +19905,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad criteria.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getCriteria() {
                         return criteria;
@@ -22447,11 +19915,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad criteria.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setCriteria(String value) {
                         this.criteria = value;
@@ -22459,11 +19925,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad category.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getCategory() {
                         return category;
@@ -22471,11 +19935,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad category.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setCategory(String value) {
                         this.category = value;
@@ -22483,11 +19945,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad baseType.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getBaseType() {
                         return baseType;
@@ -22495,11 +19955,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad baseType.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setBaseType(String value) {
                         this.baseType = value;
@@ -22507,11 +19965,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad appliedWTAmountSys.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getAppliedWTAmountSys() {
                         return appliedWTAmountSys;
@@ -22519,11 +19975,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad appliedWTAmountSys.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setAppliedWTAmountSys(Double value) {
                         this.appliedWTAmountSys = value;
@@ -22531,11 +19985,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad appliedWTAmountFC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getAppliedWTAmountFC() {
                         return appliedWTAmountFC;
@@ -22543,11 +19995,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad appliedWTAmountFC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setAppliedWTAmountFC(Double value) {
                         this.appliedWTAmountFC = value;
@@ -22555,11 +20005,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad appliedWTAmount.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getAppliedWTAmount() {
                         return appliedWTAmount;
@@ -22567,11 +20015,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad appliedWTAmount.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setAppliedWTAmount(Double value) {
                         this.appliedWTAmount = value;
@@ -22579,11 +20025,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad glAccount.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getGLAccount() {
                         return glAccount;
@@ -22591,11 +20035,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad glAccount.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setGLAccount(String value) {
                         this.glAccount = value;
@@ -22603,11 +20045,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad lineNum.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getLineNum() {
                         return lineNum;
@@ -22615,11 +20055,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad lineNum.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setLineNum(Long value) {
                         this.lineNum = value;
@@ -22627,11 +20065,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad baseDocEntry.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getBaseDocEntry() {
                         return baseDocEntry;
@@ -22639,11 +20075,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad baseDocEntry.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setBaseDocEntry(Long value) {
                         this.baseDocEntry = value;
@@ -22651,11 +20085,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad baseDocLine.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getBaseDocLine() {
                         return baseDocLine;
@@ -22663,11 +20095,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad baseDocLine.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setBaseDocLine(Long value) {
                         this.baseDocLine = value;
@@ -22675,11 +20105,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad baseDocType.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getBaseDocType() {
                         return baseDocType;
@@ -22687,11 +20115,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad baseDocType.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setBaseDocType(Long value) {
                         this.baseDocType = value;
@@ -22699,11 +20125,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad baseDocumentReference.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getBaseDocumentReference() {
                         return baseDocumentReference;
@@ -22711,11 +20135,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad baseDocumentReference.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setBaseDocumentReference(Long value) {
                         this.baseDocumentReference = value;
@@ -22723,11 +20145,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad status.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getStatus() {
                         return status;
@@ -22735,11 +20155,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad status.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setStatus(String value) {
                         this.status = value;
@@ -22747,11 +20165,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad targetAbsEntry.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getTargetAbsEntry() {
                         return targetAbsEntry;
@@ -22759,11 +20175,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad targetAbsEntry.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setTargetAbsEntry(Long value) {
                         this.targetAbsEntry = value;
@@ -22771,11 +20185,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad targetDocumentType.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getTargetDocumentType() {
                         return targetDocumentType;
@@ -22783,11 +20195,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad targetDocumentType.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setTargetDocumentType(Long value) {
                         this.targetDocumentType = value;
@@ -22795,11 +20205,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad cstCodeIncoming.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getCSTCodeIncoming() {
                         return cstCodeIncoming;
@@ -22807,11 +20215,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad cstCodeIncoming.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setCSTCodeIncoming(String value) {
                         this.cstCodeIncoming = value;
@@ -22819,11 +20225,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad cstCodeOutgoing.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getCSTCodeOutgoing() {
                         return cstCodeOutgoing;
@@ -22831,11 +20235,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad cstCodeOutgoing.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setCSTCodeOutgoing(String value) {
                         this.cstCodeOutgoing = value;
@@ -22849,12 +20251,14 @@ public class Document {
 
     }
 
-
     /**
-     * <p>Clase Java para anonymous complex type.
-     * 
-     * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-     * 
+     * <p>
+     * Clase Java para anonymous complex type.
+     *
+     * <p>
+     * El siguiente fragmento de esquema especifica el contenido que se espera
+     * que haya en esta clase.
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -22905,8 +20309,8 @@ public class Document {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -22919,25 +20323,25 @@ public class Document {
 
         /**
          * Gets the value of the documentSpecialLine property.
-         * 
+         *
          * <p>
-         * This accessor method returns a reference to the live list,
-         * not a snapshot. Therefore any modification you make to the
-         * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the documentSpecialLine property.
-         * 
+         * This accessor method returns a reference to the live list, not a
+         * snapshot. Therefore any modification you make to the returned list
+         * will be present inside the JAXB object. This is why there is not a
+         * <CODE>set</CODE> method for the documentSpecialLine property.
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getDocumentSpecialLine().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Document.DocumentSpecialLines.DocumentSpecialLine }
-         * 
-         * 
+         *
+         *
          */
         public List<Document.DocumentSpecialLines.DocumentSpecialLine> getDocumentSpecialLine() {
             if (documentSpecialLine == null) {
@@ -22946,12 +20350,14 @@ public class Document {
             return this.documentSpecialLine;
         }
 
-
         /**
-         * <p>Clase Java para anonymous complex type.
-         * 
-         * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-         * 
+         * <p>
+         * Clase Java para anonymous complex type.
+         *
+         * <p>
+         * El siguiente fragmento de esquema especifica el contenido que se
+         * espera que haya en esta clase.
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -22992,13 +20398,11 @@ public class Document {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
-
-        })
+        @XmlType(name = "", propOrder = {})
         public static class DocumentSpecialLine {
 
             @XmlElement(name = "LineNum")
@@ -23050,11 +20454,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lineNum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getLineNum() {
                 return lineNum;
@@ -23062,11 +20464,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lineNum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setLineNum(Long value) {
                 this.lineNum = value;
@@ -23074,11 +20474,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad afterLineNumber.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getAfterLineNumber() {
                 return afterLineNumber;
@@ -23086,11 +20484,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad afterLineNumber.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setAfterLineNumber(Long value) {
                 this.afterLineNumber = value;
@@ -23098,11 +20494,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad orderNumber.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getOrderNumber() {
                 return orderNumber;
@@ -23110,11 +20504,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad orderNumber.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setOrderNumber(Long value) {
                 this.orderNumber = value;
@@ -23122,11 +20514,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lineType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getLineType() {
                 return lineType;
@@ -23134,11 +20524,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lineType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setLineType(String value) {
                 this.lineType = value;
@@ -23146,11 +20534,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad subtotal.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getSubtotal() {
                 return subtotal;
@@ -23158,11 +20544,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad subtotal.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setSubtotal(Double value) {
                 this.subtotal = value;
@@ -23170,11 +20554,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lineText.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getLineText() {
                 return lineText;
@@ -23182,11 +20564,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lineText.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setLineText(String value) {
                 this.lineText = value;
@@ -23194,11 +20574,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad subtotalFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getSubtotalFC() {
                 return subtotalFC;
@@ -23206,11 +20584,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad subtotalFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setSubtotalFC(Double value) {
                 this.subtotalFC = value;
@@ -23218,11 +20594,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad subtotalSC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getSubtotalSC() {
                 return subtotalSC;
@@ -23230,11 +20604,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad subtotalSC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setSubtotalSC(Double value) {
                 this.subtotalSC = value;
@@ -23242,11 +20614,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxAmount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxAmount() {
                 return taxAmount;
@@ -23254,11 +20624,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxAmount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxAmount(Double value) {
                 this.taxAmount = value;
@@ -23266,11 +20634,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxAmountFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxAmountFC() {
                 return taxAmountFC;
@@ -23278,11 +20644,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxAmountFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxAmountFC(Double value) {
                 this.taxAmountFC = value;
@@ -23290,11 +20654,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxAmountSC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxAmountSC() {
                 return taxAmountSC;
@@ -23302,11 +20664,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxAmountSC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxAmountSC(Double value) {
                 this.taxAmountSC = value;
@@ -23314,11 +20674,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad freight1.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getFreight1() {
                 return freight1;
@@ -23326,11 +20684,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad freight1.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setFreight1(Double value) {
                 this.freight1 = value;
@@ -23338,11 +20694,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad freight1FC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getFreight1FC() {
                 return freight1FC;
@@ -23350,11 +20704,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad freight1FC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setFreight1FC(Double value) {
                 this.freight1FC = value;
@@ -23362,11 +20714,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad freight1SC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getFreight1SC() {
                 return freight1SC;
@@ -23374,11 +20724,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad freight1SC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setFreight1SC(Double value) {
                 this.freight1SC = value;
@@ -23386,11 +20734,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad freight2.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getFreight2() {
                 return freight2;
@@ -23398,11 +20744,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad freight2.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setFreight2(Double value) {
                 this.freight2 = value;
@@ -23410,11 +20754,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad freight2FC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getFreight2FC() {
                 return freight2FC;
@@ -23422,11 +20764,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad freight2FC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setFreight2FC(Double value) {
                 this.freight2FC = value;
@@ -23434,11 +20774,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad freight2SC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getFreight2SC() {
                 return freight2SC;
@@ -23446,11 +20784,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad freight2SC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setFreight2SC(Double value) {
                 this.freight2SC = value;
@@ -23458,11 +20794,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad freight3.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getFreight3() {
                 return freight3;
@@ -23470,11 +20804,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad freight3.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setFreight3(Double value) {
                 this.freight3 = value;
@@ -23482,11 +20814,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad freight3FC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getFreight3FC() {
                 return freight3FC;
@@ -23494,11 +20824,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad freight3FC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setFreight3FC(Double value) {
                 this.freight3FC = value;
@@ -23506,11 +20834,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad freight3SC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getFreight3SC() {
                 return freight3SC;
@@ -23518,11 +20844,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad freight3SC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setFreight3SC(Double value) {
                 this.freight3SC = value;
@@ -23530,11 +20854,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad grossTotal.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getGrossTotal() {
                 return grossTotal;
@@ -23542,11 +20864,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad grossTotal.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setGrossTotal(Double value) {
                 this.grossTotal = value;
@@ -23554,11 +20874,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad grossTotalFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getGrossTotalFC() {
                 return grossTotalFC;
@@ -23566,11 +20884,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad grossTotalFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setGrossTotalFC(Double value) {
                 this.grossTotalFC = value;
@@ -23578,11 +20894,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad grossTotalSC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getGrossTotalSC() {
                 return grossTotalSC;
@@ -23590,11 +20904,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad grossTotalSC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setGrossTotalSC(Double value) {
                 this.grossTotalSC = value;
@@ -23604,12 +20916,14 @@ public class Document {
 
     }
 
-
     /**
-     * <p>Clase Java para anonymous complex type.
-     * 
-     * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-     * 
+     * <p>
+     * Clase Java para anonymous complex type.
+     *
+     * <p>
+     * El siguiente fragmento de esquema especifica el contenido que se espera
+     * que haya en esta clase.
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -23723,8 +21037,8 @@ public class Document {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -23737,25 +21051,25 @@ public class Document {
 
         /**
          * Gets the value of the downPaymentToDraw property.
-         * 
+         *
          * <p>
-         * This accessor method returns a reference to the live list,
-         * not a snapshot. Therefore any modification you make to the
-         * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the downPaymentToDraw property.
-         * 
+         * This accessor method returns a reference to the live list, not a
+         * snapshot. Therefore any modification you make to the returned list
+         * will be present inside the JAXB object. This is why there is not a
+         * <CODE>set</CODE> method for the downPaymentToDraw property.
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getDownPaymentToDraw().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Document.DownPaymentsToDraw.DownPaymentToDraw }
-         * 
-         * 
+         *
+         *
          */
         public List<Document.DownPaymentsToDraw.DownPaymentToDraw> getDownPaymentToDraw() {
             if (downPaymentToDraw == null) {
@@ -23764,12 +21078,14 @@ public class Document {
             return this.downPaymentToDraw;
         }
 
-
         /**
-         * <p>Clase Java para anonymous complex type.
-         * 
-         * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-         * 
+         * <p>
+         * Clase Java para anonymous complex type.
+         *
+         * <p>
+         * El siguiente fragmento de esquema especifica el contenido que se
+         * espera que haya en esta clase.
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -23873,13 +21189,11 @@ public class Document {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
-
-        })
+        @XmlType(name = "", propOrder = {})
         public static class DownPaymentToDraw {
 
             @XmlElement(name = "DocEntry")
@@ -23927,11 +21241,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad docEntry.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getDocEntry() {
                 return docEntry;
@@ -23939,11 +21251,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad docEntry.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setDocEntry(Long value) {
                 this.docEntry = value;
@@ -23951,11 +21261,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad postingDate.
-             * 
-             * @return
-             *     possible object is
-             *     {@link XMLGregorianCalendar }
-             *     
+             *
+             * @return possible object is {@link XMLGregorianCalendar }
+             *
              */
             public XMLGregorianCalendar getPostingDate() {
                 return postingDate;
@@ -23963,11 +21271,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad postingDate.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link XMLGregorianCalendar }
-             *     
+             *
+             * @param value allowed object is {@link XMLGregorianCalendar }
+             *
              */
             public void setPostingDate(XMLGregorianCalendar value) {
                 this.postingDate = value;
@@ -23975,11 +21281,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad dueDate.
-             * 
-             * @return
-             *     possible object is
-             *     {@link XMLGregorianCalendar }
-             *     
+             *
+             * @return possible object is {@link XMLGregorianCalendar }
+             *
              */
             public XMLGregorianCalendar getDueDate() {
                 return dueDate;
@@ -23987,11 +21291,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad dueDate.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link XMLGregorianCalendar }
-             *     
+             *
+             * @param value allowed object is {@link XMLGregorianCalendar }
+             *
              */
             public void setDueDate(XMLGregorianCalendar value) {
                 this.dueDate = value;
@@ -23999,11 +21301,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad name.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getName() {
                 return name;
@@ -24011,11 +21311,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad name.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setName(String value) {
                 this.name = value;
@@ -24023,11 +21321,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad details.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getDetails() {
                 return details;
@@ -24035,11 +21331,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad details.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setDetails(String value) {
                 this.details = value;
@@ -24047,11 +21341,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad amountToDraw.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAmountToDraw() {
                 return amountToDraw;
@@ -24059,11 +21351,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad amountToDraw.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAmountToDraw(Double value) {
                 this.amountToDraw = value;
@@ -24071,11 +21361,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad downPaymentType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getDownPaymentType() {
                 return downPaymentType;
@@ -24083,11 +21371,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad downPaymentType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setDownPaymentType(String value) {
                 this.downPaymentType = value;
@@ -24095,11 +21381,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad amountToDrawFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAmountToDrawFC() {
                 return amountToDrawFC;
@@ -24107,11 +21391,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad amountToDrawFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAmountToDrawFC(Double value) {
                 this.amountToDrawFC = value;
@@ -24119,11 +21401,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad amountToDrawSC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAmountToDrawSC() {
                 return amountToDrawSC;
@@ -24131,11 +21411,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad amountToDrawSC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAmountToDrawSC(Double value) {
                 this.amountToDrawSC = value;
@@ -24143,11 +21421,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad docInternalID.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getDocInternalID() {
                 return docInternalID;
@@ -24155,11 +21431,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad docInternalID.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setDocInternalID(Long value) {
                 this.docInternalID = value;
@@ -24167,11 +21441,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad rowNum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getRowNum() {
                 return rowNum;
@@ -24179,11 +21451,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad rowNum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setRowNum(Long value) {
                 this.rowNum = value;
@@ -24191,11 +21461,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad docNumber.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getDocNumber() {
                 return docNumber;
@@ -24203,11 +21471,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad docNumber.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setDocNumber(Long value) {
                 this.docNumber = value;
@@ -24215,11 +21481,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad tax.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTax() {
                 return tax;
@@ -24227,11 +21491,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad tax.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTax(Double value) {
                 this.tax = value;
@@ -24239,11 +21501,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxFC() {
                 return taxFC;
@@ -24251,11 +21511,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxFC(Double value) {
                 this.taxFC = value;
@@ -24263,11 +21521,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxSC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxSC() {
                 return taxSC;
@@ -24275,11 +21531,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxSC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxSC(Double value) {
                 this.taxSC = value;
@@ -24287,11 +21541,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad grossAmountToDraw.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getGrossAmountToDraw() {
                 return grossAmountToDraw;
@@ -24299,11 +21551,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad grossAmountToDraw.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setGrossAmountToDraw(Double value) {
                 this.grossAmountToDraw = value;
@@ -24311,11 +21561,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad grossAmountToDrawFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getGrossAmountToDrawFC() {
                 return grossAmountToDrawFC;
@@ -24323,11 +21571,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad grossAmountToDrawFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setGrossAmountToDrawFC(Double value) {
                 this.grossAmountToDrawFC = value;
@@ -24335,11 +21581,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad grossAmountToDrawSC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getGrossAmountToDrawSC() {
                 return grossAmountToDrawSC;
@@ -24347,11 +21591,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad grossAmountToDrawSC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setGrossAmountToDrawSC(Double value) {
                 this.grossAmountToDrawSC = value;
@@ -24359,11 +21601,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad isGrossLine.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getIsGrossLine() {
                 return isGrossLine;
@@ -24371,11 +21611,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad isGrossLine.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setIsGrossLine(String value) {
                 this.isGrossLine = value;
@@ -24383,11 +21621,10 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad downPaymentsToDrawDetails.
-             * 
-             * @return
-             *     possible object is
+             *
+             * @return possible object is
              *     {@link Document.DownPaymentsToDraw.DownPaymentToDraw.DownPaymentsToDrawDetails }
-             *     
+             *
              */
             public Document.DownPaymentsToDraw.DownPaymentToDraw.DownPaymentsToDrawDetails getDownPaymentsToDrawDetails() {
                 return downPaymentsToDrawDetails;
@@ -24395,22 +21632,23 @@ public class Document {
 
             /**
              * Define el valor de la propiedad downPaymentsToDrawDetails.
-             * 
-             * @param value
-             *     allowed object is
+             *
+             * @param value allowed object is
              *     {@link Document.DownPaymentsToDraw.DownPaymentToDraw.DownPaymentsToDrawDetails }
-             *     
+             *
              */
             public void setDownPaymentsToDrawDetails(Document.DownPaymentsToDraw.DownPaymentToDraw.DownPaymentsToDrawDetails value) {
                 this.downPaymentsToDrawDetails = value;
             }
 
-
             /**
-             * <p>Clase Java para anonymous complex type.
-             * 
-             * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-             * 
+             * <p>
+             * Clase Java para anonymous complex type.
+             *
+             * <p>
+             * El siguiente fragmento de esquema especifica el contenido que se
+             * espera que haya en esta clase.
+             *
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -24471,8 +21709,8 @@ public class Document {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
-             * 
-             * 
+             *
+             *
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
@@ -24485,25 +21723,26 @@ public class Document {
 
                 /**
                  * Gets the value of the downPaymentToDrawDetails property.
-                 * 
+                 *
                  * <p>
                  * This accessor method returns a reference to the live list,
                  * not a snapshot. Therefore any modification you make to the
-                 * returned list will be present inside the JAXB object.
-                 * This is why there is not a <CODE>set</CODE> method for the downPaymentToDrawDetails property.
-                 * 
+                 * returned list will be present inside the JAXB object. This is
+                 * why there is not a <CODE>set</CODE> method for the
+                 * downPaymentToDrawDetails property.
+                 *
                  * <p>
                  * For example, to add a new item, do as follows:
                  * <pre>
                  *    getDownPaymentToDrawDetails().add(newItem);
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  * <p>
                  * Objects of the following type(s) are allowed in the list
                  * {@link Document.DownPaymentsToDraw.DownPaymentToDraw.DownPaymentsToDrawDetails.DownPaymentToDrawDetails }
-                 * 
-                 * 
+                 *
+                 *
                  */
                 public List<Document.DownPaymentsToDraw.DownPaymentToDraw.DownPaymentsToDrawDetails.DownPaymentToDrawDetails> getDownPaymentToDrawDetails() {
                     if (downPaymentToDrawDetails == null) {
@@ -24512,12 +21751,14 @@ public class Document {
                     return this.downPaymentToDrawDetails;
                 }
 
-
                 /**
-                 * <p>Clase Java para anonymous complex type.
-                 * 
-                 * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-                 * 
+                 * <p>
+                 * Clase Java para anonymous complex type.
+                 *
+                 * <p>
+                 * El siguiente fragmento de esquema especifica el contenido que
+                 * se espera que haya en esta clase.
+                 *
                  * <pre>
                  * &lt;complexType>
                  *   &lt;complexContent>
@@ -24568,13 +21809,11 @@ public class Document {
                  *   &lt;/complexContent>
                  * &lt;/complexType>
                  * </pre>
-                 * 
-                 * 
+                 *
+                 *
                  */
                 @XmlAccessorType(XmlAccessType.FIELD)
-                @XmlType(name = "", propOrder = {
-
-                })
+                @XmlType(name = "", propOrder = {})
                 public static class DownPaymentToDrawDetails {
 
                     @XmlElement(name = "DocInternalID")
@@ -24616,11 +21855,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad docInternalID.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getDocInternalID() {
                         return docInternalID;
@@ -24628,11 +21865,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad docInternalID.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setDocInternalID(Long value) {
                         this.docInternalID = value;
@@ -24640,11 +21875,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad rowNum.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getRowNum() {
                         return rowNum;
@@ -24652,11 +21885,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad rowNum.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setRowNum(Long value) {
                         this.rowNum = value;
@@ -24664,11 +21895,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad seqNum.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getSeqNum() {
                         return seqNum;
@@ -24676,11 +21905,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad seqNum.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setSeqNum(Long value) {
                         this.seqNum = value;
@@ -24688,11 +21915,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad docEntry.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @return possible object is {@link Long }
+                     *
                      */
                     public Long getDocEntry() {
                         return docEntry;
@@ -24700,11 +21925,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad docEntry.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Long }
-                     *     
+                     *
+                     * @param value allowed object is {@link Long }
+                     *
                      */
                     public void setDocEntry(Long value) {
                         this.docEntry = value;
@@ -24712,11 +21935,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad vatGroupCode.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getVatGroupCode() {
                         return vatGroupCode;
@@ -24724,11 +21945,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad vatGroupCode.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setVatGroupCode(String value) {
                         this.vatGroupCode = value;
@@ -24736,11 +21955,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad vatPercent.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getVatPercent() {
                         return vatPercent;
@@ -24748,11 +21965,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad vatPercent.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setVatPercent(Double value) {
                         this.vatPercent = value;
@@ -24760,11 +21975,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad amountToDraw.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getAmountToDraw() {
                         return amountToDraw;
@@ -24772,11 +21985,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad amountToDraw.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setAmountToDraw(Double value) {
                         this.amountToDraw = value;
@@ -24784,11 +21995,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad amountToDrawFC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getAmountToDrawFC() {
                         return amountToDrawFC;
@@ -24796,11 +22005,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad amountToDrawFC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setAmountToDrawFC(Double value) {
                         this.amountToDrawFC = value;
@@ -24808,11 +22015,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad amountToDrawSC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getAmountToDrawSC() {
                         return amountToDrawSC;
@@ -24820,11 +22025,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad amountToDrawSC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setAmountToDrawSC(Double value) {
                         this.amountToDrawSC = value;
@@ -24832,11 +22035,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad tax.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTax() {
                         return tax;
@@ -24844,11 +22045,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad tax.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTax(Double value) {
                         this.tax = value;
@@ -24856,11 +22055,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxFC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxFC() {
                         return taxFC;
@@ -24868,11 +22065,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxFC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxFC(Double value) {
                         this.taxFC = value;
@@ -24880,11 +22075,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxSC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getTaxSC() {
                         return taxSC;
@@ -24892,11 +22085,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxSC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setTaxSC(Double value) {
                         this.taxSC = value;
@@ -24904,11 +22095,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad isGrossLine.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getIsGrossLine() {
                         return isGrossLine;
@@ -24916,11 +22105,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad isGrossLine.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setIsGrossLine(String value) {
                         this.isGrossLine = value;
@@ -24928,11 +22115,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad grossAmountToDraw.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getGrossAmountToDraw() {
                         return grossAmountToDraw;
@@ -24940,11 +22125,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad grossAmountToDraw.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setGrossAmountToDraw(Double value) {
                         this.grossAmountToDraw = value;
@@ -24952,11 +22135,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad grossAmountToDrawFC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getGrossAmountToDrawFC() {
                         return grossAmountToDrawFC;
@@ -24964,11 +22145,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad grossAmountToDrawFC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setGrossAmountToDrawFC(Double value) {
                         this.grossAmountToDrawFC = value;
@@ -24976,11 +22155,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad grossAmountToDrawSC.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @return possible object is {@link Double }
+                     *
                      */
                     public Double getGrossAmountToDrawSC() {
                         return grossAmountToDrawSC;
@@ -24988,11 +22165,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad grossAmountToDrawSC.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link Double }
-                     *     
+                     *
+                     * @param value allowed object is {@link Double }
+                     *
                      */
                     public void setGrossAmountToDrawSC(Double value) {
                         this.grossAmountToDrawSC = value;
@@ -25000,11 +22175,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad lineType.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getLineType() {
                         return lineType;
@@ -25012,11 +22185,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad lineType.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setLineType(String value) {
                         this.lineType = value;
@@ -25024,11 +22195,9 @@ public class Document {
 
                     /**
                      * Obtiene el valor de la propiedad taxAdjust.
-                     * 
-                     * @return
-                     *     possible object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @return possible object is {@link String }
+                     *
                      */
                     public String getTaxAdjust() {
                         return taxAdjust;
@@ -25036,11 +22205,9 @@ public class Document {
 
                     /**
                      * Define el valor de la propiedad taxAdjust.
-                     * 
-                     * @param value
-                     *     allowed object is
-                     *     {@link String }
-                     *     
+                     *
+                     * @param value allowed object is {@link String }
+                     *
                      */
                     public void setTaxAdjust(String value) {
                         this.taxAdjust = value;
@@ -25054,12 +22221,14 @@ public class Document {
 
     }
 
-
     /**
-     * <p>Clase Java para anonymous complex type.
-     * 
-     * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-     * 
+     * <p>
+     * Clase Java para anonymous complex type.
+     *
+     * <p>
+     * El siguiente fragmento de esquema especifica el contenido que se espera
+     * que haya en esta clase.
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -25122,13 +22291,11 @@ public class Document {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-
-    })
+    @XmlType(name = "", propOrder = {})
     public static class TaxExtension {
 
         @XmlElement(name = "TaxId0")
@@ -25224,11 +22391,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad taxId0.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getTaxId0() {
             return taxId0;
@@ -25236,11 +22401,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad taxId0.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setTaxId0(String value) {
             this.taxId0 = value;
@@ -25248,11 +22411,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad taxId1.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getTaxId1() {
             return taxId1;
@@ -25260,11 +22421,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad taxId1.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setTaxId1(String value) {
             this.taxId1 = value;
@@ -25272,11 +22431,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad taxId2.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getTaxId2() {
             return taxId2;
@@ -25284,11 +22441,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad taxId2.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setTaxId2(String value) {
             this.taxId2 = value;
@@ -25296,11 +22451,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad taxId3.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getTaxId3() {
             return taxId3;
@@ -25308,11 +22461,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad taxId3.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setTaxId3(String value) {
             this.taxId3 = value;
@@ -25320,11 +22471,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad taxId4.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getTaxId4() {
             return taxId4;
@@ -25332,11 +22481,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad taxId4.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setTaxId4(String value) {
             this.taxId4 = value;
@@ -25344,11 +22491,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad taxId5.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getTaxId5() {
             return taxId5;
@@ -25356,11 +22501,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad taxId5.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setTaxId5(String value) {
             this.taxId5 = value;
@@ -25368,11 +22511,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad taxId6.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getTaxId6() {
             return taxId6;
@@ -25380,11 +22521,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad taxId6.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setTaxId6(String value) {
             this.taxId6 = value;
@@ -25392,11 +22531,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad taxId7.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getTaxId7() {
             return taxId7;
@@ -25404,11 +22541,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad taxId7.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setTaxId7(String value) {
             this.taxId7 = value;
@@ -25416,11 +22551,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad taxId8.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getTaxId8() {
             return taxId8;
@@ -25428,11 +22561,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad taxId8.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setTaxId8(String value) {
             this.taxId8 = value;
@@ -25440,11 +22571,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad taxId9.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getTaxId9() {
             return taxId9;
@@ -25452,11 +22581,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad taxId9.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setTaxId9(String value) {
             this.taxId9 = value;
@@ -25464,11 +22591,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad state.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getState() {
             return state;
@@ -25476,11 +22601,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad state.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setState(String value) {
             this.state = value;
@@ -25488,11 +22611,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad county.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getCounty() {
             return county;
@@ -25500,11 +22621,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad county.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setCounty(String value) {
             this.county = value;
@@ -25512,11 +22631,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad incoterms.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getIncoterms() {
             return incoterms;
@@ -25524,11 +22641,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad incoterms.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setIncoterms(String value) {
             this.incoterms = value;
@@ -25536,11 +22651,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad vehicle.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getVehicle() {
             return vehicle;
@@ -25548,11 +22661,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad vehicle.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setVehicle(String value) {
             this.vehicle = value;
@@ -25560,11 +22671,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad vehicleState.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getVehicleState() {
             return vehicleState;
@@ -25572,11 +22681,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad vehicleState.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setVehicleState(String value) {
             this.vehicleState = value;
@@ -25584,11 +22691,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad nfRef.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getNFRef() {
             return nfRef;
@@ -25596,11 +22701,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad nfRef.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setNFRef(String value) {
             this.nfRef = value;
@@ -25608,11 +22711,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad carrier.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getCarrier() {
             return carrier;
@@ -25620,11 +22721,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad carrier.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setCarrier(String value) {
             this.carrier = value;
@@ -25632,11 +22731,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad packQuantity.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Long }
-         *     
+         *
+         * @return possible object is {@link Long }
+         *
          */
         public Long getPackQuantity() {
             return packQuantity;
@@ -25644,11 +22741,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad packQuantity.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Long }
-         *     
+         *
+         * @param value allowed object is {@link Long }
+         *
          */
         public void setPackQuantity(Long value) {
             this.packQuantity = value;
@@ -25656,11 +22751,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad packDescription.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getPackDescription() {
             return packDescription;
@@ -25668,11 +22761,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad packDescription.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setPackDescription(String value) {
             this.packDescription = value;
@@ -25680,11 +22771,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad brand.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBrand() {
             return brand;
@@ -25692,11 +22781,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad brand.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBrand(String value) {
             this.brand = value;
@@ -25704,11 +22791,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad shipUnitNo.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Long }
-         *     
+         *
+         * @return possible object is {@link Long }
+         *
          */
         public Long getShipUnitNo() {
             return shipUnitNo;
@@ -25716,11 +22801,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad shipUnitNo.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Long }
-         *     
+         *
+         * @param value allowed object is {@link Long }
+         *
          */
         public void setShipUnitNo(Long value) {
             this.shipUnitNo = value;
@@ -25728,11 +22811,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad netWeight.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Double }
-         *     
+         *
+         * @return possible object is {@link Double }
+         *
          */
         public Double getNetWeight() {
             return netWeight;
@@ -25740,11 +22821,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad netWeight.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Double }
-         *     
+         *
+         * @param value allowed object is {@link Double }
+         *
          */
         public void setNetWeight(Double value) {
             this.netWeight = value;
@@ -25752,11 +22831,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad grossWeight.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Double }
-         *     
+         *
+         * @return possible object is {@link Double }
+         *
          */
         public Double getGrossWeight() {
             return grossWeight;
@@ -25764,11 +22841,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad grossWeight.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Double }
-         *     
+         *
+         * @param value allowed object is {@link Double }
+         *
          */
         public void setGrossWeight(Double value) {
             this.grossWeight = value;
@@ -25776,11 +22851,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad streetS.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getStreetS() {
             return streetS;
@@ -25788,11 +22861,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad streetS.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setStreetS(String value) {
             this.streetS = value;
@@ -25800,11 +22871,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad blockS.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBlockS() {
             return blockS;
@@ -25812,11 +22881,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad blockS.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBlockS(String value) {
             this.blockS = value;
@@ -25824,11 +22891,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad buildingS.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBuildingS() {
             return buildingS;
@@ -25836,11 +22901,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad buildingS.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBuildingS(String value) {
             this.buildingS = value;
@@ -25848,11 +22911,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad cityS.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getCityS() {
             return cityS;
@@ -25860,11 +22921,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad cityS.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setCityS(String value) {
             this.cityS = value;
@@ -25872,11 +22931,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad zipCodeS.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getZipCodeS() {
             return zipCodeS;
@@ -25884,11 +22941,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad zipCodeS.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setZipCodeS(String value) {
             this.zipCodeS = value;
@@ -25896,11 +22951,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad countyS.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getCountyS() {
             return countyS;
@@ -25908,11 +22961,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad countyS.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setCountyS(String value) {
             this.countyS = value;
@@ -25920,11 +22971,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad stateS.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getStateS() {
             return stateS;
@@ -25932,11 +22981,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad stateS.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setStateS(String value) {
             this.stateS = value;
@@ -25944,11 +22991,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad countryS.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getCountryS() {
             return countryS;
@@ -25956,11 +23001,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad countryS.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setCountryS(String value) {
             this.countryS = value;
@@ -25968,11 +23011,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad streetB.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getStreetB() {
             return streetB;
@@ -25980,11 +23021,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad streetB.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setStreetB(String value) {
             this.streetB = value;
@@ -25992,11 +23031,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad blockB.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBlockB() {
             return blockB;
@@ -26004,11 +23041,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad blockB.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBlockB(String value) {
             this.blockB = value;
@@ -26016,11 +23051,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad buildingB.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getBuildingB() {
             return buildingB;
@@ -26028,11 +23061,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad buildingB.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setBuildingB(String value) {
             this.buildingB = value;
@@ -26040,11 +23071,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad cityB.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getCityB() {
             return cityB;
@@ -26052,11 +23081,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad cityB.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setCityB(String value) {
             this.cityB = value;
@@ -26064,11 +23091,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad zipCodeB.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getZipCodeB() {
             return zipCodeB;
@@ -26076,11 +23101,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad zipCodeB.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setZipCodeB(String value) {
             this.zipCodeB = value;
@@ -26088,11 +23111,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad countyB.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getCountyB() {
             return countyB;
@@ -26100,11 +23121,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad countyB.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setCountyB(String value) {
             this.countyB = value;
@@ -26112,11 +23131,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad stateB.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getStateB() {
             return stateB;
@@ -26124,11 +23141,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad stateB.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setStateB(String value) {
             this.stateB = value;
@@ -26136,11 +23151,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad countryB.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getCountryB() {
             return countryB;
@@ -26148,11 +23161,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad countryB.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setCountryB(String value) {
             this.countryB = value;
@@ -26160,11 +23171,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad importOrExport.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getImportOrExport() {
             return importOrExport;
@@ -26172,11 +23181,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad importOrExport.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setImportOrExport(String value) {
             this.importOrExport = value;
@@ -26184,11 +23191,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad mainUsage.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Long }
-         *     
+         *
+         * @return possible object is {@link Long }
+         *
          */
         public Long getMainUsage() {
             return mainUsage;
@@ -26196,11 +23201,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad mainUsage.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Long }
-         *     
+         *
+         * @param value allowed object is {@link Long }
+         *
          */
         public void setMainUsage(Long value) {
             this.mainUsage = value;
@@ -26208,11 +23211,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad globalLocationNumberS.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getGlobalLocationNumberS() {
             return globalLocationNumberS;
@@ -26220,11 +23221,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad globalLocationNumberS.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setGlobalLocationNumberS(String value) {
             this.globalLocationNumberS = value;
@@ -26232,11 +23231,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad globalLocationNumberB.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getGlobalLocationNumberB() {
             return globalLocationNumberB;
@@ -26244,11 +23241,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad globalLocationNumberB.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setGlobalLocationNumberB(String value) {
             this.globalLocationNumberB = value;
@@ -26256,11 +23251,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad taxId12.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getTaxId12() {
             return taxId12;
@@ -26268,11 +23261,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad taxId12.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setTaxId12(String value) {
             this.taxId12 = value;
@@ -26280,11 +23271,9 @@ public class Document {
 
         /**
          * Obtiene el valor de la propiedad taxId13.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is {@link String }
+         *
          */
         public String getTaxId13() {
             return taxId13;
@@ -26292,11 +23281,9 @@ public class Document {
 
         /**
          * Define el valor de la propiedad taxId13.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is {@link String }
+         *
          */
         public void setTaxId13(String value) {
             this.taxId13 = value;
@@ -26304,12 +23291,14 @@ public class Document {
 
     }
 
-
     /**
-     * <p>Clase Java para anonymous complex type.
-     * 
-     * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-     * 
+     * <p>
+     * Clase Java para anonymous complex type.
+     *
+     * <p>
+     * El siguiente fragmento de esquema especifica el contenido que se espera
+     * que haya en esta clase.
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -26372,8 +23361,8 @@ public class Document {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -26386,25 +23375,25 @@ public class Document {
 
         /**
          * Gets the value of the withholdingTaxData property.
-         * 
+         *
          * <p>
-         * This accessor method returns a reference to the live list,
-         * not a snapshot. Therefore any modification you make to the
-         * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the withholdingTaxData property.
-         * 
+         * This accessor method returns a reference to the live list, not a
+         * snapshot. Therefore any modification you make to the returned list
+         * will be present inside the JAXB object. This is why there is not a
+         * <CODE>set</CODE> method for the withholdingTaxData property.
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getWithholdingTaxData().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Document.WithholdingTaxDataCollection.WithholdingTaxData }
-         * 
-         * 
+         *
+         *
          */
         public List<Document.WithholdingTaxDataCollection.WithholdingTaxData> getWithholdingTaxData() {
             if (withholdingTaxData == null) {
@@ -26413,12 +23402,14 @@ public class Document {
             return this.withholdingTaxData;
         }
 
-
         /**
-         * <p>Clase Java para anonymous complex type.
-         * 
-         * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-         * 
+         * <p>
+         * Clase Java para anonymous complex type.
+         *
+         * <p>
+         * El siguiente fragmento de esquema especifica el contenido que se
+         * espera que haya en esta clase.
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -26471,13 +23462,11 @@ public class Document {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
-
-        })
+        @XmlType(name = "", propOrder = {})
         public static class WithholdingTaxData {
 
             @XmlElement(name = "WTCode")
@@ -26549,11 +23538,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad wtCode.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getWTCode() {
                 return wtCode;
@@ -26561,11 +23548,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad wtCode.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setWTCode(String value) {
                 this.wtCode = value;
@@ -26573,11 +23558,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad wtAmountSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getWTAmountSys() {
                 return wtAmountSys;
@@ -26585,11 +23568,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad wtAmountSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setWTAmountSys(Double value) {
                 this.wtAmountSys = value;
@@ -26597,11 +23578,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad wtAmountFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getWTAmountFC() {
                 return wtAmountFC;
@@ -26609,11 +23588,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad wtAmountFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setWTAmountFC(Double value) {
                 this.wtAmountFC = value;
@@ -26621,11 +23598,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad wtAmount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getWTAmount() {
                 return wtAmount;
@@ -26633,11 +23608,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad wtAmount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setWTAmount(Double value) {
                 this.wtAmount = value;
@@ -26645,11 +23618,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad withholdingType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getWithholdingType() {
                 return withholdingType;
@@ -26657,11 +23628,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad withholdingType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setWithholdingType(String value) {
                 this.withholdingType = value;
@@ -26669,11 +23638,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxableAmountinSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxableAmountinSys() {
                 return taxableAmountinSys;
@@ -26681,11 +23648,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxableAmountinSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxableAmountinSys(Double value) {
                 this.taxableAmountinSys = value;
@@ -26693,11 +23658,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxableAmountFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxableAmountFC() {
                 return taxableAmountFC;
@@ -26705,11 +23668,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxableAmountFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxableAmountFC(Double value) {
                 this.taxableAmountFC = value;
@@ -26717,11 +23678,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxableAmount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxableAmount() {
                 return taxableAmount;
@@ -26729,11 +23688,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxableAmount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxableAmount(Double value) {
                 this.taxableAmount = value;
@@ -26741,11 +23698,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad roundingType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getRoundingType() {
                 return roundingType;
@@ -26753,11 +23708,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad roundingType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setRoundingType(String value) {
                 this.roundingType = value;
@@ -26765,11 +23718,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad rate.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getRate() {
                 return rate;
@@ -26777,11 +23728,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad rate.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setRate(Double value) {
                 this.rate = value;
@@ -26789,11 +23738,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad criteria.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCriteria() {
                 return criteria;
@@ -26801,11 +23748,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad criteria.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCriteria(String value) {
                 this.criteria = value;
@@ -26813,11 +23758,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad category.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCategory() {
                 return category;
@@ -26825,11 +23768,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad category.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCategory(String value) {
                 this.category = value;
@@ -26837,11 +23778,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getBaseType() {
                 return baseType;
@@ -26849,11 +23788,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setBaseType(String value) {
                 this.baseType = value;
@@ -26861,11 +23798,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad appliedWTAmountSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAppliedWTAmountSys() {
                 return appliedWTAmountSys;
@@ -26873,11 +23808,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad appliedWTAmountSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAppliedWTAmountSys(Double value) {
                 this.appliedWTAmountSys = value;
@@ -26885,11 +23818,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad appliedWTAmountFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAppliedWTAmountFC() {
                 return appliedWTAmountFC;
@@ -26897,11 +23828,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad appliedWTAmountFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAppliedWTAmountFC(Double value) {
                 this.appliedWTAmountFC = value;
@@ -26909,11 +23838,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad appliedWTAmount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAppliedWTAmount() {
                 return appliedWTAmount;
@@ -26921,11 +23848,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad appliedWTAmount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAppliedWTAmount(Double value) {
                 this.appliedWTAmount = value;
@@ -26933,11 +23858,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad glAccount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getGLAccount() {
                 return glAccount;
@@ -26945,11 +23868,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad glAccount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setGLAccount(String value) {
                 this.glAccount = value;
@@ -26957,11 +23878,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lineNum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getLineNum() {
                 return lineNum;
@@ -26969,11 +23888,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lineNum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setLineNum(Long value) {
                 this.lineNum = value;
@@ -26981,11 +23898,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseDocEntry.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getBaseDocEntry() {
                 return baseDocEntry;
@@ -26993,11 +23908,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseDocEntry.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setBaseDocEntry(Long value) {
                 this.baseDocEntry = value;
@@ -27005,11 +23918,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseDocLine.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getBaseDocLine() {
                 return baseDocLine;
@@ -27017,11 +23928,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseDocLine.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setBaseDocLine(Long value) {
                 this.baseDocLine = value;
@@ -27029,11 +23938,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseDocType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getBaseDocType() {
                 return baseDocType;
@@ -27041,11 +23948,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseDocType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setBaseDocType(Long value) {
                 this.baseDocType = value;
@@ -27053,11 +23958,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseDocumentReference.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getBaseDocumentReference() {
                 return baseDocumentReference;
@@ -27065,11 +23968,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseDocumentReference.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setBaseDocumentReference(Long value) {
                 this.baseDocumentReference = value;
@@ -27077,11 +23978,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad status.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getStatus() {
                 return status;
@@ -27089,11 +23988,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad status.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setStatus(String value) {
                 this.status = value;
@@ -27101,11 +23998,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad targetAbsEntry.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getTargetAbsEntry() {
                 return targetAbsEntry;
@@ -27113,11 +24008,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad targetAbsEntry.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setTargetAbsEntry(Long value) {
                 this.targetAbsEntry = value;
@@ -27125,11 +24018,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad targetDocumentType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getTargetDocumentType() {
                 return targetDocumentType;
@@ -27137,11 +24028,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad targetDocumentType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setTargetDocumentType(Long value) {
                 this.targetDocumentType = value;
@@ -27149,11 +24038,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uBaseML.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getUBaseML() {
                 return uBaseML;
@@ -27161,11 +24048,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uBaseML.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setUBaseML(Double value) {
                 this.uBaseML = value;
@@ -27173,11 +24058,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uBaseMS.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getUBaseMS() {
                 return uBaseMS;
@@ -27185,11 +24068,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uBaseMS.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setUBaseMS(Double value) {
                 this.uBaseMS = value;
@@ -27197,11 +24078,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uBaseME.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getUBaseME() {
                 return uBaseME;
@@ -27209,11 +24088,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uBaseME.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setUBaseME(Double value) {
                 this.uBaseME = value;
@@ -27221,11 +24098,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uTarifa.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getUTarifa() {
                 return uTarifa;
@@ -27233,11 +24108,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uTarifa.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setUTarifa(Double value) {
                 this.uTarifa = value;
@@ -27245,11 +24118,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uFuente.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getUFuente() {
                 return uFuente;
@@ -27257,11 +24128,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uFuente.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setUFuente(String value) {
                 this.uFuente = value;
@@ -27269,11 +24138,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uRetML.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getURetML() {
                 return uRetML;
@@ -27281,11 +24148,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uRetML.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setURetML(Double value) {
                 this.uRetML = value;
@@ -27293,11 +24158,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uRetMS.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getURetMS() {
                 return uRetMS;
@@ -27305,11 +24168,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uRetMS.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setURetMS(Double value) {
                 this.uRetMS = value;
@@ -27317,11 +24178,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad uRetME.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getURetME() {
                 return uRetME;
@@ -27329,11 +24188,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad uRetME.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setURetME(Double value) {
                 this.uRetME = value;
@@ -27343,12 +24200,14 @@ public class Document {
 
     }
 
-
     /**
-     * <p>Clase Java para anonymous complex type.
-     * 
-     * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-     * 
+     * <p>
+     * Clase Java para anonymous complex type.
+     *
+     * <p>
+     * El siguiente fragmento de esquema especifica el contenido que se espera
+     * que haya en esta clase.
+     *
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -27401,8 +24260,8 @@ public class Document {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
@@ -27415,25 +24274,25 @@ public class Document {
 
         /**
          * Gets the value of the withholdingTaxDataWTX property.
-         * 
+         *
          * <p>
-         * This accessor method returns a reference to the live list,
-         * not a snapshot. Therefore any modification you make to the
-         * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the withholdingTaxDataWTX property.
-         * 
+         * This accessor method returns a reference to the live list, not a
+         * snapshot. Therefore any modification you make to the returned list
+         * will be present inside the JAXB object. This is why there is not a
+         * <CODE>set</CODE> method for the withholdingTaxDataWTX property.
+         *
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getWithholdingTaxDataWTX().add(newItem);
          * </pre>
-         * 
-         * 
+         *
+         *
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link Document.WithholdingTaxDataWTXCollection.WithholdingTaxDataWTX }
-         * 
-         * 
+         *
+         *
          */
         public List<Document.WithholdingTaxDataWTXCollection.WithholdingTaxDataWTX> getWithholdingTaxDataWTX() {
             if (withholdingTaxDataWTX == null) {
@@ -27442,12 +24301,14 @@ public class Document {
             return this.withholdingTaxDataWTX;
         }
 
-
         /**
-         * <p>Clase Java para anonymous complex type.
-         * 
-         * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
-         * 
+         * <p>
+         * Clase Java para anonymous complex type.
+         *
+         * <p>
+         * El siguiente fragmento de esquema especifica el contenido que se
+         * espera que haya en esta clase.
+         *
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -27490,13 +24351,11 @@ public class Document {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
-
-        })
+        @XmlType(name = "", propOrder = {})
         public static class WithholdingTaxDataWTX {
 
             @XmlElement(name = "WTAmountSys")
@@ -27566,11 +24425,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad wtAmountSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getWTAmountSys() {
                 return wtAmountSys;
@@ -27578,11 +24435,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad wtAmountSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setWTAmountSys(Double value) {
                 this.wtAmountSys = value;
@@ -27590,11 +24445,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad wtAmountFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getWTAmountFC() {
                 return wtAmountFC;
@@ -27602,11 +24455,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad wtAmountFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setWTAmountFC(Double value) {
                 this.wtAmountFC = value;
@@ -27614,11 +24465,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad wtAmount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getWTAmount() {
                 return wtAmount;
@@ -27626,11 +24475,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad wtAmount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setWTAmount(Double value) {
                 this.wtAmount = value;
@@ -27638,11 +24485,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad withholdingType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getWithholdingType() {
                 return withholdingType;
@@ -27650,11 +24495,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad withholdingType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setWithholdingType(String value) {
                 this.withholdingType = value;
@@ -27662,11 +24505,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxableAmountinSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxableAmountinSys() {
                 return taxableAmountinSys;
@@ -27674,11 +24515,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxableAmountinSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxableAmountinSys(Double value) {
                 this.taxableAmountinSys = value;
@@ -27686,11 +24525,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxableAmountFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxableAmountFC() {
                 return taxableAmountFC;
@@ -27698,11 +24535,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxableAmountFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxableAmountFC(Double value) {
                 this.taxableAmountFC = value;
@@ -27710,11 +24545,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad taxableAmount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getTaxableAmount() {
                 return taxableAmount;
@@ -27722,11 +24555,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad taxableAmount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setTaxableAmount(Double value) {
                 this.taxableAmount = value;
@@ -27734,11 +24565,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad rate.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getRate() {
                 return rate;
@@ -27746,11 +24575,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad rate.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setRate(Double value) {
                 this.rate = value;
@@ -27758,11 +24585,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad category.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getCategory() {
                 return category;
@@ -27770,11 +24595,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad category.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setCategory(String value) {
                 this.category = value;
@@ -27782,11 +24605,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getBaseType() {
                 return baseType;
@@ -27794,11 +24615,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setBaseType(String value) {
                 this.baseType = value;
@@ -27806,11 +24625,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad appliedWTAmountSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAppliedWTAmountSys() {
                 return appliedWTAmountSys;
@@ -27818,11 +24635,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad appliedWTAmountSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAppliedWTAmountSys(Double value) {
                 this.appliedWTAmountSys = value;
@@ -27830,11 +24645,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad appliedWTAmountFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAppliedWTAmountFC() {
                 return appliedWTAmountFC;
@@ -27842,11 +24655,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad appliedWTAmountFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAppliedWTAmountFC(Double value) {
                 this.appliedWTAmountFC = value;
@@ -27854,11 +24665,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad appliedWTAmount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAppliedWTAmount() {
                 return appliedWTAmount;
@@ -27866,11 +24675,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad appliedWTAmount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAppliedWTAmount(Double value) {
                 this.appliedWTAmount = value;
@@ -27878,11 +24685,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad glAccount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getGLAccount() {
                 return glAccount;
@@ -27890,11 +24695,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad glAccount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setGLAccount(String value) {
                 this.glAccount = value;
@@ -27902,11 +24705,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad lineNum.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getLineNum() {
                 return lineNum;
@@ -27914,11 +24715,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad lineNum.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setLineNum(Long value) {
                 this.lineNum = value;
@@ -27926,11 +24725,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseDocEntry.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getBaseDocEntry() {
                 return baseDocEntry;
@@ -27938,11 +24735,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseDocEntry.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setBaseDocEntry(Long value) {
                 this.baseDocEntry = value;
@@ -27950,11 +24745,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseDocLine.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Long }
-             *     
+             *
+             * @return possible object is {@link Long }
+             *
              */
             public Long getBaseDocLine() {
                 return baseDocLine;
@@ -27962,11 +24755,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseDocLine.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Long }
-             *     
+             *
+             * @param value allowed object is {@link Long }
+             *
              */
             public void setBaseDocLine(Long value) {
                 this.baseDocLine = value;
@@ -27974,11 +24765,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseDocType.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getBaseDocType() {
                 return baseDocType;
@@ -27986,11 +24775,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseDocType.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setBaseDocType(String value) {
                 this.baseDocType = value;
@@ -27998,11 +24785,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad wtAbsId.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
+             *
+             * @return possible object is {@link String }
+             *
              */
             public String getWTAbsId() {
                 return wtAbsId;
@@ -28010,11 +24795,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad wtAbsId.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
+             *
+             * @param value allowed object is {@link String }
+             *
              */
             public void setWTAbsId(String value) {
                 this.wtAbsId = value;
@@ -28022,11 +24805,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad exemptRate.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getExemptRate() {
                 return exemptRate;
@@ -28034,11 +24815,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad exemptRate.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setExemptRate(Double value) {
                 this.exemptRate = value;
@@ -28046,11 +24825,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseNetAmountSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getBaseNetAmountSys() {
                 return baseNetAmountSys;
@@ -28058,11 +24835,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseNetAmountSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setBaseNetAmountSys(Double value) {
                 this.baseNetAmountSys = value;
@@ -28070,11 +24845,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseNetAmountFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getBaseNetAmountFC() {
                 return baseNetAmountFC;
@@ -28082,11 +24855,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseNetAmountFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setBaseNetAmountFC(Double value) {
                 this.baseNetAmountFC = value;
@@ -28094,11 +24865,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseNetAmount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getBaseNetAmount() {
                 return baseNetAmount;
@@ -28106,11 +24875,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseNetAmount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setBaseNetAmount(Double value) {
                 this.baseNetAmount = value;
@@ -28118,11 +24885,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseVatmountSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getBaseVatmountSys() {
                 return baseVatmountSys;
@@ -28130,11 +24895,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseVatmountSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setBaseVatmountSys(Double value) {
                 this.baseVatmountSys = value;
@@ -28142,11 +24905,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseVatmountFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getBaseVatmountFC() {
                 return baseVatmountFC;
@@ -28154,11 +24915,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseVatmountFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setBaseVatmountFC(Double value) {
                 this.baseVatmountFC = value;
@@ -28166,11 +24925,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad baseVatmount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getBaseVatmount() {
                 return baseVatmount;
@@ -28178,11 +24935,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad baseVatmount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setBaseVatmount(Double value) {
                 this.baseVatmount = value;
@@ -28190,11 +24945,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad accumBaseAmountSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAccumBaseAmountSys() {
                 return accumBaseAmountSys;
@@ -28202,11 +24955,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad accumBaseAmountSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAccumBaseAmountSys(Double value) {
                 this.accumBaseAmountSys = value;
@@ -28214,11 +24965,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad accumBaseAmountFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAccumBaseAmountFC() {
                 return accumBaseAmountFC;
@@ -28226,11 +24975,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad accumBaseAmountFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAccumBaseAmountFC(Double value) {
                 this.accumBaseAmountFC = value;
@@ -28238,11 +24985,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad accumBaseAmount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAccumBaseAmount() {
                 return accumBaseAmount;
@@ -28250,11 +24995,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad accumBaseAmount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAccumBaseAmount(Double value) {
                 this.accumBaseAmount = value;
@@ -28262,11 +25005,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad accumWTaxAmountSys.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAccumWTaxAmountSys() {
                 return accumWTaxAmountSys;
@@ -28274,11 +25015,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad accumWTaxAmountSys.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAccumWTaxAmountSys(Double value) {
                 this.accumWTaxAmountSys = value;
@@ -28286,11 +25025,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad accumWTaxAmountFC.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAccumWTaxAmountFC() {
                 return accumWTaxAmountFC;
@@ -28298,11 +25035,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad accumWTaxAmountFC.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAccumWTaxAmountFC(Double value) {
                 this.accumWTaxAmountFC = value;
@@ -28310,11 +25045,9 @@ public class Document {
 
             /**
              * Obtiene el valor de la propiedad accumWTaxAmount.
-             * 
-             * @return
-             *     possible object is
-             *     {@link Double }
-             *     
+             *
+             * @return possible object is {@link Double }
+             *
              */
             public Double getAccumWTaxAmount() {
                 return accumWTaxAmount;
@@ -28322,11 +25055,9 @@ public class Document {
 
             /**
              * Define el valor de la propiedad accumWTaxAmount.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link Double }
-             *     
+             *
+             * @param value allowed object is {@link Double }
+             *
              */
             public void setAccumWTaxAmount(Double value) {
                 this.accumWTaxAmount = value;

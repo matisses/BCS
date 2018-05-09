@@ -38,6 +38,7 @@ public class JournalEntriesServiceConnector extends B1WSServiceInfo {
         log.log(Level.INFO, "Se recibio un asiento para crear. {0}", jEntry);
         JournalEntriesServiceSoap port = service.getJournalEntriesServiceSoap12();
         if (sessionId == null) {
+            log.log(Level.SEVERE , "session nula {0}", sessionId);
             throw new JournalEntryServiceException("No se recibio un ID de sesion de B1WS valido. ");
         }
 
@@ -67,7 +68,9 @@ public class JournalEntriesServiceConnector extends B1WSServiceInfo {
 
         JournalEntry.JournalEntryLines lines = new JournalEntry.JournalEntryLines();
         for (JournalEntryLineDTO jEntryLine : jEntry.getLines()) {
+            
             JournalEntry.JournalEntryLines.JournalEntryLine line = new JournalEntry.JournalEntryLines.JournalEntryLine();
+            log.log(Level.SEVERE , "linea {0}", jEntryLine.getContraAccount());
             line.setLineID(jEntryLine.getLineId());
             line.setShortName(jEntryLine.getShortName());
             line.setCredit(new BigDecimal(jEntryLine.getCredit()));

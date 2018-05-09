@@ -62,6 +62,7 @@ public class BCSApplicationMBean implements Serializable {
     private final HashMap<String, InformacionAlmacenDTO> infoAlmacen;
     private Map<String, String> caracteresEspeciales;
     private HashMap<String, SesionListaRegalosDTO> sesionesListaRegalosActivas;
+    private Map<String, String> ivas;
     @EJB
     private DestinatarioPlantillaEmailFacade destinatarioPlantillaFacade;
     @EJB
@@ -104,6 +105,7 @@ public class BCSApplicationMBean implements Serializable {
         cargarTiposTarjetaP2P();
         cargarCaracteresEspeciales();
         cargarUbicacionesTM();
+        obtenerIvas();
     }
 
     public TipoTarjetaPlaceToPay getTipoTarjetaP2P(String idTarjetaP2P) {
@@ -112,6 +114,10 @@ public class BCSApplicationMBean implements Serializable {
 
     public Map<String, String> getCaracteresEspeciales() {
         return caracteresEspeciales;
+    }
+
+    public Map<String, String> getIvas() {
+        return ivas;
     }
 
     public HashMap<String, InformacionAlmacenDTO> getInfoAlmacen() {
@@ -355,6 +361,18 @@ public class BCSApplicationMBean implements Serializable {
             sesion.setSesionValida(false);
         }
         return sesion;
+    }
+
+    private void obtenerIvas() {
+        ivas = new HashMap<>();
+
+        String[] impuestos = obtenerValorPropiedad("indicador.impuesto.nota.credito").split(";");
+
+        for (String c : impuestos) {
+            String[] s1 = c.split(",");
+
+            ivas.put(s1[0], s1[1]);
+        }
     }
 
     public void finalizarSesionSAP(SesionSAPB1WSDTO sesion) {

@@ -17,6 +17,7 @@ public class DatosCompraWebDTO {
     private List<ItemDTO> items;
     private Long idLista;
     private String message;
+    private Integer montoPagar;
 
     public DatosCompraWebDTO() {
         items = new ArrayList<>();
@@ -96,5 +97,13 @@ public class DatosCompraWebDTO {
     @Override
     public String toString() {
         return "DatosCompraWebDTO{" + "metodoEnvio=" + metodoEnvio + ", idCarrito=" + idCarrito + ", tiendaRecoge=" + tiendaRecoge + ", ciudadDestino=" + ciudadDestino + ", items=" + items + '}';
+    }
+    
+    public Integer getMontoPagar() {
+        return montoPagar;
+    }
+
+    public void setMontoPagar(Integer montoPagar) {
+        this.montoPagar = montoPagar;
     }
 }

@@ -173,8 +173,8 @@ public class ItemDataService implements Serializable {
         Boolean discount = false;
 
         try {
-            ProgramacionDescuento p = descuentoFacade.consultarDescuentos("WE", itemCode, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2017-11-16 00:00:00"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2017-11-16 23:59:59"));
+            ProgramacionDescuento p = descuentoFacade.consultarDescuentos("WE", itemCode, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + " 00:00:00"),
+                    new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + " 23:59:59"));
             if (p != null && p.getIdReglaDescuento() != null && p.getIdReglaDescuento() != 0) {
                 discount = true;
             } else {

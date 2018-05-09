@@ -9,6 +9,7 @@ public class ResponseDTO {
     private int estado;
     private Integer valor;
     private String mensaje;
+    private Object content;
 
     public ResponseDTO() {
     }
@@ -22,8 +23,10 @@ public class ResponseDTO {
         if (object != null) {
             if (object instanceof String) {
                 this.mensaje = (String) object;
-            } else {
+            } else if (object instanceof Integer) {
                 this.valor = (Integer) object;
+            } else {
+                this.content = object;
             }
         }
     }
@@ -50,5 +53,13 @@ public class ResponseDTO {
 
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
+    }
+
+    public Object getContent() {
+        return content;
+    }
+
+    public void setContent(Object content) {
+        this.content = content;
     }
 }

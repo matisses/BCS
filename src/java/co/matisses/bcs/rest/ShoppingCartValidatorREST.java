@@ -69,6 +69,9 @@ public class ShoppingCartValidatorREST {
                 }
             }
         } else {
+            if(dto.getMontoPagar()!=null && dto.getMontoPagar()>0){
+                return Response.ok(new ResponseDTO(0, "true")).build();
+            }
             CONSOLE.log(Level.SEVERE, "No se recibieron items del carrito.");
             return Response.ok(new ResponseDTO(-1, "No se recibieron items del carrito")).build();
         }

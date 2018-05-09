@@ -351,7 +351,7 @@ public class ProcesarDocumentoREST {
                                     binAllocDto.setQuantity((Integer) cols[31]);
                                     binAllocDto.setWhsCode((String) cols[23]);
 
-                                    SalesDocumentLineDTO lineDto = new SalesDocumentLineDTO((String) cols[21], binAllocDto.getWhsCode(), ((Integer) cols[33]).doubleValue());
+                                    SalesDocumentLineDTO lineDto = new SalesDocumentLineDTO((String) cols[21], binAllocDto.getWhsCode(), ((BigDecimal) cols[35]));
                                     int pos = detDtos.indexOf(lineDto);
                                     if (pos >= 0) {
                                         lineDto = detDtos.get(pos);
@@ -843,7 +843,7 @@ public class ProcesarDocumentoREST {
     private Long crearNotaCredito(String sesionSAP, SalesDocumentDTO dto) throws CreditNotesServiceException {
         if (dto != null) {
             CreditNotesServiceConnector sc = sapB1MBean.getCreditNotesServiceConnectorInstance(sesionSAP);
-            Long docEntry = sc.createCreditNote(dto);
+            Long docEntry = sc.createCreditNote(dto, applicationMBean);
             console.log(Level.INFO, "Se creo la nota credito con ID {0}", docEntry);
 
             return docEntry;

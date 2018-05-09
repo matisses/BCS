@@ -281,8 +281,15 @@ public class BusinessPartnersServiceConnector extends B1WSServiceInfo {
         } else {
             BusinessPartner.ContactEmployees contactEmployees = new BusinessPartner.ContactEmployees();
             BusinessPartner.ContactEmployees.ContactEmployee employee = new BusinessPartner.ContactEmployees.ContactEmployee();
-            employee.setFirstName(dto.getFirstName());
-            employee.setLastName(dto.getLastName1() + " " + dto.getLastName2());
+            employee.setName(dto.getContacts().getName());
+            employee.setFirstName(dto.getContacts().getFirstName());
+            employee.setMiddleName(dto.getContacts().getMiddleName());
+            employee.setLastName(dto.getContacts().getLastName1() + " " + dto.getContacts().getLastName2());
+            employee.setEMail(dto.getContacts().geteMailL());
+            employee.setAddress(dto.getContacts().getAddress());
+            employee.setMobilePhone(dto.getContacts().getCellolar());
+            employee.setPhone1(dto.getContacts().getTel1());
+
             contactEmployees.getContactEmployee().add(employee);
             customer.setContactEmployees(contactEmployees);
         }

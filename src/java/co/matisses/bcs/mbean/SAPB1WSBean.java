@@ -7,6 +7,7 @@ import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.JOURNAL_ENTRIES_SERVIC
 import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.RUTA_WSDL;
 import co.matisses.bcs.b1ws.client.invoices.InvoicesServiceConnector;
 import co.matisses.bcs.b1ws.client.B1WSServiceInfo;
+import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.ACTIVITIES_SERVICE_WSDL_NAME;
 import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.CREDIT_NOTES_SERVICE_WSDL_NAME;
 import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.GOODS_ISSUE_SERVICE_WSDL_NAME;
 import co.matisses.bcs.b1ws.client.SAPSessionManager;
@@ -39,16 +40,21 @@ import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.QUOTATIONS_SERVICE_WSD
 import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.STOCK_TRANSFER_SERVICE_WSDL_NAME;
 import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.WAREHOUSE_SUBLEVEL_CODES_SERVICE_WSDL_NAME;
 import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.ITEMS_SERVICE_WSDL_NAME;
+import static co.matisses.bcs.b1ws.client.B1WSServiceInfo.SERVICE_CALLS_SERVICE_WSDL_NAME;
+import co.matisses.bcs.b1ws.client.activities.ActivitiesServiceConnector;
 import co.matisses.bcs.b1ws.client.binlocationattributes.BinLocationAttributesServiceConnector;
 import co.matisses.bcs.b1ws.client.employeesinfo.EmployeesInfoServiceConnector;
 import co.matisses.bcs.b1ws.client.items.ItemsServiceConnector;
 import co.matisses.bcs.b1ws.client.quotations.QuotationsServiceConnector;
+import co.matisses.bcs.b1ws.client.serviceCalls.ServiceCallsServiceConnector;
 import co.matisses.bcs.b1ws.client.stocktransfer.StockTransferServiceConnector;
 import co.matisses.bcs.b1ws.client.warehousesublevelcodes.WarehouseSublevelCodesServiceConnector;
+import co.matisses.bcs.b1ws.ws.activities.ActivitiesService;
 import co.matisses.bcs.b1ws.ws.binlocationattributes.BinLocationAttributesService;
 import co.matisses.bcs.b1ws.ws.employeesinfo.EmployeesInfoService;
 import co.matisses.bcs.b1ws.ws.items.ItemsService;
 import co.matisses.bcs.b1ws.ws.quotations.QuotationsService;
+import co.matisses.bcs.b1ws.ws.serviceCalls.ServiceCallsService;
 import co.matisses.bcs.b1ws.ws.stocktransfer.StockTransferService;
 import co.matisses.bcs.b1ws.ws.warehousesublevelcodes.WarehouseSublevelCodesService;
 
@@ -77,6 +83,8 @@ public class SAPB1WSBean {
     private QuotationsService quotationsService = null;
     private ItemsService itemService = null;
     private EmployeesInfoService employeesInfoService = null;
+    private ServiceCallsService serviceCallsService = null;
+    private ActivitiesService activitiesService = null;
 
     @PostConstruct
     public void initialize() {
@@ -174,6 +182,18 @@ public class SAPB1WSBean {
         } catch (Exception e) {
             log.log(Level.SEVERE, "Ocurrio un error al inicializar el servicio de empleados. ", e);
         }
+
+        try {
+            serviceCallsService = new ServiceCallsService(new URL(String.format(RUTA_WSDL, SERVICE_CALLS_SERVICE_WSDL_NAME)));
+        } catch (Exception e) {
+            log.log(Level.SEVERE, "Ocurrio un error al inicializar el servicio de llmadas de servicios. ", e);
+        }
+
+        try {
+            activitiesService = new ActivitiesService(new URL(String.format(RUTA_WSDL, ACTIVITIES_SERVICE_WSDL_NAME)));
+        } catch (Exception e) {
+            log.log(Level.SEVERE, "Ocurrio un error al inicializar el servicio de actividades. ", e);
+        }
     }
 
     public BusinessPartnersServiceConnector getBusinessPartnersServiceConnectorInstance(String sessionId) {
@@ -234,6 +254,14 @@ public class SAPB1WSBean {
 
     public EmployeesInfoServiceConnector getEmployeesInfoService(String sessionId) {
         return new EmployeesInfoServiceConnector(sessionId, employeesInfoService);
+    }
+
+    public ServiceCallsServiceConnector getServiceCallsService(String sessionId) {
+        return new ServiceCallsServiceConnector(sessionId, serviceCallsService);
+    }
+
+    public ActivitiesServiceConnector getActivitiesService(String sessionId) {
+        return new ActivitiesServiceConnector(sessionId, activitiesService);
     }
 
     public String obtenerSesionSAP() {

@@ -126,6 +126,7 @@ public class InvoicesServiceConnector extends B1WSServiceInfo {
         document.setPOSCashierNumber(docDto.getPosShiftId());
         document.setNumAtCard(docDto.getRefDocnum());
         document.setUPrestashopID(docDto.getPrestashopOrderID());
+        document.setUDiseno(docDto.getDesignerCode());
 
         Document.DocumentLines documentLines = new Document.DocumentLines();
         long lineNum = 0;
@@ -239,8 +240,8 @@ public class InvoicesServiceConnector extends B1WSServiceInfo {
             line.setItemDescription(docLine.getDscription());
             line.setAccountCode(docLine.getAcctCode().toString());
             line.setTaxCode(docLine.getTaxCode());
-            line.setLineTotal(docLine.getPrice());
-            line.setPrice(docLine.getPrice());
+            line.setLineTotal(docLine.getPrice().doubleValue());
+            line.setPrice(docLine.getPrice().doubleValue());
 
             documentLines.getDocumentLine().add(line);
         }

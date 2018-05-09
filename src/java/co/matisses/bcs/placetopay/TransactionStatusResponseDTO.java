@@ -1138,7 +1138,7 @@ public class TransactionStatusResponseDTO {
             public static class From {
 
                 private String currency;
-                private Long total;
+                private Double total;
 
                 public From() {
                     this.currency = "COP";
@@ -1152,11 +1152,11 @@ public class TransactionStatusResponseDTO {
                     this.currency = currency;
                 }
 
-                public Long getTotal() {
+                public Double getTotal() {
                     return total;
                 }
 
-                public void setTotal(Long total) {
+                public void setTotal(Double total) {
                     this.total = total;
                 }
             }
@@ -1165,7 +1165,7 @@ public class TransactionStatusResponseDTO {
             public static class To {
 
                 private String currency;
-                private Long total;
+                private Double total;
 
                 public To() {
                     this.currency = "COP";
@@ -1179,11 +1179,11 @@ public class TransactionStatusResponseDTO {
                     this.currency = currency;
                 }
 
-                public Long getTotal() {
+                public Double getTotal() {
                     return total;
                 }
 
-                public void setTotal(Long total) {
+                public void setTotal(Double total) {
                     this.total = total;
                 }
             }
